@@ -1,0 +1,87 @@
+{
+    "userManagement": {
+        "title": "Quản lý tài khoản",
+        "description": "Danh sách học viên & giảng viên trong hệ thống.",
+        "filter": {
+            "searchPlaceholder": "Tìm theo tên hoặc email...",
+            "role": {
+                "label": "Vai trò",
+                "all": "Tất cả"
+            },
+            "level": {
+                "label": "Trình độ",
+                "all": "Tất cả"
+            },
+            "status": {
+                "label": "Trạng thái",
+                "all": "Tất cả",
+                "active": "Hoạt động",
+                "banned": "Bị khóa"
+            },
+            "clearFilter": "Xoá bộ lọc"
+        },
+        "table": {
+            "columns": {
+                "fullName": "Họ và tên",
+                "email": "Email",
+                "role": "Vai trò",
+                "streak": "Chuỗi Streak (ngày)",
+                "targetLevel": "Trình độ mục tiêu",
+                "status": "Trạng thái",
+                "actions": "Hành động"
+            },
+            "empty": "Không tìm thấy người dùng phù hợp.",
+            "showing": "Hiển thị {count} / {total} người dùng"
+        },
+        "detail": {
+            "title": "Chi tiết người dùng — {name}",
+            "description": "Thông tin luyện tập và năng lực nói của người dùng.",
+            "stats": {
+                "totalMinutes": "Tổng thời gian luyện",
+                "minutes": "{value} phút",
+                "currentStreak": "Streak hiện tại",
+                "days": "{value} ngày",
+                "weekSessions": "Phiên tuần này"
+            },
+            "streakLog": "Nhật ký streak 7 ngày gần nhất",
+            "days": {
+                "mon": "T2",
+                "tue": "T3",
+                "wed": "T4",
+                "thu": "T5",
+                "fri": "T6",
+                "sat": "T7",
+                "sun": "CN"
+            },
+            "skills": {
+                "title": "Năng lực nói",
+                "pronunciation": "Phát âm",
+                "vocabulary": "Từ vựng",
+                "grammar": "Ngữ pháp",
+                "naturalness": "Độ tự nhiên"
+            },
+            "close": "Đóng"
+        },
+        "lockDialog": {
+            "lockTitle": "Khóa tài khoản",
+            "unlockTitle": "Mở khóa tài khoản",
+            "lockMessage": "Bạn có chắc chắn muốn khóa tài khoản {name} không?",
+            "unlockMessage": "Bạn có chắc chắn muốn mở khóa tài khoản {name} không?",
+            "cancel": "Huỷ",
+            "lockAction": "Khóa tài khoản",
+            "unlockAction": "Mở khóa",
+            "lockSuccess": "Đã khóa tài khoản thành công!",
+            "unlockSuccess": "Đã mở khóa tài khoản!",
+            "error": "Có lỗi xảy ra. Vui lòng thử lại."
+        },
+        "actions": {
+            "viewDetail": "Xem chi tiết",
+            "lock": "Khóa tài khoản",
+            "unlock": "Mở khóa"
+        },
+        "errors": {
+            "loadList": "Không thể tải danh sách người dùng.",
+            "loadDetail": "Không thể tải thông tin chi tiết."
+        }
+    }
+}
