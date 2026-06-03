@@ -1,15 +1,11 @@
 import { JlptLevel, UserStatus } from "@/types/enums/user.enum";
-import { LevelResponse } from "@/types/responses/level.response";
 import { RoleResponse } from "@/types/responses/role.response";
-import {
-    UserDetailResponse,
-    UserResponse,
-} from "@/types/responses/user.response";
+import { UserResponse } from "@/types/responses/user.response";
 
 export interface UserFilters {
-    search: string;
+    userNameOrEmail: string;
     role: "all" | string;
-    level: "all" | JlptLevel;
+    jlptLevel: "all" | JlptLevel;
     status: "all" | UserStatus;
 }
 
@@ -19,9 +15,8 @@ export interface UserManagementContextType {
     filters: UserFilters;
     isLoading: boolean;
     roleOptions: RoleResponse[];
-    levelOptions: LevelResponse[];
     isDetailModalOpen: boolean;
-    selectedUser: UserDetailResponse | null;
+    selectedUser: UserResponse | null;
     isDetailLoading: boolean;
     confirmUser: UserResponse | null;
     setFilters: (partial: Partial<UserFilters>) => void;

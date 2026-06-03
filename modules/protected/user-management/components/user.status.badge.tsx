@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslations } from "next-intl";
 import { UserStatus } from "@/types/enums/user.enum";
 
@@ -12,7 +11,7 @@ const UserStatusBadge = ({ status }: UserStatusBadgeProps) => {
 
     return (
         <span className={`text-sm font-medium ${isActive ? "text-text-success" : "text-bgc-error"}`}>
-            {isActive ? t("active") : t("banned")}
+            {isActive ? t("active") : t("unactive")}
         </span>
     );
 };

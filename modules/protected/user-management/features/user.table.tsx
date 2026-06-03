@@ -13,10 +13,19 @@ import { useUserManagement } from "../providers/user.management.provider";
 
 const UserTable = () => {
     const t = useTranslations("userManagement");
-    const { users, totalCount, roleOptions, openDetail, openLockDialog } = useUserManagement();
+    const { users, totalCount, openDetail, openLockDialog } = useUserManagement();
 
-    const getRoleLabel = (accountType: string) =>
-        roleOptions.find((r) => r.code === accountType)?.name ?? accountType;
+    const translateRole = (code: string) => {
+        if (code === "ADMIN") return t("roles.ADMIN");
+        if (code === "STUDENT") return t("roles.STUDENT");
+        if (code === "TEACHER") return t("roles.TEACHER");
+        return code;
+    };
+    const getRoleLabel = (roleNames: string[]) => {
+        if (roleNames.length === 0) return "—";
+        const displayCode = roleNames.find((r) => r !== "ADMIN") ?? roleNames[0];
+        return translateRole(displayCode);
+    };
 
     return (
         <div>
@@ -27,8 +36,7 @@ const UserTable = () => {
                             <TableCell>{t("table.columns.fullName")}</TableCell>
                             <TableCell>{t("table.columns.email")}</TableCell>
                             <TableCell>{t("table.columns.role")}</TableCell>
-                            <TableCell>{t("table.columns.streak")}</TableCell>
-                            <TableCell>{t("table.columns.targetLevel")}</TableCell>
+                            <TableCell>{t("table.columns.jlptLevel")}</TableCell>
                             <TableCell>{t("table.columns.status")}</TableCell>
                             <TableCell>{t("table.columns.actions")}</TableCell>
                         </TableRow>
@@ -36,7 +44,7 @@ const UserTable = () => {
                     <TableBody>
                         {users.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={7} align="center" className="py-8 text-text-muted">
+                                <TableCell colSpan={6} align="center" className="py-8 text-text-muted">
                                     {t("table.empty")}
                                 </TableCell>
                             </TableRow>
@@ -45,7 +53,7 @@ const UserTable = () => {
                                 <UserRow
                                     key={user.id}
                                     user={user}
-                                    roleLabel={getRoleLabel(user.accountType)}
+                                    roleLabel={getRoleLabel(user.roleNames)}
                                     viewLabel={t("actions.viewDetail")}
                                     lockLabel={t("actions.lock")}
                                     unlockLabel={t("actions.unlock")}

@@ -1,6 +1,4 @@
-import React from "react";
 import { Chip, IconButton, TableCell, TableRow, Tooltip } from "@mui/material";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
@@ -28,7 +26,7 @@ const UserRow = ({
     onView,
     onLock,
 }: UserRowProps) => {
-    const isBanned = user.status === "BANNED";
+    const isUnactive = user.status === "UNACTIVE";
     const fullName = getUserFullName(user);
 
     return (
@@ -44,12 +42,6 @@ const UserRow = ({
                 <Chip label={roleLabel} size="small" variant="outlined" />
             </TableCell>
             <TableCell>
-                <div className="flex items-center gap-1">
-                    <LocalFireDepartmentIcon fontSize="small" sx={{ color: "var(--color-icon-fire)" }} />
-                    <span>{user.currentStreak}</span>
-                </div>
-            </TableCell>
-            <TableCell>
                 <Chip label={user.jlptLevel} size="small" variant="outlined" />
             </TableCell>
             <TableCell>
@@ -62,13 +54,13 @@ const UserRow = ({
                             <VisibilityOutlinedIcon fontSize="small" />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title={isBanned ? unlockLabel : lockLabel}>
+                    <Tooltip title={isUnactive ? unlockLabel : lockLabel}>
                         <IconButton
                             size="small"
                             onClick={() => onLock(user)}
-                            color={isBanned ? "success" : "error"}
+                            color={isUnactive ? "success" : "error"}
                         >
-                            {isBanned ? (
+                            {isUnactive ? (
                                 <LockOpenOutlinedIcon fontSize="small" />
                             ) : (
                                 <LockOutlinedIcon fontSize="small" />

@@ -1,10 +1,6 @@
 import { ApiResponse } from "@/types/responses/base.response";
-import { LevelResponse } from "@/types/responses/level.response";
 import { RoleResponse } from "@/types/responses/role.response";
-import {
-    UserDetailResponse,
-    UserResponse,
-} from "@/types/responses/user.response";
+import { UserResponse } from "@/types/responses/user.response";
 import { UpdateUserStatusRequest } from "@/types/requests/user.request";
 
 export async function fetchUsers(
@@ -20,9 +16,9 @@ export async function fetchUsers(
 
 export async function fetchUserDetail(
     userId: number,
-): Promise<ApiResponse<UserDetailResponse>> {
+): Promise<ApiResponse<UserResponse>> {
     const response = await fetch(`/api/users/${userId}`);
-    const result: ApiResponse<UserDetailResponse> = await response.json();
+    const result: ApiResponse<UserResponse> = await response.json();
     if (!response.ok) {
         throw new Error(result.message);
     }
@@ -32,7 +28,7 @@ export async function fetchUserDetail(
 export async function updateUserStatus(
     userId: number,
     request: UpdateUserStatusRequest,
-): Promise<ApiResponse<null>> {
+): Promise<ApiResponse<UserResponse>> {
     const response = await fetch(`/api/users/${userId}/status`, {
         method: "PATCH",
         headers: {
@@ -40,7 +36,7 @@ export async function updateUserStatus(
         },
         body: JSON.stringify(request),
     });
-    const result: ApiResponse<null> = await response.json();
+    const result: ApiResponse<UserResponse> = await response.json();
     if (!response.ok) {
         throw new Error(result.message);
     }
@@ -50,15 +46,6 @@ export async function updateUserStatus(
 export async function fetchRoles(): Promise<ApiResponse<RoleResponse[]>> {
     const response = await fetch("/api/roles");
     const result: ApiResponse<RoleResponse[]> = await response.json();
-    if (!response.ok) {
-        throw new Error(result.message);
-    }
-    return result;
-}
-
-export async function fetchLevels(): Promise<ApiResponse<LevelResponse[]>> {
-    const response = await fetch("/api/levels");
-    const result: ApiResponse<LevelResponse[]> = await response.json();
     if (!response.ok) {
         throw new Error(result.message);
     }

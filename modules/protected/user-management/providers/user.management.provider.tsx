@@ -10,23 +10,15 @@ import React, {
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import {
-    fetchLevels,
     fetchRoles,
     fetchUserDetail,
     fetchUsers,
     updateUserStatus,
 } from "@/services/user.service";
-import { LevelResponse } from "@/types/responses/level.response";
 import { RoleResponse } from "@/types/responses/role.response";
-import {
-    UserDetailResponse,
-    UserResponse,
-} from "@/types/responses/user.response";
+import { UserResponse } from "@/types/responses/user.response";
 import { DEFAULT_FILTERS } from "../constants/user.constant";
-import {
-    UserFilters,
-    UserManagementContextType,
-} from "../types/user.type";
+import { UserFilters, UserManagementContextType } from "../types/user.type";
 
 const UserManagementContext = createContext<UserManagementContextType | null>(null);
 
@@ -35,9 +27,9 @@ const buildQueryParams = (
     debouncedSearch: string,
 ): URLSearchParams => {
     const params = new URLSearchParams();
-    if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
+    if (debouncedSearch.trim()) params.set("userNameOrEmail", debouncedSearch.trim());
     if (filters.role !== "all") params.set("role", filters.role);
-    if (filters.level !== "all") params.set("level", filters.level);
+    if (filters.jlptLevel !== "all") params.set("jlptLevel", filters.jlptLevel);
     if (filters.status !== "all") params.set("status", filters.status);
     return params;
 };
@@ -51,21 +43,19 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
     const [filters, setFiltersState] = useState<UserFilters>(DEFAULT_FILTERS);
     const [debouncedSearch, setDebouncedSearch] = useState("");
     const [roleOptions, setRoleOptions] = useState<RoleResponse[]>([]);
-    const [levelOptions, setLevelOptions] = useState<LevelResponse[]>([]);
     const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
-    const [selectedUser, setSelectedUser] = useState<UserDetailResponse | null>(null);
+    const [selectedUser, setSelectedUser] = useState<UserResponse | null>(null);
     const [isDetailLoading, setIsDetailLoading] = useState(false);
     const [confirmUser, setConfirmUser] = useState<UserResponse | null>(null);
 
     useEffect(() => {
         fetchRoles().then((res) => setRoleOptions(res.data)).catch(() => {});
-        fetchLevels().then((res) => setLevelOptions(res.data)).catch(() => {});
     }, []);
 
     useEffect(() => {
-        const timer = setTimeout(() => setDebouncedSearch(filters.search), 400);
+        const timer = setTimeout(() => setDebouncedSearch(filters.userNameOrEmail), 400);
         return () => clearTimeout(timer);
-    }, [filters.search]);
+    }, [filters.userNameOrEmail]);
 
     useEffect(() => {
         setIsLoading(true);
@@ -77,7 +67,7 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
             })
             .catch(() => toast.error(tError("loadList")))
             .finally(() => setIsLoading(false));
-    }, [debouncedSearch, filters.role, filters.level, filters.status, tError]);
+    }, [debouncedSearch, filters.role, filters.jlptLevel, filters.status, tError]);
 
     const setFilters = useCallback(
         (partial: Partial<UserFilters>) =>
@@ -117,16 +107,16 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
 
     const toggleLock = useCallback(async () => {
         if (!confirmUser) return;
-        const wasBanned = confirmUser.status === "BANNED";
-        const newStatus = wasBanned ? "ACTIVE" : "BANNED";
+        const wasUnactive = confirmUser.status === "UNACTIVE";
+        const newStatus = wasUnactive ? "ACTIVE" : "UNACTIVE";
         try {
-            await updateUserStatus(confirmUser.id, { status: newStatus });
+            await updateUserStatus(confirmUser.id, { newStatus });
             setUsers((prev) =>
                 prev.map((u) =>
                     u.id === confirmUser.id ? { ...u, status: newStatus } : u,
                 ),
             );
-            toast.success(wasBanned ? t("unlockSuccess") : t("lockSuccess"));
+            toast.success(wasUnactive ? t("unlockSuccess") : t("lockSuccess"));
         } catch {
             toast.error(t("error"));
         } finally {
@@ -141,7 +131,6 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
             filters,
             isLoading,
             roleOptions,
-            levelOptions,
             isDetailModalOpen,
             selectedUser,
             isDetailLoading,
@@ -160,7 +149,6 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
             filters,
             isLoading,
             roleOptions,
-            levelOptions,
             isDetailModalOpen,
             selectedUser,
             isDetailLoading,

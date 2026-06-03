@@ -3,7 +3,7 @@
         "title": "Quản lý tài khoản",
         "description": "Danh sách học viên & giảng viên trong hệ thống.",
         "filter": {
-            "searchPlaceholder": "Tìm theo tên hoặc email...",
+            "searchPlaceholder": "Tìm theo username hoặc email...",
             "role": {
                 "label": "Vai trò",
                 "all": "Tất cả"
@@ -16,7 +16,7 @@
                 "label": "Trạng thái",
                 "all": "Tất cả",
                 "active": "Hoạt động",
-                "banned": "Bị khóa"
+                "unactive": "Không hoạt động"
             },
             "clearFilter": "Xoá bộ lọc"
         },
@@ -25,8 +25,7 @@
                 "fullName": "Họ và tên",
                 "email": "Email",
                 "role": "Vai trò",
-                "streak": "Chuỗi Streak (ngày)",
-                "targetLevel": "Trình độ mục tiêu",
+                "jlptLevel": "Trình độ JLPT",
                 "status": "Trạng thái",
                 "actions": "Hành động"
             },
@@ -35,30 +34,16 @@
         },
         "detail": {
             "title": "Chi tiết người dùng — {name}",
-            "description": "Thông tin luyện tập và năng lực nói của người dùng.",
-            "stats": {
-                "totalMinutes": "Tổng thời gian luyện",
-                "minutes": "{value} phút",
-                "currentStreak": "Streak hiện tại",
-                "days": "{value} ngày",
-                "weekSessions": "Phiên tuần này"
+            "description": "Thông tin tài khoản người dùng.",
+            "fields": {
+                "username": "Tên đăng nhập",
+                "gender": "Giới tính",
+                "dob": "Ngày sinh",
+                "jlptLevel": "Trình độ JLPT"
             },
-            "streakLog": "Nhật ký streak 7 ngày gần nhất",
-            "days": {
-                "mon": "T2",
-                "tue": "T3",
-                "wed": "T4",
-                "thu": "T5",
-                "fri": "T6",
-                "sat": "T7",
-                "sun": "CN"
-            },
-            "skills": {
-                "title": "Năng lực nói",
-                "pronunciation": "Phát âm",
-                "vocabulary": "Từ vựng",
-                "grammar": "Ngữ pháp",
-                "naturalness": "Độ tự nhiên"
+            "gender": {
+                "MALE": "Nam",
+                "FEMALE": "Nữ"
             },
             "close": "Đóng"
         },
@@ -78,6 +63,11 @@
             "viewDetail": "Xem chi tiết",
             "lock": "Khóa tài khoản",
             "unlock": "Mở khóa"
+        },
+        "roles": {
+            "ADMIN": "Quản trị viên",
+            "STUDENT": "Học viên",
+            "TEACHER": "Giảng viên"
         },
         "errors": {
             "loadList": "Không thể tải danh sách người dùng.",

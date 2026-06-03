@@ -9,22 +9,28 @@ import {
     DialogContent,
     DialogTitle,
 } from "@mui/material";
-import SkillBar from "../components/skill.bar";
 import UserAvatarChip from "../components/user.avatar.chip";
 import UserStatusBadge from "../components/user.status.badge";
-import UserStreakCalendar from "../components/user.streak.calendar";
 import { useUserManagement } from "../providers/user.management.provider";
 import { getUserFullName } from "../utils/user.format";
 
 const UserDetailModal = () => {
-    const t = useTranslations("userManagement.detail");
-    const { isDetailModalOpen, selectedUser, isDetailLoading, closeDetail, roleOptions } =
+    const t = useTranslations("userManagement");
+    const tDetail = useTranslations("userManagement.detail");
+    const { isDetailModalOpen, selectedUser, isDetailLoading, closeDetail } =
         useUserManagement();
     const user = selectedUser;
     const fullName = user ? getUserFullName(user) : "";
-    const roleLabel = user
-        ? (roleOptions.find((r) => r.code === user.accountType)?.name ?? user.accountType)
-        : "";
+
+    const translateRole = (code: string) => {
+        if (code === "ADMIN") return t("roles.ADMIN");
+        if (code === "STUDENT") return t("roles.STUDENT");
+        if (code === "TEACHER") return t("roles.TEACHER");
+        return code;
+    };
+    const roleLabel = user && user.roleNames.length > 0
+        ? translateRole(user.roleNames.find((r) => r !== "ADMIN") ?? user.roleNames[0])
+        : "—";
 
     return (
         <Dialog open={isDetailModalOpen} onClose={closeDetail} maxWidth="sm" fullWidth>
@@ -36,10 +42,10 @@ const UserDetailModal = () => {
                 <>
                     <DialogTitle component="div">
                         <p className="text-lg font-semibold">
-                            {t("title", { name: fullName })}
+                            {tDetail("title", { name: fullName })}
                         </p>
                         <p className="mt-0.5 text-sm font-normal text-text-muted">
-                            {t("description")}
+                            {tDetail("description")}
                         </p>
                     </DialogTitle>
                     <DialogContent dividers>
@@ -56,38 +62,20 @@ const UserDetailModal = () => {
                                     <UserStatusBadge status={user.status} />
                                 </div>
                             </div>
-                            <div className="grid grid-cols-3 gap-3">
-                                <StatBox
-                                    label={t("stats.totalMinutes")}
-                                    value={t("stats.minutes", { value: user.totalPracticeMinutes })}
+                            <div className="grid grid-cols-2 gap-3">
+                                <InfoBox label={tDetail("fields.username")} value={user.username ?? "—"} />
+                                <InfoBox
+                                    label={tDetail("fields.gender")}
+                                    value={user.gender ? tDetail(`gender.${user.gender}`) : "—"}
                                 />
-                                <StatBox
-                                    label={t("stats.currentStreak")}
-                                    value={t("stats.days", { value: user.currentStreak })}
-                                />
-                                <StatBox
-                                    label={t("stats.weekSessions")}
-                                    value={String(user.sessionsThisWeek)}
-                                />
-                            </div>
-                            <UserStreakCalendar
-                                streakLogs={user.streakLogs}
-                                title={t("streakLog")}
-                            />
-                            <div>
-                                <p className="mb-3 text-sm font-semibold">{t("skills.title")}</p>
-                                <div className="space-y-3">
-                                    <SkillBar label={t("skills.pronunciation")} value={user.skills.pronunciation} />
-                                    <SkillBar label={t("skills.vocabulary")} value={user.skills.vocabulary} />
-                                    <SkillBar label={t("skills.grammar")} value={user.skills.grammar} />
-                                    <SkillBar label={t("skills.naturalness")} value={user.skills.naturalness} />
-                                </div>
+                                <InfoBox label={tDetail("fields.dob")} value={user.dob ?? "—"} />
+                                <InfoBox label={tDetail("fields.jlptLevel")} value={user.jlptLevel ?? "—"} />
                             </div>
                         </div>
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" onClick={closeDetail} disableElevation>
-                            {t("close")}
+                            {tDetail("close")}
                         </Button>
                     </DialogActions>
                 </>
@@ -98,11 +86,11 @@ const UserDetailModal = () => {
 
 export default UserDetailModal;
 
-const StatBox = ({ label, value }: { label: string; value: string }) => {
+const InfoBox = ({ label, value }: { label: string; value: string }) => {
     return (
         <div className="rounded-lg border border-bdc-primary p-3">
             <p className="text-xs text-text-muted">{label}</p>
-            <p className="mt-1 text-lg font-bold">{value}</p>
+            <p className="mt-1 text-sm font-medium">{value}</p>
         </div>
     );
 };

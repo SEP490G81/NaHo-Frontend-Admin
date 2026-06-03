@@ -1,30 +1,15 @@
-import {
-    AccountType,
-    JlptLevel,
-    UserStatus,
-} from "@/types/enums/user.enum";
+import { Gender, JlptLevel, UserStatus } from "@/types/enums/user.enum";
 
 export interface UserResponse {
     id: number;
+    username: string;
+    roleNames: string[];
+    avatarFileUrl: string | null;
+    email: string;
     firstName: string;
     lastName: string;
-    email: string;
-    accountType: AccountType;
+    gender: Gender;
+    dob: string;
     jlptLevel: JlptLevel;
     status: UserStatus;
-    currentStreak: number;
-}
-
-interface UserSkillsResponse {
-    pronunciation: number;
-    vocabulary: number;
-    grammar: number;
-    naturalness: number;
-}
-
-export interface UserDetailResponse extends UserResponse {
-    totalPracticeMinutes: number;
-    sessionsThisWeek: number;
-    streakLogs: boolean[];
-    skills: UserSkillsResponse;
 }

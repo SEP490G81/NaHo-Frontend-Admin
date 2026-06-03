@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useTranslations } from "next-intl";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import { useUserManagement } from "../providers/user.management.provider";
@@ -9,7 +8,7 @@ const UserLockDialog = () => {
     const t = useTranslations("userManagement.lockDialog");
     const { confirmUser, closeLockDialog, toggleLock } = useUserManagement();
     const user = confirmUser;
-    const isUnlock = user?.status === "BANNED";
+    const isUnlock = user?.status === "UNACTIVE";
     const fullName = user ? getUserFullName(user) : "";
 
     return (
