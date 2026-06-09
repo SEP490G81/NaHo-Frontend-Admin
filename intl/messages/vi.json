@@ -4,6 +4,10 @@
         "title": {
             "dashboard": "Bảng điều khiển",
             "userManagement": "Quản lí người dùng",
+            "topicManagement": "Quản lý chủ đề",
+            "topicCreate": "Thêm chủ đề mới",
+            "topicDetail": "Cập nhật chủ đề",
+            "topicQuestions": "Quản lý câu hỏi",
             "settings": "Cài đặt",
             "helpAndSupport": "Trợ giúp và hỗ trợ"
         },
@@ -17,6 +21,7 @@
             "sidebarGroup": {
                 "title": {
                     "main": "Mục chính",
+                    "contentManager": "Quản lý nội dung",
                     "other": "Khác"
                 }
             },
@@ -29,6 +34,187 @@
                 "darkMode": "Chế độ tối",
                 "lightMode": "Chế độ sáng"
             }
+        }
+    },
+    "topicManagement": {
+        "status": {
+            "draft": "Bản nháp",
+            "active": "Đã xuất bản",
+            "hidden": "Đã ẩn"
+        },
+        "list": {
+            "title": "Quản lý chủ đề Kaiwa",
+            "description": "Tạo, chỉnh sửa và quản lý toàn bộ chủ đề luyện nói tiếng Nhật trong hệ thống NAHO.",
+            "searchPlaceholder": "Tìm theo tên hoặc mô tả chủ đề...",
+            "levelFilterAll": "Tất cả cấp độ",
+            "statusFilterAll": "Tất cả trạng thái",
+            "addTopic": "Thêm chủ đề mới",
+            "importExcel": "Nhập Excel/CSV",
+            "showing": "Hiển thị {count} / {total} chủ đề",
+            "empty": "Không tìm thấy chủ đề phù hợp.",
+            "questionCount": "{count} câu hỏi",
+            "averageScore": "Điểm TB: {score}",
+            "noScore": "—",
+            "scoreHint": "Điểm phát âm trung bình của học viên cho chủ đề này (thang 0–10). Hiển thị “—” khi chưa có lượt luyện.",
+            "dragHint": "Mẹo: Kéo-thả thẻ chủ đề để sắp xếp thứ tự hiển thị.",
+            "reorderSuccess": "Đã cập nhật thứ tự chủ đề!"
+        },
+        "card": {
+            "edit": "Sửa thông tin",
+            "manageQuestions": "Quản lý câu hỏi",
+            "delete": "Xóa"
+        },
+        "create": {
+            "back": "Quay lại",
+            "title": "Thêm chủ đề mới",
+            "description": "Nhập thông tin chi tiết cho chủ đề Kaiwa. Sau khi tạo, bạn có thể thêm câu hỏi.",
+            "nameLabel": "Tên chủ đề",
+            "namePlaceholder": "VD: Giao tiếp văn phòng IT",
+            "levelLabel": "Cấp độ JLPT",
+            "statusLabel": "Trạng thái",
+            "coverLabel": "Ảnh bìa chủ đề",
+            "coverPick": "Chọn ảnh từ thiết bị",
+            "coverSupport": "Hỗ trợ định dạng JPG, PNG. Khuyến nghị tỉ lệ 16:9, dung lượng tối đa 5MB.",
+            "descLabel": "Mô tả chủ đề",
+            "descPlaceholder": "VD: Luyện các mẫu hội thoại thường gặp tại công ty IT Nhật...",
+            "cancel": "Hủy bỏ",
+            "submit": "Tạo chủ đề",
+            "nameRequired": "Vui lòng nhập tên chủ đề.",
+            "descRequired": "Vui lòng nhập mô tả chủ đề.",
+            "error": "Không thể tạo chủ đề. Vui lòng thử lại.",
+            "panel": {
+                "title": "Quản lý nội dung",
+                "note": "Lưu chủ đề trước, sau đó bạn có thể thêm câu hỏi Kaiwa, từ vựng và mẫu câu cho chủ đề này.",
+                "hintTitle": "Gợi ý",
+                "hintContent": "Đặt tên chủ đề rõ ràng, có yếu tố ngữ cảnh (nơi diễn ra hội thoại, đối tượng giao tiếp) để học viên dễ lựa chọn."
+            }
+        },
+        "import": {
+            "title": "Nhập chủ đề từ Excel/CSV",
+            "description": "Tải lên tệp .csv hoặc .xlsx, đối chiếu cột rồi nhập vào hệ thống.",
+            "pick": "Chọn tệp Excel/CSV",
+            "support": "Hỗ trợ .csv và .xlsx. Hàng đầu tiên là tiêu đề cột.",
+            "xlsxNote": "Bản xem trước chỉ áp dụng cho .csv; tệp .xlsx sẽ được xử lý phía máy chủ.",
+            "previewTitle": "Đối chiếu cột",
+            "rowsCount": "{count} dòng dữ liệu",
+            "mapTo": "Đối chiếu với",
+            "ignore": "— Bỏ qua —",
+            "fieldTitle": "Tên chủ đề",
+            "fieldLevel": "Cấp độ JLPT",
+            "fieldDescription": "Mô tả",
+            "empty": "Chưa có dữ liệu để xem trước.",
+            "cancel": "Hủy bỏ",
+            "submit": "Nhập {count} chủ đề",
+            "success": "Đã nhập {count} chủ đề (mock)!",
+            "parseError": "Không đọc được tệp. Vui lòng kiểm tra định dạng."
+        },
+        "deleteDialog": {
+            "title": "Xác nhận xóa chủ đề?",
+            "message": "Chủ đề \"{name}\" và toàn bộ câu hỏi liên quan sẽ bị xóa khỏi hệ thống. Thao tác này không thể hoàn tác.",
+            "cancel": "Hủy",
+            "confirm": "Xóa chủ đề",
+            "success": "Đã xóa chủ đề thành công!",
+            "error": "Có lỗi xảy ra. Vui lòng thử lại."
+        },
+        "detail": {
+            "back": "Quay lại",
+            "title": "Cập nhật thông tin chủ đề",
+            "description": "Chỉnh sửa thông tin chi tiết và quản lý câu hỏi cho chủ đề Kaiwa.",
+            "nameLabel": "Tên chủ đề",
+            "levelLabel": "Cấp độ JLPT",
+            "statusLabel": "Trạng thái",
+            "coverLabel": "Ảnh bìa chủ đề",
+            "coverPick": "Chọn ảnh từ thiết bị",
+            "coverSupport": "Hỗ trợ định dạng JPG, PNG. Khuyến nghị tỉ lệ 16:9, dung lượng tối đa 5MB.",
+            "descLabel": "Mô tả chủ đề",
+            "descPlaceholder": "VD: Luyện các mẫu hội thoại thường gặp tại công ty IT Nhật: chào hỏi đầu ngày, trao đổi tiến độ, xin nghỉ phép, báo cáo sự cố.",
+            "cancel": "Hủy bỏ",
+            "save": "Lưu chủ đề",
+            "saveSuccess": "Đã cập nhật chủ đề!",
+            "publishSuccess": "Đã lưu và xuất bản chủ đề!",
+            "needQuestion": "Cần ít nhất 1 câu hỏi để xuất bản chủ đề.",
+            "error": "Có lỗi xảy ra. Vui lòng thử lại.",
+            "panel": {
+                "title": "Quản lý nội dung",
+                "description": "Cập nhật danh sách câu hỏi Kaiwa, từ vựng và mẫu câu cho chủ đề này.",
+                "manageQuestions": "Quản lý câu hỏi",
+                "topicCode": "Mã chủ đề",
+                "questionCount": "Số câu hỏi",
+                "averageScore": "Điểm trung bình",
+                "backToList": "← Quay lại danh sách chủ đề"
+            },
+            "hint": {
+                "title": "Gợi ý",
+                "content": "Đặt tên chủ đề rõ ràng, có yếu tố ngữ cảnh (nơi diễn ra hội thoại, đối tượng giao tiếp) để học viên dễ lựa chọn."
+            },
+            "notFound": "Không tìm thấy chủ đề."
+        },
+        "questions": {
+            "back": "Quay lại chủ đề",
+            "title": "Quản lý câu hỏi",
+            "listTitle": "Danh sách câu hỏi",
+            "countLabel": "{count} câu hỏi",
+            "addQuestion": "Thêm câu hỏi mới",
+            "createTitle": "Tạo câu hỏi mới",
+            "editTitle": "Chỉnh sửa câu hỏi",
+            "createDescription": "Điền đầy đủ thông tin để thêm câu hỏi mới vào chủ đề này.",
+            "save": "Lưu câu hỏi",
+            "saveSuccess": "Đã lưu câu hỏi!",
+            "notFound": "Không tìm thấy chủ đề.",
+            "empty": "Chưa có câu hỏi nào. Nhấn “Thêm câu hỏi mới” để bắt đầu.",
+            "reorderHint": "Kéo-thả để sắp xếp thứ tự câu hỏi.",
+            "reorderSuccess": "Đã cập nhật thứ tự câu hỏi!",
+            "deleteTooltip": "Xoá câu hỏi",
+            "deleteTitle": "Xoá câu hỏi này?",
+            "deleteMessage": "Câu hỏi sẽ bị xoá khỏi chủ đề. Thao tác này không thể hoàn tác.",
+            "deleteCancel": "Hủy",
+            "deleteConfirm": "Xoá",
+            "deleteSuccess": "Đã xoá câu hỏi!",
+            "furiganaPreview": "Xem trước furigana:",
+            "tabs": {
+                "content": "Nội dung câu hỏi",
+                "vocab": "Từ vựng & Mẫu câu",
+                "context": "Gợi ý ngữ cảnh"
+            },
+            "content": {
+                "jpLabel": "Tiêu đề câu hỏi (tiếng Nhật)",
+                "jpPlaceholder": "例: 今日のタスクの進捗を報告してください。",
+                "furiganaLabel": "Cách đọc Furigana (tùy chọn)",
+                "furiganaPlaceholder": "きょうのタスクのしんちょくをほうこくしてください。",
+                "generateFurigana": "Tự sinh furigana",
+                "generating": "Đang tạo...",
+                "generateEmpty": "Hãy nhập câu hỏi tiếng Nhật trước.",
+                "generateError": "Không thể tạo furigana. Vui lòng thử lại.",
+                "viLabel": "Bản dịch tiếng Việt",
+                "viPlaceholder": "VD: Báo cáo tiến độ task hôm nay.",
+                "audioLabel": "File âm thanh mẫu (Native audio model)",
+                "audioHint": "Chọn tệp âm thanh từ thiết bị",
+                "audioSupport": "Hỗ trợ MP3, WAV. Tệp sẽ được tải lên AWS S3."
+            },
+            "vocab": {
+                "title": "Từ vựng mục tiêu",
+                "count": "{count} mục",
+                "empty": "Chưa có từ vựng nào. Nhấn 'Thêm từ vựng' để bắt đầu.",
+                "add": "Thêm từ vựng",
+                "jpPlaceholder": "Từ tiếng Nhật",
+                "furiganaPlaceholder": "Furigana",
+                "viPlaceholder": "Nghĩa tiếng Việt"
+            },
+            "sentences": {
+                "title": "Mẫu câu gợi ý",
+                "count": "{count} mục",
+                "empty": "Chưa có mẫu câu nào. Nhấn 'Thêm mẫu câu' để bắt đầu.",
+                "add": "Thêm mẫu câu",
+                "jpPlaceholder": "Mẫu câu tiếng Nhật",
+                "viPlaceholder": "Giải thích tiếng Việt"
+            },
+            "context": {
+                "jpLabel": "Gợi ý ngữ cảnh bằng tiếng Nhật",
+                "jpPlaceholder": "例: IT会社の朝会で、進捗を簡潔に共有するマナーについて…",
+                "viLabel": "Gợi ý ngữ cảnh bằng tiếng Việt",
+                "viPlaceholder": "VD: Trong cuộc họp daily standup tại công ty IT Nhật, học viên cần báo cáo ngắn gọn và lịch sự…"
+            },
+            "removeItem": "Xóa"
         }
     }
 }

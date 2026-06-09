@@ -16,6 +16,18 @@ export const routing = defineRouting({
         "/user-management": {
             vi: "/quan-li-nguoi-dung",
         },
+        "/content-manager/topics": {
+            vi: "/quan-ly-noi-dung/chu-de",
+        },
+        "/content-manager/topics/new": {
+            vi: "/quan-ly-noi-dung/chu-de/tao-moi",
+        },
+        "/content-manager/topics/[id]": {
+            vi: "/quan-ly-noi-dung/chu-de/[id]",
+        },
+        "/content-manager/topics/[id]/questions": {
+            vi: "/quan-ly-noi-dung/chu-de/[id]/cau-hoi",
+        },
         "/settings": {
             vi: "/cai-dat",
         },
