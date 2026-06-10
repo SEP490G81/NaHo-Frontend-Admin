@@ -31,7 +31,7 @@ const TopicQuestionsContent = ({ topicId }: { topicId: string }) => {
         <div className="space-y-5">
             <div className="bg-bgc-app space-y-3 rounded-xl p-6">
                 <Link
-                    href={{ pathname: "/content-manager/topics/[id]", params: { id: topicId } }}
+                    href={`/content-manager/topics/${topicId}`}
                     className="text-text-muted hover:text-bgc-highlight inline-flex items-center gap-1 text-sm"
                 >
                     <ArrowBackIcon fontSize="small" />

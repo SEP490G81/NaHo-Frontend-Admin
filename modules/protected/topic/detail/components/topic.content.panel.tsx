@@ -29,12 +29,7 @@ const TopicContentPanel = ({ topic }: TopicContentPanelProps) => {
                         {t("panel.description")}
                     </p>
                 </div>
-                <Link
-                    href={{
-                        pathname: "/content-manager/topics/[id]/questions",
-                        params: { id: topic.id },
-                    }}
-                >
+                <Link href={`/content-manager/topics/${topic.id}/questions`}>
                     <Button
                         fullWidth
                         variant="contained"

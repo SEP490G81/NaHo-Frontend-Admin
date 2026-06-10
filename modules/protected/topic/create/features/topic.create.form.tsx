@@ -61,10 +61,7 @@ const TopicCreateForm = () => {
                 description: newState.description.value.trim(),
                 coverImageUrl: coverName || undefined,
             });
-            push({
-                pathname: "/content-manager/topics/[id]",
-                params: { id: result.data.id },
-            });
+            push(`/content-manager/topics/${result.data.id}`);
         } catch (error) {
             setErrorMessage(error instanceof Error ? error.message : t("error"));
             setSubmitting(false);

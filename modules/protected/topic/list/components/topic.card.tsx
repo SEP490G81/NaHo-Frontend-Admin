@@ -43,7 +43,7 @@ const TopicCard = ({ topic, onDelete }: TopicCardProps) => {
 
             <div className="space-y-3 p-5">
                 <Link
-                    href={{ pathname: "/content-manager/topics/[id]", params: { id: topic.id } }}
+                    href={`/content-manager/topics/${topic.id}`}
                     className="hover:text-bgc-highlight block text-lg font-bold transition-colors"
                 >
                     {topic.name}

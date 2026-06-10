@@ -24,14 +24,11 @@ const TopicCardMenu = ({ topic, onDelete }: TopicCardMenuProps) => {
 
     const goEdit = () => {
         close();
-        router.push({ pathname: "/content-manager/topics/[id]", params: { id: topic.id } });
+        router.push(`/content-manager/topics/${topic.id}`);
     };
     const goQuestions = () => {
         close();
-        router.push({
-            pathname: "/content-manager/topics/[id]/questions",
-            params: { id: topic.id },
-        });
+        router.push(`/content-manager/topics/${topic.id}/questions`);
     };
     const handleDelete = () => {
         close();

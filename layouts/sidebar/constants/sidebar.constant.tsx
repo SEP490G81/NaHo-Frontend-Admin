@@ -33,12 +33,7 @@ export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
             {
                 id: "s-topic",
                 nameLinkKey: "topicManagement",
-                activeLinks: [
-                    "/content-manager/topics",
-                    "/content-manager/topics/new",
-                    "/content-manager/topics/[id]",
-                    "/content-manager/topics/[id]/questions",
-                ],
+                activeLinks: ["/content-manager/topics"],
                 redirectLink: "/content-manager/topics",
                 icon: <MenuBookOutlinedIcon />,
             },
