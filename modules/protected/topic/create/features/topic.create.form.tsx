@@ -89,36 +89,38 @@ const TopicCreateForm = () => {
                 />
             </div>
 
-            <div className="space-y-2">
-                <label className="text-sm font-medium">{t("levelLabel")}</label>
-                <Select
-                    fullWidth
-                    size="small"
-                    value={level}
-                    onChange={(e) => setLevel(e.target.value as JlptLevel)}
-                >
-                    {JLPT_LEVELS.map((lv) => (
-                        <MenuItem key={lv} value={lv}>
-                            {lv}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                    <label className="text-sm font-medium">{t("levelLabel")}</label>
+                    <Select
+                        fullWidth
+                        size="small"
+                        value={level}
+                        onChange={(e) => setLevel(e.target.value as JlptLevel)}
+                    >
+                        {JLPT_LEVELS.map((lv) => (
+                            <MenuItem key={lv} value={lv}>
+                                {lv}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </div>
 
-            <div className="space-y-2">
-                <label className="text-sm font-medium">{t("statusLabel")}</label>
-                <Select
-                    fullWidth
-                    size="small"
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value as TopicStatus)}
-                >
-                    {TOPIC_STATUSES.map((s) => (
-                        <MenuItem key={s} value={s}>
-                            {tStatus(STATUS_KEY[s])}
-                        </MenuItem>
-                    ))}
-                </Select>
+                <div className="space-y-2">
+                    <label className="text-sm font-medium">{t("statusLabel")}</label>
+                    <Select
+                        fullWidth
+                        size="small"
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value as TopicStatus)}
+                    >
+                        {TOPIC_STATUSES.map((s) => (
+                            <MenuItem key={s} value={s}>
+                                {tStatus(STATUS_KEY[s])}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </div>
             </div>
 
             <div className="space-y-2">
