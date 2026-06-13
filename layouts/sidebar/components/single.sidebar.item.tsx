@@ -8,7 +8,7 @@ import { Badge } from "@mui/material";
 import { useTranslations } from "next-intl";
 
 const SingleSidebarItem = ({ item }: { item: SidebarItem }) => {
-    const t = useTranslations("metadata.title");
+    const t = useTranslations("common.metadata.title");
 
     const { isCollapse } = useSidebarCollapse();
     const pathname = usePathname();

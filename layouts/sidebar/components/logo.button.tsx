@@ -22,7 +22,7 @@ const LogoButton = () => {
                 />
                 {!isCollapse && (
                     <h1 className="text-lg font-bold whitespace-nowrap">
-                        {t("appName")}
+                        {t("common.appName")}
                     </h1>
                 )}
             </Link>
