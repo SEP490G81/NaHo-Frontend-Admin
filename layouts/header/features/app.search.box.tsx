@@ -24,7 +24,7 @@ const AppSearchBox = () => {
                 }}
                 size="small"
                 variant="outlined"
-                placeholder={t("layout.header.appSearchBoxPlaceholder")}
+                placeholder={t("common.layout.header.appSearchBoxPlaceholder")}
             />
         </form>
     );

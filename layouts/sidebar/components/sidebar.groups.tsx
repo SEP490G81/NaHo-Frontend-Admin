@@ -10,7 +10,7 @@ import LogoutButton from "@/layouts/sidebar/features/logout.button";
 
 const SidebarGroups = () => {
     const { isCollapse } = useSidebarCollapse();
-    const t = useTranslations("layout.sidebar.sidebarGroup.title");
+    const t = useTranslations("common.layout.sidebar.sidebarGroup.title");
 
     return (
         <Box
