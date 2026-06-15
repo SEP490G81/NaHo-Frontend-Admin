@@ -27,7 +27,7 @@ export const SidebarCollapseProvider = ({
     const pathname = usePathname();
     const collapseLinks: AllRoute[] = [];
 
-    const initialState = collapseLinks.includes(pathname);
+    const initialState = collapseLinks.some((path) => path === pathname);
 
     const [isCollapse, setIsCollapse] = useState<boolean>(initialState);
 

@@ -4,7 +4,10 @@ export const getSidebarItemEffectClassNameByItemPaths = (
     pathname: string,
     itemPaths: string[],
 ): string => {
-    return itemPaths.includes(pathname)
+    const isActive = itemPaths.some(
+        (path) => pathname === path || pathname.startsWith(`${path}/`),
+    );
+    return isActive
         ? SidebarEffectClassName.ACTIVE
         : SidebarEffectClassName.MUTED;
 };
