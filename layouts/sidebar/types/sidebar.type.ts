@@ -18,7 +18,7 @@ export type SidebarItemGroup = {
 };
 
 type SidebarGroupTitleKey =
-    keyof Messages["layout"]["sidebar"]["sidebarGroup"]["title"];
+    keyof Messages["common"]["layout"]["sidebar"]["sidebarGroup"]["title"];
 
 export enum SidebarEffectClassName {
     ACTIVE = "bg-bgc-highlight shadow-md text-text-contrast",

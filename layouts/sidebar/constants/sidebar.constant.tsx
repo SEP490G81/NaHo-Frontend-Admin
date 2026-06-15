@@ -3,6 +3,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import HeadphonesOutlinedIcon from "@mui/icons-material/HeadphonesOutlined";
 import SpaceDashboardOutlinedIcon from "@mui/icons-material/SpaceDashboardOutlined";
+import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 
 export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
     {
@@ -22,6 +23,13 @@ export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
                 activeLinks: ["/user-management"],
                 redirectLink: "/user-management",
                 icon: <PersonOutlinedIcon />,
+            },
+            {
+                id: "s-reports",
+                nameLinkKey: "userReports",
+                activeLinks: ["/user-reports"],
+                redirectLink: "/user-reports",
+                icon: <BugReportOutlinedIcon />,
             },
         ],
     },

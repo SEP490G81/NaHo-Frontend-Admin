@@ -1,0 +1,37 @@
+{
+    "common": {
+        "appName": "NaHo",
+        "metadata": {
+            "title": {
+                "dashboard": "Bảng điều khiển",
+                "userManagement": "Quản lí người dùng",
+                "userReports": "Báo cáo lỗi & Phản hồi",
+                "settings": "Cài đặt",
+                "helpAndSupport": "Trợ giúp và hỗ trợ"
+            },
+            "action": {
+                "open": "Mở",
+                "close": "Đóng"
+            }
+        },
+        "layout": {
+            "sidebar": {
+                "sidebarGroup": {
+                    "title": {
+                        "main": "Mục chính",
+                        "other": "Khác"
+                    }
+                },
+                "logout": "Đăng xuất"
+            },
+            "header": {
+                "appSearchBoxPlaceholder": "Tìm kiếm bất cứ gì",
+                "notificationButton": "Thông báo",
+                "themeSwitchButton": {
+                    "darkMode": "Chế độ tối",
+                    "lightMode": "Chế độ sáng"
+                }
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ import DehazeOutlinedIcon from "@mui/icons-material/DehazeOutlined";
 
 const SidebarActionButton = () => {
     const { setIsCollapse, isCollapse } = useSidebarCollapse();
-    const t = useTranslations("metadata.action");
+    const t = useTranslations("common.metadata.action");
 
     return (
         <TooltipCustom title={isCollapse ? t("open") : t("close")}>
