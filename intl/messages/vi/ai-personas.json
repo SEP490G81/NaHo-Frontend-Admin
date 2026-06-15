@@ -1,0 +1,92 @@
+{
+    "aiPersonas": {
+        "title": "Cấu hình Persona AI",
+        "description": "Quản lý các nhân vật AI đồng hành: hồ sơ, giọng đọc và Persona Prompt định hướng hành vi.",
+        "addButton": "Thêm nhân vật mới",
+        "searchPlaceholder": "Tìm theo tên hoặc vai trò…",
+        "loadError": "Không thể tải danh sách Persona AI",
+        "count": "{count} nhân vật",
+        "empty": {
+            "title": "Chưa có Persona AI nào",
+            "description": "Tạo nhân vật AI đầu tiên để học viên luyện hội thoại cùng."
+        },
+        "emptyFiltered": {
+            "title": "Không tìm thấy nhân vật phù hợp",
+            "description": "Thử đổi từ khóa tìm kiếm."
+        },
+        "card": {
+            "edit": "Sửa",
+            "delete": "Xóa",
+            "topicCount": "{count} chủ đề"
+        },
+        "statusLabel": {
+            "active": "Đang hoạt động",
+            "draft": "Nháp"
+        },
+        "style": {
+            "casual": "Casual / Thân thiện",
+            "business": "Business / Lịch sự",
+            "keigo": "Keigo / Kính ngữ"
+        },
+        "voice": {
+            "nanami": "Nanami (Nữ - Tự nhiên)",
+            "keita": "Keita (Nam - Tự nhiên)",
+            "aoi": "Aoi (Nữ - Trẻ trung)",
+            "daichi": "Daichi (Nam - Trẻ trung)",
+            "shiori": "Shiori (Nữ - Chuyên nghiệp)",
+            "mayu": "Mayu (Nữ - Dịu dàng)"
+        },
+        "rate": {
+            "slow": "Chậm",
+            "normal": "Vừa",
+            "fast": "Nhanh"
+        },
+        "form": {
+            "addTitle": "Thêm nhân vật mới",
+            "editTitle": "Chỉnh sửa nhân vật",
+            "subtitle": "Cấu hình hồ sơ, giọng nói và Persona Prompt mô tả tính cách nhân vật.",
+            "statusActiveHint": "Đang hoạt động – học viên có thể luyện cùng nhân vật này",
+            "statusDraftHint": "Nháp – ẩn khỏi học viên cho tới khi bật",
+            "avatarLabel": "Ảnh đại diện",
+            "avatarInitials": "Dùng chữ viết tắt",
+            "nameLabel": "Tên nhân vật",
+            "namePlaceholder": "VD: Sakura",
+            "nameRequired": "Vui lòng nhập tên nhân vật",
+            "roleLabel": "Vai trò",
+            "rolePlaceholder": "VD: Trợ lý Phỏng vấn BrSE",
+            "roleRequired": "Vui lòng nhập vai trò",
+            "descriptionLabel": "Mô tả ngắn",
+            "descriptionPlaceholder": "Mô tả tính cách và phong cách giảng dạy của nhân vật.",
+            "jlptLabel": "Trình độ JLPT mục tiêu",
+            "styleLabel": "Phong cách lịch sự",
+            "voiceLabel": "Giọng đọc Azure TTS",
+            "voicePreview": "Nghe thử",
+            "voicePreviewPlaying": "Đang phát giọng đọc thử…",
+            "rateLabel": "Tốc độ nói",
+            "greetingLabel": "Câu chào mở đầu",
+            "greetingPlaceholder": "VD: こんにちは！今日は何について話しましょうか？",
+            "greetingHint": "Nhân vật sẽ dùng câu này để mở đầu mỗi cuộc hội thoại với học viên.",
+            "topicsLabel": "Chủ đề phù hợp",
+            "topicsPlaceholder": "Chọn các chủ đề học viên nên luyện cùng nhân vật này…",
+            "topicsHint": "Gợi ý cho học viên nên dùng nhân vật này với chủ đề nào.",
+            "promptLabel": "Persona Prompt – Mô tả nhân vật & bối cảnh",
+            "promptPlaceholder": "VD: Bạn là Sakura, một cô gái thân thiện hỗ trợ phản xạ phỏng vấn BrSE chuyên ngành IT...",
+            "promptRequired": "Vui lòng nhập Persona Prompt",
+            "promptHint": "Chỉ mô tả tính cách & bối cảnh nhân vật. Luật chung (an toàn, định dạng) do trang Cấu hình System Prompt quản lý — không cần lặp lại ở đây.",
+            "promptTemplate": "Chèn mẫu gợi ý",
+            "cancel": "Hủy",
+            "save": "Lưu cấu hình",
+            "createSuccess": "Đã thêm nhân vật AI mới",
+            "updateSuccess": "Đã cập nhật nhân vật AI",
+            "saveError": "Không thể lưu cấu hình. Vui lòng thử lại."
+        },
+        "delete": {
+            "title": "Xóa nhân vật AI?",
+            "message": "Bạn chắc chắn muốn xóa \"{name}\"? Hành động này không thể hoàn tác và học viên sẽ không còn luyện hội thoại cùng nhân vật này.",
+            "cancel": "Hủy",
+            "confirm": "Xóa nhân vật",
+            "success": "Đã xóa nhân vật AI",
+            "error": "Không thể xóa nhân vật. Vui lòng thử lại."
+        }
+    }
+}
