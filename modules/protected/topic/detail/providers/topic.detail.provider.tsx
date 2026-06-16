@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
-import { useRouter } from "@/intl/i18n/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { fetchTopicDetail, updateTopic } from "@/services/client/topic.service";
 import { TopicDetailResponse } from "@/types/responses/topic.response";
 import {

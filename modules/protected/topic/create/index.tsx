@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Link } from "@/intl/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import TopicCreateForm from "./features/topic.create.form";
 import TopicCreatePanel from "./components/topic.create.panel";
 

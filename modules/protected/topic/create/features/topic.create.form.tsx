@@ -6,7 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import { TextFieldCustom } from "@/components/ui/mui-custom/text.field.custom";
-import { Link, useRouter } from "@/intl/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import {
     JLPT_LEVELS,
     TOPIC_STATUSES,

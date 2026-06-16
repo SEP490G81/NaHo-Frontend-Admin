@@ -2,7 +2,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Tooltip } from "@mui/material";
-import { Link } from "@/intl/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { TopicResponse } from "@/types/responses/topic.response";
 import { getTopicLevelStyle } from "@/constants/topic.constant";
 import TopicLevelBadge from "./topic.level.badge";

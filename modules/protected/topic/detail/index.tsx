@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { CircularProgress } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Link } from "@/intl/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import {
     TopicDetailProvider,
     useTopicDetail,

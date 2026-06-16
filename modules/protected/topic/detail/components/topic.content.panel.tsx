@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@mui/material";
 import PlaylistAddCheckOutlinedIcon from "@mui/icons-material/PlaylistAddCheckOutlined";
-import { Link } from "@/intl/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { TopicDetailResponse } from "@/types/responses/topic.response";
 
 interface TopicContentPanelProps {

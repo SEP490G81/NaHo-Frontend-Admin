@@ -6,7 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import { TextFieldCustom } from "@/components/ui/mui-custom/text.field.custom";
-import { Link } from "@/intl/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { JLPT_LEVELS, TOPIC_STATUSES } from "@/constants/topic.constant";
 import { TopicStatus } from "@/types/enums/topic.enum";
 import { useTopicManagement } from "../providers/topic.management.provider";
