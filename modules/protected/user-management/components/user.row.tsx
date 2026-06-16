@@ -8,7 +8,7 @@ import UserStatusBadge from "./user.status.badge";
 
 interface UserRowProps {
     user: UserResponse;
-    roleLabel: string;
+    roleLabels: string[];
     viewLabel: string;
     lockLabel: string;
     unlockLabel: string;
@@ -18,7 +18,7 @@ interface UserRowProps {
 
 const UserRow = ({
     user,
-    roleLabel,
+    roleLabels,
     viewLabel,
     lockLabel,
     unlockLabel,
@@ -26,26 +26,35 @@ const UserRow = ({
     onLock,
 }: UserRowProps) => {
     const isUnactive = user.status === "UNACTIVE";
-    const hasFullName = !!user.fullName?.trim();
 
     return (
         <TableRow hover>
+            <TableCell sx={{ width: 56, padding: 0 }}>
+                <UserAvatarChip fullName={user.fullName} size={40} />
+            </TableCell>
             <TableCell>
-                <div className="flex items-center gap-3">
-                    <UserAvatarChip fullName={user.fullName} size={40} />
-                    <div className="min-w-0 leading-tight">
-                        <p className="text-sm font-medium">
-                            {hasFullName ? user.fullName : user.username}
-                        </p>
-                        {hasFullName && (
+                <div className="leading-tight">
+                    {user.fullName ? (
+                        <>
+                            <p className="text-sm font-medium">{user.fullName}</p>
                             <p className="text-text-muted text-xs">@{user.username}</p>
-                        )}
-                    </div>
+                        </>
+                    ) : (
+                        <p className="text-text-muted text-sm">@{user.username}</p>
+                    )}
                 </div>
             </TableCell>
             <TableCell className="text-text-muted">{user.email}</TableCell>
             <TableCell>
-                <Chip label={roleLabel} size="small" variant="outlined" />
+                {roleLabels.length === 0 ? (
+                    <span className="text-text-muted">—</span>
+                ) : (
+                    <div className="flex flex-wrap gap-1">
+                        {roleLabels.map((label) => (
+                            <Chip key={label} label={label} size="small" variant="outlined" />
+                        ))}
+                    </div>
+                )}
             </TableCell>
             <TableCell>
                 <Chip label={user.jlptLevel} size="small" variant="outlined" />

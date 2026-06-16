@@ -21,11 +21,7 @@ const UserTable = () => {
         if (code === "CONTENT_MANAGER") return t("roles.CONTENT_MANAGER");
         return code;
     };
-    const getRoleLabel = (roleNames: string[]) => {
-        if (roleNames.length === 0) return "—";
-        const displayCode = roleNames.find((r) => r !== "ADMIN") ?? roleNames[0];
-        return translateRole(displayCode);
-    };
+    const getRoleLabels = (roleNames: string[]) => roleNames.map(translateRole);
 
     return (
         <div>
@@ -33,6 +29,7 @@ const UserTable = () => {
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell sx={{ width: 56, padding: 0 }} />
                             <TableCell>{t("table.columns.fullName")}</TableCell>
                             <TableCell>{t("table.columns.email")}</TableCell>
                             <TableCell>{t("table.columns.role")}</TableCell>
@@ -44,7 +41,7 @@ const UserTable = () => {
                     <TableBody>
                         {users.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={6} align="center" className="py-8 text-text-muted">
+                                <TableCell colSpan={7} align="center" className="py-8 text-text-muted">
                                     {t("table.empty")}
                                 </TableCell>
                             </TableRow>
@@ -53,7 +50,7 @@ const UserTable = () => {
                                 <UserRow
                                     key={user.id}
                                     user={user}
-                                    roleLabel={getRoleLabel(user.roleNames)}
+                                    roleLabels={getRoleLabels(user.roleNames)}
                                     viewLabel={t("actions.viewDetail")}
                                     lockLabel={t("actions.lock")}
                                     unlockLabel={t("actions.unlock")}
