@@ -1,14 +1,14 @@
 import React from "react";
 import { SidebarItem } from "@/layouts/sidebar/types/sidebar.type";
 import { useSidebarCollapse } from "@/layouts/sidebar/providers/sidebar.collapse.provider";
-import { Link, usePathname } from "@/intl/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { getSidebarItemEffectClassNameByItemPaths } from "@/layouts/sidebar/utils/sidebar.util";
 import { TooltipCustom } from "@/components/ui/mui-custom/tooltip.custom";
 import { Badge } from "@mui/material";
 import { useTranslations } from "next-intl";
 
 const SingleSidebarItem = ({ item }: { item: SidebarItem }) => {
-    const t = useTranslations("metadata.title");
+    const t = useTranslations("common.metadata.title");
 
     const { isCollapse } = useSidebarCollapse();
     const pathname = usePathname();

@@ -66,8 +66,8 @@
         },
         "roles": {
             "ADMIN": "Quản trị viên",
-            "STUDENT": "Học viên",
-            "TEACHER": "Giảng viên"
+            "LEARNER": "Học viên",
+            "CONTENT_MANAGER": "Quản lý nội dung"
         },
         "errors": {
             "loadList": "Không thể tải danh sách người dùng.",

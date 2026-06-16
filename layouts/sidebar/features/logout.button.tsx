@@ -20,7 +20,7 @@ const LogoutButton = () => {
             />
             <TooltipCustom
                 color={"--color-hbgc-error"}
-                title={isCollapse ? t("layout.sidebar.logout") : ""}
+                title={isCollapse ? t("common.layout.sidebar.logout") : ""}
                 placement="right"
                 arrow
             >
@@ -35,7 +35,7 @@ const LogoutButton = () => {
                     <p
                         className={`text-sm font-semibold whitespace-nowrap ${isCollapse && "hidden"} ml-4`}
                     >
-                        {t("layout.sidebar.logout")}
+                        {t("common.layout.sidebar.logout")}
                     </p>
                 </button>
             </TooltipCustom>
