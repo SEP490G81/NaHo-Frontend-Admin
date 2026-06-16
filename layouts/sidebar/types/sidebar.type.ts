@@ -1,5 +1,5 @@
 import React from "react";
-import { AllRoute, MetadataTitleKey, StaticRoute } from "@/intl/type";
+import { AllRoute, MetadataTitleKey, StaticRoute } from "@/i18n/type";
 import { Messages } from "next-intl";
 
 export type SidebarItem = {
@@ -18,7 +18,7 @@ export type SidebarItemGroup = {
 };
 
 type SidebarGroupTitleKey =
-    keyof Messages["layout"]["sidebar"]["sidebarGroup"]["title"];
+    keyof Messages["common"]["layout"]["sidebar"]["sidebarGroup"]["title"];
 
 export enum SidebarEffectClassName {
     ACTIVE = "bg-bgc-highlight shadow-md text-text-contrast",

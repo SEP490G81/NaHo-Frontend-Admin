@@ -1,5 +1,6 @@
 import React from "react";
 import { getTranslations } from "next-intl/server";
+import UserManagement from "@/modules/protected/user-management";
 
 export async function generateMetadata({
     params,
@@ -9,7 +10,7 @@ export async function generateMetadata({
     title: string;
 }> {
     const { locale } = await params;
-    const t = await getTranslations({ locale, namespace: "metadata.title" });
+    const t = await getTranslations({ locale, namespace: "common.metadata.title" });
 
     return {
         title: t("userManagement"),
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }
 
 const UserManagementPage = () => {
-    return <div>User Management</div>;
+    return <UserManagement />;
 };
 
 export default UserManagementPage;

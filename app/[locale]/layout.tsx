@@ -1,5 +1,6 @@
 import AppThemeProvider from "@/components/providers/app.theme.provider";
 import BProgressProvider from "@/components/providers/bprogress.provider";
+import QueryProvider from "@/components/providers/query.provider";
 import { fontNotoSansJP, fontQuicksand } from "@/styles/font";
 import { InitColorSchemeScript } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
@@ -8,7 +9,7 @@ import { notFound } from "next/navigation";
 import "../../styles/globals.css";
 import { ToastContainer } from "react-toastify";
 import React from "react";
-import { routing } from "@/intl/i18n/routing";
+import { routing } from "@/i18n/routing";
 
 type Props = {
     children: React.ReactNode;
@@ -40,7 +41,9 @@ export default async function LocaleLayout({
                                     attribute="class"
                                     defaultMode="light"
                                 />
-                                <main>{children}</main>
+                                <QueryProvider>
+                                    <main>{children}</main>
+                                </QueryProvider>
                                 <ToastContainer />
                             </AppThemeProvider>
                         </BProgressProvider>

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { SidebarCollapseProvider } from "@/layouts/sidebar/providers/sidebar.collapse.provider";
 import AppSidebar from "@/layouts/sidebar/components/app.sidebar";
 import AppHeader from "@/layouts/header/components/app.header";
