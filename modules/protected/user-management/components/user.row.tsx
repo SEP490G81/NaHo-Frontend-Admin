@@ -5,7 +5,6 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { UserResponse } from "@/types/responses/user.response";
 import UserAvatarChip from "./user.avatar.chip";
 import UserStatusBadge from "./user.status.badge";
-import { getUserFullName } from "../utils/user.format";
 
 interface UserRowProps {
     user: UserResponse;
@@ -27,14 +26,21 @@ const UserRow = ({
     onLock,
 }: UserRowProps) => {
     const isUnactive = user.status === "UNACTIVE";
-    const fullName = getUserFullName(user);
+    const hasFullName = !!user.fullName?.trim();
 
     return (
         <TableRow hover>
             <TableCell>
-                <div className="flex items-center gap-2">
-                    <UserAvatarChip fullName={fullName} />
-                    <span className="font-medium">{fullName}</span>
+                <div className="flex items-center gap-3">
+                    <UserAvatarChip fullName={user.fullName} size={40} />
+                    <div className="min-w-0 leading-tight">
+                        <p className="text-sm font-medium">
+                            {hasFullName ? user.fullName : user.username}
+                        </p>
+                        {hasFullName && (
+                            <p className="text-text-muted text-xs">@{user.username}</p>
+                        )}
+                    </div>
                 </div>
             </TableCell>
             <TableCell className="text-text-muted">{user.email}</TableCell>

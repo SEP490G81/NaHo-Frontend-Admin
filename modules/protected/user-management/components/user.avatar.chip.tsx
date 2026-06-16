@@ -1,11 +1,12 @@
 import { Avatar } from "@mui/material";
 
 interface UserAvatarChipProps {
-    fullName: string;
+    fullName: string | null;
     size?: number;
 }
 
-const getInitial = (fullName: string): string => {
+const getInitial = (fullName: string | null): string => {
+    if (!fullName) return "?";
     const parts = fullName.trim().split(" ");
     return (parts[parts.length - 1]?.charAt(0) ?? "?").toUpperCase();
 };

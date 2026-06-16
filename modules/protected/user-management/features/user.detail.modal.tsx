@@ -12,20 +12,18 @@ import {
 import UserAvatarChip from "../components/user.avatar.chip";
 import UserStatusBadge from "../components/user.status.badge";
 import { useUserManagement } from "../providers/user.management.provider";
-import { getUserFullName } from "../utils/user.format";
 
 const UserDetailModal = () => {
     const t = useTranslations("userManagement");
-    const tDetail = useTranslations("userManagement.detail");
     const { isDetailModalOpen, selectedUser, isDetailLoading, closeDetail } =
         useUserManagement();
     const user = selectedUser;
-    const fullName = user ? getUserFullName(user) : "";
+    const displayName = user?.fullName ?? user?.username ?? "";
 
     const translateRole = (code: string) => {
         if (code === "ADMIN") return t("roles.ADMIN");
-        if (code === "STUDENT") return t("roles.STUDENT");
-        if (code === "TEACHER") return t("roles.TEACHER");
+        if (code === "LEARNER") return t("roles.LEARNER");
+        if (code === "CONTENT_MANAGER") return t("roles.CONTENT_MANAGER");
         return code;
     };
     const roleLabel = user && user.roleNames.length > 0
@@ -42,18 +40,18 @@ const UserDetailModal = () => {
                 <>
                     <DialogTitle component="div">
                         <p className="text-lg font-semibold">
-                            {tDetail("title", { name: fullName })}
+                            {t("detail.title", { name: displayName })}
                         </p>
                         <p className="mt-0.5 text-sm font-normal text-text-muted">
-                            {tDetail("description")}
+                            {t("detail.description")}
                         </p>
                     </DialogTitle>
                     <DialogContent dividers>
                         <div className="space-y-5">
                             <div className="flex items-center gap-3 rounded-lg border border-bdc-primary p-3">
-                                <UserAvatarChip fullName={fullName} size={44} />
+                                <UserAvatarChip fullName={user.fullName} size={44} />
                                 <div className="min-w-0 flex-1">
-                                    <p className="font-semibold">{fullName}</p>
+                                    <p className="font-semibold">{displayName}</p>
                                     <p className="text-sm text-text-muted">{user.email}</p>
                                 </div>
                                 <div className="flex flex-wrap items-center gap-2">
@@ -63,19 +61,19 @@ const UserDetailModal = () => {
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-3">
-                                <InfoBox label={tDetail("fields.username")} value={user.username ?? "—"} />
+                                <InfoBox label={t("detail.fields.username")} value={user.username ?? "—"} />
                                 <InfoBox
-                                    label={tDetail("fields.gender")}
-                                    value={user.gender ? tDetail(`gender.${user.gender}`) : "—"}
+                                    label={t("detail.fields.gender")}
+                                    value={user.gender ? t(`detail.gender.${user.gender}`) : "—"}
                                 />
-                                <InfoBox label={tDetail("fields.dob")} value={user.dob ?? "—"} />
-                                <InfoBox label={tDetail("fields.jlptLevel")} value={user.jlptLevel ?? "—"} />
+                                <InfoBox label={t("detail.fields.dob")} value={user.dob ?? "—"} />
+                                <InfoBox label={t("detail.fields.jlptLevel")} value={user.jlptLevel ?? "—"} />
                             </div>
                         </div>
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" onClick={closeDetail} disableElevation>
-                            {tDetail("close")}
+                            {t("detail.close")}
                         </Button>
                     </DialogActions>
                 </>

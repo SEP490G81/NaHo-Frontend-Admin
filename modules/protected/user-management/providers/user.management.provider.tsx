@@ -1,5 +1,6 @@
 "use client";
-import React, {
+import {
+    ReactNode,
     createContext,
     useCallback,
     useContext,
@@ -10,12 +11,17 @@ import React, {
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import {
+    useMutation,
+    useQuery,
+    useQueryClient,
+} from "@tanstack/react-query";
+import {
     fetchRoles,
     fetchUserDetail,
     fetchUsers,
     updateUserStatus,
-} from "@/services/user.service";
-import { RoleResponse } from "@/types/responses/role.response";
+} from "@/services/client/user.service";
+import { queryKeys } from "@/libs/query.keys";
 import { UserResponse } from "@/types/responses/user.response";
 import { DEFAULT_FILTERS } from "../constants/user.constant";
 import { UserFilters, UserManagementContextType } from "../types/user.type";
@@ -34,40 +40,63 @@ const buildQueryParams = (
     return params;
 };
 
-const UserManagementProvider = ({ children }: { children: React.ReactNode }) => {
-    const t = useTranslations("userManagement.lockDialog");
-    const tError = useTranslations("userManagement.errors");
-    const [users, setUsers] = useState<UserResponse[]>([]);
-    const [totalCount, setTotalCount] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
+const UserManagementProvider = ({ children }: { children: ReactNode }) => {
+    const t = useTranslations("userManagement");
+    const queryClient = useQueryClient();
     const [filters, setFiltersState] = useState<UserFilters>(DEFAULT_FILTERS);
     const [debouncedSearch, setDebouncedSearch] = useState("");
-    const [roleOptions, setRoleOptions] = useState<RoleResponse[]>([]);
     const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
-    const [selectedUser, setSelectedUser] = useState<UserResponse | null>(null);
-    const [isDetailLoading, setIsDetailLoading] = useState(false);
+    const [detailUserId, setDetailUserId] = useState<number | null>(null);
     const [confirmUser, setConfirmUser] = useState<UserResponse | null>(null);
-
-    useEffect(() => {
-        fetchRoles().then((res) => setRoleOptions(res.data)).catch(() => {});
-    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => setDebouncedSearch(filters.userNameOrEmail), 400);
         return () => clearTimeout(timer);
     }, [filters.userNameOrEmail]);
 
+    const queryParams = buildQueryParams(filters, debouncedSearch);
+
+    const usersQuery = useQuery({
+        queryKey: queryKeys.userManagement.list(queryParams.toString()),
+        queryFn: () => fetchUsers(queryParams),
+    });
+
+    const rolesQuery = useQuery({
+        queryKey: queryKeys.userManagement.roles,
+        queryFn: fetchRoles,
+    });
+
+    const detailQuery = useQuery({
+        queryKey: queryKeys.userManagement.detail(detailUserId ?? 0),
+        queryFn: () => fetchUserDetail(detailUserId!),
+        enabled: detailUserId !== null,
+    });
+
+    const statusMutation = useMutation({
+        mutationFn: (vars: { userId: number; newStatus: "ACTIVE" | "UNACTIVE" }) =>
+            updateUserStatus(vars.userId, { newStatus: vars.newStatus }),
+        onSuccess: (_, vars) => {
+            queryClient.invalidateQueries({ queryKey: ["user-management", "list"] });
+            toast.success(
+                vars.newStatus === "ACTIVE"
+                    ? t("lockDialog.unlockSuccess")
+                    : t("lockDialog.lockSuccess"),
+            );
+        },
+        onError: () => toast.error(t("lockDialog.error")),
+    });
+
     useEffect(() => {
-        setIsLoading(true);
-        const params = buildQueryParams(filters, debouncedSearch);
-        fetchUsers(params)
-            .then((result) => {
-                setUsers(result.data);
-                setTotalCount(result.meta.pageMeta?.totalElements ?? result.data.length);
-            })
-            .catch(() => toast.error(tError("loadList")))
-            .finally(() => setIsLoading(false));
-    }, [debouncedSearch, filters.role, filters.jlptLevel, filters.status, tError]);
+        if (usersQuery.isError) toast.error(t("errors.loadList"));
+    }, [usersQuery.isError, t]);
+
+    useEffect(() => {
+        if (detailQuery.isError) {
+            toast.error(t("errors.loadDetail"));
+            setIsDetailModalOpen(false);
+            setDetailUserId(null);
+        }
+    }, [detailQuery.isError, t]);
 
     const setFilters = useCallback(
         (partial: Partial<UserFilters>) =>
@@ -76,27 +105,13 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
     );
     const resetFilters = useCallback(() => setFiltersState(DEFAULT_FILTERS), []);
 
-    const openDetail = useCallback(
-        async (user: UserResponse) => {
-            setIsDetailModalOpen(true);
-            setIsDetailLoading(true);
-            setSelectedUser(null);
-            try {
-                const result = await fetchUserDetail(user.id);
-                setSelectedUser(result.data);
-            } catch {
-                toast.error(tError("loadDetail"));
-                setIsDetailModalOpen(false);
-            } finally {
-                setIsDetailLoading(false);
-            }
-        },
-        [tError],
-    );
-
+    const openDetail = useCallback((user: UserResponse) => {
+        setIsDetailModalOpen(true);
+        setDetailUserId(user.id);
+    }, []);
     const closeDetail = useCallback(() => {
         setIsDetailModalOpen(false);
-        setSelectedUser(null);
+        setDetailUserId(null);
     }, []);
 
     const openLockDialog = useCallback(
@@ -105,35 +120,26 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
     );
     const closeLockDialog = useCallback(() => setConfirmUser(null), []);
 
-    const toggleLock = useCallback(async () => {
+    const toggleLock = useCallback(() => {
         if (!confirmUser) return;
-        const wasUnactive = confirmUser.status === "UNACTIVE";
-        const newStatus = wasUnactive ? "ACTIVE" : "UNACTIVE";
-        try {
-            await updateUserStatus(confirmUser.id, { newStatus });
-            setUsers((prev) =>
-                prev.map((u) =>
-                    u.id === confirmUser.id ? { ...u, status: newStatus } : u,
-                ),
-            );
-            toast.success(wasUnactive ? t("unlockSuccess") : t("lockSuccess"));
-        } catch {
-            toast.error(t("error"));
-        } finally {
-            setConfirmUser(null);
-        }
-    }, [confirmUser, t]);
+        const newStatus = confirmUser.status === "UNACTIVE" ? "ACTIVE" : "UNACTIVE";
+        statusMutation.mutate(
+            { userId: confirmUser.id, newStatus },
+            { onSettled: () => setConfirmUser(null) },
+        );
+    }, [confirmUser, statusMutation]);
 
+    const users = usersQuery.data ?? [];
     const value = useMemo<UserManagementContextType>(
         () => ({
             users,
-            totalCount,
+            totalCount: users.length,
             filters,
-            isLoading,
-            roleOptions,
+            isLoading: usersQuery.isLoading,
+            roleOptions: rolesQuery.data ?? [],
             isDetailModalOpen,
-            selectedUser,
-            isDetailLoading,
+            selectedUser: detailQuery.data ?? null,
+            isDetailLoading: detailQuery.isLoading && detailUserId !== null,
             confirmUser,
             setFilters,
             resetFilters,
@@ -145,13 +151,13 @@ const UserManagementProvider = ({ children }: { children: React.ReactNode }) => 
         }),
         [
             users,
-            totalCount,
             filters,
-            isLoading,
-            roleOptions,
+            usersQuery.isLoading,
+            rolesQuery.data,
             isDetailModalOpen,
-            selectedUser,
-            isDetailLoading,
+            detailQuery.data,
+            detailQuery.isLoading,
+            detailUserId,
             confirmUser,
             setFilters,
             resetFilters,

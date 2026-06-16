@@ -2,14 +2,13 @@
 import { useTranslations } from "next-intl";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import { useUserManagement } from "../providers/user.management.provider";
-import { getUserFullName } from "../utils/user.format";
 
 const UserLockDialog = () => {
     const t = useTranslations("userManagement.lockDialog");
     const { confirmUser, closeLockDialog, toggleLock } = useUserManagement();
     const user = confirmUser;
     const isUnlock = user?.status === "UNACTIVE";
-    const fullName = user ? getUserFullName(user) : "";
+    const displayName = user?.fullName ?? user?.username ?? "";
 
     return (
         <Dialog open={!!user} onClose={closeLockDialog} maxWidth="xs" fullWidth>
@@ -19,8 +18,8 @@ const UserLockDialog = () => {
                     <DialogContent>
                         <p className="text-sm text-text-muted">
                             {isUnlock
-                                ? t("unlockMessage", { name: fullName })
-                                : t("lockMessage", { name: fullName })}
+                                ? t("unlockMessage", { name: displayName })
+                                : t("lockMessage", { name: displayName })}
                         </p>
                     </DialogContent>
                     <DialogActions>

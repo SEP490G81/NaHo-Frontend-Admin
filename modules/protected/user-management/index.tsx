@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslations } from "next-intl";
 import { UserManagementProvider } from "./providers/user.management.provider";
 import UserDetailModal from "./features/user.detail.modal";

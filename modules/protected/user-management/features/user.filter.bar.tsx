@@ -14,8 +14,8 @@ const UserFilterBar = () => {
     const visibleRoles = roleOptions.filter((r) => r.id !== "ADMIN");
     const translateRole = (code: string) => {
         if (code === "ADMIN") return t("roles.ADMIN");
-        if (code === "STUDENT") return t("roles.STUDENT");
-        if (code === "TEACHER") return t("roles.TEACHER");
+        if (code === "LEARNER") return t("roles.LEARNER");
+        if (code === "CONTENT_MANAGER") return t("roles.CONTENT_MANAGER");
         return code;
     };
     const roleLabel = filters.role === "all"
