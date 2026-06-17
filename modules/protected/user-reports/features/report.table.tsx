@@ -92,6 +92,7 @@ const ReportTable = () => {
             <table className="w-full min-w-[920px] border-collapse text-sm">
                 <thead>
                     <tr className="text-text-muted border-b text-left">
+                        <th className="w-12" />
                         <th className="px-3 py-3 font-medium">
                             {t("colSender")}
                         </th>
@@ -117,12 +118,10 @@ const ReportTable = () => {
                             onClick={() => openDetail(report)}
                             className="hover:bg-hbgc-app cursor-pointer border-b transition-colors"
                         >
-                            <td className="px-3 py-3">
-                                <ReportSenderCell
-                                    name={report.senderName}
-                                    email={report.senderEmail}
-                                />
-                            </td>
+                            <ReportSenderCell
+                                name={report.senderName}
+                                email={report.senderEmail}
+                            />
                             <td className="px-3 py-3">
                                 <ReportTypeBadge type={report.type} />
                             </td>

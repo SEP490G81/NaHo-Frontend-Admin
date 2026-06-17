@@ -4,23 +4,17 @@ import { useTranslations } from "next-intl";
 import { InputAdornment, MenuItem, Select } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { TextFieldCustom } from "@/components/ui/mui-custom/text.field.custom";
-import { ReportStatus, ReportType } from "@/types/enums/report.enum";
-import {
-    REPORT_STATUSES,
-    REPORT_TYPES,
-    STATUS_KEY,
-    TYPE_KEY,
-} from "../constants/user.reports.constant";
+import { ReportType } from "@/types/enums/report.enum";
+import { REPORT_TYPES, TYPE_KEY } from "../constants/user.reports.constant";
 import { useUserReports } from "../providers/user.reports.provider";
 
 const ReportFilterBar = () => {
     const t = useTranslations("userReports");
     const tType = useTranslations("userReports.type");
-    const tStatus = useTranslations("userReports.status");
     const { filters, setFilters } = useUserReports();
 
     return (
-        <div className="flex flex-col gap-3 lg:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row">
             <TextFieldCustom
                 fullWidth
                 size="small"
@@ -58,25 +52,6 @@ const ReportFilterBar = () => {
                 {REPORT_TYPES.map((type) => (
                     <MenuItem key={type} value={type}>
                         {tType(TYPE_KEY[type])}
-                    </MenuItem>
-                ))}
-            </Select>
-
-            <Select
-                size="small"
-                value={filters.status}
-                onChange={(e) =>
-                    setFilters({
-                        ...filters,
-                        status: e.target.value as ReportStatus | "ALL",
-                    })
-                }
-                className="min-w-56"
-            >
-                <MenuItem value="ALL">{t("filter.allStatuses")}</MenuItem>
-                {REPORT_STATUSES.map((status) => (
-                    <MenuItem key={status} value={status}>
-                        {tStatus(STATUS_KEY[status])}
                     </MenuItem>
                 ))}
             </Select>
