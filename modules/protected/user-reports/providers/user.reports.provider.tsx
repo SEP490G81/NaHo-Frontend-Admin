@@ -9,10 +9,12 @@ import React, {
 } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
     fetchReports,
     updateReportStatus,
 } from "@/services/client/report.service";
+import { queryKeys } from "@/libs/query.keys";
 import { ReportStatus } from "@/types/enums/report.enum";
 import { ReportResponse } from "@/types/responses/report.response";
 import {
@@ -28,21 +30,25 @@ const UserReportsContext = createContext<UserReportsContextType | null>(null);
 
 const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
     const t = useTranslations("userReports");
-    const [allReports, setAllReports] = useState<ReportResponse[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const queryClient = useQueryClient();
     const [filters, setFilters] = useState<ReportFilters>(DEFAULT_FILTERS);
-    const [selectedReport, setSelectedReport] = useState<ReportResponse | null>(
+    const [selectedReportId, setSelectedReportId] = useState<string | null>(
         null,
     );
-    const [isUpdating, setIsUpdating] = useState(false);
+
+    const reportsQuery = useQuery({
+        queryKey: queryKeys.userReports.list,
+        queryFn: fetchReports,
+    });
 
     useEffect(() => {
-        setIsLoading(true);
-        fetchReports()
-            .then((result) => setAllReports(result.data))
-            .catch(() => toast.error(t("table.loadError")))
-            .finally(() => setIsLoading(false));
-    }, [t]);
+        if (reportsQuery.isError) toast.error(t("table.loadError"));
+    }, [reportsQuery.isError, t]);
+
+    const data = useMemo<ReportResponse[]>(
+        () => reportsQuery.data ?? [],
+        [reportsQuery.data],
+    );
 
     const statusCounts = useMemo<Record<ReportStatus, number>>(() => {
         const counts: Record<ReportStatus, number> = {
@@ -50,13 +56,13 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
             IN_PROGRESS: 0,
             RESOLVED: 0,
         };
-        for (const report of allReports) counts[report.status] += 1;
+        for (const report of data) counts[report.status] += 1;
         return counts;
-    }, [allReports]);
+    }, [data]);
 
     const reports = useMemo(() => {
         const query = filters.search.trim().toLowerCase();
-        return allReports
+        return data
             .filter((report) => {
                 if (filters.type !== "ALL" && report.type !== filters.type)
                     return false;
@@ -78,7 +84,12 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
                 if (order !== 0) return order;
                 return b.reportedAt.localeCompare(a.reportedAt);
             });
-    }, [allReports, filters]);
+    }, [data, filters]);
+
+    const selectedReport = useMemo(
+        () => data.find((report) => report.id === selectedReportId) ?? null,
+        [data, selectedReportId],
+    );
 
     const toggleStatusFilter = useCallback((status: ReportStatus) => {
         setFilters((prev) => ({
@@ -88,87 +99,82 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     const openDetail = useCallback(
-        (report: ReportResponse) => setSelectedReport(report),
+        (report: ReportResponse) => setSelectedReportId(report.id),
         [],
     );
-    const closeDetail = useCallback(() => setSelectedReport(null), []);
+    const closeDetail = useCallback(() => setSelectedReportId(null), []);
 
-    const applyStatus = useCallback(
-        async (
-            id: string,
-            status: ReportStatus,
-            successMessage: string,
-        ): Promise<boolean> => {
-            setIsUpdating(true);
-            try {
-                const result = await updateReportStatus({ id, status });
-                setAllReports((prev) =>
-                    prev.map((report) =>
-                        report.id === id ? result.data : report,
-                    ),
-                );
-                setSelectedReport((prev) =>
-                    prev && prev.id === id ? result.data : prev,
-                );
-                toast.success(successMessage);
-                return true;
-            } catch (error) {
-                toast.error(
-                    error instanceof Error
-                        ? error.message
-                        : t("detail.updateError"),
-                );
-                return false;
-            } finally {
-                setIsUpdating(false);
-            }
+    const statusMutation = useMutation({
+        mutationFn: (vars: {
+            id: string;
+            status: ReportStatus;
+            successMessage: string;
+        }) => updateReportStatus(vars.id, vars.status),
+        onSuccess: (_, vars) => {
+            queryClient.invalidateQueries({
+                queryKey: queryKeys.userReports.list,
+            });
+            toast.success(vars.successMessage);
         },
-        [t],
-    );
+        onError: () => toast.error(t("detail.updateError")),
+    });
 
     const startProcessing = useCallback(
         (id: string) =>
-            applyStatus(id, "IN_PROGRESS", t("detail.startSuccess")),
-        [applyStatus, t],
+            statusMutation.mutate({
+                id,
+                status: "IN_PROGRESS",
+                successMessage: t("detail.startSuccess"),
+            }),
+        [statusMutation, t],
     );
     const resolveReport = useCallback(
-        (id: string) => applyStatus(id, "RESOLVED", t("detail.resolveSuccess")),
-        [applyStatus, t],
+        (id: string) =>
+            statusMutation.mutate({
+                id,
+                status: "RESOLVED",
+                successMessage: t("detail.resolveSuccess"),
+            }),
+        [statusMutation, t],
     );
     const reopenReport = useCallback(
         (id: string) =>
-            applyStatus(id, "IN_PROGRESS", t("detail.reopenSuccess")),
-        [applyStatus, t],
+            statusMutation.mutate({
+                id,
+                status: "IN_PROGRESS",
+                successMessage: t("detail.reopenSuccess"),
+            }),
+        [statusMutation, t],
     );
 
     const value = useMemo<UserReportsContextType>(
         () => ({
             reports,
-            totalCount: allReports.length,
+            totalCount: data.length,
             statusCounts,
-            isLoading,
+            isLoading: reportsQuery.isLoading,
             filters,
             setFilters,
             toggleStatusFilter,
             selectedReport,
             openDetail,
             closeDetail,
-            isUpdating,
+            isUpdating: statusMutation.isPending,
             startProcessing,
             resolveReport,
             reopenReport,
         }),
         [
             reports,
-            allReports.length,
+            data.length,
             statusCounts,
-            isLoading,
+            reportsQuery.isLoading,
             filters,
             toggleStatusFilter,
             selectedReport,
             openDetail,
             closeDetail,
-            isUpdating,
+            statusMutation.isPending,
             startProcessing,
             resolveReport,
             reopenReport,

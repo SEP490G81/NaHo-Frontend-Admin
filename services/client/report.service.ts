@@ -1,31 +1,21 @@
-import { ApiResponse } from "@/types/responses/base.response";
+import { ReportStatus } from "@/types/enums/report.enum";
 import { ReportResponse } from "@/types/responses/report.response";
-import { UpdateReportStatusRequest } from "@/types/requests/report.request";
 import {
     storeListReports,
     storeUpdateReportStatus,
 } from "@/services/client/report.mock.store";
 
-// MOCK: dữ liệu lưu ở localStorage. TODO: thay phần ruột bằng fetch API khi BE sẵn sàng.
-const buildMeta = (totalElements: number) => ({
-    traceId: "mock-local",
-    timestamp: new Date().toISOString(),
-    pageMeta: { currentPage: 1, pageSize: 20, totalPages: 1, totalElements },
-});
+// MOCK: dữ liệu lưu ở localStorage (report.mock.store).
+// TODO: khi BE sẵn sàng, thay phần ruột bằng fetch("/api/reports") qua proxy route,
+// trả về result.data và throw ProblemDetail.detail khi !ok — giống user.service.ts.
 
-const ok = <T>(data: T, total = 0): ApiResponse<T> => ({
-    meta: buildMeta(total),
-    message: "OK (mock-local)",
-    data,
-});
-
-export async function fetchReports(): Promise<ApiResponse<ReportResponse[]>> {
-    const data = storeListReports();
-    return ok(data, data.length);
+export async function fetchReports(): Promise<ReportResponse[]> {
+    return storeListReports();
 }
 
 export async function updateReportStatus(
-    request: UpdateReportStatusRequest,
-): Promise<ApiResponse<ReportResponse>> {
-    return ok(storeUpdateReportStatus(request));
+    id: string,
+    status: ReportStatus,
+): Promise<ReportResponse> {
+    return storeUpdateReportStatus({ id, status });
 }

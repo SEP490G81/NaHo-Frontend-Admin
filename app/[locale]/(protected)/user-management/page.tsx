@@ -1,5 +1,6 @@
 import React from "react";
 import { getTranslations } from "next-intl/server";
+import UserManagement from "@/modules/protected/user-management";
 
 export async function generateMetadata({
     params,
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }
 
 const UserManagementPage = () => {
-    return <div>User Management</div>;
+    return <UserManagement />;
 };
 
 export default UserManagementPage;

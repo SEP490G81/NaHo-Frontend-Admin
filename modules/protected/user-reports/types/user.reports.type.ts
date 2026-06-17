@@ -27,9 +27,9 @@ export interface UserReportsContextType {
     closeDetail: () => void;
     isUpdating: boolean;
     /** PENDING → IN_PROGRESS */
-    startProcessing: (id: string) => Promise<boolean>;
+    startProcessing: (id: string) => void;
     /** → RESOLVED */
-    resolveReport: (id: string) => Promise<boolean>;
+    resolveReport: (id: string) => void;
     /** RESOLVED → IN_PROGRESS */
-    reopenReport: (id: string) => Promise<boolean>;
+    reopenReport: (id: string) => void;
 }
