@@ -30,16 +30,24 @@
             "startProcessing": "Bắt đầu xử lý",
             "markResolved": "Đánh dấu đã giải quyết",
             "completed": "Đã hoàn tất",
+            "stale": "Tồn đọng",
             "empty": "Không có báo cáo nào phù hợp.",
             "loadError": "Không thể tải danh sách báo cáo"
         },
         "detail": {
             "reportCode": "Mã báo cáo",
             "userDescription": "Mô tả từ người dùng",
-            "deviceInfo": "Thông tin trình duyệt & thiết bị",
+            "screenshot": "Ảnh chụp màn hình",
+            "stale": "Tồn đọng",
+            "priorityInfo": "Tín hiệu ưu tiên",
+            "sameTypeCount": "{count} báo cáo cùng loại lỗi",
+            "sameSenderCount": "{count} báo cáo từ người gửi này",
+            "contextInfo": "Ngữ cảnh tái hiện lỗi",
+            "ctxFeature": "Màn hình",
+            "ctxRoute": "Route",
+            "ctxAppVersion": "Phiên bản app",
             "deviceCaptured": "Tự động thu thập khi học viên gửi báo cáo.",
             "deviceBrowser": "Trình duyệt",
-            "deviceVersion": "Phiên bản",
             "deviceOs": "Hệ điều hành",
             "deviceScreen": "Kích thước màn hình",
             "deviceLanguage": "Ngôn ngữ",
@@ -50,6 +58,8 @@
             "startSuccess": "Đã chuyển báo cáo sang trạng thái Đang xử lý",
             "resolveSuccess": "Đã đánh dấu báo cáo là đã giải quyết",
             "reopenSuccess": "Đã mở lại báo cáo để xử lý tiếp",
+            "notifySender": "Thông báo cho người gửi khi giải quyết",
+            "notifySuccess": "Đã gửi thông báo tới người gửi",
             "updateError": "Không thể cập nhật trạng thái. Vui lòng thử lại."
         }
     }

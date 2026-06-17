@@ -23,13 +23,15 @@ export interface UserReportsContextType {
     /** Toggle the status filter from a stat card (same value clears it) */
     toggleStatusFilter: (status: ReportStatus) => void;
     selectedReport: ReportResponse | null;
+    /** Priority signal for the open report: how many reports share its type / sender */
+    selectedRelated: { sameType: number; sameSender: number } | null;
     openDetail: (report: ReportResponse) => void;
     closeDetail: () => void;
     isUpdating: boolean;
     /** PENDING → IN_PROGRESS */
     startProcessing: (id: string) => void;
-    /** → RESOLVED */
-    resolveReport: (id: string) => void;
+    /** → RESOLVED; optionally notify the reporter (close-the-loop) */
+    resolveReport: (id: string, notifySender?: boolean) => void;
     /** RESOLVED → IN_PROGRESS */
     reopenReport: (id: string) => void;
 }

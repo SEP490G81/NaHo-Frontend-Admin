@@ -15,6 +15,19 @@ export interface ReportDeviceInfo {
     language: string;
 }
 
+/**
+ * App-side context auto-captured when the report was filed — where in the app
+ * the error happened. Lets an admin route/reproduce the bug.
+ */
+export interface ReportContext {
+    /** Feature/screen the user was on, e.g. "Sandbox luyện nói" */
+    feature: string;
+    /** App route/path at the time, e.g. "/sandbox/speaking" */
+    route: string;
+    /** App build/version, e.g. "1.8.2 (build 2406)" */
+    appVersion: string;
+}
+
 export interface ReportResponse {
     /** Human-facing report code, e.g. "BR-1001" */
     id: string;
@@ -26,5 +39,9 @@ export interface ReportResponse {
     status: ReportStatus;
     /** ISO timestamp the report was filed at */
     reportedAt: string;
+    /** Optional screenshot the learner attached when filing the report */
+    screenshotUrl?: string;
+    /** Where in the app the error occurred (auto-captured) */
+    context: ReportContext;
     device: ReportDeviceInfo;
 }

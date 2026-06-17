@@ -91,6 +91,16 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
         [data, selectedReportId],
     );
 
+    const selectedRelated = useMemo(() => {
+        if (!selectedReport) return null;
+        return {
+            sameType: data.filter((r) => r.type === selectedReport.type).length,
+            sameSender: data.filter(
+                (r) => r.senderEmail === selectedReport.senderEmail,
+            ).length,
+        };
+    }, [data, selectedReport]);
+
     const toggleStatusFilter = useCallback((status: ReportStatus) => {
         setFilters((prev) => ({
             ...prev,
@@ -109,12 +119,15 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
             id: string;
             status: ReportStatus;
             successMessage: string;
+            notify?: boolean;
         }) => updateReportStatus(vars.id, vars.status),
         onSuccess: (_, vars) => {
             queryClient.invalidateQueries({
                 queryKey: queryKeys.userReports.list,
             });
             toast.success(vars.successMessage);
+            // MOCK close-the-loop: real impl would trigger the notify/email service.
+            if (vars.notify) toast.info(t("detail.notifySuccess"));
         },
         onError: () => toast.error(t("detail.updateError")),
     });
@@ -129,11 +142,12 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
         [statusMutation, t],
     );
     const resolveReport = useCallback(
-        (id: string) =>
+        (id: string, notifySender?: boolean) =>
             statusMutation.mutate({
                 id,
                 status: "RESOLVED",
                 successMessage: t("detail.resolveSuccess"),
+                notify: notifySender,
             }),
         [statusMutation, t],
     );
@@ -157,6 +171,7 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
             setFilters,
             toggleStatusFilter,
             selectedReport,
+            selectedRelated,
             openDetail,
             closeDetail,
             isUpdating: statusMutation.isPending,
@@ -172,6 +187,7 @@ const UserReportsProvider = ({ children }: { children: React.ReactNode }) => {
             filters,
             toggleStatusFilter,
             selectedReport,
+            selectedRelated,
             openDetail,
             closeDetail,
             statusMutation.isPending,

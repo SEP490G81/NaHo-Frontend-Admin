@@ -6,7 +6,9 @@ import { UpdateReportStatusRequest } from "@/types/requests/report.request";
  * Client-side mock persistence backed by localStorage.
  * TODO: replace these helpers with real API calls when BE is ready.
  */
-const REPORT_KEY = "naho_mock_reports";
+// Bump the version suffix whenever the mock shape changes so stale
+// localStorage data (e.g. records missing newer fields) gets re-seeded.
+const REPORT_KEY = "naho_mock_reports_v3";
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 
 const readReports = (): ReportResponse[] => {

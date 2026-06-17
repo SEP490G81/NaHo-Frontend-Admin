@@ -32,6 +32,10 @@ const firefoxMac: ReportResponse["device"] = {
     language: "vi-VN",
 };
 
+const BUILD_CURRENT = "1.8.2 (build 2406)";
+const BUILD_PREV = "1.8.1 (build 2390)";
+const BUILD_OLD = "1.8.0 (build 2375)";
+
 export const MOCK_REPORTS: ReportResponse[] = [
     {
         id: "BR-1001",
@@ -42,6 +46,13 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Khi nhấn nút ghi âm trong Sandbox, micro không nhận tiếng dù đã cấp quyền trình duyệt.",
         status: "PENDING",
         reportedAt: "2026-06-10T04:12:00+07:00",
+        screenshotUrl:
+            "https://placehold.co/800x500/1f2937/e5e7eb/png?text=BR-1001+Mic+permission",
+        context: {
+            feature: "Sandbox luyện nói",
+            route: "/sandbox/speaking",
+            appVersion: BUILD_CURRENT,
+        },
         device: chromeWin,
     },
     {
@@ -53,6 +64,11 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "AI dịch câu chào khách hàng sang dạng suồng sã, mong hệ thống ưu tiên Keigo khi bật chế độ công sở.",
         status: "IN_PROGRESS",
         reportedAt: "2026-06-09T21:00:00+07:00",
+        context: {
+            feature: "Hội thoại Keigo – Công sở",
+            route: "/practice/keigo",
+            appVersion: BUILD_CURRENT,
+        },
         device: firefoxMac,
     },
     {
@@ -64,6 +80,11 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Vào giờ cao điểm 20h-22h, AI chatroom thường xuyên báo lỗi 'Không thể kết nối máy chủ AI'.",
         status: "PENDING",
         reportedAt: "2026-06-09T06:36:00+07:00",
+        context: {
+            feature: "Live Chatroom",
+            route: "/chatroom/live",
+            appVersion: BUILD_PREV,
+        },
         device: chromeWin,
     },
     {
@@ -75,6 +96,13 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Phát âm 'ありがとうございます' bị nhận nhầm thành 'ありがとう ございました' liên tục.",
         status: "RESOLVED",
         reportedAt: "2026-06-08T18:36:00+07:00",
+        screenshotUrl:
+            "https://placehold.co/800x500/1f2937/e5e7eb/png?text=BR-1004+STT+mismatch",
+        context: {
+            feature: "Luyện phát âm",
+            route: "/practice/pronunciation",
+            appVersion: BUILD_CURRENT,
+        },
         device: safariIphone,
     },
     {
@@ -86,6 +114,13 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Biểu đồ radar kỹ năng trong Dashboard hiển thị NaN khi vừa làm bài đầu tiên xong.",
         status: "IN_PROGRESS",
         reportedAt: "2026-06-08T09:00:00+07:00",
+        screenshotUrl:
+            "https://placehold.co/800x500/1f2937/e5e7eb/png?text=BR-1005+Radar+NaN",
+        context: {
+            feature: "Dashboard – Biểu đồ kỹ năng",
+            route: "/dashboard",
+            appVersion: BUILD_CURRENT,
+        },
         device: edgeWin,
     },
     {
@@ -97,6 +132,11 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Trong tình huống phỏng vấn, gợi ý của AI dùng です/ます nhưng thiếu kính ngữ ～させていただきます.",
         status: "PENDING",
         reportedAt: "2026-06-07T23:24:00+07:00",
+        context: {
+            feature: "Hội thoại phỏng vấn",
+            route: "/practice/interview",
+            appVersion: BUILD_OLD,
+        },
         device: chromeWin,
     },
     {
@@ -108,6 +148,11 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Khi gửi prompt dài hơn 800 ký tự, hệ thống treo 15 giây rồi báo timeout.",
         status: "RESOLVED",
         reportedAt: "2026-06-07T06:36:00+07:00",
+        context: {
+            feature: "Chat với AI",
+            route: "/chat",
+            appVersion: BUILD_PREV,
+        },
         device: firefoxMac,
     },
     {
@@ -119,6 +164,11 @@ export const MOCK_REPORTS: ReportResponse[] = [
             "Trên iPhone Safari, nút ghi âm không phản hồi ngay lần đầu nhấn, phải nhấn 2-3 lần mới nhận.",
         status: "PENDING",
         reportedAt: "2026-06-06T18:36:00+07:00",
+        context: {
+            feature: "Sandbox luyện nói",
+            route: "/sandbox/speaking",
+            appVersion: BUILD_CURRENT,
+        },
         device: safariIphone,
     },
 ];
