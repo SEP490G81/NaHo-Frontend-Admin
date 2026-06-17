@@ -10,7 +10,12 @@ import { useUserReports } from "../providers/user.reports.provider";
 import ReportSenderCell from "../components/report.sender.cell";
 import ReportTypeBadge from "../components/report.type.badge";
 import ReportStatusBadge from "../components/report.status.badge";
-import { formatReportedAt } from "../utils/report.format";
+import {
+    formatRelativeTime,
+    formatReportedAt,
+    getAgeDays,
+} from "../utils/report.format";
+import { STALE_THRESHOLD_DAYS } from "../constants/user.reports.constant";
 
 const highlightButtonSx = {
     textTransform: "none",
@@ -133,8 +138,26 @@ const ReportTable = () => {
                                     {t("reportCode", { code: report.id })}
                                 </p>
                             </td>
-                            <td className="text-text-muted px-3 py-3 whitespace-nowrap">
-                                {formatReportedAt(report.reportedAt)}
+                            <td className="px-3 py-3 whitespace-nowrap">
+                                <p className="text-text-muted">
+                                    {formatReportedAt(report.reportedAt)}
+                                </p>
+                                {(() => {
+                                    const stale =
+                                        report.status !== "RESOLVED" &&
+                                        getAgeDays(report.reportedAt) >=
+                                            STALE_THRESHOLD_DAYS;
+                                    return (
+                                        <p
+                                            className={`mt-0.5 text-xs ${stale ? "font-medium text-amber-600" : "text-text-muted"}`}
+                                        >
+                                            {formatRelativeTime(
+                                                report.reportedAt,
+                                            )}
+                                            {stale && ` · ${t("stale")}`}
+                                        </p>
+                                    );
+                                })()}
                             </td>
                             <td className="px-3 py-3">
                                 <ReportStatusBadge status={report.status} />

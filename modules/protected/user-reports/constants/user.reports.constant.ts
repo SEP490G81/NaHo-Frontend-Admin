@@ -56,6 +56,9 @@ export const STATUS_KEY: Record<
     RESOLVED: "resolved",
 };
 
+/** Unresolved reports older than this many days are flagged as overdue/stale */
+export const STALE_THRESHOLD_DAYS = 3;
+
 /** Sort weight per status so unresolved reports surface first */
 export const STATUS_ORDER: Record<ReportStatus, number> = {
     PENDING: 0,

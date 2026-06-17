@@ -8,6 +8,25 @@ export const formatReportedAt = (iso: string): string => {
     return `${time} ${day}`;
 };
 
+/** Whole days elapsed since an ISO timestamp (0 if invalid). */
+export const getAgeDays = (iso: string): number => {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return 0;
+    return Math.floor((Date.now() - date.getTime()) / 86_400_000);
+};
+
+/** Vietnamese relative time from an ISO timestamp, e.g. "3 ngày trước". */
+export const formatRelativeTime = (iso: string): string => {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return iso;
+    const minutes = Math.floor((Date.now() - date.getTime()) / 60_000);
+    if (minutes < 1) return "vừa xong";
+    if (minutes < 60) return `${minutes} phút trước`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours} giờ trước`;
+    return `${Math.floor(hours / 24)} ngày trước`;
+};
+
 /** First + last word initials of a name, e.g. "Nguyễn Minh Tuấn" → "NT". */
 export const getInitials = (name: string): string => {
     const words = name.trim().split(/\s+/).filter(Boolean);
