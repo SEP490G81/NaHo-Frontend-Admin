@@ -6,6 +6,5 @@ export const queryKeys = {
     },
     aiPersonas: {
         list: ["ai-personas", "list"] as const,
-        topics: ["ai-personas", "topics"] as const,
     },
 };

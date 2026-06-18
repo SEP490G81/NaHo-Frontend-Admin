@@ -16,17 +16,15 @@ const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 const normalize = (raw: Partial<PersonaResponse>): PersonaResponse => ({
     id: raw.id ?? `p-${Date.now()}`,
     name: raw.name ?? "",
-    role: raw.role ?? "",
+    roleStyle: raw.roleStyle ?? "",
     description: raw.description ?? "",
-    jlptLevel: raw.jlptLevel ?? "N3",
-    politenessStyle: raw.politenessStyle ?? "CASUAL",
+    suggestedLevel: raw.suggestedLevel ?? "ALL",
+    defaultRegister: raw.defaultRegister ?? "CASUAL",
     voice: raw.voice ?? "NANAMI",
-    speakingRate: raw.speakingRate ?? "NORMAL",
     greeting: raw.greeting ?? "",
-    personaPrompt: raw.personaPrompt ?? "",
-    topicIds: raw.topicIds ?? [],
+    systemPrompt: raw.systemPrompt ?? "",
     status: raw.status ?? "ACTIVE",
-    avatarPreset: raw.avatarPreset ?? "",
+    avatarUrl: raw.avatarUrl ?? "",
 });
 
 const readPersonas = (): PersonaResponse[] => {

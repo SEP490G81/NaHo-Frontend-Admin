@@ -1,24 +1,21 @@
-import { JlptLevel } from "@/types/enums/user.enum";
 import {
     AzureVoice,
+    ConversationRegister,
     PersonaStatus,
-    PolitenessStyle,
-    SpeakingRate,
+    SuggestedLevel,
 } from "@/types/enums/persona.enum";
 
 export interface CreatePersonaRequest {
     name: string;
-    role: string;
+    roleStyle: string;
     description: string;
-    jlptLevel: JlptLevel;
-    politenessStyle: PolitenessStyle;
+    suggestedLevel: SuggestedLevel;
+    defaultRegister: ConversationRegister;
     voice: AzureVoice;
-    speakingRate: SpeakingRate;
     greeting: string;
-    personaPrompt: string;
-    topicIds: string[];
+    systemPrompt: string;
     status: PersonaStatus;
-    avatarPreset: string;
+    avatarUrl: string;
 }
 
 export interface UpdatePersonaRequest extends CreatePersonaRequest {

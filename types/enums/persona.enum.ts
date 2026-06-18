@@ -1,15 +1,20 @@
-/** Phong cách lịch sự (politeness register) the AI persona speaks with. */
-const PolitenessStyle = Object.freeze({
-    CASUAL: "CASUAL",
-    BUSINESS: "BUSINESS",
-    KEIGO: "KEIGO",
-});
-export type PolitenessStyle =
-    (typeof PolitenessStyle)[keyof typeof PolitenessStyle];
+import { JlptLevel } from "@/types/enums/user.enum";
 
 /**
- * Azure TTS neural voice used to read the persona's lines.
- * Values map to real Azure `ja-JP-*Neural` voice ids when wiring the real API.
+ * Chế độ hội thoại mặc định của persona — khớp 3 chế độ học viên chọn ở
+ * màn "Thiết lập Hội thoại AI" (dialogue_sessions.register_setting).
+ */
+const ConversationRegister = Object.freeze({
+    CASUAL: "CASUAL", // Thân mật
+    OFFICE: "OFFICE", // Công sở
+    INTERVIEW: "INTERVIEW", // Phỏng vấn
+});
+export type ConversationRegister =
+    (typeof ConversationRegister)[keyof typeof ConversationRegister];
+
+/**
+ * Giọng Azure TTS gắn với persona (bản sắc nhân vật).
+ * Map sang `ja-JP-*Neural` khi nối BE thật.
  */
 const AzureVoice = Object.freeze({
     NANAMI: "NANAMI",
@@ -21,17 +26,12 @@ const AzureVoice = Object.freeze({
 });
 export type AzureVoice = (typeof AzureVoice)[keyof typeof AzureVoice];
 
-/** Tốc độ đọc TTS, ánh xạ sang Azure `prosody rate` khi nối BE thật. */
-const SpeakingRate = Object.freeze({
-    SLOW: "SLOW",
-    NORMAL: "NORMAL",
-    FAST: "FAST",
-});
-export type SpeakingRate = (typeof SpeakingRate)[keyof typeof SpeakingRate];
-
 /** Persona đang hoạt động (học viên thấy) hay còn nháp (ẩn). */
 const PersonaStatus = Object.freeze({
     ACTIVE: "ACTIVE",
     DRAFT: "DRAFT",
 });
 export type PersonaStatus = (typeof PersonaStatus)[keyof typeof PersonaStatus];
+
+/** Trình độ gợi ý hiển thị trên card; "ALL" = phù hợp mọi trình độ. */
+export type SuggestedLevel = JlptLevel | "ALL";

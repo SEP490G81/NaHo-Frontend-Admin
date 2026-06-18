@@ -1,8 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
-    Autocomplete,
     Button,
     Dialog,
     DialogContent,
@@ -13,40 +12,39 @@ import {
     Switch,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import VolumeUpOutlinedIcon from "@mui/icons-material/VolumeUpOutlined";
 import AutoFixHighOutlinedIcon from "@mui/icons-material/AutoFixHighOutlined";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { toast } from "react-toastify";
 import { TextFieldCustom } from "@/components/ui/mui-custom/text.field.custom";
-import { JlptLevel } from "@/types/enums/user.enum";
 import {
     AzureVoice,
+    ConversationRegister,
     PersonaStatus,
-    PolitenessStyle,
-    SpeakingRate,
+    SuggestedLevel,
 } from "@/types/enums/persona.enum";
 import { PersonaResponse } from "@/types/responses/persona.response";
 import { CreatePersonaRequest } from "@/types/requests/persona.request";
 import { previewVoice } from "@/services/client/persona.service";
-import { TopicOption } from "@/app/api/_mock/topic.options.data";
 import {
-    AVATAR_PRESETS,
+    AVATAR_ACCEPT,
+    AVATAR_MAX_BYTES,
     AZURE_VOICES,
-    JLPT_LEVELS,
-    PERSONA_PROMPT_MAX,
-    POLITENESS_STYLES,
-    RATE_KEY,
-    SPEAKING_RATES,
-    STYLE_KEY,
+    CONVERSATION_REGISTERS,
+    REGISTER_KEY,
+    SUGGESTED_LEVELS,
+    SYSTEM_PROMPT_MAX,
     VOICE_KEY,
 } from "../constants/ai.personas.constant";
 import { useAiPersonas } from "../providers/ai.personas.provider";
 import { validatePersonaForm } from "../actions/persona.form.action";
 import { PersonaFormState } from "../types/ai.personas.type";
 import PersonaAvatar from "../components/persona.avatar";
+import PersonaPreviewDialog from "./persona.preview.dialog";
 
 interface PersonaFormBodyProps {
     persona: PersonaResponse | null;
-    topicOptions: TopicOption[];
     isSaving: boolean;
     onClose: () => void;
     onCreate: (request: CreatePersonaRequest) => Promise<boolean>;
@@ -57,8 +55,8 @@ interface PersonaFormBodyProps {
 
 const noError: PersonaFormState = {
     name: { value: "", error: false },
-    role: { value: "", error: false },
-    personaPrompt: { value: "", error: false },
+    roleStyle: { value: "", error: false },
+    systemPrompt: { value: "", error: false },
 };
 
 /**
@@ -68,45 +66,57 @@ const noError: PersonaFormState = {
  */
 const PersonaFormBody = ({
     persona,
-    topicOptions,
     isSaving,
     onClose,
     onCreate,
     onUpdate,
 }: PersonaFormBodyProps) => {
     const t = useTranslations("aiPersonas.form");
-    const tStyle = useTranslations("aiPersonas.style");
+    const tRegister = useTranslations("aiPersonas.register");
     const tVoice = useTranslations("aiPersonas.voice");
-    const tRate = useTranslations("aiPersonas.rate");
+    const tLevelAll = useTranslations("aiPersonas");
 
     const [errors, setErrors] = useState<PersonaFormState>(noError);
     const [name, setName] = useState(persona?.name ?? "");
-    const [role, setRole] = useState(persona?.role ?? "");
+    const [roleStyle, setRoleStyle] = useState(persona?.roleStyle ?? "");
     const [description, setDescription] = useState(persona?.description ?? "");
-    const [jlptLevel, setJlptLevel] = useState<JlptLevel>(
-        persona?.jlptLevel ?? "N3",
+    const [suggestedLevel, setSuggestedLevel] = useState<SuggestedLevel>(
+        persona?.suggestedLevel ?? "ALL",
     );
-    const [politenessStyle, setPolitenessStyle] = useState<PolitenessStyle>(
-        persona?.politenessStyle ?? "CASUAL",
+    const [defaultRegister, setDefaultRegister] = useState<ConversationRegister>(
+        persona?.defaultRegister ?? "CASUAL",
     );
     const [voice, setVoice] = useState<AzureVoice>(persona?.voice ?? "NANAMI");
-    const [speakingRate, setSpeakingRate] = useState<SpeakingRate>(
-        persona?.speakingRate ?? "NORMAL",
-    );
     const [greeting, setGreeting] = useState(persona?.greeting ?? "");
-    const [personaPrompt, setPersonaPrompt] = useState(
-        persona?.personaPrompt ?? "",
+    const [systemPrompt, setSystemPrompt] = useState(
+        persona?.systemPrompt ?? "",
     );
     const [status, setStatus] = useState<PersonaStatus>(
         persona?.status ?? "ACTIVE",
     );
-    const [avatarPreset, setAvatarPreset] = useState(
-        persona?.avatarPreset ?? "",
-    );
-    const [selectedTopics, setSelectedTopics] = useState<TopicOption[]>(
-        topicOptions.filter((o) => persona?.topicIds.includes(o.id)),
-    );
+    const [avatarUrl, setAvatarUrl] = useState(persona?.avatarUrl ?? "");
     const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
+    const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const handleAvatarChange = (
+        event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+        if (!AVATAR_ACCEPT.includes(file.type)) {
+            toast.error(t("avatarTypeError"));
+            return;
+        }
+        if (file.size > AVATAR_MAX_BYTES) {
+            toast.error(t("avatarSizeError"));
+            return;
+        }
+        // MOCK: đọc thành data URL để xem trước. TODO: upload lên S3 và lưu file id.
+        const reader = new FileReader();
+        reader.onload = () => setAvatarUrl(reader.result as string);
+        reader.readAsDataURL(file);
+    };
 
     const handlePreviewVoice = async () => {
         setIsPreviewingVoice(true);
@@ -119,11 +129,11 @@ const PersonaFormBody = ({
     };
 
     const handleInsertTemplate = () => {
-        const styleLabel = tStyle(STYLE_KEY[politenessStyle]);
-        setPersonaPrompt(
+        const registerLabel = tRegister(REGISTER_KEY[defaultRegister]);
+        setSystemPrompt(
             `Bạn là ${name || "[Tên]"}, đóng vai ${
-                role || "[vai trò]"
-            }. Hãy trò chuyện bằng tiếng Nhật trình độ JLPT ${jlptLevel} theo phong cách ${styleLabel}, giữ đúng tính cách nhân vật và khích lệ học viên luyện phản xạ hội thoại.`,
+                roleStyle || "[vai trò]"
+            }. Hãy trò chuyện bằng tiếng Nhật theo phong cách ${registerLabel}, giữ đúng tính cách nhân vật và khích lệ học viên luyện phản xạ hội thoại.`,
         );
     };
 
@@ -134,25 +144,23 @@ const PersonaFormBody = ({
         setErrors(validation);
         if (
             validation.name.error ||
-            validation.role.error ||
-            validation.personaPrompt.error
+            validation.roleStyle.error ||
+            validation.systemPrompt.error
         ) {
             return;
         }
 
         const payload: CreatePersonaRequest = {
             name: name.trim(),
-            role: role.trim(),
+            roleStyle: roleStyle.trim(),
             description: description.trim(),
-            jlptLevel,
-            politenessStyle,
+            suggestedLevel,
+            defaultRegister,
             voice,
-            speakingRate,
             greeting: greeting.trim(),
-            personaPrompt: personaPrompt.trim(),
-            topicIds: selectedTopics.map((o) => o.id),
+            systemPrompt: systemPrompt.trim(),
             status,
-            avatarPreset,
+            avatarUrl,
         };
 
         const ok = persona
@@ -205,47 +213,50 @@ const PersonaFormBody = ({
                     }
                 />
 
-                {/* Ảnh đại diện (preset) */}
+                {/* Ảnh đại diện (upload) */}
                 <div className="space-y-2">
                     <label className="text-sm font-medium">
                         {t("avatarLabel")}
                     </label>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-4">
                         <PersonaAvatar
                             name={name}
-                            avatarPreset={avatarPreset}
+                            avatarUrl={avatarUrl}
                             seed={persona?.id ?? name}
-                            sizeClassName="h-14 w-14"
-                            textClassName="text-2xl"
+                            sizeClassName="h-16 w-16"
+                            textClassName="text-lg"
                         />
-                        <div className="flex flex-wrap gap-2">
-                            <button
-                                type="button"
-                                onClick={() => setAvatarPreset("")}
-                                className={`flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-colors ${
-                                    avatarPreset === ""
-                                        ? "border-bgc-highlight bg-hbgc-app"
-                                        : "border-bdc-muted"
-                                }`}
-                                title={t("avatarInitials")}
-                            >
-                                Aa
-                            </button>
-                            {AVATAR_PRESETS.map((emoji) => (
-                                <button
-                                    key={emoji}
-                                    type="button"
-                                    onClick={() => setAvatarPreset(emoji)}
-                                    className={`flex h-9 w-9 items-center justify-center rounded-full border text-lg transition-colors ${
-                                        avatarPreset === emoji
-                                            ? "border-bgc-highlight bg-hbgc-app"
-                                            : "border-bdc-muted"
-                                    }`}
+                        <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                                <Button
+                                    variant="outlined"
+                                    startIcon={<FileUploadOutlinedIcon />}
+                                    onClick={() => fileInputRef.current?.click()}
+                                    sx={{ color: "text.primary" }}
                                 >
-                                    {emoji}
-                                </button>
-                            ))}
+                                    {t("avatarUpload")}
+                                </Button>
+                                {avatarUrl && (
+                                    <button
+                                        type="button"
+                                        onClick={() => setAvatarUrl("")}
+                                        className="text-bgc-error text-xs font-medium"
+                                    >
+                                        {t("avatarRemove")}
+                                    </button>
+                                )}
+                            </div>
+                            <p className="text-text-muted text-xs">
+                                {t("avatarHint")}
+                            </p>
                         </div>
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept={AVATAR_ACCEPT.join(",")}
+                            className="hidden"
+                            onChange={handleAvatarChange}
+                        />
                     </div>
                 </div>
 
@@ -271,22 +282,25 @@ const PersonaFormBody = ({
                         />
                     </div>
                     <div className="space-y-2">
-                        <label htmlFor="role" className="text-sm font-medium">
+                        <label
+                            htmlFor="roleStyle"
+                            className="text-sm font-medium"
+                        >
                             {t("roleLabel")}{" "}
                             <span className="text-bgc-error">*</span>
                         </label>
                         <TextFieldCustom
-                            name="role"
-                            id="role"
+                            name="roleStyle"
+                            id="roleStyle"
                             fullWidth
                             size="small"
                             placeholder={t("rolePlaceholder")}
-                            value={role}
-                            error={errors.role.error}
+                            value={roleStyle}
+                            error={errors.roleStyle.error}
                             helperText={
-                                errors.role.error ? t("roleRequired") : ""
+                                errors.roleStyle.error ? t("roleRequired") : ""
                             }
-                            onChange={(e) => setRole(e.target.value)}
+                            onChange={(e) => setRoleStyle(e.target.value)}
                         />
                     </div>
                 </div>
@@ -308,101 +322,85 @@ const PersonaFormBody = ({
                     />
                 </div>
 
-                {/* JLPT + Phong cách */}
+                {/* Trình độ + Chế độ mặc định */}
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                         <label className="text-sm font-medium">
-                            {t("jlptLabel")}
+                            {t("levelLabel")}
                         </label>
                         <Select
                             fullWidth
                             size="small"
-                            value={jlptLevel}
+                            value={suggestedLevel}
                             onChange={(e) =>
-                                setJlptLevel(e.target.value as JlptLevel)
-                            }
-                        >
-                            {JLPT_LEVELS.map((level) => (
-                                <MenuItem key={level} value={level}>
-                                    {level}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </div>
-                    <div className="space-y-2">
-                        <label className="text-sm font-medium">
-                            {t("styleLabel")}
-                        </label>
-                        <Select
-                            fullWidth
-                            size="small"
-                            value={politenessStyle}
-                            onChange={(e) =>
-                                setPolitenessStyle(
-                                    e.target.value as PolitenessStyle,
+                                setSuggestedLevel(
+                                    e.target.value as SuggestedLevel,
                                 )
                             }
                         >
-                            {POLITENESS_STYLES.map((s) => (
-                                <MenuItem key={s} value={s}>
-                                    {tStyle(STYLE_KEY[s])}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </div>
-                </div>
-
-                {/* Giọng đọc + Tốc độ nói */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                            <label className="text-sm font-medium">
-                                {t("voiceLabel")}
-                            </label>
-                            <button
-                                type="button"
-                                onClick={handlePreviewVoice}
-                                disabled={isPreviewingVoice}
-                                className="text-bgc-highlight flex items-center gap-1 text-xs font-medium disabled:opacity-50"
-                            >
-                                <VolumeUpOutlinedIcon fontSize="inherit" />
-                                {t("voicePreview")}
-                            </button>
-                        </div>
-                        <Select
-                            fullWidth
-                            size="small"
-                            value={voice}
-                            onChange={(e) =>
-                                setVoice(e.target.value as AzureVoice)
-                            }
-                        >
-                            {AZURE_VOICES.map((v) => (
-                                <MenuItem key={v} value={v}>
-                                    {tVoice(VOICE_KEY[v])}
+                            {SUGGESTED_LEVELS.map((level) => (
+                                <MenuItem key={level} value={level}>
+                                    {level === "ALL"
+                                        ? tLevelAll("levelAll")
+                                        : level}
                                 </MenuItem>
                             ))}
                         </Select>
                     </div>
                     <div className="space-y-2">
                         <label className="text-sm font-medium">
-                            {t("rateLabel")}
+                            {t("registerLabel")}
                         </label>
                         <Select
                             fullWidth
                             size="small"
-                            value={speakingRate}
+                            value={defaultRegister}
                             onChange={(e) =>
-                                setSpeakingRate(e.target.value as SpeakingRate)
+                                setDefaultRegister(
+                                    e.target.value as ConversationRegister,
+                                )
                             }
                         >
-                            {SPEAKING_RATES.map((r) => (
+                            {CONVERSATION_REGISTERS.map((r) => (
                                 <MenuItem key={r} value={r}>
-                                    {tRate(RATE_KEY[r])}
+                                    {tRegister(REGISTER_KEY[r])}
                                 </MenuItem>
                             ))}
                         </Select>
+                        <p className="text-text-muted text-xs">
+                            {t("registerHint")}
+                        </p>
                     </div>
+                </div>
+
+                {/* Giọng đọc */}
+                <div className="space-y-2 sm:max-w-xs">
+                    <div className="flex items-center justify-between">
+                        <label className="text-sm font-medium">
+                            {t("voiceLabel")}
+                        </label>
+                        <button
+                            type="button"
+                            onClick={handlePreviewVoice}
+                            disabled={isPreviewingVoice}
+                            className="text-bgc-highlight flex items-center gap-1 text-xs font-medium disabled:opacity-50"
+                        >
+                            <VolumeUpOutlinedIcon fontSize="inherit" />
+                            {t("voicePreview")}
+                        </button>
+                    </div>
+                    <Select
+                        fullWidth
+                        size="small"
+                        value={voice}
+                        onChange={(e) => setVoice(e.target.value as AzureVoice)}
+                    >
+                        {AZURE_VOICES.map((v) => (
+                            <MenuItem key={v} value={v}>
+                                {tVoice(VOICE_KEY[v])}
+                            </MenuItem>
+                        ))}
+                    </Select>
                 </div>
 
                 {/* Câu chào mở đầu */}
@@ -425,42 +423,11 @@ const PersonaFormBody = ({
                     </p>
                 </div>
 
-                {/* Gắn chủ đề */}
-                <div className="space-y-2">
-                    <label className="text-sm font-medium">
-                        {t("topicsLabel")}
-                    </label>
-                    <Autocomplete
-                        multiple
-                        size="small"
-                        options={topicOptions}
-                        value={selectedTopics}
-                        onChange={(_, value) => setSelectedTopics(value)}
-                        getOptionLabel={(option) =>
-                            `${option.name} · ${option.jlptLevel}`
-                        }
-                        isOptionEqualToValue={(option, value) =>
-                            option.id === value.id
-                        }
-                        renderInput={(params) => (
-                            <TextFieldCustom
-                                {...params}
-                                placeholder={
-                                    selectedTopics.length === 0
-                                        ? t("topicsPlaceholder")
-                                        : ""
-                                }
-                            />
-                        )}
-                    />
-                    <p className="text-text-muted text-xs">{t("topicsHint")}</p>
-                </div>
-
-                {/* Persona Prompt */}
+                {/* System Prompt */}
                 <div className="space-y-2">
                     <div className="flex items-center justify-between">
                         <label
-                            htmlFor="personaPrompt"
+                            htmlFor="systemPrompt"
                             className="text-sm font-medium"
                         >
                             {t("promptLabel")}{" "}
@@ -476,63 +443,87 @@ const PersonaFormBody = ({
                         </button>
                     </div>
                     <TextFieldCustom
-                        name="personaPrompt"
-                        id="personaPrompt"
+                        name="systemPrompt"
+                        id="systemPrompt"
                         fullWidth
                         multiline
                         minRows={5}
                         placeholder={t("promptPlaceholder")}
-                        value={personaPrompt}
-                        error={errors.personaPrompt.error}
+                        value={systemPrompt}
+                        error={errors.systemPrompt.error}
                         helperText={
-                            errors.personaPrompt.error
+                            errors.systemPrompt.error
                                 ? t("promptRequired")
                                 : ""
                         }
                         slotProps={{
-                            htmlInput: { maxLength: PERSONA_PROMPT_MAX },
+                            htmlInput: { maxLength: SYSTEM_PROMPT_MAX },
                         }}
-                        onChange={(e) => setPersonaPrompt(e.target.value)}
+                        onChange={(e) => setSystemPrompt(e.target.value)}
                     />
                     <div className="flex items-start justify-between gap-3">
                         <p className="text-text-muted text-xs">
                             {t("promptHint")}
                         </p>
                         <p className="text-text-muted shrink-0 text-xs">
-                            {personaPrompt.length}/{PERSONA_PROMPT_MAX}
+                            {systemPrompt.length}/{SYSTEM_PROMPT_MAX}
                         </p>
                     </div>
                 </div>
 
-                <div className="border-bdc-primary flex justify-end gap-3 border-t pt-5">
+                <div className="border-bdc-primary flex flex-col gap-3 border-t pt-5 sm:flex-row sm:items-center sm:justify-between">
                     <Button
                         variant="outlined"
-                        onClick={onClose}
-                        sx={{ color: "text.primary" }}
-                    >
-                        {t("cancel")}
-                    </Button>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        disableElevation
-                        loading={isSaving}
+                        startIcon={<ChatBubbleOutlineOutlinedIcon />}
+                        onClick={() => setIsPreviewOpen(true)}
                         sx={{
-                            bgcolor: "var(--color-bgc-highlight)",
-                            color: "var(--color-text-contrast)",
+                            color: "var(--color-bgc-highlight)",
+                            borderColor: "var(--color-bgc-highlight)",
                         }}
                     >
-                        {t("save")}
+                        {t("tryOut")}
                     </Button>
+                    <div className="flex justify-end gap-3">
+                        <Button
+                            variant="outlined"
+                            onClick={onClose}
+                            sx={{ color: "text.primary" }}
+                        >
+                            {t("cancel")}
+                        </Button>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            disableElevation
+                            loading={isSaving}
+                            sx={{
+                                bgcolor: "var(--color-bgc-highlight)",
+                                color: "var(--color-text-contrast)",
+                            }}
+                        >
+                            {t("save")}
+                        </Button>
+                    </div>
                 </div>
             </form>
+
+            <PersonaPreviewDialog
+                open={isPreviewOpen}
+                onClose={() => setIsPreviewOpen(false)}
+                draft={{
+                    name,
+                    avatarUrl,
+                    greeting: greeting.trim(),
+                    defaultRegister,
+                    voice,
+                }}
+            />
         </DialogContent>
     );
 };
 
 const PersonaFormDialog = () => {
     const {
-        topicOptions,
         isFormOpen,
         editingPersona,
         isSaving,
@@ -552,7 +543,6 @@ const PersonaFormDialog = () => {
             <PersonaFormBody
                 key={editingPersona?.id ?? "new"}
                 persona={editingPersona}
-                topicOptions={topicOptions}
                 isSaving={isSaving}
                 onClose={closeForm}
                 onCreate={createPersona}

@@ -21,7 +21,7 @@ const PersonaGrid = () => {
         return personas.filter(
             (p) =>
                 p.name.toLowerCase().includes(keyword) ||
-                p.role.toLowerCase().includes(keyword),
+                p.roleStyle.toLowerCase().includes(keyword),
         );
     }, [personas, search]);
 

@@ -4,10 +4,6 @@ import {
     UpdatePersonaRequest,
 } from "@/types/requests/persona.request";
 import {
-    MOCK_TOPIC_OPTIONS,
-    TopicOption,
-} from "@/app/api/_mock/topic.options.data";
-import {
     storeCreatePersona,
     storeDeletePersona,
     storeListPersonas,
@@ -40,10 +36,6 @@ export async function updatePersona(
 
 export async function deletePersona(id: string): Promise<void> {
     storeDeletePersona(id);
-}
-
-export async function fetchTopicOptions(): Promise<TopicOption[]> {
-    return MOCK_TOPIC_OPTIONS;
 }
 
 export async function previewVoice(voice: string): Promise<void> {

@@ -15,7 +15,6 @@ import {
     createPersona as createPersonaService,
     deletePersona as deletePersonaService,
     fetchPersonas,
-    fetchTopicOptions,
     updatePersona as updatePersonaService,
 } from "@/services/client/persona.service";
 import { queryKeys } from "@/libs/query.keys";
@@ -43,11 +42,6 @@ const AiPersonasProvider = ({ children }: { children: ReactNode }) => {
     const personasQuery = useQuery({
         queryKey: queryKeys.aiPersonas.list,
         queryFn: fetchPersonas,
-    });
-
-    const topicsQuery = useQuery({
-        queryKey: queryKeys.aiPersonas.topics,
-        queryFn: fetchTopicOptions,
     });
 
     useEffect(() => {
@@ -151,7 +145,6 @@ const AiPersonasProvider = ({ children }: { children: ReactNode }) => {
     const value = useMemo<AiPersonasContextType>(
         () => ({
             personas: personasQuery.data ?? [],
-            topicOptions: topicsQuery.data ?? [],
             isLoading: personasQuery.isLoading,
             isSaving: createMutation.isPending || updateMutation.isPending,
             editingPersona,
@@ -168,7 +161,6 @@ const AiPersonasProvider = ({ children }: { children: ReactNode }) => {
         }),
         [
             personasQuery.data,
-            topicsQuery.data,
             personasQuery.isLoading,
             createMutation.isPending,
             updateMutation.isPending,

@@ -3,11 +3,10 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import { PersonaResponse } from "@/types/responses/persona.response";
 import PersonaAvatar from "./persona.avatar";
 import PersonaLevelBadge from "./persona.level.badge";
-import PersonaStyleBadge from "./persona.style.badge";
+import PersonaRegisterBadge from "./persona.register.badge";
 import PersonaStatusBadge from "./persona.status.badge";
 
 interface PersonaCardProps {
@@ -30,42 +29,27 @@ const PersonaCard = ({ persona, onEdit, onDelete }: PersonaCardProps) => {
                 <div className="flex items-start gap-3">
                     <PersonaAvatar
                         name={persona.name}
-                        avatarPreset={persona.avatarPreset}
+                        avatarUrl={persona.avatarUrl}
                         seed={persona.id}
-                        textClassName="text-xl"
                     />
                     <div className="min-w-0 flex-1">
                         <h3 className="truncate text-lg font-bold">
                             {persona.name}
                         </h3>
                         <p className="text-text-muted truncate text-sm">
-                            {persona.role}
+                            {persona.roleStyle}
                         </p>
                     </div>
-                    <PersonaStatusBadge status={persona.status} />
+                    {isDraft && <PersonaStatusBadge status={persona.status} />}
                 </div>
 
                 <p className="text-text-muted line-clamp-2 text-sm">
                     {persona.description}
                 </p>
 
-                {persona.greeting && (
-                    <p className="border-bdc-muted text-text-muted line-clamp-1 border-l-2 pl-2 text-xs italic">
-                        {persona.greeting}
-                    </p>
-                )}
-
                 <div className="flex flex-wrap items-center gap-2">
-                    <PersonaLevelBadge level={persona.jlptLevel} />
-                    <PersonaStyleBadge style={persona.politenessStyle} />
-                    {(persona.topicIds?.length ?? 0) > 0 && (
-                        <span className="text-text-muted inline-flex items-center gap-1 text-xs">
-                            <LocalOfferOutlinedIcon sx={{ fontSize: 14 }} />
-                            {t("topicCount", {
-                                count: persona.topicIds.length,
-                            })}
-                        </span>
-                    )}
+                    <PersonaLevelBadge level={persona.suggestedLevel} />
+                    <PersonaRegisterBadge register={persona.defaultRegister} />
                 </div>
             </div>
 

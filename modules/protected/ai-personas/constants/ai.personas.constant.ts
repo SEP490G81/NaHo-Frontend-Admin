@@ -1,18 +1,24 @@
-import { JlptLevel } from "@/types/enums/user.enum";
 import {
     AzureVoice,
+    ConversationRegister,
     PersonaStatus,
-    PolitenessStyle,
-    SpeakingRate,
+    SuggestedLevel,
 } from "@/types/enums/persona.enum";
 
-/** JLPT levels offered in the target-level dropdown (easy → hard). */
-export const JLPT_LEVELS: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
+/** Trình độ gợi ý trong dropdown (dễ → khó), kèm "ALL" = mọi trình độ. */
+export const SUGGESTED_LEVELS: SuggestedLevel[] = [
+    "ALL",
+    "N5",
+    "N4",
+    "N3",
+    "N2",
+    "N1",
+];
 
-export const POLITENESS_STYLES: PolitenessStyle[] = [
+export const CONVERSATION_REGISTERS: ConversationRegister[] = [
     "CASUAL",
-    "BUSINESS",
-    "KEIGO",
+    "OFFICE",
+    "INTERVIEW",
 ];
 
 export const AZURE_VOICES: AzureVoice[] = [
@@ -24,16 +30,14 @@ export const AZURE_VOICES: AzureVoice[] = [
     "MAYU",
 ];
 
-export const SPEAKING_RATES: SpeakingRate[] = ["SLOW", "NORMAL", "FAST"];
-
-/** i18n key suffix per politeness style (under aiPersonas.style). */
-export const STYLE_KEY: Record<
-    PolitenessStyle,
-    "casual" | "business" | "keigo"
+/** i18n key suffix per register (under aiPersonas.register). */
+export const REGISTER_KEY: Record<
+    ConversationRegister,
+    "casual" | "office" | "interview"
 > = {
     CASUAL: "casual",
-    BUSINESS: "business",
-    KEIGO: "keigo",
+    OFFICE: "office",
+    INTERVIEW: "interview",
 };
 
 /** i18n key suffix per Azure voice (under aiPersonas.voice). */
@@ -49,33 +53,20 @@ export const VOICE_KEY: Record<
     MAYU: "mayu",
 };
 
-/** i18n key suffix per speaking rate (under aiPersonas.rate). */
-export const RATE_KEY: Record<SpeakingRate, "slow" | "normal" | "fast"> = {
-    SLOW: "slow",
-    NORMAL: "normal",
-    FAST: "fast",
-};
-
 /** i18n key suffix per status (under aiPersonas.statusLabel). */
 export const STATUS_KEY: Record<PersonaStatus, "active" | "draft"> = {
     ACTIVE: "active",
     DRAFT: "draft",
 };
 
-/** Tailwind classes for the JLPT level chip. */
-export const PERSONA_LEVEL_STYLE: Record<JlptLevel, string> = {
-    N1: "bg-rose-100 text-rose-700",
-    N2: "bg-rose-100 text-rose-700",
-    N3: "bg-rose-100 text-rose-700",
-    N4: "bg-rose-100 text-rose-700",
-    N5: "bg-rose-100 text-rose-700",
-};
+/** Tailwind classes for the suggested-level chip. */
+export const LEVEL_STYLE = "bg-rose-100 text-rose-700";
 
-/** Tailwind classes for the politeness-style chip. */
-export const POLITENESS_STYLE_STYLE: Record<PolitenessStyle, string> = {
+/** Tailwind classes for the register chip, keyed by register. */
+export const REGISTER_STYLE: Record<ConversationRegister, string> = {
     CASUAL: "bg-sky-100 text-sky-700",
-    BUSINESS: "bg-amber-100 text-amber-700",
-    KEIGO: "bg-violet-100 text-violet-700",
+    OFFICE: "bg-amber-100 text-amber-700",
+    INTERVIEW: "bg-violet-100 text-violet-700",
 };
 
 /** Tailwind classes for the status chip. */
@@ -84,7 +75,7 @@ export const PERSONA_STATUS_STYLE: Record<PersonaStatus, string> = {
     DRAFT: "bg-slate-200 text-slate-600",
 };
 
-/** Avatar gradient palette; pick deterministically by persona id/name. */
+/** Avatar gradient palette for the initials fallback (no image uploaded). */
 export const AVATAR_GRADIENTS = [
     "from-rose-400 to-pink-500",
     "from-sky-400 to-indigo-500",
@@ -94,19 +85,9 @@ export const AVATAR_GRADIENTS = [
     "from-fuchsia-400 to-rose-500",
 ];
 
-/** Emoji presets offered as avatars (no upload needed). "" = chữ viết tắt. */
-export const AVATAR_PRESETS = [
-    "🌸",
-    "👩‍🏫",
-    "🧑‍💻",
-    "👔",
-    "💼",
-    "🎌",
-    "🧑‍🎓",
-    "🗾",
-    "🎤",
-    "🍣",
-];
+/** Max length for the System Prompt textarea. */
+export const SYSTEM_PROMPT_MAX = 2000;
 
-/** Max length for the Persona Prompt textarea. */
-export const PERSONA_PROMPT_MAX = 2000;
+/** Avatar upload limits (mock; maps to files table when S3 is wired). */
+export const AVATAR_MAX_BYTES = 2 * 1024 * 1024;
+export const AVATAR_ACCEPT = ["image/png", "image/jpeg"];

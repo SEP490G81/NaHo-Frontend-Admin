@@ -4,17 +4,15 @@ import {
     CreatePersonaRequest,
     UpdatePersonaRequest,
 } from "@/types/requests/persona.request";
-import { TopicOption } from "@/app/api/_mock/topic.options.data";
 
 export interface PersonaFormState {
     name: FormTextField;
-    role: FormTextField;
-    personaPrompt: FormTextField;
+    roleStyle: FormTextField;
+    systemPrompt: FormTextField;
 }
 
 export interface AiPersonasContextType {
     personas: PersonaResponse[];
-    topicOptions: TopicOption[];
     isLoading: boolean;
     isSaving: boolean;
     /** Persona currently being edited; null while creating a new one. */

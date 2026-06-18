@@ -7,15 +7,15 @@ export function validatePersonaForm(formData: FormData): PersonaFormState {
     };
 
     const name = get("name");
-    const role = get("role");
-    const personaPrompt = get("personaPrompt");
+    const roleStyle = get("roleStyle");
+    const systemPrompt = get("systemPrompt");
 
     return {
         name: { value: name, error: name.trim().length === 0 },
-        role: { value: role, error: role.trim().length === 0 },
-        personaPrompt: {
-            value: personaPrompt,
-            error: personaPrompt.trim().length === 0,
+        roleStyle: { value: roleStyle, error: roleStyle.trim().length === 0 },
+        systemPrompt: {
+            value: systemPrompt,
+            error: systemPrompt.trim().length === 0,
         },
     };
 }

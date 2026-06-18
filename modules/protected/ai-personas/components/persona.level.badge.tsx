@@ -1,13 +1,16 @@
 import React from "react";
-import { JlptLevel } from "@/types/enums/user.enum";
-import { PERSONA_LEVEL_STYLE } from "../constants/ai.personas.constant";
+import { useTranslations } from "next-intl";
+import { SuggestedLevel } from "@/types/enums/persona.enum";
+import { LEVEL_STYLE } from "../constants/ai.personas.constant";
 
-const PersonaLevelBadge = ({ level }: { level: JlptLevel }) => {
+const PersonaLevelBadge = ({ level }: { level: SuggestedLevel }) => {
+    const t = useTranslations("aiPersonas");
+
     return (
         <span
-            className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-semibold ${PERSONA_LEVEL_STYLE[level]}`}
+            className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-semibold ${LEVEL_STYLE}`}
         >
-            JLPT {level}
+            {level === "ALL" ? t("levelAll") : `JLPT ${level}`}
         </span>
     );
 };

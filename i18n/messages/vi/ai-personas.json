@@ -1,11 +1,12 @@
 {
     "aiPersonas": {
         "title": "Cấu hình Persona AI",
-        "description": "Quản lý các nhân vật AI đồng hành: hồ sơ, giọng đọc và Persona Prompt định hướng hành vi.",
+        "description": "Quản lý các nhân vật AI đồng hành: hồ sơ, giọng đọc và System Prompt định hướng hành vi.",
         "addButton": "Thêm nhân vật mới",
         "searchPlaceholder": "Tìm theo tên hoặc vai trò…",
         "loadError": "Không thể tải danh sách Persona AI",
         "count": "{count} nhân vật",
+        "levelAll": "Tất cả trình độ",
         "empty": {
             "title": "Chưa có Persona AI nào",
             "description": "Tạo nhân vật AI đầu tiên để học viên luyện hội thoại cùng."
@@ -16,17 +17,16 @@
         },
         "card": {
             "edit": "Sửa",
-            "delete": "Xóa",
-            "topicCount": "{count} chủ đề"
+            "delete": "Xóa"
         },
         "statusLabel": {
             "active": "Đang hoạt động",
             "draft": "Nháp"
         },
-        "style": {
-            "casual": "Casual / Thân thiện",
-            "business": "Business / Lịch sự",
-            "keigo": "Keigo / Kính ngữ"
+        "register": {
+            "casual": "Thân mật",
+            "office": "Công sở",
+            "interview": "Phỏng vấn"
         },
         "voice": {
             "nanami": "Nanami (Nữ - Tự nhiên)",
@@ -36,49 +36,56 @@
             "shiori": "Shiori (Nữ - Chuyên nghiệp)",
             "mayu": "Mayu (Nữ - Dịu dàng)"
         },
-        "rate": {
-            "slow": "Chậm",
-            "normal": "Vừa",
-            "fast": "Nhanh"
-        },
         "form": {
             "addTitle": "Thêm nhân vật mới",
             "editTitle": "Chỉnh sửa nhân vật",
-            "subtitle": "Cấu hình hồ sơ, giọng nói và Persona Prompt mô tả tính cách nhân vật.",
+            "subtitle": "Cấu hình hồ sơ, giọng nói và hành vi của nhân vật AI đồng hành.",
             "statusActiveHint": "Đang hoạt động – học viên có thể luyện cùng nhân vật này",
             "statusDraftHint": "Nháp – ẩn khỏi học viên cho tới khi bật",
             "avatarLabel": "Ảnh đại diện",
-            "avatarInitials": "Dùng chữ viết tắt",
+            "avatarUpload": "Tải ảnh lên",
+            "avatarRemove": "Xóa ảnh",
+            "avatarHint": "Mô phỏng upload lên AWS S3. Hỗ trợ PNG/JPG, tối đa 2MB.",
+            "avatarTypeError": "Chỉ hỗ trợ ảnh PNG hoặc JPG",
+            "avatarSizeError": "Ảnh không được vượt quá 2MB",
             "nameLabel": "Tên nhân vật",
             "namePlaceholder": "VD: Sakura",
             "nameRequired": "Vui lòng nhập tên nhân vật",
-            "roleLabel": "Vai trò",
-            "rolePlaceholder": "VD: Trợ lý Phỏng vấn BrSE",
+            "roleLabel": "Vai trò / Phong cách",
+            "rolePlaceholder": "VD: Giảng viên tiếng Nhật",
             "roleRequired": "Vui lòng nhập vai trò",
             "descriptionLabel": "Mô tả ngắn",
-            "descriptionPlaceholder": "Mô tả tính cách và phong cách giảng dạy của nhân vật.",
-            "jlptLabel": "Trình độ JLPT mục tiêu",
-            "styleLabel": "Phong cách lịch sự",
+            "descriptionPlaceholder": "Mô tả tính cách và phong cách của nhân vật (hiển thị trên thẻ chọn).",
+            "levelLabel": "Trình độ gợi ý",
+            "registerLabel": "Chế độ hội thoại mặc định",
+            "registerHint": "Học viên có thể đổi chế độ này khi bắt đầu hội thoại.",
             "voiceLabel": "Giọng đọc Azure TTS",
             "voicePreview": "Nghe thử",
             "voicePreviewPlaying": "Đang phát giọng đọc thử…",
-            "rateLabel": "Tốc độ nói",
             "greetingLabel": "Câu chào mở đầu",
             "greetingPlaceholder": "VD: こんにちは！今日は何について話しましょうか？",
-            "greetingHint": "Nhân vật sẽ dùng câu này để mở đầu mỗi cuộc hội thoại với học viên.",
-            "topicsLabel": "Chủ đề phù hợp",
-            "topicsPlaceholder": "Chọn các chủ đề học viên nên luyện cùng nhân vật này…",
-            "topicsHint": "Gợi ý cho học viên nên dùng nhân vật này với chủ đề nào.",
-            "promptLabel": "Persona Prompt – Mô tả nhân vật & bối cảnh",
+            "greetingHint": "Câu nhân vật dùng để mở đầu hội thoại. Để trống nếu muốn AI tự sinh.",
+            "promptLabel": "System Prompt – Hướng dẫn hành vi",
             "promptPlaceholder": "VD: Bạn là Sakura, một cô gái thân thiện hỗ trợ phản xạ phỏng vấn BrSE chuyên ngành IT...",
-            "promptRequired": "Vui lòng nhập Persona Prompt",
-            "promptHint": "Chỉ mô tả tính cách & bối cảnh nhân vật. Luật chung (an toàn, định dạng) do trang Cấu hình System Prompt quản lý — không cần lặp lại ở đây.",
+            "promptRequired": "Vui lòng nhập System Prompt",
+            "promptHint": "Mô tả tính cách & cách nhân vật phản hồi. Luật chung (an toàn, định dạng) do trang Cấu hình System Prompt quản lý.",
             "promptTemplate": "Chèn mẫu gợi ý",
             "cancel": "Hủy",
             "save": "Lưu cấu hình",
+            "tryOut": "Chạy thử",
             "createSuccess": "Đã thêm nhân vật AI mới",
             "updateSuccess": "Đã cập nhật nhân vật AI",
             "saveError": "Không thể lưu cấu hình. Vui lòng thử lại."
+        },
+        "preview": {
+            "title": "Chạy thử hội thoại",
+            "subtitle": "Xem nhân vật phản hồi theo cấu hình hiện tại (chưa cần lưu).",
+            "disclaimer": "Phản hồi là mô phỏng để xem trước. Bản chính thức sẽ do AI sinh theo System Prompt.",
+            "inputPlaceholder": "Nhập thử một câu (tiếng Nhật hoặc tiếng Việt)…",
+            "send": "Gửi",
+            "translatePrefix": "Dịch",
+            "close": "Đóng",
+            "playAudio": "Nghe thử"
         },
         "delete": {
             "title": "Xóa nhân vật AI?",
