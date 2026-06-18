@@ -1,10 +1,9 @@
-import common from "@/intl/messages/vi/common.json";
-import aiPersonas from "@/intl/messages/vi/ai-personas.json";
-
-type Messages = typeof common & typeof aiPersonas;
+import common from "@/i18n/messages/vi/common.json";
+import userManagement from "@/i18n/messages/vi/user-management.json";
+import aiPersonas from "@/i18n/messages/vi/ai-personas.json";
 
 declare module "next-intl" {
     interface AppConfig {
-        Messages: Messages;
+        Messages: typeof common & typeof userManagement & typeof aiPersonas;
     }
 }

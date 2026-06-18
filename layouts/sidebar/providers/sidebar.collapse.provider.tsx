@@ -7,8 +7,8 @@ import React, {
     useMemo,
     useState,
 } from "react";
-import { usePathname } from "@/intl/i18n/navigation";
-import { AllRoute } from "@/intl/type";
+import { usePathname } from "@/i18n/navigation";
+import { AllRoute } from "@/i18n/type";
 
 interface ISidebarCollapseProviderProps {
     isCollapse: boolean;
@@ -27,7 +27,7 @@ export const SidebarCollapseProvider = ({
     const pathname = usePathname();
     const collapseLinks: AllRoute[] = [];
 
-    const initialState = collapseLinks.some((path) => path === pathname);
+    const initialState = collapseLinks.includes(pathname as AllRoute);
 
     const [isCollapse, setIsCollapse] = useState<boolean>(initialState);
 

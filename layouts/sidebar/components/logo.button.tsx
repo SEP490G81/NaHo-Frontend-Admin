@@ -2,7 +2,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useSidebarCollapse } from "@/layouts/sidebar/providers/sidebar.collapse.provider";
-import { Link } from "@/intl/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 
 const LogoButton = () => {
     const { isCollapse } = useSidebarCollapse();

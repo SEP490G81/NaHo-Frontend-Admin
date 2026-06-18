@@ -1,5 +1,5 @@
 import React from "react";
-import { AllRoute, MetadataTitleKey, StaticRoute } from "@/intl/type";
+import { AllRoute, MetadataTitleKey, StaticRoute } from "@/i18n/type";
 import { Messages } from "next-intl";
 
 export type SidebarItem = {

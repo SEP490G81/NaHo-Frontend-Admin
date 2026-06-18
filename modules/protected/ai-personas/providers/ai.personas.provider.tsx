@@ -1,5 +1,6 @@
 "use client";
 import React, {
+    ReactNode,
     createContext,
     useCallback,
     useContext,
@@ -9,6 +10,7 @@ import React, {
 } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
     createPersona as createPersonaService,
     deletePersona as deletePersonaService,
@@ -16,8 +18,8 @@ import {
     fetchTopicOptions,
     updatePersona as updatePersonaService,
 } from "@/services/client/persona.service";
+import { queryKeys } from "@/libs/query.keys";
 import { PersonaResponse } from "@/types/responses/persona.response";
-import { TopicOption } from "@/app/api/_mock/topic.options.data";
 import {
     CreatePersonaRequest,
     UpdatePersonaRequest,
@@ -26,31 +28,72 @@ import { AiPersonasContextType } from "../types/ai.personas.type";
 
 const AiPersonasContext = createContext<AiPersonasContextType | null>(null);
 
-const AiPersonasProvider = ({ children }: { children: React.ReactNode }) => {
+const AiPersonasProvider = ({ children }: { children: ReactNode }) => {
     const t = useTranslations("aiPersonas");
     const tForm = useTranslations("aiPersonas.form");
     const tDelete = useTranslations("aiPersonas.delete");
+    const queryClient = useQueryClient();
 
-    const [personas, setPersonas] = useState<PersonaResponse[]>([]);
-    const [topicOptions, setTopicOptions] = useState<TopicOption[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isSaving, setIsSaving] = useState(false);
     const [editingPersona, setEditingPersona] =
         useState<PersonaResponse | null>(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [deletingPersona, setDeletingPersona] =
         useState<PersonaResponse | null>(null);
 
+    const personasQuery = useQuery({
+        queryKey: queryKeys.aiPersonas.list,
+        queryFn: fetchPersonas,
+    });
+
+    const topicsQuery = useQuery({
+        queryKey: queryKeys.aiPersonas.topics,
+        queryFn: fetchTopicOptions,
+    });
+
     useEffect(() => {
-        setIsLoading(true);
-        Promise.all([fetchPersonas(), fetchTopicOptions()])
-            .then(([personaResult, topicResult]) => {
-                setPersonas(personaResult.data);
-                setTopicOptions(topicResult.data);
-            })
-            .catch(() => toast.error(t("loadError")))
-            .finally(() => setIsLoading(false));
-    }, [t]);
+        if (personasQuery.isError) toast.error(t("loadError"));
+    }, [personasQuery.isError, t]);
+
+    const createMutation = useMutation({
+        mutationFn: (request: CreatePersonaRequest) =>
+            createPersonaService(request),
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: queryKeys.aiPersonas.list,
+            });
+            toast.success(tForm("createSuccess"));
+        },
+        onError: (error) =>
+            toast.error(
+                error instanceof Error ? error.message : tForm("saveError"),
+            ),
+    });
+
+    const updateMutation = useMutation({
+        mutationFn: (request: UpdatePersonaRequest) =>
+            updatePersonaService(request),
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: queryKeys.aiPersonas.list,
+            });
+            toast.success(tForm("updateSuccess"));
+        },
+        onError: (error) =>
+            toast.error(
+                error instanceof Error ? error.message : tForm("saveError"),
+            ),
+    });
+
+    const deleteMutation = useMutation({
+        mutationFn: (id: string) => deletePersonaService(id),
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: queryKeys.aiPersonas.list,
+            });
+            toast.success(tDelete("success"));
+        },
+        onError: () => toast.error(tDelete("error")),
+    });
 
     const openCreateForm = useCallback(() => {
         setEditingPersona(null);
@@ -77,69 +120,40 @@ const AiPersonasProvider = ({ children }: { children: React.ReactNode }) => {
 
     const createPersona = useCallback(
         async (request: CreatePersonaRequest): Promise<boolean> => {
-            setIsSaving(true);
             try {
-                const result = await createPersonaService(request);
-                setPersonas((prev) => [...prev, result.data]);
-                toast.success(tForm("createSuccess"));
+                await createMutation.mutateAsync(request);
                 return true;
-            } catch (error) {
-                toast.error(
-                    error instanceof Error ? error.message : tForm("saveError"),
-                );
+            } catch {
                 return false;
-            } finally {
-                setIsSaving(false);
             }
         },
-        [tForm],
+        [createMutation],
     );
 
     const updatePersona = useCallback(
         async (request: UpdatePersonaRequest): Promise<boolean> => {
-            setIsSaving(true);
             try {
-                const result = await updatePersonaService(request);
-                setPersonas((prev) =>
-                    prev.map((p) => (p.id === result.data.id ? result.data : p)),
-                );
-                toast.success(tForm("updateSuccess"));
+                await updateMutation.mutateAsync(request);
                 return true;
-            } catch (error) {
-                toast.error(
-                    error instanceof Error ? error.message : tForm("saveError"),
-                );
+            } catch {
                 return false;
-            } finally {
-                setIsSaving(false);
             }
         },
-        [tForm],
+        [updateMutation],
     );
 
     const deletePersona = useCallback(async (): Promise<void> => {
         if (!deletingPersona) return;
-        try {
-            await deletePersonaService(deletingPersona.id);
-            setPersonas((prev) =>
-                prev.filter((p) => p.id !== deletingPersona.id),
-            );
-            toast.success(tDelete("success"));
-        } catch (error) {
-            toast.error(
-                error instanceof Error ? error.message : tDelete("error"),
-            );
-        } finally {
-            setDeletingPersona(null);
-        }
-    }, [deletingPersona, tDelete]);
+        await deleteMutation.mutateAsync(deletingPersona.id);
+        setDeletingPersona(null);
+    }, [deletingPersona, deleteMutation]);
 
     const value = useMemo<AiPersonasContextType>(
         () => ({
-            personas,
-            topicOptions,
-            isLoading,
-            isSaving,
+            personas: personasQuery.data ?? [],
+            topicOptions: topicsQuery.data ?? [],
+            isLoading: personasQuery.isLoading,
+            isSaving: createMutation.isPending || updateMutation.isPending,
             editingPersona,
             isFormOpen,
             deletingPersona,
@@ -153,10 +167,11 @@ const AiPersonasProvider = ({ children }: { children: React.ReactNode }) => {
             deletePersona,
         }),
         [
-            personas,
-            topicOptions,
-            isLoading,
-            isSaving,
+            personasQuery.data,
+            topicsQuery.data,
+            personasQuery.isLoading,
+            createMutation.isPending,
+            updateMutation.isPending,
             editingPersona,
             isFormOpen,
             deletingPersona,
