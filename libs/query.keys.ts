@@ -11,4 +11,7 @@ export const queryKeys = {
         logs: ["system-notifications", "logs"] as const,
         streakConfig: ["system-notifications", "streak-config"] as const,
     },
+    aiPersonas: {
+        list: ["ai-personas", "list"] as const,
+    },
 };
