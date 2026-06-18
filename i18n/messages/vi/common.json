@@ -5,6 +5,13 @@
             "title": {
                 "dashboard": "Bảng điều khiển",
                 "userManagement": "Quản lí người dùng",
+                "userReports": "Báo cáo lỗi & Phản hồi",
+                "systemNotifications": "Thông báo hệ thống",
+                "topicManagement": "Quản lý chủ đề",
+                "topicCreate": "Thêm chủ đề mới",
+                "topicDetail": "Cập nhật chủ đề",
+                "topicQuestions": "Quản lý câu hỏi",
+                "aiPersonas": "Cấu hình Persona AI",
                 "promptModeration": "Kiểm duyệt Prompt",
                 "settings": "Cài đặt",
                 "helpAndSupport": "Trợ giúp và hỗ trợ"
@@ -19,6 +26,7 @@
                 "sidebarGroup": {
                     "title": {
                         "main": "Mục chính",
+                        "contentManager": "Quản lý nội dung",
                         "other": "Khác"
                     }
                 },

@@ -105,7 +105,7 @@ const ModerationDetailProvider = ({
                     ? t("detail.toast.approveSuccess")
                     : t("detail.toast.rejectSuccess"),
             );
-            router.push("/prompt-moderation");
+            router.push("/content-manager/prompt-moderation");
         },
         onError: (_err, request) =>
             toast.error(

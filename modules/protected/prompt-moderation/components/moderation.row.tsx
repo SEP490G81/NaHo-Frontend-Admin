@@ -13,7 +13,8 @@ interface ModerationRowProps {
 
 const ModerationRow = ({ question, viewLabel }: ModerationRowProps) => {
     const router = useRouter();
-    const goDetail = () => router.push(`/prompt-moderation/${question.id}`);
+    const goDetail = () =>
+        router.push(`/content-manager/prompt-moderation/${question.id}`);
 
     return (
         <TableRow
