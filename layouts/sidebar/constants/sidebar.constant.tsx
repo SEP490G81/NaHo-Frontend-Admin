@@ -7,6 +7,7 @@ import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SmartToyOutlinedIcon from "@mui/icons-material/SmartToyOutlined";
+import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
 
 export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
     {
@@ -53,6 +54,13 @@ export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
                 activeLinks: ["/content-manager/topics"],
                 redirectLink: "/content-manager/topics",
                 icon: <MenuBookOutlinedIcon />,
+            },
+            {
+                id: "s-moderation",
+                nameLinkKey: "promptModeration",
+                activeLinks: ["/content-manager/prompt-moderation"],
+                redirectLink: "/content-manager/prompt-moderation",
+                icon: <GppGoodOutlinedIcon />,
             },
             {
                 id: "s-personas",

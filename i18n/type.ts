@@ -9,6 +9,7 @@ export type AllRoute =
     | "/system-notifications"
     | "/content-manager/topics"
     | "/content-manager/personas"
+    | "/content-manager/prompt-moderation"
     | "/settings"
     | "/help-and-support";
 

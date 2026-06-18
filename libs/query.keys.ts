@@ -14,4 +14,10 @@ export const queryKeys = {
     aiPersonas: {
         list: ["ai-personas", "list"] as const,
     },
+    customQuestions: {
+        list: (params: string) => ["custom-questions", "list", params] as const,
+        detail: (id: string) => ["custom-questions", "detail", id] as const,
+        pendingCount: ["custom-questions", "pending-count"] as const,
+        topicOptions: ["custom-questions", "topic-options"] as const,
+    },
 };
