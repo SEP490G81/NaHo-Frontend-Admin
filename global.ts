@@ -3,12 +3,14 @@ import userManagement from "@/i18n/messages/vi/user-management.json";
 import userReports from "@/i18n/messages/vi/user-reports.json";
 import systemNotifications from "@/i18n/messages/vi/system-notifications.json";
 import topicManagement from "@/i18n/messages/vi/topic-management.json";
+import aiPersonas from "@/i18n/messages/vi/ai-personas.json";
 
 type Messages = typeof common &
     typeof userManagement &
     typeof userReports &
     typeof systemNotifications &
-    typeof topicManagement;
+    typeof topicManagement &
+    typeof aiPersonas;
 
 declare module "next-intl" {
     interface AppConfig {

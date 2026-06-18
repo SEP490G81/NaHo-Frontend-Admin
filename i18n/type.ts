@@ -8,6 +8,7 @@ export type AllRoute =
     | "/user-reports"
     | "/system-notifications"
     | "/content-manager/topics"
+    | "/content-manager/personas"
     | "/settings"
     | "/help-and-support";
 

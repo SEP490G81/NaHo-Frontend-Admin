@@ -6,6 +6,7 @@ import SpaceDashboardOutlinedIcon from "@mui/icons-material/SpaceDashboardOutlin
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import SmartToyOutlinedIcon from "@mui/icons-material/SmartToyOutlined";
 
 export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
     {
@@ -52,6 +53,13 @@ export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
                 activeLinks: ["/content-manager/topics"],
                 redirectLink: "/content-manager/topics",
                 icon: <MenuBookOutlinedIcon />,
+            },
+            {
+                id: "s-personas",
+                nameLinkKey: "aiPersonas",
+                activeLinks: ["/content-manager/personas"],
+                redirectLink: "/content-manager/personas",
+                icon: <SmartToyOutlinedIcon />,
             },
         ],
     },
