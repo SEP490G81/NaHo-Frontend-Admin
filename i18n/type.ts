@@ -5,6 +5,7 @@ export type MetadataTitleKey = keyof Messages["common"]["metadata"]["title"];
 export type AllRoute =
     | "/dashboard"
     | "/user-management"
+    | "/user-reports"
     | "/settings"
     | "/help-and-support";
 
