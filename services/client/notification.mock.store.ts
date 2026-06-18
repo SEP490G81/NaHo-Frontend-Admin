@@ -16,8 +16,10 @@ import { NotificationAudience } from "@/types/enums/notification.enum";
  * Client-side mock persistence backed by localStorage.
  * TODO: replace these helpers with real API calls when BE is ready.
  */
-const LOG_KEY = "naho_mock_notification_logs";
-const CONFIG_KEY = "naho_mock_streak_email_config";
+// Bump the version suffix whenever the mock shape changes so stale
+// localStorage data (e.g. records missing newer fields) gets re-seeded.
+const LOG_KEY = "naho_mock_notification_logs_v1";
+const CONFIG_KEY = "naho_mock_streak_email_config_v1";
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 
 /** Rough audience sizes used only to estimate the recipient count in mock mode. */

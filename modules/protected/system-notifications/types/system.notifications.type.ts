@@ -1,13 +1,7 @@
-import { FormTextField } from "@/types/ui/ui.type";
 import { NotificationLogResponse } from "@/types/responses/notification.response";
 import { SendNotificationRequest } from "@/types/requests/notification.request";
 
 export type NotificationTab = "compose" | "streak";
-
-export interface SendNotificationState {
-    title: FormTextField;
-    content: FormTextField;
-}
 
 export interface SystemNotificationsContextType {
     activeTab: NotificationTab;

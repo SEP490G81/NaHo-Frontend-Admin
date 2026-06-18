@@ -9,10 +9,12 @@ import React, {
 } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
     fetchNotificationLogs,
     sendNotification as sendNotificationService,
 } from "@/services/client/notification.service";
+import { queryKeys } from "@/libs/query.keys";
 import { NotificationLogResponse } from "@/types/responses/notification.response";
 import { SendNotificationRequest } from "@/types/requests/notification.request";
 import {
@@ -29,37 +31,46 @@ const SystemNotificationsProvider = ({
     children: React.ReactNode;
 }) => {
     const t = useTranslations("systemNotifications.compose");
+    const queryClient = useQueryClient();
     const [activeTab, setActiveTab] = useState<NotificationTab>("compose");
-    const [logs, setLogs] = useState<NotificationLogResponse[]>([]);
-    const [isLoadingLogs, setIsLoadingLogs] = useState(true);
-    const [isSending, setIsSending] = useState(false);
+
+    const logsQuery = useQuery({
+        queryKey: queryKeys.systemNotifications.logs,
+        queryFn: fetchNotificationLogs,
+    });
 
     useEffect(() => {
-        setIsLoadingLogs(true);
-        fetchNotificationLogs()
-            .then((result) => setLogs(result.data))
-            .catch(() => toast.error(t("loadError")))
-            .finally(() => setIsLoadingLogs(false));
-    }, [t]);
+        if (logsQuery.isError) toast.error(t("loadError"));
+    }, [logsQuery.isError, t]);
+
+    const logs = useMemo<NotificationLogResponse[]>(
+        () => logsQuery.data ?? [],
+        [logsQuery.data],
+    );
+
+    const sendMutation = useMutation({
+        mutationFn: (request: SendNotificationRequest) =>
+            sendNotificationService(request),
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: queryKeys.systemNotifications.logs,
+            });
+            toast.success(t("sendSuccess"));
+        },
+        onError: (error) =>
+            toast.error(error instanceof Error ? error.message : t("sendError")),
+    });
 
     const sendNotification = useCallback(
         async (request: SendNotificationRequest): Promise<boolean> => {
-            setIsSending(true);
             try {
-                const result = await sendNotificationService(request);
-                setLogs((prev) => [result.data, ...prev]);
-                toast.success(t("sendSuccess"));
+                await sendMutation.mutateAsync(request);
                 return true;
-            } catch (error) {
-                toast.error(
-                    error instanceof Error ? error.message : t("sendError"),
-                );
+            } catch {
                 return false;
-            } finally {
-                setIsSending(false);
             }
         },
-        [t],
+        [sendMutation],
     );
 
     const value = useMemo<SystemNotificationsContextType>(
@@ -67,11 +78,17 @@ const SystemNotificationsProvider = ({
             activeTab,
             setActiveTab,
             logs,
-            isLoadingLogs,
-            isSending,
+            isLoadingLogs: logsQuery.isLoading,
+            isSending: sendMutation.isPending,
             sendNotification,
         }),
-        [activeTab, logs, isLoadingLogs, isSending, sendNotification],
+        [
+            activeTab,
+            logs,
+            logsQuery.isLoading,
+            sendMutation.isPending,
+            sendNotification,
+        ],
     );
 
     return (

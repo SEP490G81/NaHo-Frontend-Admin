@@ -21,33 +21,27 @@ import {
     NOTIFICATION_AUDIENCES,
 } from "../constants/system.notifications.constant";
 import { useSystemNotifications } from "../providers/system.notifications.provider";
-import { validateSendNotificationForm } from "../actions/notification.send.action";
-import { SendNotificationState } from "../types/system.notifications.type";
 
 const CONTENT_MAX = 1000;
-
-const initialState: SendNotificationState = {
-    title: { value: "", error: false },
-    content: { value: "", error: false },
-};
 
 const NotificationComposeForm = () => {
     const t = useTranslations("systemNotifications.compose");
     const tAudience = useTranslations("systemNotifications.audience");
     const { isSending, sendNotification } = useSystemNotifications();
 
-    const [state, setState] = useState<SendNotificationState>(initialState);
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [titleError, setTitleError] = useState(false);
+    const [contentError, setContentError] = useState(false);
     const [audience, setAudience] = useState<NotificationAudience>("ALL");
-    const [contentLength, setContentLength] = useState(0);
     const [isScheduled, setIsScheduled] = useState(false);
     const [scheduledAt, setScheduledAt] = useState("");
     const [confirmBroadcast, setConfirmBroadcast] = useState(false);
-    const [pendingFormData, setPendingFormData] = useState<FormData | null>(null);
 
-    const dispatchSend = async (formData: FormData) => {
+    const dispatchSend = async () => {
         const ok = await sendNotification({
-            title: (formData.get("title") as string).trim(),
-            content: (formData.get("content") as string).trim(),
+            title: title.trim(),
+            content: content.trim(),
             audience,
             scheduledAt:
                 isScheduled && scheduledAt
@@ -55,8 +49,10 @@ const NotificationComposeForm = () => {
                     : undefined,
         });
         if (ok) {
-            setState(initialState);
-            setContentLength(0);
+            setTitle("");
+            setContent("");
+            setTitleError(false);
+            setContentError(false);
             setIsScheduled(false);
             setScheduledAt("");
         }
@@ -64,18 +60,18 @@ const NotificationComposeForm = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const formData = new FormData(event.currentTarget);
-        const newState = validateSendNotificationForm(formData);
-        setState(newState);
-        if (newState.title.error || newState.content.error) return;
+        const titleInvalid = title.trim().length === 0;
+        const contentInvalid = content.trim().length === 0;
+        setTitleError(titleInvalid);
+        setContentError(contentInvalid);
+        if (titleInvalid || contentInvalid) return;
 
         // Phát cho TẤT CẢ là hành động diện rộng → xác nhận trước khi gửi.
         if (audience === "ALL") {
-            setPendingFormData(formData);
             setConfirmBroadcast(true);
             return;
         }
-        void dispatchSend(formData);
+        void dispatchSend();
     };
 
     return (
@@ -91,9 +87,13 @@ const NotificationComposeForm = () => {
                         fullWidth
                         size="small"
                         placeholder={t("titlePlaceholder")}
-                        defaultValue={state.title.value}
-                        error={state.title.error}
-                        helperText={state.title.error ? t("titleRequired") : ""}
+                        value={title}
+                        onChange={(e) => {
+                            setTitle(e.target.value);
+                            if (titleError) setTitleError(false);
+                        }}
+                        error={titleError}
+                        helperText={titleError ? t("titleRequired") : ""}
                     />
                 </div>
 
@@ -108,14 +108,17 @@ const NotificationComposeForm = () => {
                         multiline
                         minRows={4}
                         placeholder={t("contentPlaceholder")}
-                        defaultValue={state.content.value}
-                        error={state.content.error}
-                        helperText={state.content.error ? t("contentRequired") : ""}
+                        value={content}
+                        onChange={(e) => {
+                            setContent(e.target.value);
+                            if (contentError) setContentError(false);
+                        }}
+                        error={contentError}
+                        helperText={contentError ? t("contentRequired") : ""}
                         slotProps={{ htmlInput: { maxLength: CONTENT_MAX } }}
-                        onChange={(e) => setContentLength(e.target.value.length)}
                     />
                     <p className="text-text-muted text-right text-xs">
-                        {contentLength}/{CONTENT_MAX}
+                        {content.length}/{CONTENT_MAX}
                     </p>
                 </div>
 
@@ -217,8 +220,7 @@ const NotificationComposeForm = () => {
                         disableElevation
                         onClick={() => {
                             setConfirmBroadcast(false);
-                            if (pendingFormData) void dispatchSend(pendingFormData);
-                            setPendingFormData(null);
+                            void dispatchSend();
                         }}
                         sx={{
                             bgcolor: "var(--color-bgc-highlight)",

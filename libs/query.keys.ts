@@ -7,4 +7,8 @@ export const queryKeys = {
     userReports: {
         list: ["user-reports", "list"] as const,
     },
+    systemNotifications: {
+        logs: ["system-notifications", "logs"] as const,
+        streakConfig: ["system-notifications", "streak-config"] as const,
+    },
 };

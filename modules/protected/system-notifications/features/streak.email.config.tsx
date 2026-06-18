@@ -14,12 +14,15 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { toast } from "react-toastify";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { TextFieldCustom } from "@/components/ui/mui-custom/text.field.custom";
 import {
     fetchStreakConfig,
     sendTestStreakEmail,
     updateStreakConfig,
 } from "@/services/client/notification.service";
+import { queryKeys } from "@/libs/query.keys";
+import { StreakEmailConfigResponse } from "@/types/responses/notification.response";
 import {
     PREVIEW_SAMPLE_NAME,
     STREAK_EMAIL_VARIABLES,
@@ -32,30 +35,48 @@ const renderPreview = (html: string, days: number): string =>
         .replaceAll("{{name}}", PREVIEW_SAMPLE_NAME)
         .replaceAll("{{days}}", String(days));
 
-const StreakEmailConfig = () => {
+/**
+ * Editable form, seeded from the loaded config via useState initializers
+ * (mounted only once data is ready) — keeps server data out of effects.
+ */
+const StreakEmailForm = ({
+    initialConfig,
+}: {
+    initialConfig: StreakEmailConfigResponse;
+}) => {
     const t = useTranslations("systemNotifications.streak");
+    const queryClient = useQueryClient();
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [subject, setSubject] = useState("");
-    const [threshold, setThreshold] = useState(3);
-    const [htmlBody, setHtmlBody] = useState("");
-    const [isSaving, setIsSaving] = useState(false);
+    const [subject, setSubject] = useState(initialConfig.subject);
+    const [threshold, setThreshold] = useState(initialConfig.inactivityThreshold);
+    const [htmlBody, setHtmlBody] = useState(initialConfig.htmlBody);
     const [testOpen, setTestOpen] = useState(false);
     const [testEmail, setTestEmail] = useState("");
-    const [isSendingTest, setIsSendingTest] = useState(false);
     const bodyRef = useRef<HTMLTextAreaElement | null>(null);
 
-    useEffect(() => {
-        setIsLoading(true);
-        fetchStreakConfig()
-            .then((result) => {
-                setSubject(result.data.subject);
-                setThreshold(result.data.inactivityThreshold);
-                setHtmlBody(result.data.htmlBody);
-            })
-            .catch(() => toast.error(t("loadError")))
-            .finally(() => setIsLoading(false));
-    }, [t]);
+    const saveMutation = useMutation({
+        mutationFn: updateStreakConfig,
+        onSuccess: (data) => {
+            queryClient.setQueryData(
+                queryKeys.systemNotifications.streakConfig,
+                data,
+            );
+            toast.success(t("saveSuccess"));
+        },
+        onError: (error) =>
+            toast.error(error instanceof Error ? error.message : t("saveError")),
+    });
+
+    const testMutation = useMutation({
+        mutationFn: sendTestStreakEmail,
+        onSuccess: () => {
+            toast.success(t("testSuccess"));
+            setTestOpen(false);
+            setTestEmail("");
+        },
+        onError: (error) =>
+            toast.error(error instanceof Error ? error.message : t("testError")),
+    });
 
     const insertVariable = (variable: string) => {
         const el = bodyRef.current;
@@ -74,54 +95,25 @@ const StreakEmailConfig = () => {
         });
     };
 
-    const handleSave = async () => {
+    const handleSave = () => {
         if (subject.trim().length === 0 || htmlBody.trim().length === 0) {
             toast.error(t("validationError"));
             return;
         }
-        setIsSaving(true);
-        try {
-            await updateStreakConfig({
-                subject: subject.trim(),
-                inactivityThreshold: threshold,
-                htmlBody,
-            });
-            toast.success(t("saveSuccess"));
-        } catch (error) {
-            toast.error(error instanceof Error ? error.message : t("saveError"));
-        } finally {
-            setIsSaving(false);
-        }
+        saveMutation.mutate({
+            subject: subject.trim(),
+            inactivityThreshold: threshold,
+            htmlBody,
+        });
     };
 
-    const handleSendTest = async () => {
+    const handleSendTest = () => {
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(testEmail)) {
             toast.error(t("testEmailInvalid"));
             return;
         }
-        setIsSendingTest(true);
-        try {
-            await sendTestStreakEmail({ email: testEmail.trim() });
-            toast.success(t("testSuccess"));
-            setTestOpen(false);
-            setTestEmail("");
-        } catch (error) {
-            toast.error(error instanceof Error ? error.message : t("testError"));
-        } finally {
-            setIsSendingTest(false);
-        }
+        testMutation.mutate({ email: testEmail.trim() });
     };
-
-    if (isLoading) {
-        return (
-            <div className="bg-bgc-app flex justify-center rounded-xl py-16">
-                <CircularProgress
-                    size={28}
-                    sx={{ color: "var(--color-bgc-highlight)" }}
-                />
-            </div>
-        );
-    }
 
     return (
         <div className="bg-bgc-app space-y-6 rounded-xl p-6">
@@ -227,7 +219,7 @@ const StreakEmailConfig = () => {
                 <Button
                     variant="contained"
                     disableElevation
-                    loading={isSaving}
+                    loading={saveMutation.isPending}
                     startIcon={<SaveOutlinedIcon />}
                     onClick={handleSave}
                     sx={{
@@ -271,7 +263,7 @@ const StreakEmailConfig = () => {
                     <Button
                         variant="contained"
                         disableElevation
-                        loading={isSendingTest}
+                        loading={testMutation.isPending}
                         onClick={handleSendTest}
                         sx={{
                             bgcolor: "var(--color-bgc-highlight)",
@@ -284,6 +276,38 @@ const StreakEmailConfig = () => {
             </Dialog>
         </div>
     );
+};
+
+const StreakEmailConfig = () => {
+    const t = useTranslations("systemNotifications.streak");
+
+    const configQuery = useQuery({
+        queryKey: queryKeys.systemNotifications.streakConfig,
+        queryFn: fetchStreakConfig,
+    });
+
+    useEffect(() => {
+        if (configQuery.isError) toast.error(t("loadError"));
+    }, [configQuery.isError, t]);
+
+    if (configQuery.isPending) {
+        return (
+            <div className="bg-bgc-app flex justify-center rounded-xl py-16">
+                <CircularProgress
+                    size={28}
+                    sx={{ color: "var(--color-bgc-highlight)" }}
+                />
+            </div>
+        );
+    }
+
+    const config: StreakEmailConfigResponse = configQuery.data ?? {
+        subject: "",
+        inactivityThreshold: STREAK_THRESHOLD_MIN,
+        htmlBody: "",
+    };
+
+    return <StreakEmailForm initialConfig={config} />;
 };
 
 export default StreakEmailConfig;
