@@ -5,6 +5,7 @@
             "title": {
                 "dashboard": "Bảng điều khiển",
                 "userManagement": "Quản lí người dùng",
+                "promptModeration": "Kiểm duyệt Prompt",
                 "settings": "Cài đặt",
                 "helpAndSupport": "Trợ giúp và hỗ trợ"
             },

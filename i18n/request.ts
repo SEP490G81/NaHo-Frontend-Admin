@@ -2,7 +2,7 @@ import { hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 
-const MESSAGE_FILES = ["common", "user-management"];
+const MESSAGE_FILES = ["common", "user-management", "prompt-moderation"];
 
 export default getRequestConfig(async ({ requestLocale }) => {
     const requested = await requestLocale;
