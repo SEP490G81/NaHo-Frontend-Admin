@@ -1,0 +1,76 @@
+{
+    "systemNotifications": {
+        "title": "Thông báo hệ thống & Cấu hình email",
+        "description": "Gửi thông báo tới người dùng và cấu hình email nhắc Streak tự động cho học viên.",
+        "tabs": {
+            "compose": "Gửi thông báo",
+            "streak": "Cấu hình Email Streak"
+        },
+        "audience": {
+            "all": "Tất cả",
+            "learner": "Học viên",
+            "teacher": "Giảng viên"
+        },
+        "status": {
+            "sent": "Đã gửi",
+            "scheduled": "Đã lên lịch",
+            "failed": "Thất bại"
+        },
+        "compose": {
+            "title": "Soạn thông báo hệ thống",
+            "description": "Thông báo sẽ hiển thị trong trung tâm thông báo của người dùng được chọn.",
+            "titleLabel": "Tiêu đề",
+            "titlePlaceholder": "VD: Bảo trì hệ thống định kỳ",
+            "titleRequired": "Vui lòng nhập tiêu đề",
+            "contentLabel": "Nội dung thông báo",
+            "contentPlaceholder": "Nhập nội dung thông báo gửi tới người dùng…",
+            "contentRequired": "Vui lòng nhập nội dung",
+            "audienceLabel": "Đối tượng nhận",
+            "scheduleLabel": "Lên lịch gửi",
+            "submit": "Gửi thông báo",
+            "scheduleSubmit": "Lên lịch gửi",
+            "sendSuccess": "Đã gửi thông báo thành công",
+            "sendError": "Không thể gửi thông báo. Vui lòng thử lại.",
+            "loadError": "Không thể tải nhật ký thông báo",
+            "broadcastTitle": "Gửi cho tất cả người dùng?",
+            "broadcastMessage": "Thông báo này sẽ được gửi tới TẤT CẢ học viên và giảng viên. Bạn chắc chắn muốn tiếp tục?",
+            "broadcastCancel": "Huỷ",
+            "broadcastConfirm": "Gửi cho tất cả"
+        },
+        "log": {
+            "title": "Nhật ký thông báo đã gửi",
+            "description": "Lịch sử các thông báo hệ thống đã gửi và lên lịch.",
+            "colSentAt": "Ngày gửi",
+            "colTitle": "Tiêu đề",
+            "colAudience": "Đối tượng",
+            "colRecipients": "Người nhận",
+            "colStatus": "Trạng thái",
+            "empty": "Chưa có thông báo nào được gửi."
+        },
+        "streak": {
+            "title": "Cấu hình email nhắc Streak (Gmail SMTP)",
+            "description": "Email tự động gửi cho học viên không hoạt động sau số ngày được thiết lập.",
+            "subjectLabel": "Tiêu đề email",
+            "subjectPlaceholder": "VD: Giữ vững ngọn lửa học Kaiwa cùng NAHO!",
+            "thresholdLabel": "Ngưỡng không hoạt động",
+            "thresholdValue": "{days} ngày",
+            "thresholdHint": "Học viên không luyện tập trong {days} ngày sẽ nhận được email nhắc nhở.",
+            "htmlLabel": "Mã HTML email",
+            "variablesLabel": "Biến hỗ trợ:",
+            "previewLabel": "Xem trước trực tiếp",
+            "testButton": "Gửi thử nghiệm",
+            "saveButton": "Lưu cấu hình",
+            "saveSuccess": "Đã lưu cấu hình email Streak",
+            "saveError": "Không thể lưu cấu hình. Vui lòng thử lại.",
+            "loadError": "Không thể tải cấu hình email",
+            "validationError": "Tiêu đề và nội dung HTML không được để trống",
+            "testDialogTitle": "Gửi email thử nghiệm",
+            "testDialogMessage": "Nhập địa chỉ email để nhận bản xem trước của email nhắc Streak.",
+            "testCancel": "Huỷ",
+            "testConfirm": "Gửi thử",
+            "testEmailInvalid": "Địa chỉ email không hợp lệ",
+            "testSuccess": "Đã gửi email thử nghiệm",
+            "testError": "Không thể gửi email thử nghiệm"
+        }
+    }
+}

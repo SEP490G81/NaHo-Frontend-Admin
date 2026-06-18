@@ -6,6 +6,7 @@ export type AllRoute =
     | "/dashboard"
     | "/user-management"
     | "/user-reports"
+    | "/system-notifications"
     | "/settings"
     | "/help-and-support";
 
