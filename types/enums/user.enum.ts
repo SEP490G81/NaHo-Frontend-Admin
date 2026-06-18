@@ -16,5 +16,13 @@ export type JlptLevel = (typeof JlptLevel)[keyof typeof JlptLevel];
 const UserStatus = Object.freeze({
     ACTIVE: "ACTIVE",
     UNACTIVE: "UNACTIVE",
+    BANNED: "BANNED",
 });
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
+
+const AccountType = Object.freeze({
+    ADMIN: "ADMIN",
+    LEARNER: "LEARNER",
+    TEACHER: "TEACHER",
+});
+export type AccountType = (typeof AccountType)[keyof typeof AccountType];
