@@ -5,6 +5,8 @@
             "title": {
                 "dashboard": "Bảng điều khiển",
                 "userManagement": "Quản lí người dùng",
+                "userReports": "Báo cáo lỗi & Phản hồi",
+                "systemNotifications": "Thông báo hệ thống",
                 "topicManagement": "Quản lý chủ đề",
                 "topicCreate": "Thêm chủ đề mới",
                 "topicDetail": "Cập nhật chủ đề",
