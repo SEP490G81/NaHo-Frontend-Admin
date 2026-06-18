@@ -3,6 +3,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import HeadphonesOutlinedIcon from "@mui/icons-material/HeadphonesOutlined";
 import SpaceDashboardOutlinedIcon from "@mui/icons-material/SpaceDashboardOutlined";
+import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 
@@ -38,6 +39,19 @@ export const SIDEBAR_GROUPS: SidebarItemGroup[] = [
                 activeLinks: ["/system-notifications"],
                 redirectLink: "/system-notifications",
                 icon: <NotificationsOutlinedIcon />,
+            },
+        ],
+    },
+    {
+        id: "g-teacher",
+        title: "contentManager",
+        items: [
+            {
+                id: "s-topic",
+                nameLinkKey: "topicManagement",
+                activeLinks: ["/content-manager/topics"],
+                redirectLink: "/content-manager/topics",
+                icon: <MenuBookOutlinedIcon />,
             },
         ],
     },

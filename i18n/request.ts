@@ -7,6 +7,7 @@ const MESSAGE_FILES = [
     "user-management",
     "user-reports",
     "system-notifications",
+    "topic-management",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {
