@@ -1,4 +1,7 @@
 export const queryKeys = {
+    dashboard: {
+        overview: ["dashboard", "overview"] as const,
+    },
     userManagement: {
         list: (params: string) => ["user-management", "list", params] as const,
         detail: (id: number) => ["user-management", "detail", id] as const,

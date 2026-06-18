@@ -1,0 +1,59 @@
+{
+    "dashboard": {
+        "title": "Bảng điều khiển",
+        "description": "Tổng quan vận hành hệ thống NaHo — người dùng, báo cáo và thông báo trong nháy mắt.",
+        "period": {
+            "label": "Khoảng thời gian",
+            "days7": "7 ngày",
+            "days14": "14 ngày",
+            "days30": "30 ngày"
+        },
+        "kpi": {
+            "totalUsers": "Tổng người dùng",
+            "activeLearners": "Học viên hoạt động",
+            "teachers": "Giảng viên",
+            "newUsersThisWeek": "Người dùng mới (7 ngày)",
+            "vsPrevious": "so với kỳ trước"
+        },
+        "userGrowth": {
+            "title": "Tăng trưởng người dùng",
+            "subtitle": "Số người dùng mới mỗi ngày",
+            "total": "{count} người dùng mới"
+        },
+        "practice": {
+            "title": "Hoạt động luyện nói",
+            "subtitle": "Số phiên Kaiwa mỗi ngày",
+            "unit": "phiên"
+        },
+        "jlpt": {
+            "title": "Phân bố trình độ JLPT",
+            "subtitle": "Học viên theo cấp độ",
+            "learners": "{count} học viên"
+        },
+        "status": {
+            "title": "Trạng thái tài khoản",
+            "active": "Đang hoạt động",
+            "unactive": "Chưa kích hoạt",
+            "banned": "Bị khóa"
+        },
+        "reports": {
+            "title": "Báo cáo lỗi cần xử lý",
+            "viewAll": "Xem tất cả",
+            "pending": "Chưa xử lý",
+            "inProgress": "Đang xử lý",
+            "resolved": "Đã giải quyết",
+            "empty": "Không có báo cáo nào đang chờ. Tuyệt vời!",
+            "overdue": "Tồn đọng"
+        },
+        "notifications": {
+            "title": "Thông báo gần đây",
+            "viewAll": "Xem tất cả",
+            "sentThisMonth": "Đã gửi tháng này",
+            "totalRecipients": "Tổng lượt nhận",
+            "empty": "Chưa có thông báo nào được gửi."
+        },
+        "errors": {
+            "load": "Không tải được dữ liệu bảng điều khiển."
+        }
+    }
+}

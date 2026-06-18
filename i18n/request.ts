@@ -4,6 +4,7 @@ import { routing } from "./routing";
 
 const MESSAGE_FILES = [
     "common",
+    "dashboard",
     "user-management",
     "user-reports",
     "system-notifications",
