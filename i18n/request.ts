@@ -4,13 +4,26 @@ import { routing } from "./routing";
 
 const MESSAGE_FILES = [
     "common",
+    "login",
+    "register",
+    "forgot-password",
+    "home",
     "dashboard",
-    "user-management",
-    "user-reports",
-    "system-notifications",
-    "topic-management",
-    "ai-personas",
-    "prompt-moderation",
+    "history",
+    "question",
+    "topic",
+    "sandbox",
+    "settings",
+    "live-chatroom",
+    "dialogue-setup",
+    "speaking-result",
+    "marugoto",
+    "leaderboard",
+    "point-history",
+    "daily-reward",
+    "daily-mission",
+    "legal",
+    "help",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

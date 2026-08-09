@@ -1,0 +1,144 @@
+{
+    "common": {
+        "appName": "NaHo",
+        "copyright": "© 2026 NaHo. Phát triển bởi nhóm G81 - SEP490 - Đại học FPT.",
+        "common": {
+            "or": "Hoặc"
+        },
+        "metadata": {
+            "title": {
+                "home": "Trang chủ",
+                "login": "Đăng nhập",
+                "forgotPassword": "Quên mật khẩu",
+                "register": "Đăng ký",
+                "verifyEmail": "Email Verification",
+                "getHelp": "Trợ giúp",
+                "features": "Tính năng nổi bật",
+                "learnerFeedback": "Đánh giá từ người học",
+                "frequentlyQuestions": "Câu hỏi thường gặp",
+                "dashboard": "Dashboard",
+                "leaderboard": "Competitive Leaderboard",
+                "settings": "Settings",
+                "topics": "Practice Topics",
+                "topicDetail": "Topic Detail",
+                "lessonPath": "Lesson Path",
+                "sandbox": "Speaking Room",
+                "history": "Practice History",
+                "historyDetail": "Detailed Report",
+                "custom-question": "Custom Questions",
+                "sandbox-custom": "Custom Practice Room",
+                "history-custom": "Custom Question History",
+                "community-library": "Community Library",
+                "report": "Report",
+                "liveChatroom": "Live Chatroom",
+                "dialogueSetup": "Free AI Conversation",
+                "speakingResult": "Session Report",
+                "orders": "Order History",
+                "userManagement": "User Management",
+                "terms": "Terms of Service",
+                "privacy": "Privacy Policy"
+            },
+            "language": {
+                "vi": "Tiếng Việt",
+                "en": "Tiếng Anh",
+                "jp": "Tiếng Nhật"
+            },
+            "action": {
+                "open": "Open",
+                "close": "Close",
+                "back": "Back"
+            },
+            "back": "Back"
+        },
+        "layout": {
+            "sidebar": {
+                "dashboard": "Dashboard",
+                "userManagement": "User Management",
+                "kaiwaRoadmap": "Kaiwa Roadmap",
+                "freeAiChat": "Free AI Conversation",
+                "leaderboard": "Leaderboard"
+            },
+            "header": {
+                "collapseSidebar": "Collapse sidebar",
+                "expandSidebar": "Expand sidebar",
+                "notificationButton": "Notifications",
+                "themeSwitchButton": {
+                    "darkMode": "Chế độ tối",
+                    "lightMode": "Chế độ sáng"
+                },
+                "furiganaSwitchButton": {
+                    "showFurigana": "Show Furigana",
+                    "hideFurigana": "Hide Furigana"
+                },
+                "loginButton": "Đăng nhập",
+                "logoutButton": "Đăng xuất",
+                "registerButton": "Đăng ký trải nghiệm ngay",
+                "accountMenu": {
+                    "settings": "Settings",
+                    "orders": "Order History",
+                    "pointHistory": "Point History",
+                    "speakingHistory": "Speaking History by Book",
+                    "language": "Language",
+                    "getHelp": "Help & Support",
+                    "report": "Report"
+                }
+            }
+        },
+        "commentReaction": {
+            "discussionAndInteraction": "Discussion & Interaction",
+            "commentsCount": "{count} comments",
+            "likeQuestion": "Like Question",
+            "writeCommentPlaceholder": "Share your thoughts about this question...",
+            "postCommentButton": "Comment",
+            "noCommentsYet": "No discussions yet. Be the first to share your thoughts!",
+            "justNow": "Just now",
+            "minutesAgo": "{count} minutes ago",
+            "hoursAgo": "{count} hours ago",
+            "like": "Like",
+            "reply": "Reply",
+            "writeReplyPlaceholder": "Write a reply...",
+            "sendButton": "Send",
+            "report": "Report"
+        },
+        "report": {
+            "modalTitle": "Submit Feedback & Report",
+            "pageTitle": "Reports & Feedback",
+            "pageSubtitle": "Submit system issue reports and track your report resolution history.",
+            "createReportSectionTitle": "Create New Report",
+            "historySectionTitle": "Report History",
+            "fieldReportType": "Report Type",
+            "typeQuestion": "Question",
+            "typeComment": "Comment",
+            "typeSystem": "System",
+            "fieldTitle": "Title",
+            "titlePlaceholder": "Enter feedback title...",
+            "fieldDescription": "Detailed Description",
+            "descriptionPlaceholder": "Please describe in detail the issue you encountered...",
+            "fieldImage": "Attachment Image",
+            "uploadImageBtn": "Upload Image",
+            "uploadImagesBtn": "Upload Images (select one or multiple)",
+            "imageAttached": "Image attached",
+            "imagesAttachedCount": "{count} images attached",
+            "removeBtn": "Remove Image",
+            "cancelBtn": "Cancel",
+            "submitBtn": "Submit Report",
+            "submitting": "Submitting...",
+            "submitSuccess": "Report submitted successfully! Thank you for your feedback.",
+            "errorOnlyImage": "Please select only image files!",
+            "errorRequired": "Please fill in both title and description!",
+            "statusResolved": "Resolved",
+            "statusPending": "Pending",
+            "filterAll": "All",
+            "noReports": "No reports found.",
+            "noReportsFiltered": "No reports found for this status.",
+            "tableHeaderId": "ID",
+            "tableHeaderType": "Report Type",
+            "tableHeaderContent": "Report Content",
+            "tableHeaderStatus": "Status",
+            "tableHeaderImages": "Attached Images",
+            "tableHeaderDate": "Created Date",
+            "viewImages": "View images ({count})",
+            "noImages": "No images"
+        }
+    }
+}

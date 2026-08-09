@@ -16,13 +16,24 @@ export type JlptLevel = (typeof JlptLevel)[keyof typeof JlptLevel];
 const UserStatus = Object.freeze({
     ACTIVE: "ACTIVE",
     UNACTIVE: "UNACTIVE",
-    BANNED: "BANNED",
+    DELETED: "DELETED",
 });
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
 
-const AccountType = Object.freeze({
-    ADMIN: "ADMIN",
+export const RoleName = Object.freeze({
     LEARNER: "LEARNER",
-    TEACHER: "TEACHER",
+    CONTENT_MANAGER: "CONTENT_MANAGER",
+    ADMIN: "ADMIN",
 });
-export type AccountType = (typeof AccountType)[keyof typeof AccountType];
+export type RoleName = (typeof RoleName)[keyof typeof RoleName];
+
+export const OAuthProviderName = Object.freeze({
+    GOOGLE: "GOOGLE",
+    FACEBOOK: "FACEBOOK",
+    APPLE: "APPLE",
+});
+export type OAuthProviderName =
+    (typeof OAuthProviderName)[keyof typeof OAuthProviderName];
+
+export const AuthProviderName = OAuthProviderName;
+export type AuthProviderName = OAuthProviderName;

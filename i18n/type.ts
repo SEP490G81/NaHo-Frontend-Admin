@@ -3,15 +3,41 @@ import { Messages } from "next-intl";
 export type MetadataTitleKey = keyof Messages["common"]["metadata"]["title"];
 
 export type AllRoute =
+    | "/"
+    | "/home"
     | "/dashboard"
-    | "/user-management"
-    | "/user-reports"
-    | "/system-notifications"
-    | "/content-manager/topics"
-    | "/content-manager/personas"
-    | "/content-manager/prompt-moderation"
+    | "/users"
+    | "/login"
+    | "/introduction"
+    | "/forgot-password"
+    | "/register"
+    | "/verify-email"
+    | "/topics"
+    | "/books"
+    | `/books/${string}` // "/books/[bookId]"
+    | `/books/${string}/${string}/${string}` // "/books/[bookId]/topics/[topicId]"
+    | "/sandbox"
+    | `/sandbox/${string}` // hoặc "/sandbox/[questionId]"
+    | "/speaking-history"
+    | `/speaking-history/${string}` // hoặc "/speaking-history/[historyId]"
+    | "/point-history"
+    | "/dialogue-setup"
+    | "/live-chatroom"
+    | "/leaderboard"
+    | "/speaking-result"
     | "/settings"
-    | "/help-and-support";
+    | "/settings/account"
+    | "/settings/security"
+    | "/settings/billing"
+    | "/orders"
+    | "/reports"
+    | "/dialogue-setup"
+    | "/get-help"
+    | "/features"
+    | "/learner-feedback"
+    | "/frequently-questions"
+    | "/terms"
+    | "/privacy";
 
 export type RemoveDynamic<T> = T extends `${string}[${string}` ? never : T;
 export type StaticRoute = RemoveDynamic<AllRoute>;

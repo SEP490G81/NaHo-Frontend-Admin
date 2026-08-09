@@ -1,14 +1,26 @@
-interface PageMeta {
+export interface PageMeta {
     currentPage: number;
     pageSize: number;
     totalPages: number;
     totalElements: number;
+    hasNext?: boolean;
+    hasPrevious?: boolean;
 }
 
-interface ApiMeta {
+export interface ProblemDetail {
+    title: string;
+    status: number;
+    detail: string;
+    errorCode: string;
+    traceId?: string;
+    timestamp?: string;
+    fieldErrors?: FieldErrorResponse[];
+}
+
+export interface ApiMeta {
     traceId: string;
     timestamp: string;
-    pageMeta?: PageMeta;
+    pageMeta: PageMeta;
 }
 
 export interface ApiResponse<T> {
@@ -17,9 +29,18 @@ export interface ApiResponse<T> {
     data: T;
 }
 
-export interface ProblemDetail {
-    title: string;
-    status: number;
-    detail: string;
-    errorCode: string;
+export interface FieldErrorResponse {
+    field: string;
+    message: string;
+}
+
+export interface ProblemDetailResponse {
+    errorCode?: string;
+    traceId?: string;
+    timestamp?: string;
+    fieldErrors?: FieldErrorResponse[];
+}
+
+export interface ProblemDetailResponseBuilder {
+    response: ProblemDetailResponse;
 }

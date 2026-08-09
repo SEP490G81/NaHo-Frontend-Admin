@@ -1,45 +1,149 @@
 {
     "common": {
+        "forceLogout": {
+            "title": "Cảnh báo đăng nhập",
+            "message": "Tài khoản hiện đang được đăng nhập ở nơi khác",
+            "button": "Đăng nhập lại"
+        },
         "appName": "NaHo",
+        "copyright": "© 2026 NaHo. Phát triển bởi nhóm G81 - SEP490 - Đại học FPT.",
+        "common": {
+            "or": "Hoặc"
+        },
         "metadata": {
             "title": {
-                "dashboard": "Bảng điều khiển",
-                "userManagement": "Quản lí người dùng",
-                "userReports": "Báo cáo lỗi & Phản hồi",
-                "systemNotifications": "Thông báo hệ thống",
-                "topicManagement": "Quản lý chủ đề",
-                "topicCreate": "Thêm chủ đề mới",
-                "topicDetail": "Cập nhật chủ đề",
-                "topicQuestions": "Quản lý câu hỏi",
-                "aiPersonas": "Cấu hình Persona AI",
-                "promptModeration": "Kiểm duyệt Prompt",
+                "home": "Trang chủ",
+                "login": "Đăng nhập",
+                "forgotPassword": "Quên mật khẩu",
+                "register": "Đăng ký",
+                "verifyEmail": "Xác thực email",
+                "getHelp": "Trợ giúp",
+                "features": "Tính năng nổi bật",
+                "learnerFeedback": "Đánh giá từ người học",
+                "frequentlyQuestions": "Câu hỏi thường gặp",
+                "dashboard": "Dashboard",
+                "topics": "Practice Topics",
+                "topicDetail": "Topic Detail",
+                "lessonPath": "Lộ trình bài học",
+                "sandbox": "Speaking Room",
+                "history": "Lịch sử luyện nói theo sách",
+                "historyDetail": "Detailed Report",
+                "custom-question": "Custom Questions",
+                "sandbox-custom": "Custom Practice Room",
+                "history-custom": "Custom Question History",
+                "community-library": "Community Library",
+                "report": "Báo cáo",
+                "liveChatroom": "Trò chuyện trực tuyến",
+                "dialogueSetup": "Trò chuyện tự do AI",
+                "speakingResult": "Báo cáo phiên luyện",
+                "leaderboard": "Bảng xếp hạng thi đua",
                 "settings": "Cài đặt",
-                "helpAndSupport": "Trợ giúp và hỗ trợ"
+                "orders": "Lịch sử giao dịch",
+                "userManagement": "Quản lý người dùng",
+                "terms": "Điều khoản sử dụng",
+                "privacy": "Chính sách bảo mật"
+            },
+            "language": {
+                "vi": "Tiếng Việt",
+                "en": "Tiếng Anh",
+                "jp": "Tiếng Nhật"
             },
             "action": {
                 "open": "Mở",
-                "close": "Đóng"
-            }
+                "close": "Đóng",
+                "back": "Quay lại"
+            },
+            "back": "Quay lại"
         },
         "layout": {
             "sidebar": {
-                "sidebarGroup": {
-                    "title": {
-                        "main": "Mục chính",
-                        "contentManager": "Quản lý nội dung",
-                        "other": "Khác"
-                    }
-                },
-                "logout": "Đăng xuất"
+                "dashboard": "Trang chủ",
+                "userManagement": "Quản lý người dùng",
+                "kaiwaRoadmap": "Lộ trình Kaiwa",
+                "freeAiChat": "Trò chuyện tự do AI",
+                "leaderboard": "Bảng xếp hạng thi đua"
             },
             "header": {
-                "appSearchBoxPlaceholder": "Tìm kiếm bất cứ gì",
+                "collapseSidebar": "Thu gọn thanh bên",
+                "expandSidebar": "Mở rộng thanh bên",
                 "notificationButton": "Thông báo",
                 "themeSwitchButton": {
                     "darkMode": "Chế độ tối",
                     "lightMode": "Chế độ sáng"
+                },
+                "furiganaSwitchButton": {
+                    "showFurigana": "Hiện Furigana",
+                    "hideFurigana": "Ẩn Furigana"
+                },
+                "loginButton": "Đăng nhập",
+                "logoutButton": "Đăng xuất",
+                "registerButton": "Đăng ký trải nghiệm ngay",
+                "accountMenu": {
+                    "settings": "Cài đặt",
+                    "orders": "Lịch sử giao dịch",
+                    "pointHistory": "Lịch sử nhận điểm",
+                    "speakingHistory": "Lịch sử luyện nói theo sách",
+                    "language": "Ngôn ngữ",
+                    "getHelp": "Trợ giúp",
+                    "report": "Báo cáo"
                 }
             }
+        },
+        "commentReaction": {
+            "discussionAndInteraction": "Thảo luận & Tương tác",
+            "commentsCount": "{count} bình luận",
+            "likeQuestion": "Thích câu hỏi",
+            "writeCommentPlaceholder": "Chia sẻ ý kiến của bạn về câu hỏi này...",
+            "postCommentButton": "Bình luận",
+            "noCommentsYet": "Chưa có thảo luận nào. Hãy là người đầu tiên chia sẻ ý kiến!",
+            "justNow": "Vừa xong",
+            "minutesAgo": "{count} phút trước",
+            "hoursAgo": "{count} giờ trước",
+            "like": "Thích",
+            "reply": "Phản hồi",
+            "writeReplyPlaceholder": "Viết phản hồi...",
+            "sendButton": "Gửi",
+            "report": "Báo cáo"
+        },
+        "report": {
+            "modalTitle": "Gửi phản hồi & báo cáo",
+            "pageTitle": "Báo cáo & Phản hồi",
+            "pageSubtitle": "Gửi báo cáo sự cố hệ thống và theo dõi lịch sử xử lý báo cáo của bạn.",
+            "createReportSectionTitle": "Tạo báo cáo mới",
+            "historySectionTitle": "Lịch sử báo cáo",
+            "fieldReportType": "Loại báo cáo",
+            "typeQuestion": "Câu hỏi",
+            "typeComment": "Bình luận",
+            "typeSystem": "Hệ thống",
+            "fieldTitle": "Tiêu đề",
+            "titlePlaceholder": "Nhập tiêu đề phản hồi...",
+            "fieldDescription": "Mô tả chi tiết",
+            "descriptionPlaceholder": "Vui lòng mô tả chi tiết vấn đề bạn gặp phải...",
+            "fieldImage": "Ảnh đính kèm",
+            "uploadImageBtn": "Tải lên hình ảnh",
+            "uploadImagesBtn": "Tải lên hình ảnh (chọn 1 hoặc nhiều ảnh)",
+            "imageAttached": "Ảnh đã đính kèm",
+            "imagesAttachedCount": "Đã đính kèm {count} ảnh",
+            "removeBtn": "Xóa ảnh",
+            "cancelBtn": "Hủy",
+            "submitBtn": "Gửi báo cáo",
+            "submitting": "Đang gửi...",
+            "submitSuccess": "Gửi báo cáo thành công! Cảm ơn đóng góp của bạn.",
+            "errorOnlyImage": "Vui lòng chỉ chọn tệp hình ảnh!",
+            "errorRequired": "Vui lòng nhập đầy đủ tiêu đề và mô tả!",
+            "statusResolved": "Đã xử lý",
+            "statusPending": "Đang xử lý",
+            "filterAll": "Tất cả",
+            "noReports": "Chưa có báo cáo nào.",
+            "noReportsFiltered": "Không có báo cáo nào thuộc trạng thái này.",
+            "tableHeaderId": "ID",
+            "tableHeaderType": "Loại báo cáo",
+            "tableHeaderContent": "Nội dung báo cáo",
+            "tableHeaderStatus": "Trạng thái",
+            "tableHeaderImages": "Hình ảnh đính kèm",
+            "tableHeaderDate": "Thời gian",
+            "viewImages": "Xem ảnh ({count})",
+            "noImages": "Không có ảnh"
         }
     }
 }
