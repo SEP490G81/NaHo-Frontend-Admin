@@ -24,6 +24,7 @@ const MESSAGE_FILES = [
     "daily-mission",
     "legal",
     "help",
+    "user-management",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

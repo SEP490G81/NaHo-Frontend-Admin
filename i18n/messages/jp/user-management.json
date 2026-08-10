@@ -1,0 +1,63 @@
+{
+    "userManagement": {
+        "pageTitle": "ユーザー管理",
+        "searchBox": {
+            "keywordPlaceholder": "メール、氏名、ユーザー名で検索...",
+            "searchButton": "検索",
+            "resetButton": "リセット",
+            "genderLabel": "性別",
+            "statusLabel": "ステータス",
+            "emailVerifiedLabel": "メール認証",
+            "roleLabel": "役割",
+            "dobFromLabel": "生年月日（から）",
+            "dobToLabel": "生年月日（まで）",
+            "sortColumnLabel": "並べ替え",
+            "sortDirectionAsc": "昇順",
+            "sortDirectionDesc": "降順",
+            "all": "すべて",
+            "default": "デフォルト",
+            "genderMale": "男性",
+            "genderFemale": "女性",
+            "statusActive": "アクティブ",
+            "statusUnactive": "ロック中",
+            "statusDeleted": "削除済み",
+            "emailVerifiedTrue": "認証済み",
+            "emailVerifiedFalse": "未認証",
+            "roleLearner": "学習者",
+            "roleContentManager": "コンテンツマネージャー",
+            "roleAdmin": "管理者",
+            "sortId": "デフォルト",
+            "sortEmail": "メール",
+            "sortUsername": "ユーザー名",
+            "sortFullName": "氏名",
+            "sortDob": "生年月日"
+        },
+        "table": {
+            "stt": "番号",
+            "email": "メール",
+            "username": "ユーザー名",
+            "fullName": "氏名",
+            "role": "役割",
+            "emailVerified": "メール認証",
+            "actions": "アクション",
+            "status": "ステータス",
+            "verified": "認証済み",
+            "notVerified": "未認証",
+            "noData": "ユーザーデータがありません。",
+            "loading": "読み込み中..."
+        },
+        "actions": {
+            "viewDetail": "詳細を見る",
+            "update": "更新",
+            "lock": "アカウントをロック",
+            "unlock": "アカウントのロックを解除"
+        },
+        "pagination": {
+            "rowsPerPage": "行/ページ：",
+            "pageInfo": "ページ {current} / {total}",
+            "firstPage": "最初のページ",
+            "lastPage": "最後のページ",
+            "totalElements": "合計：{count} ユーザー"
+        }
+    }
+}

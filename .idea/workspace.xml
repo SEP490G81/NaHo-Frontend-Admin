@@ -1,256 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/ui/otp.code.input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/otp.constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/otp.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/public/forgot-password/components/left.content.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/public/forgot-password/components/password.hint.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/public/forgot-password/components/sakura.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/public/forgot-password/utils/forgot.password.utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/public/login/components/theme.switch.button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/personas/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/prompt-moderation/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/prompt-moderation/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/topics/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/topics/[id]/questions/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/topics/new/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/content-manager/topics/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/dashboard/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/help-and-support/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/settings/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/settings/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/system-notifications/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/user-management/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/user-reports/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/custom.question.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/dashboard.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/notification.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/persona.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/report.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/tokenize.mock.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/topic.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/topic.mock.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/_mock/topic.options.data.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/roles/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/tokenize/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/topics/[id]/questions/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/topics/[id]/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/topics/reorder/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/topics/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users/[id]/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users/[id]/status/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/providers/app.theme.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/providers/app.theme.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/providers/bprogress.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/providers/bprogress.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/providers/query.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/providers/query.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/furigana.text.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/mui-custom/text.field.custom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/mui-custom/text.field.custom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/mui-custom/tooltip.custom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/mui-custom/tooltip.custom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/app.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/app.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/topic.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/ai-personas.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/dashboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/dashboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/prompt-moderation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/system-notifications.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/topic-management.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/user-management.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/user-reports.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/navigation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/navigation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/request.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/components/app.header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/components/sidebar.action.button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/components/theme.switch.button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/components/user.avatar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/features/account.menu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/features/app.search.box.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/header/features/notification.button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/components/app.sidebar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/components/logo.button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/components/sidebar.groups.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/components/single.sidebar.item.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/constants/sidebar.constant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/sidebar/constants/sidebar.constant.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/features/logout.button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/providers/sidebar.collapse.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/types/sidebar.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/utils/sidebar.util.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/query.keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/libs/query.keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/actions/persona.form.action.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/components/persona.avatar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/components/persona.card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/components/persona.level.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/components/persona.register.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/components/persona.status.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/constants/ai.personas.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/features/persona.delete.dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/features/persona.form.dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/features/persona.grid.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/features/persona.preview.dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/providers/ai.personas.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/types/ai.personas.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/ai-personas/utils/persona.format.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/area.chart.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.skeleton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.stat.card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/constants/dashboard.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.account.status.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.jlpt.distribution.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.kpi.cards.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.notifications.panel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.period.toggle.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.practice.chart.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.reports.panel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.user.growth.chart.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/providers/dashboard.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/types/dashboard.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/utils/dashboard.format.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/components/moderation.row.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/components/moderation.status.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/constants/prompt.moderation.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/actions/moderation.detail.action.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/grammar.editor.section.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/moderation.action.panel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/question.content.section.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/reject.dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/submitter.card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/topic.assign.card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/features/vocabulary.editor.section.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/providers/moderation.detail.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/detail/utils/draft.util.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/features/moderation.filter.bar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/features/moderation.queue.table.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/features/moderation.stat.cards.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/providers/prompt.moderation.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/types/prompt.moderation.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/prompt-moderation/utils/moderation.format.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/components/notification.audience.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/components/notification.status.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/constants/system.notifications.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/features/notification.compose.form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/features/notification.log.table.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/features/streak.email.config.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/providers/system.notifications.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/types/system.notifications.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/system-notifications/utils/notification.format.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/create/actions/topic.create.action.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/create/components/topic.create.panel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/create/features/topic.create.form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/create/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/create/types/topic.create.ui.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/detail/components/topic.content.panel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/detail/features/topic.detail.form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/detail/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/detail/providers/topic.detail.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/detail/types/topic.detail.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/components/topic.card.menu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/components/topic.card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/components/topic.level.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/components/topic.status.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/constants/topic.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/features/topic.delete.dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/features/topic.filter.bar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/features/topic.grid.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/features/topic.import.modal.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/providers/topic.management.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/types/topic.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/list/utils/csv.util.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/components/question.content.tab.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/components/question.context.tab.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/components/question.vocab.tab.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/constants/topic.questions.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/features/question.editor.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/features/question.list.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/providers/topic.questions.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/topic/questions/types/topic.questions.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/components/user.avatar.chip.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/components/user.row.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/components/user.status.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/constants/user.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/features/user.detail.modal.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/features/user.filter.bar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/features/user.lock.dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/features/user.table.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/providers/user.management.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-management/types/user.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/components/report.sender.cell.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/components/report.status.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/components/report.type.badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/constants/user.reports.constant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/features/report.detail.drawer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/features/report.filter.bar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/features/report.stat.cards.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/features/report.table.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/providers/user.reports.provider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/types/user.reports.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/user-reports/utils/report.format.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/proxy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/empty.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/empty.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/custom.question.mock.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/custom.question.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/dashboard.mock.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/dashboard.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/notification.mock.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/notification.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/persona.mock.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/persona.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/report.mock.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/report.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/topic.mock.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/topic.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/client/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/client/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/font.ts" beforeDir="false" afterPath="$PROJECT_DIR$/styles/font.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/enums/moderation.enum.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/enums/notification.enum.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/enums/persona.enum.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/enums/report.enum.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/enums/topic.enum.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/types/enums/user.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/enums/user.enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/requests/custom.question.request.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/requests/notification.request.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/requests/persona.request.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/requests/report.request.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/requests/topic.request.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/requests/user.request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/requests/user.request.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/base.response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/responses/base.response.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/custom.question.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/dashboard.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/notification.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/persona.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/report.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/role.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/topic.option.response.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/topic.response.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/types/responses/user.response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/responses/user.response.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -258,11 +18,78 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="225" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000000004332" />
+      <entry key="MS500" value="1.003367748222725" />
+      <entry key="S2" value="1.2408989482525206" />
+      <entry key="S5" value="1.565892530577717" />
+      <entry key="S10" value="1.7522582871497288" />
+      <entry key="S30" value="1.9097975045107556" />
+      <entry key="S60" value="1.987572629419756" />
+      <entry key="M2" value="2.3596633126829225" />
+      <entry key="M5" value="4.049933622681919" />
+      <entry key="M10" value="8.067138167856662" />
+      <entry key="M15" value="12.650556306963509" />
+      <entry key="M30" value="23.139903306640996" />
+      <entry key="H1" value="33.11055158927961" />
+      <entry key="H2" value="40.11958316839184" />
+      <entry key="H4" value="44.29540712594239" />
+      <entry key="D1" value="48.17625473355102" />
+      <entry key="W1" value="48.881310462520844" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="4.3834767995375684E-291" />
+      <entry key="S5" value="7.189976731792242E-117" />
+      <entry key="S10" value="8.479373050005158E-59" />
+      <entry key="S30" value="4.394509943174496E-20" />
+      <entry key="S60" value="2.131222974995263E-10" />
+      <entry key="M2" value="1.635404753514265E-5" />
+      <entry key="M5" value="0.016715961626177653" />
+      <entry key="M10" value="0.17924047324521578" />
+      <entry key="M15" value="0.3987022635114463" />
+      <entry key="M30" value="0.8909175180748344" />
+      <entry key="H1" value="1.334081216584556" />
+      <entry key="H2" value="1.6332143961489316" />
+      <entry key="H4" value="1.807260931188989" />
+      <entry key="D1" value="1.9664954861386355" />
+      <entry key="W1" value="1.9951786704050858" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9659363289252443" />
+      <entry key="MS500" value="0.9964046827988842" />
+      <entry key="S2" value="1.2381677907353799" />
+      <entry key="S5" value="1.5642590138133223" />
+      <entry key="S10" value="1.751286322909883" />
+      <entry key="S30" value="1.909429785749844" />
+      <entry key="S60" value="1.987378815322778" />
+      <entry key="M2" value="2.3595620579435947" />
+      <entry key="M5" value="4.066555440222049" />
+      <entry key="M10" value="8.246224243260379" />
+      <entry key="M15" value="13.04905874117854" />
+      <entry key="M30" value="24.030605140060786" />
+      <entry key="H1" value="34.44446939016903" />
+      <entry key="H2" value="41.75269633088923" />
+      <entry key="H4" value="46.10261163169901" />
+      <entry key="D1" value="50.142739916814165" />
+      <entry key="W1" value="50.87648763778049" />
+    </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -280,27 +107,52 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\docs\users_management" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
@@ -317,7 +169,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.9437.145" />
       </set>
     </attachedChunks>
   </component>
@@ -329,7 +181,14 @@
       <option name="presentableId" value="Default" />
       <updated>1786279908623</updated>
       <workItem from="1786279910439" duration="1461000" />
-      <workItem from="1786285330220" duration="2940000" />
+      <workItem from="1786285330220" duration="3880000" />
+      <workItem from="1786289780890" duration="50000" />
+      <workItem from="1786289877009" duration="1000" />
+      <workItem from="1786289911488" duration="51000" />
+      <workItem from="1786292758806" duration="1214000" />
+      <workItem from="1786360323110" duration="61000" />
+      <workItem from="1786370176634" duration="1288000" />
+      <workItem from="1786381408889" duration="3815000" />
     </task>
     <servers />
   </component>

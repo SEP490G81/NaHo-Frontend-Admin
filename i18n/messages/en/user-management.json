@@ -1,0 +1,63 @@
+{
+    "userManagement": {
+        "pageTitle": "User Management",
+        "searchBox": {
+            "keywordPlaceholder": "Search by email, full name, username...",
+            "searchButton": "Search",
+            "resetButton": "Reset",
+            "genderLabel": "Gender",
+            "statusLabel": "Status",
+            "emailVerifiedLabel": "Email Verified",
+            "roleLabel": "Role",
+            "dobFromLabel": "DOB From",
+            "dobToLabel": "DOB To",
+            "sortColumnLabel": "Sort By",
+            "sortDirectionAsc": "Ascending",
+            "sortDirectionDesc": "Descending",
+            "all": "All",
+            "default": "Default",
+            "genderMale": "Male",
+            "genderFemale": "Female",
+            "statusActive": "Active",
+            "statusUnactive": "Locked",
+            "statusDeleted": "Deleted",
+            "emailVerifiedTrue": "Verified",
+            "emailVerifiedFalse": "Not Verified",
+            "roleLearner": "Learner",
+            "roleContentManager": "Content Manager",
+            "roleAdmin": "Admin",
+            "sortId": "Default",
+            "sortEmail": "Email",
+            "sortUsername": "Username",
+            "sortFullName": "Full Name",
+            "sortDob": "Date of Birth"
+        },
+        "table": {
+            "stt": "No.",
+            "email": "Email",
+            "username": "Username",
+            "fullName": "Full Name",
+            "role": "Role",
+            "emailVerified": "Email Verified",
+            "actions": "Actions",
+            "status": "Status",
+            "verified": "Verified",
+            "notVerified": "Not Verified",
+            "noData": "No user data found.",
+            "loading": "Loading..."
+        },
+        "actions": {
+            "viewDetail": "View Detail",
+            "update": "Update",
+            "lock": "Lock Account",
+            "unlock": "Unlock Account"
+        },
+        "pagination": {
+            "rowsPerPage": "Rows per page:",
+            "pageInfo": "Page {current} / {total}",
+            "firstPage": "First Page",
+            "lastPage": "Last Page",
+            "totalElements": "Total: {count} users"
+        }
+    }
+}

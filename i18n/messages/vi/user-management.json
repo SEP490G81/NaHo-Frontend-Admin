@@ -1,0 +1,63 @@
+{
+    "userManagement": {
+        "pageTitle": "Quản lý người dùng",
+        "searchBox": {
+            "keywordPlaceholder": "Tìm theo email, tên đầy đủ, username...",
+            "searchButton": "Tìm kiếm",
+            "resetButton": "Đặt lại",
+            "genderLabel": "Giới tính",
+            "statusLabel": "Trạng thái",
+            "emailVerifiedLabel": "Xác thực email",
+            "roleLabel": "Vai trò",
+            "dobFromLabel": "Ngày sinh từ",
+            "dobToLabel": "Ngày sinh đến",
+            "sortColumnLabel": "Sắp xếp theo",
+            "sortDirectionAsc": "Tăng dần",
+            "sortDirectionDesc": "Giảm dần",
+            "all": "Tất cả",
+            "default": "Mặc định",
+            "genderMale": "Nam",
+            "genderFemale": "Nữ",
+            "statusActive": "Hoạt động",
+            "statusUnactive": "Bị khóa",
+            "statusDeleted": "Đã xóa",
+            "emailVerifiedTrue": "Đã xác thực",
+            "emailVerifiedFalse": "Chưa xác thực",
+            "roleLearner": "Học viên",
+            "roleContentManager": "Quản lý nội dung",
+            "roleAdmin": "Quản trị viên",
+            "sortId": "Mặc định",
+            "sortEmail": "Email",
+            "sortUsername": "Username",
+            "sortFullName": "Tên đầy đủ",
+            "sortDob": "Ngày sinh"
+        },
+        "table": {
+            "stt": "STT",
+            "email": "Email",
+            "username": "Username",
+            "fullName": "Tên đầy đủ",
+            "role": "Vai trò",
+            "emailVerified": "Xác thực email",
+            "actions": "Hành động",
+            "status": "Trạng thái",
+            "verified": "Đã xác thực",
+            "notVerified": "Chưa xác thực",
+            "noData": "Không có dữ liệu người dùng.",
+            "loading": "Đang tải..."
+        },
+        "actions": {
+            "viewDetail": "Xem chi tiết",
+            "update": "Cập nhật",
+            "lock": "Khóa tài khoản",
+            "unlock": "Mở khóa tài khoản"
+        },
+        "pagination": {
+            "rowsPerPage": "Số dòng/trang:",
+            "pageInfo": "Trang {current} / {total}",
+            "firstPage": "Trang đầu",
+            "lastPage": "Trang cuối",
+            "totalElements": "Tổng: {count} người dùng"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+"use client";
+
+import React from "react";
+import { useTranslations } from "next-intl";
+import ContainerBox from "@/components/ui/container.box";
+import { UserFilterProvider } from "@/modules/protected/users/providers/user.filter.provider";
+import UserSearchBox from "@/modules/protected/users/components/user.search.box";
+import UserTableContent from "@/modules/protected/users/features/user.table.content";
+
+export default function UserManagementView() {
+    const t = useTranslations("userManagement");
+
+    return (
+        <UserFilterProvider>
+            <div className="flex w-full flex-col gap-y-4">
+                {/* Search / Filter Box (includes page title) */}
+                <ContainerBox>
+                    <div className="flex flex-col gap-3">
+                        <h1 className="text-text-contrast text-2xl font-bold">
+                            {t("pageTitle")}
+                        </h1>
+                        <UserSearchBox />
+                    </div>
+                </ContainerBox>
+
+                {/* Table + Pagination */}
+                <ContainerBox className="overflow-hidden">
+                    <UserTableContent />
+                </ContainerBox>
+            </div>
+        </UserFilterProvider>
+    );
+}

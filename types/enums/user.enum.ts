@@ -1,4 +1,4 @@
-const Gender = Object.freeze({
+export const Gender = Object.freeze({
     MALE: "MALE",
     FEMALE: "FEMALE",
 });
@@ -13,12 +13,28 @@ const JlptLevel = Object.freeze({
 });
 export type JlptLevel = (typeof JlptLevel)[keyof typeof JlptLevel];
 
-const UserStatus = Object.freeze({
+export const UserStatus = Object.freeze({
     ACTIVE: "ACTIVE",
     UNACTIVE: "UNACTIVE",
     DELETED: "DELETED",
 });
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
+
+export const UserSortColumn = Object.freeze({
+    ID: "ID",
+    EMAIL: "EMAIL",
+    USERNAME: "USERNAME",
+    FULL_NAME: "FULL_NAME",
+    DOB: "DOB",
+});
+export type UserSortColumn =
+    (typeof UserSortColumn)[keyof typeof UserSortColumn];
+
+export const SortDirection = Object.freeze({
+    ASC: "ASC",
+    DESC: "DESC",
+});
+export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
 
 export const RoleName = Object.freeze({
     LEARNER: "LEARNER",

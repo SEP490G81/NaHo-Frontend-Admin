@@ -71,3 +71,18 @@ export interface TokenExpResponse {
     expiresAt: string;
     expiresIn: number;
 }
+
+/** Response shape returned by GET /users/all (admin). */
+export interface AdminUserResponse {
+    id: number;
+    role: RoleResult;
+    authProviders: AuthProviderResponse[];
+    avatarUrl: string | null;
+    userLearningProgressId: number | null;
+    username: string;
+    email: string;
+    fullName: string | null;
+    gender: Gender | null;
+    dob: string | null;
+    status: UserStatus;
+}
