@@ -35,7 +35,7 @@ export const getUserAvatarUrl = (
         return user.avatarUrl;
     }
 
-    const providers = user.authProviders || user.oAuthProviders;
+    const providers = user.authProviders;
     if (providers && providers.length > 0) {
         const providerWithAvatar = providers.find(
             (provider) =>

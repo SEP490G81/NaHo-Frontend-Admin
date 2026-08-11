@@ -6,6 +6,7 @@ import ContainerBox from "@/components/ui/container.box";
 import { UserFilterProvider } from "@/modules/protected/users/providers/user.filter.provider";
 import UserSearchBox from "@/modules/protected/users/components/user.search.box";
 import UserTableContent from "@/modules/protected/users/features/user.table.content";
+import ScrollToTopButton from "@/modules/protected/users/components/scroll.to.top.button";
 
 export default function UserManagementView() {
     const t = useTranslations("userManagement");
@@ -24,9 +25,12 @@ export default function UserManagementView() {
                 </ContainerBox>
 
                 {/* Table + Pagination */}
-                <ContainerBox className="overflow-hidden">
+                <ContainerBox>
                     <UserTableContent />
                 </ContainerBox>
+
+                {/* Back to top floating button */}
+                <ScrollToTopButton />
             </div>
         </UserFilterProvider>
     );

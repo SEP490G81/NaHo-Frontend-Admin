@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/users_management/user.button.update.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/request.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/query.keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/libs/query.keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/enums/user.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/enums/user.enum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/protected-header/utils/header.util.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/protected-header/utils/header.util.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/settings/account/hooks/useAccountSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/settings/account/hooks/useAccountSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/server/admin.user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/admin.user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/responses/user.response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/responses/user.response.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,61 +35,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000004332" />
-      <entry key="MS500" value="1.003367748222725" />
-      <entry key="S2" value="1.2408989482525206" />
-      <entry key="S5" value="1.565892530577717" />
-      <entry key="S10" value="1.7522582871497288" />
-      <entry key="S30" value="1.9097975045107556" />
-      <entry key="S60" value="1.987572629419756" />
-      <entry key="M2" value="2.3596633126829225" />
-      <entry key="M5" value="4.049933622681919" />
-      <entry key="M10" value="8.067138167856662" />
-      <entry key="M15" value="12.650556306963509" />
-      <entry key="M30" value="23.139903306640996" />
-      <entry key="H1" value="33.11055158927961" />
-      <entry key="H2" value="40.11958316839184" />
-      <entry key="H4" value="44.29540712594239" />
-      <entry key="D1" value="48.17625473355102" />
-      <entry key="W1" value="48.881310462520844" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000240729967" />
+      <entry key="S2" value="1.052129560504096" />
+      <entry key="S5" value="2.5998139156333364" />
+      <entry key="S10" value="7.290631683209859" />
+      <entry key="S30" value="25.832633603983822" />
+      <entry key="S60" value="47.83856293380519" />
+      <entry key="M2" value="72.5226733450724" />
+      <entry key="M5" value="98.23365115089956" />
+      <entry key="M10" value="112.50592886362963" />
+      <entry key="M15" value="120.76583322509306" />
+      <entry key="M30" value="135.33664161143062" />
+      <entry key="H1" value="147.81489089133976" />
+      <entry key="H2" value="156.3344124342371" />
+      <entry key="H4" value="161.36199336057385" />
+      <entry key="D1" value="166.01436564038852" />
+      <entry key="W1" value="166.8580194453775" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="4.3834767995375684E-291" />
-      <entry key="S5" value="7.189976731792242E-117" />
-      <entry key="S10" value="8.479373050005158E-59" />
-      <entry key="S30" value="4.394509943174496E-20" />
-      <entry key="S60" value="2.131222974995263E-10" />
-      <entry key="M2" value="1.635404753514265E-5" />
-      <entry key="M5" value="0.016715961626177653" />
-      <entry key="M10" value="0.17924047324521578" />
-      <entry key="M15" value="0.3987022635114463" />
-      <entry key="M30" value="0.8909175180748344" />
-      <entry key="H1" value="1.334081216584556" />
-      <entry key="H2" value="1.6332143961489316" />
-      <entry key="H4" value="1.807260931188989" />
-      <entry key="D1" value="1.9664954861386355" />
-      <entry key="W1" value="1.9951786704050858" />
+      <entry key="S2" value="2.29587E-319" />
+      <entry key="S5" value="3.5025269357887505E-128" />
+      <entry key="S10" value="1.871503923572208E-64" />
+      <entry key="S30" value="5.721625802304337E-22" />
+      <entry key="S60" value="2.4318309934727472E-11" />
+      <entry key="M2" value="5.52430318730304E-6" />
+      <entry key="M5" value="0.010829097538925409" />
+      <entry key="M10" value="0.14426684422509928" />
+      <entry key="M15" value="0.34498668585145686" />
+      <entry key="M30" value="0.828732394101477" />
+      <entry key="H1" value="1.2866803775455768" />
+      <entry key="H2" value="1.6039373606719272" />
+      <entry key="H4" value="1.7909891808372167" />
+      <entry key="D1" value="1.9635334503553514" />
+      <entry key="W1" value="1.9947490730250999" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9659363289252443" />
-      <entry key="MS500" value="0.9964046827988842" />
-      <entry key="S2" value="1.2381677907353799" />
-      <entry key="S5" value="1.5642590138133223" />
-      <entry key="S10" value="1.751286322909883" />
-      <entry key="S30" value="1.909429785749844" />
-      <entry key="S60" value="1.987378815322778" />
-      <entry key="M2" value="2.3595620579435947" />
-      <entry key="M5" value="4.066555440222049" />
-      <entry key="M10" value="8.246224243260379" />
-      <entry key="M15" value="13.04905874117854" />
-      <entry key="M30" value="24.030605140060786" />
-      <entry key="H1" value="34.44446939016903" />
-      <entry key="H2" value="41.75269633088923" />
-      <entry key="H4" value="46.10261163169901" />
-      <entry key="D1" value="50.142739916814165" />
-      <entry key="W1" value="50.87648763778049" />
+      <entry key="MS100" value="0.9592641193252643" />
+      <entry key="MS500" value="0.9917167545811431" />
+      <entry key="S2" value="1.0499202041697748" />
+      <entry key="S5" value="2.5972843499385014" />
+      <entry key="S10" value="7.286835472845294" />
+      <entry key="S30" value="25.828001595010246" />
+      <entry key="S60" value="47.83419569771552" />
+      <entry key="M2" value="72.51931046357858" />
+      <entry key="M5" value="98.24261950238706" />
+      <entry key="M10" value="112.64906831348807" />
+      <entry key="M15" value="121.10995295672276" />
+      <entry key="M30" value="136.1648130560992" />
+      <entry key="H1" value="149.10123004876036" />
+      <entry key="H2" value="157.93815769144274" />
+      <entry key="H4" value="163.1528800598596" />
+      <entry key="D1" value="167.97788101170013" />
+      <entry key="W1" value="168.85276590971966" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -127,9 +128,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier",
+    "prettierjs.PrettierConfiguration.Package": "/Users/truc/Documents/SEP490/Code/NaHo-Frontend-Admin/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "/Users/truc/Documents/SEP490/Code/NaHo-Frontend-Admin/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

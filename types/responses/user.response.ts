@@ -1,7 +1,6 @@
 import {
     AuthProviderName,
     Gender,
-    JlptLevel,
     OAuthProviderName,
     RoleName,
     UserStatus,
@@ -12,11 +11,13 @@ export interface PointSummaryResult {
     totalPoint: number;
 }
 
-export interface RoleResult {
+export interface RoleResponse {
     id: number;
     roleName: RoleName;
     description: string | null;
 }
+
+export type RoleResult = RoleResponse;
 
 export interface AuthProviderResponse {
     id: number;
@@ -27,28 +28,19 @@ export interface AuthProviderResponse {
 export type OAuthProviderResult = AuthProviderResponse;
 export type OAuthProviderResponse = AuthProviderResponse;
 
-export interface RoleResponse {
-    id: string;
-    name: string;
-    description: string | null;
-}
-
 export interface UserResponse {
     id: number;
-    roles?: RoleResult[];
-    userSessionIds?: number[];
-    authProviders?: AuthProviderResponse[] | null;
-    oAuthProviders?: AuthProviderResponse[] | null;
-    pointSummary?: PointSummaryResult | null;
-    userLearningProgressId: number | null;
+    role: RoleResponse;
+    authProviders: AuthProviderResponse[];
     avatarUrl: string | null;
-    username: string | null;
+    userLearningProgressId: number | null;
+    username: string;
     email: string;
     fullName: string | null;
     gender: Gender | null;
     dob: string | null;
-    jlptLevel: JlptLevel | null;
-    status?: UserStatus;
+    status: UserStatus;
+    isEmailVerified: boolean;
 }
 
 export interface RegisterResponse {
@@ -70,19 +62,4 @@ export interface ResetPasswordTokenResponse {
 export interface TokenExpResponse {
     expiresAt: string;
     expiresIn: number;
-}
-
-/** Response shape returned by GET /users/all (admin). */
-export interface AdminUserResponse {
-    id: number;
-    role: RoleResult;
-    authProviders: AuthProviderResponse[];
-    avatarUrl: string | null;
-    userLearningProgressId: number | null;
-    username: string;
-    email: string;
-    fullName: string | null;
-    gender: Gender | null;
-    dob: string | null;
-    status: UserStatus;
 }

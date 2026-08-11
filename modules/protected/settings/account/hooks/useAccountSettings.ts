@@ -52,7 +52,7 @@ export function useAccountSettings() {
             setFullName(user.fullName || "");
             setGender((user.gender as GenderType) || "");
             setDob(user.dob || "");
-            setLevel(user.jlptLevel || profile?.level || "N5");
+            setLevel(profile?.level || "N5");
         }
     }, [user, profile?.level]);
 
@@ -132,7 +132,7 @@ export function useAccountSettings() {
 
             setProfile({
                 fullName: updatedUser.fullName || fullName,
-                level: updatedUser.jlptLevel || level,
+                level: profile?.level || level,
                 goal: profile?.goal || "Kaiwa Daily Practice",
             });
 

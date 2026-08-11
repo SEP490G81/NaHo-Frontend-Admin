@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { ACCESS_TOKEN_NAME } from "@/constants/app.constants";
 import { ApiResponse } from "@/types/responses/base.response";
-import { AdminUserResponse } from "@/types/responses/user.response";
+import { UserResponse } from "@/types/responses/user.response";
 import { UserQueryRequest } from "@/types/requests/user.query.request";
 
 /**
@@ -10,7 +10,7 @@ import { UserQueryRequest } from "@/types/requests/user.query.request";
  */
 export async function fetchAllUsers(
     request: UserQueryRequest,
-): Promise<ApiResponse<AdminUserResponse[]>> {
+): Promise<ApiResponse<UserResponse[]>> {
     const cookieStore = await cookies();
     const accessToken = cookieStore.get(ACCESS_TOKEN_NAME)?.value;
 
@@ -44,5 +44,5 @@ export async function fetchAllUsers(
         };
     }
 
-    return (await backendResponse.json()) as ApiResponse<AdminUserResponse[]>;
+    return (await backendResponse.json()) as ApiResponse<UserResponse[]>;
 }

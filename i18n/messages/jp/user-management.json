@@ -50,7 +50,8 @@
             "viewDetail": "詳細を見る",
             "update": "更新",
             "lock": "アカウントをロック",
-            "unlock": "アカウントのロックを解除"
+            "unlock": "アカウントのロックを解除",
+            "scrollToTop": "トップへ戻る"
         },
         "pagination": {
             "rowsPerPage": "行/ページ：",

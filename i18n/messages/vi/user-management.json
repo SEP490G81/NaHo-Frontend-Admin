@@ -50,7 +50,8 @@
             "viewDetail": "Xem chi tiết",
             "update": "Cập nhật",
             "lock": "Khóa tài khoản",
-            "unlock": "Mở khóa tài khoản"
+            "unlock": "Mở khóa tài khoản",
+            "scrollToTop": "Cuộn lên đầu trang"
         },
         "pagination": {
             "rowsPerPage": "Số dòng/trang:",
