@@ -58,7 +58,9 @@ export function UserFilterProvider({ children }: Props) {
 
     // Ref để các setter select có thể đọc keyword mới nhất
     const pendingKeywordRef = useRef(pendingKeyword);
-    pendingKeywordRef.current = pendingKeyword;
+    React.useEffect(() => {
+        pendingKeywordRef.current = pendingKeyword;
+    }, [pendingKeyword]);
 
     /** Helper: submit toàn bộ form (bao gồm cả keyword). */
     const submitWithKeyword = useCallback(

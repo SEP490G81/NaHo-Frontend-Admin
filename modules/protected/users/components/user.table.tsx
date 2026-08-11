@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { UserResponse } from "@/types/responses/user.response";
@@ -34,7 +34,7 @@ function getCellValue(user: UserResponse, col: FeSortColumn): string {
     }
 }
 
-export default function UserTable({ users, pageOffset, isLoading }: Props) {
+export default function UserTable({ users, pageOffset, isLoading }: Readonly<Props>) {
     const t = useTranslations("userManagement.table");
     const { resetVersion } = useUserFilter();
 
@@ -43,9 +43,11 @@ export default function UserTable({ users, pageOffset, isLoading }: Props) {
         direction: "asc",
     });
 
-    useEffect(() => {
+    const [prevResetVersion, setPrevResetVersion] = useState(resetVersion);
+    if (prevResetVersion !== resetVersion) {
+        setPrevResetVersion(resetVersion);
         setFeSort({ column: null, direction: "asc" });
-    }, [resetVersion]);
+    }
 
     const handleColumnSort = (col: FeSortColumn) => {
         setFeSort((prev) => {
@@ -72,8 +74,7 @@ export default function UserTable({ users, pageOffset, isLoading }: Props) {
 
     const headClass =
         "px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-text-muted";
-    const cellClass =
-        "px-4 py-3 text-sm text-text-contrast whitespace-nowrap";
+    const cellClass = "px-4 py-3 text-sm text-text-contrast whitespace-nowrap";
 
     const renderSortIcon = (col: FeSortColumn) => {
         if (feSort.column !== col) return null;
@@ -124,7 +125,7 @@ export default function UserTable({ users, pageOffset, isLoading }: Props) {
                         ).map((col) => (
                             <th
                                 key={col}
-                                className={`${headClass} cursor-pointer select-none transition-colors hover:text-bgc-highlight`}
+                                className={`${headClass} hover:text-bgc-highlight cursor-pointer transition-colors select-none`}
                                 onClick={() => handleColumnSort(col)}
                             >
                                 {t(col)}

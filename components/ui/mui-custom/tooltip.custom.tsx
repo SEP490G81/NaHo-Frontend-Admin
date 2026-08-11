@@ -7,13 +7,9 @@ interface TooltipCustomProps extends TooltipProps {
 }
 
 export const TooltipCustom = styled((props: TooltipCustomProps) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {
-        className,
-        color: _color,
-        textColor: _textColor,
-        ...restProps
-    } = props;
+    const { className, color: _c, textColor: _tc, ...restProps } = props;
+    void _c;
+    void _tc;
     return <Tooltip {...restProps} arrow classes={{ popper: className }} />;
 })(({ color = "--color-bgc-modal", textColor = "--color-text-contrast" }) => ({
     [`& .${tooltipClasses.arrow}`]: {

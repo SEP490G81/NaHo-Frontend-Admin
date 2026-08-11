@@ -53,6 +53,38 @@
             "unlock": "Mở khóa tài khoản",
             "scrollToTop": "Cuộn lên đầu trang"
         },
+        "notifications": {
+            "lockSuccess": "Khóa tài khoản thành công!",
+            "unlockSuccess": "Mở khóa tài khoản thành công!",
+            "changeStatusSuccess": "Thay đổi trạng thái tài khoản thành công!",
+            "changeStatusError": "Thay đổi trạng thái thất bại. Vui lòng thử lại!"
+        },
+        "detailsModal": {
+            "title": "Thông tin chi tiết người dùng",
+            "accountSection": "Thông tin tài khoản",
+            "progressSection": "Tiến trình học tập",
+            "email": "Email",
+            "username": "Username",
+            "fullName": "Tên đầy đủ",
+            "role": "Vai trò",
+            "status": "Trạng thái",
+            "emailVerified": "Xác thực email",
+            "gender": "Giới tính",
+            "dob": "Ngày sinh",
+            "authProviders": "Phương thức đăng nhập",
+            "farthestNode": "Bài học xa nhất đạt được",
+            "lastNode": "Bài học gần nhất học",
+            "lastLearningAt": "Học gần nhất lúc",
+            "currentStreak": "Streak hiện tại",
+            "longestStreak": "Streak kỷ lục",
+            "totalPoint": "Tổng điểm tích lũy",
+            "rank": "Hạng hiện tại",
+            "noProgress": "Người dùng này chưa tham gia tiến trình học tập.",
+            "close": "Đóng",
+            "unspecified": "Chưa xác định",
+            "verified": "Đã xác thực",
+            "notVerified": "Chưa xác thực"
+        },
         "pagination": {
             "rowsPerPage": "Số dòng/trang:",
             "pageInfo": "Trang {current} / {total}",

@@ -53,6 +53,38 @@
             "unlock": "アカウントのロックを解除",
             "scrollToTop": "トップへ戻る"
         },
+        "notifications": {
+            "lockSuccess": "アカウントをロックしました！",
+            "unlockSuccess": "アカウントのロックを解除しました！",
+            "changeStatusSuccess": "ステータスを変更しました！",
+            "changeStatusError": "ステータスの変更に失敗しました。"
+        },
+        "detailsModal": {
+            "title": "ユーザー詳細情報",
+            "accountSection": "アカウント情報",
+            "progressSection": "学習の進捗",
+            "email": "メールアドレス",
+            "username": "ユーザー名",
+            "fullName": "フルネーム",
+            "role": "役割",
+            "status": "ステータス",
+            "emailVerified": "メール認証",
+            "gender": "性別",
+            "dob": "生年月日",
+            "authProviders": "ログイン方法",
+            "farthestNode": "到達した最大のノード",
+            "lastNode": "最後に学習したノード",
+            "lastLearningAt": "最終学習日時",
+            "currentStreak": "現在のストリーク",
+            "longestStreak": "最長ストリーク",
+            "totalPoint": "合計獲得ポイント",
+            "rank": "現在の順位",
+            "noProgress": "このユーザーの学習の進捗はありません。",
+            "close": "閉じる",
+            "unspecified": "未設定",
+            "verified": "認証済み",
+            "notVerified": "未認証"
+        },
         "pagination": {
             "rowsPerPage": "行/ページ：",
             "pageInfo": "ページ {current} / {total}",

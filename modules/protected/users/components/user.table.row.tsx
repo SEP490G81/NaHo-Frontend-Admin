@@ -3,10 +3,11 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { IconButton, Tooltip } from "@mui/material";
-import { Eye, Lock, Unlock } from "lucide-react";
+import { Eye } from "lucide-react";
 import { UserResponse } from "@/types/responses/user.response";
 import EmailVerifiedBadge from "@/modules/protected/users/components/email.verified.badge";
-import { toast } from "react-toastify";
+import UserChangeStatusButton from "@/modules/protected/users/features/user.change.status.button";
+import { useUserDetailModal } from "@/modules/protected/users/providers/user.detail.provider";
 
 interface UserTableRowProps {
     user: UserResponse;
@@ -20,9 +21,10 @@ export default function UserTableRow({
     index,
     pageOffset,
     cellClass,
-}: UserTableRowProps) {
+}: Readonly<UserTableRowProps>) {
     const t = useTranslations("userManagement.table");
     const tActions = useTranslations("userManagement.actions");
+    const { openDetail } = useUserDetailModal();
 
     return (
         <tr className="border-bdc-primary hover:bg-hbgc-app border-b transition-colors">
@@ -31,7 +33,7 @@ export default function UserTableRow({
 
             {/* Email */}
             <td className={cellClass}>
-                <span className="max-w-[220px] truncate block">
+                <span className="block max-w-[220px] truncate">
                     {user.email}
                 </span>
             </td>
@@ -65,9 +67,7 @@ export default function UserTableRow({
                     <Tooltip title={tActions("viewDetail")}>
                         <IconButton
                             size="small"
-                            onClick={() =>
-                                toast.info(`View detail: ${user.id}`)
-                            }
+                            onClick={() => openDetail(user)}
                             sx={{
                                 color: "#14b8a6",
                                 backgroundColor: "rgba(20,184,166,0.08)",
@@ -80,43 +80,11 @@ export default function UserTableRow({
                         </IconButton>
                     </Tooltip>
 
-                    {/* Lock / Unlock — red / green */}
-                    <Tooltip
-                        title={
-                            user.status === "ACTIVE"
-                                ? tActions("lock")
-                                : tActions("unlock")
-                        }
-                    >
-                        <IconButton
-                            size="small"
-                            onClick={() =>
-                                toast.info(`Toggle lock: ${user.id}`)
-                            }
-                            sx={{
-                                color:
-                                    user.status === "ACTIVE"
-                                        ? "var(--color-text-error)"
-                                        : "var(--color-text-success)",
-                                backgroundColor:
-                                    user.status === "ACTIVE"
-                                        ? "rgba(239,35,60,0.08)"
-                                        : "rgba(46,155,91,0.08)",
-                                "&:hover": {
-                                    backgroundColor:
-                                        user.status === "ACTIVE"
-                                            ? "rgba(239,35,60,0.18)"
-                                            : "rgba(46,155,91,0.18)",
-                                },
-                            }}
-                        >
-                            {user.status === "ACTIVE" ? (
-                                <Lock className="h-4 w-4" />
-                            ) : (
-                                <Unlock className="h-4 w-4" />
-                            )}
-                        </IconButton>
-                    </Tooltip>
+                    {/* Lock / Unlock button */}
+                    <UserChangeStatusButton
+                        userId={user.id}
+                        status={user.status}
+                    />
                 </div>
             </td>
         </tr>

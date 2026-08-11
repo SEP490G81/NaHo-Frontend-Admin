@@ -52,6 +52,38 @@
             "lock": "Lock Account",
             "unlock": "Unlock Account"
         },
+        "notifications": {
+            "lockSuccess": "Account locked successfully!",
+            "unlockSuccess": "Account unlocked successfully!",
+            "changeStatusSuccess": "User status changed successfully!",
+            "changeStatusError": "Failed to change user status. Please try again!"
+        },
+        "detailsModal": {
+            "title": "User Detailed Information",
+            "accountSection": "Account Information",
+            "progressSection": "Learning Progress",
+            "email": "Email",
+            "username": "Username",
+            "fullName": "Full Name",
+            "role": "Role",
+            "status": "Status",
+            "emailVerified": "Email Verified",
+            "gender": "Gender",
+            "dob": "Date of Birth",
+            "authProviders": "Sign In Methods",
+            "farthestNode": "Farthest Learning Node",
+            "lastNode": "Last Studied Node",
+            "lastLearningAt": "Last Studied At",
+            "currentStreak": "Current Streak",
+            "longestStreak": "Longest Streak",
+            "totalPoint": "Total Point",
+            "rank": "Current Rank",
+            "noProgress": "This user has no learning progress recorded.",
+            "close": "Close",
+            "unspecified": "Unspecified",
+            "verified": "Verified",
+            "notVerified": "Not Verified"
+        },
         "pagination": {
             "rowsPerPage": "Rows per page:",
             "pageInfo": "Page {current} / {total}",

@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/users_management/user.button.update.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/users_management/user.details.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/protected-header/utils/header.util.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/protected-header/utils/header.util.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/settings/account/hooks/useAccountSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/settings/account/hooks/useAccountSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/mui-custom/tooltip.custom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/mui-custom/tooltip.custom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/en/user-management.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/en/user-management.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/jp/user-management.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/jp/user-management.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/user-management.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/user-management.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/components/user.table.row.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/server/admin.user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/admin.user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/features/user.management.view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/providers/user.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/providers/user.filter.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/server/backend.proxy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/backend.proxy.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/responses/user.response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/responses/user.response.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users_management/user.button.update.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users_management/user.find.all.api.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users_management/user.table.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users_management/user.table.update.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users_management/user.type.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +30,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="225" />
+    <option name="cachedIndexableFilesCount" value="244" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FormatOnSaveOptions">
@@ -36,60 +46,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000240729967" />
-      <entry key="S2" value="1.052129560504096" />
-      <entry key="S5" value="2.5998139156333364" />
-      <entry key="S10" value="7.290631683209859" />
-      <entry key="S30" value="25.832633603983822" />
-      <entry key="S60" value="47.83856293380519" />
-      <entry key="M2" value="72.5226733450724" />
-      <entry key="M5" value="98.23365115089956" />
-      <entry key="M10" value="112.50592886362963" />
-      <entry key="M15" value="120.76583322509306" />
-      <entry key="M30" value="135.33664161143062" />
-      <entry key="H1" value="147.81489089133976" />
-      <entry key="H2" value="156.3344124342371" />
-      <entry key="H4" value="161.36199336057385" />
-      <entry key="D1" value="166.01436564038852" />
-      <entry key="W1" value="166.8580194453775" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000016990045826" />
+      <entry key="S5" value="1.0052041830833738" />
+      <entry key="S10" value="1.0894201988939212" />
+      <entry key="S30" value="1.9064677605412317" />
+      <entry key="S60" value="3.1875019464109444" />
+      <entry key="M2" value="5.174106420254335" />
+      <entry key="M5" value="7.881017293387707" />
+      <entry key="M10" value="11.28601756003465" />
+      <entry key="M15" value="18.26156416868872" />
+      <entry key="M30" value="47.24408165311527" />
+      <entry key="H1" value="90.10041878117606" />
+      <entry key="H2" value="128.8101270403948" />
+      <entry key="H4" value="155.22602880272032" />
+      <entry key="D1" value="182.0300718009623" />
+      <entry key="W1" value="187.133749113093" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.29587E-319" />
-      <entry key="S5" value="3.5025269357887505E-128" />
-      <entry key="S10" value="1.871503923572208E-64" />
-      <entry key="S30" value="5.721625802304337E-22" />
-      <entry key="S60" value="2.4318309934727472E-11" />
-      <entry key="M2" value="5.52430318730304E-6" />
-      <entry key="M5" value="0.010829097538925409" />
-      <entry key="M10" value="0.14426684422509928" />
-      <entry key="M15" value="0.34498668585145686" />
-      <entry key="M30" value="0.828732394101477" />
-      <entry key="H1" value="1.2866803775455768" />
-      <entry key="H2" value="1.6039373606719272" />
-      <entry key="H4" value="1.7909891808372167" />
-      <entry key="D1" value="1.9635334503553514" />
-      <entry key="W1" value="1.9947490730250999" />
+      <entry key="MS500" value="3.2444186004273484E-84" />
+      <entry key="S2" value="1.3437369263966695E-21" />
+      <entry key="S5" value="4.784379300825927E-9" />
+      <entry key="S10" value="8.441511394539603E-5" />
+      <entry key="S30" value="0.0665593221354997" />
+      <entry key="S60" value="0.362613797561045" />
+      <entry key="M2" value="0.8502784654355716" />
+      <entry key="M5" value="1.4219197466556663" />
+      <entry key="M10" value="1.7314836751142475" />
+      <entry key="M15" value="1.9306119018836028" />
+      <entry key="M30" value="2.449963869831788" />
+      <entry key="H1" value="3.1822093285732835" />
+      <entry key="H2" value="3.8774591641352503" />
+      <entry key="H4" value="4.370314710441394" />
+      <entry key="D1" value="4.883911350271596" />
+      <entry key="W1" value="4.983118649276988" />
     </decayedSelected>
     <decayedShown>
       <entry key="MS100" value="0.9592641193252643" />
-      <entry key="MS500" value="0.9917167545811431" />
-      <entry key="S2" value="1.0499202041697748" />
-      <entry key="S5" value="2.5972843499385014" />
-      <entry key="S10" value="7.286835472845294" />
-      <entry key="S30" value="25.828001595010246" />
-      <entry key="S60" value="47.83419569771552" />
-      <entry key="M2" value="72.51931046357858" />
-      <entry key="M5" value="98.24261950238706" />
-      <entry key="M10" value="112.64906831348807" />
-      <entry key="M15" value="121.10995295672276" />
-      <entry key="M30" value="136.1648130560992" />
-      <entry key="H1" value="149.10123004876036" />
-      <entry key="H2" value="157.93815769144274" />
-      <entry key="H4" value="163.1528800598596" />
-      <entry key="D1" value="167.97788101170013" />
-      <entry key="W1" value="168.85276590971966" />
+      <entry key="MS500" value="0.9917167307382933" />
+      <entry key="S2" value="0.9979244138872745" />
+      <entry key="S5" value="1.004367748172658" />
+      <entry key="S10" value="1.0890442276597256" />
+      <entry key="S30" value="1.9720899521606976" />
+      <entry key="S60" value="3.5480772123076987" />
+      <entry key="M2" value="6.022075768443584" />
+      <entry key="M5" value="9.301400119111614" />
+      <entry key="M10" value="13.01652289885797" />
+      <entry key="M15" value="20.191381123110958" />
+      <entry key="M30" value="49.69342312810176" />
+      <entry key="H1" value="93.28216192140984" />
+      <entry key="H2" value="132.6872830606431" />
+      <entry key="H4" value="159.5961678147696" />
+      <entry key="D1" value="186.9139497524209" />
+      <entry key="W1" value="192.11686287857358" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -128,9 +138,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/truc/Documents/SEP490/Code/NaHo-Frontend-Admin/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/truc/Documents/SEP490/Code/NaHo-Frontend-Admin/node_modules/typescript/lib",
+    "ts.external.directory.path": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

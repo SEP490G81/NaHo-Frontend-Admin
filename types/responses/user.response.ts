@@ -63,3 +63,27 @@ export interface TokenExpResponse {
     expiresAt: string;
     expiresIn: number;
 }
+
+export interface LeaderboardUserResponse {
+    id: number;
+    leagueId: number | null;
+    rank: number | null;
+    fullName: string | null;
+    avatarUrl: string | null;
+    authAvatarUrl: string[];
+    totalPoint: number;
+}
+
+export interface UserLearningProgressResponse {
+    id: number;
+    farthestAvailableNodeId: number | null;
+    farthestAvailableNodeGlobalOrderIndex: number | null;
+    lastLearningNodeId: number | null;
+    lastLearningNodeGlobalOrderIndex: number | null;
+    lastLearningAt: string | null;
+    currentStreak: number;
+    longestStreak: number;
+    totalPoint: number;
+    leaderboardUser: LeaderboardUserResponse | null;
+}
+
