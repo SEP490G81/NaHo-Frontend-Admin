@@ -1,0 +1,50 @@
+{
+    "subscriptionManagement": {
+        "pageTitle": "サブスクリプションプラン・アップグレード管理",
+        "pageSubtitle": "NaHoの会員プラン詳細の閲覧およびユーザーのプランアップグレード管理。",
+        "overviewTitle": "会員サブスクリプションプラン一覧",
+        "overviewSubtitle": "プランごとの練習回数、AI発話時間、サポート機能の上限。",
+        "userTableTitle": "ユーザー一覧・プランアップグレード",
+        "plans": {
+            "free": "FREE",
+            "basic": "BASIC",
+            "premium": "PREMIUM"
+        },
+        "card": {
+            "mostPopular": "一番人気",
+            "free": "無料",
+            "perDays": "/ {days} 日",
+            "dailySpeakingLimit": "1日あたりのスピーキング採点上限: {limit}回",
+            "maxRecordingSeconds": "録音時間上限: 最大{seconds}秒",
+            "maxConcurrentAiSessions": "同時AIセッション数: {count}",
+            "maxTurnsPerAiSession": "1セッションあたりのターン数: {turns}ターン",
+            "dailyAiSessionLimit": "1日あたりのAIセッション採点上限: {limit}回",
+            "maxAiTurnSpeakingSeconds": "AIターンごとの発話時間: 最大{seconds}秒",
+            "sampleAnswerEnabled": "模範解答の提示サポートあり",
+            "sampleAnswerDisabled": "模範解答サポートなし"
+        },
+        "lookupBox": {
+            "title": "ユーザーの会員プラン検索・アップグレード",
+            "subtitle": "ユーザーIDを入力して現在の会員プランを確認し、アップグレードを行います。",
+            "placeholder": "ユーザーIDを入力 (例: 1000)...",
+            "searchButton": "プラン検索",
+            "notFound": "ユーザーID #{id} の会員情報が見つからないか、プランが未登録です。",
+            "startTime": "開始日時: {time}",
+            "endTime": "終了日時: {time}",
+            "upgradeButton": "会員プランをアップグレード",
+            "alreadyPremium": "最上位プラン (PREMIUM) 加入済み"
+        },
+        "upgradeModal": {
+            "title": "ユーザー #{userId} のプランアップグレード",
+            "currentPlanLabel": "現在のプラン:",
+            "targetPlanLabel": "アップグレード先プランの選択",
+            "durationLabel": "有効期間 (日数)",
+            "durationPlaceholder": "例: 30, 60, 90...",
+            "cancel": "キャンセル",
+            "submitBtn": "アップグレードを確定",
+            "errorHigher": "アップグレード先プラン ({target}) は現在のプラン ({current}) より上位である必要があります。",
+            "errorDuration": "日数は0より大きい値を入力してください。",
+            "errorFailed": "会員プランのアップグレードに失敗しました。"
+        }
+    }
+}

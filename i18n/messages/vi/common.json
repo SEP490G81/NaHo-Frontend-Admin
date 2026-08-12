@@ -40,6 +40,7 @@
                 "settings": "Cài đặt",
                 "orders": "Lịch sử giao dịch",
                 "userManagement": "Quản lý người dùng",
+                "paymentManagement": "Quản lý thanh toán",
                 "terms": "Điều khoản sử dụng",
                 "privacy": "Chính sách bảo mật"
             },
@@ -57,8 +58,11 @@
         },
         "layout": {
             "sidebar": {
-                "dashboard": "Trang chủ",
+                "dashboard": "Dashboard",
                 "userManagement": "Quản lý người dùng",
+                "paymentManagement": "Quản lý thanh toán",
+                "subscriptionManagement": "Gói học & Nâng cấp",
+                "reportManagement": "Quản lý báo cáo",
                 "kaiwaRoadmap": "Lộ trình Kaiwa",
                 "freeAiChat": "Trò chuyện tự do AI",
                 "leaderboard": "Bảng xếp hạng thi đua"

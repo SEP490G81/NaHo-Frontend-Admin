@@ -1,5 +1,8 @@
 import React from "react";
 import {
+    Award,
+    CreditCard,
+    Flag,
     LayoutDashboard,
     MessagesSquare,
     Mic,
@@ -23,6 +26,9 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
     { titleKey: "dashboard", url: "/dashboard", icon: LayoutDashboard },
     { titleKey: "userManagement", url: "/users", icon: Users },
+    { titleKey: "paymentManagement", url: "/payments", icon: CreditCard },
+    { titleKey: "subscriptionManagement", url: "/subscription-plans", icon: Award },
+    { titleKey: "reportManagement", url: "/reports", icon: Flag },
     { titleKey: "kaiwaRoadmap", url: "/books", icon: Mic },
     {
         titleKey: "freeAiChat",

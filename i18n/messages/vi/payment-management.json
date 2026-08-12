@@ -1,0 +1,119 @@
+{
+    "paymentManagement": {
+        "pageTitle": "Quản lý hóa đơn thanh toán",
+        "searchBox": {
+            "keywordPlaceholder": "Tìm theo mã đơn (orderCode), mã giao dịch...",
+            "searchButton": "Tìm kiếm",
+            "resetButton": "Đặt lại",
+            "userIdLabel": "ID Người dùng",
+            "userIdPlaceholder": "Nhập User ID...",
+            "statusLabel": "Trạng thái thanh toán",
+            "providerLabel": "Cổng thanh toán",
+            "fromLabel": "Từ ngày",
+            "toLabel": "Đến ngày",
+            "sortColumnLabel": "Sắp xếp theo",
+            "sortDirectionAsc": "Tăng dần",
+            "sortDirectionDesc": "Giảm dần",
+            "all": "Tất cả",
+            "default": "Mặc định",
+            "statusPending": "Chờ thanh toán",
+            "statusPaid": "Đã thanh toán",
+            "statusFailed": "Thất bại",
+            "statusCancelled": "Đã hủy",
+            "statusExpired": "Đã hết hạn",
+            "providerVnpay": "VNPay",
+            "sortCreatedTime": "Ngày tạo đơn",
+            "sortPaidTime": "Ngày thanh toán",
+            "sortAmount": "Số tiền",
+            "sortOrderCode": "Mã đơn hàng",
+            "sortStatus": "Trạng thái"
+        },
+        "table": {
+            "stt": "STT",
+            "orderCode": "Mã đơn hàng",
+            "userId": "User ID",
+            "planId": "Gói đăng ký",
+            "amount": "Số tiền",
+            "provider": "Cổng thanh toán",
+            "status": "Trạng thái",
+            "createdTime": "Thời gian tạo",
+            "paidTime": "Thời gian trả",
+            "actions": "Hành động",
+            "noData": "Không có hóa đơn thanh toán nào.",
+            "loading": "Đang tải dữ liệu..."
+        },
+        "actions": {
+            "viewDetail": "Xem chi tiết"
+        },
+        "detailsModal": {
+            "title": "Chi tiết hóa đơn thanh toán",
+            "orderInfoSection": "Thông tin hóa đơn",
+            "userInfoSection": "Thông tin chi tiết người thanh toán",
+            "paymentSection": "Thông tin giao dịch",
+            "orderCode": "Mã đơn hàng",
+            "userId": "ID Người dùng",
+            "fullName": "Họ và tên",
+            "email": "Email",
+            "username": "Tên tài khoản",
+            "gender": "Giới tính",
+            "dob": "Ngày sinh",
+            "role": "Vai trò",
+            "accountStatus": "Trạng thái tài khoản",
+            "planId": "Mã gói dịch vụ (Subscription Plan ID)",
+            "amount": "Số tiền thanh toán",
+            "provider": "Cổng thanh toán",
+            "status": "Trạng thái",
+            "transactionId": "Mã giao dịch nhà cung cấp",
+            "createdTime": "Thời gian khởi tạo",
+            "expiresTime": "Thời gian hết hạn",
+            "paidTime": "Thời gian hoàn tất thanh toán",
+            "modifiedTime": "Cập nhật lần cuối",
+            "close": "Đóng",
+            "unspecified": "Chưa có / Chưa xác định"
+        },
+        "pagination": {
+            "rowsPerPage": "Số dòng/trang:",
+            "pageInfo": "Trang {current} / {total}",
+            "firstPage": "Trang đầu",
+            "lastPage": "Trang cuối",
+            "totalElements": "Tổng: {count} hóa đơn"
+        }
+    },
+    "dashboard": {
+        "pageTitle": "Bảng điều khiển & Doanh thu",
+        "subtitle": "Tổng quan chỉ số tài chính, doanh số và xu hướng thanh toán hệ thống",
+        "timeRange": {
+            "all": "Tất cả thời gian",
+            "last7Days": "7 ngày qua",
+            "last30Days": "30 ngày qua",
+            "last12Months": "12 tháng qua"
+        },
+        "kpi": {
+            "totalRevenue": "Tổng doanh thu thực tế",
+            "revenueSubtitle": "Tổng số tiền từ các đơn đã thanh toán (PAID)",
+            "successRate": "Tỷ lệ giao dịch thành công",
+            "successRateSubtitle": "{count} / {total} đơn hoàn tất",
+            "unrealizedRevenue": "Doanh thu tổn thất / Đã hủy",
+            "unrealizedSubtitle": "Tổng tiền từ đơn HỦY / HẾT HẠN",
+            "averageOrderValue": "Giá trị trung bình đơn (AOV)",
+            "aovSubtitle": "Trung bình tiền / đơn thành công"
+        },
+        "charts": {
+            "revenueTrendTitle": "Biểu đồ tăng trưởng doanh thu",
+            "revenueTrendSubtitle": "Thống kê tổng số tiền giao dịch thành công theo thời gian",
+            "statusDistributionTitle": "Phân bổ trạng thái giao dịch",
+            "statusDistributionSubtitle": "Tỷ lệ phần trăm các loại trạng thái hóa đơn thanh toán",
+            "recentTransactionsTitle": "Giao dịch thành công mới nhất",
+            "recentTransactionsSubtitle": "Danh sách các hóa đơn vừa hoàn tất thanh toán gần đây",
+            "themeBadge": "Tone Hồng NaHo",
+            "noRevenueData": "Chưa có dữ liệu giao dịch thành công.",
+            "noDistributionData": "Chưa có dữ liệu phân bổ.",
+            "noRecentTransactions": "Chưa có giao dịch thành công gần đây.",
+            "tooltipRevenue": "Doanh thu",
+            "tooltipDate": "Ngày: {label}",
+            "unitOrders": "đơn",
+            "quantity": "Số lượng",
+            "viewAllOrders": "Tất cả đơn"
+        }
+    }
+}

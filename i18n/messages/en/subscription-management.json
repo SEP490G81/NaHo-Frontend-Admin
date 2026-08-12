@@ -1,0 +1,50 @@
+{
+    "subscriptionManagement": {
+        "pageTitle": "Subscription Plans & User Upgrade",
+        "pageSubtitle": "View NaHo membership plans and upgrade user subscription levels.",
+        "overviewTitle": "NaHo Membership Subscription Plans",
+        "overviewSubtitle": "Practice quotas, AI speaking duration, and assistance tools per plan tier.",
+        "userTableTitle": "User List & Membership Upgrade",
+        "plans": {
+            "free": "FREE",
+            "basic": "BASIC",
+            "premium": "PREMIUM"
+        },
+        "card": {
+            "mostPopular": "Most Popular",
+            "free": "Free",
+            "perDays": "/ {days} days",
+            "dailySpeakingLimit": "Daily speaking evaluation limit: {limit} times",
+            "maxRecordingSeconds": "Question recording duration: max {seconds} seconds",
+            "maxConcurrentAiSessions": "Max concurrent AI sessions: {count}",
+            "maxTurnsPerAiSession": "Max turns per AI session: {turns}",
+            "dailyAiSessionLimit": "Daily AI session evaluation limit: {limit} times",
+            "maxAiTurnSpeakingSeconds": "AI turn speaking duration: max {seconds} seconds",
+            "sampleAnswerEnabled": "Sample Answer Support Enabled",
+            "sampleAnswerDisabled": "No Sample Answer Support"
+        },
+        "lookupBox": {
+            "title": "Search & Upgrade User Membership",
+            "subtitle": "Enter User ID to check current active subscription and perform plan upgrades.",
+            "placeholder": "Enter User ID (e.g. 1000)...",
+            "searchButton": "Lookup Plan",
+            "notFound": "No subscription plan info found for User ID #{id} or user has no active plan.",
+            "startTime": "Start: {time}",
+            "endTime": "End: {time}",
+            "upgradeButton": "Upgrade Membership",
+            "alreadyPremium": "Already on Highest Plan (PREMIUM)"
+        },
+        "upgradeModal": {
+            "title": "Upgrade Subscription for User #{userId}",
+            "currentPlanLabel": "Current Plan:",
+            "targetPlanLabel": "Select Target Upgrade Plan",
+            "durationLabel": "Upgrade Duration (Days)",
+            "durationPlaceholder": "e.g. 30, 60, 90...",
+            "cancel": "Cancel",
+            "submitBtn": "Confirm Upgrade",
+            "errorHigher": "Target plan ({target}) must be higher than current plan ({current})!",
+            "errorDuration": "Duration must be greater than 0 days!",
+            "errorFailed": "Failed to upgrade membership plan!"
+        }
+    }
+}

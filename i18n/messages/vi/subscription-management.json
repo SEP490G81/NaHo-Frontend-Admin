@@ -1,0 +1,50 @@
+{
+    "subscriptionManagement": {
+        "pageTitle": "Quản lý Gói học & Nâng cấp Thành viên",
+        "pageSubtitle": "Xem thông tin chi tiết các gói cước NaHo và nâng cấp gói thành viên cho người dùng.",
+        "overviewTitle": "Danh sách Các Gói cước Thành viên (Subscription Plans)",
+        "overviewSubtitle": "Hạn mức lượt luyện tập, thời lượng nói AI và các công cụ hỗ trợ theo từng gói cước.",
+        "userTableTitle": "Danh sách Người dùng & Nâng cấp Gói học",
+        "plans": {
+            "free": "FREE",
+            "basic": "BASIC",
+            "premium": "PREMIUM"
+        },
+        "card": {
+            "mostPopular": "Phổ biến nhất",
+            "free": "Miễn phí",
+            "perDays": "/ {days} ngày",
+            "dailySpeakingLimit": "Giới hạn chấm điểm câu hỏi/ngày: {limit} lượt",
+            "maxRecordingSeconds": "Thời lượng ghi âm câu hỏi: tối đa {seconds} giây",
+            "maxConcurrentAiSessions": "Số phiên AI đồng thời: {count} phiên",
+            "maxTurnsPerAiSession": "Số lượt nói/phiên AI: {turns} lượt",
+            "dailyAiSessionLimit": "Giới hạn chấm phiên AI/ngày: {limit} lượt",
+            "maxAiTurnSpeakingSeconds": "Thời lượng nói mỗi lượt AI: tối đa {seconds} giây",
+            "sampleAnswerEnabled": "Hỗ trợ gợi ý đáp án mẫu (Sample Answer)",
+            "sampleAnswerDisabled": "Không gợi ý đáp án mẫu"
+        },
+        "lookupBox": {
+            "title": "Tra cứu & Nâng cấp Gói học cho Người dùng",
+            "subtitle": "Nhập ID người dùng để kiểm tra thông tin gói thành viên hiện tại và thực hiện nâng cấp.",
+            "placeholder": "Nhập User ID (Ví dụ: 1000)...",
+            "searchButton": "Tra cứu gói cước",
+            "notFound": "Không tìm thấy thông tin gói thành viên cho User ID #{id} hoặc user chưa đăng ký gói.",
+            "startTime": "Bắt đầu: {time}",
+            "endTime": "Kết thúc: {time}",
+            "upgradeButton": "Nâng cấp Gói thành viên",
+            "alreadyPremium": "Đã ở gói Cao Nhất (PREMIUM)"
+        },
+        "upgradeModal": {
+            "title": "Nâng cấp Gói học cho User #{userId}",
+            "currentPlanLabel": "Gói hiện tại:",
+            "targetPlanLabel": "Chọn Gói học Nâng cấp",
+            "durationLabel": "Thời hạn nâng cấp (Số ngày)",
+            "durationPlaceholder": "Ví dụ: 30, 60, 90...",
+            "cancel": "Hủy",
+            "submitBtn": "Xác nhận nâng cấp",
+            "errorHigher": "Gói nâng cấp ({target}) phải cao hơn gói hiện tại ({current})!",
+            "errorDuration": "Thời hạn số ngày phải lớn hơn 0!",
+            "errorFailed": "Nâng cấp gói thành viên thất bại!"
+        }
+    }
+}

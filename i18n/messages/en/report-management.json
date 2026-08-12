@@ -1,0 +1,48 @@
+{
+    "reportManagement": {
+        "pageTitle": "Report & Issue Management",
+        "pageSubtitle": "View, filter and resolve user submitted reports.",
+        "searchBox": {
+            "keywordPlaceholder": "Search by title, description, user name...",
+            "searchButton": "Search",
+            "resetButton": "Reset",
+            "statusLabel": "Resolution Status",
+            "reportTypeLabel": "Report Type",
+            "all": "All",
+            "statusResolved": "Resolved",
+            "statusUnresolved": "Unresolved"
+        },
+        "status": {
+            "resolved": "Resolved",
+            "unresolved": "Unresolved"
+        },
+        "table": {
+            "stt": "#",
+            "reporter": "Reporter",
+            "type": "Report Type",
+            "content": "Content",
+            "files": "Attachments",
+            "status": "Status",
+            "actions": "Actions",
+            "noData": "No reports found."
+        },
+        "detailsModal": {
+            "title": "Report Details",
+            "descriptionLabel": "Detailed Description",
+            "attachedFiles": "Attached Image Files",
+            "adminReplyLabel": "Admin Response",
+            "resolveReportBtn": "Reply & Resolve Report",
+            "close": "Close"
+        },
+        "resolveModal": {
+            "title": "Update Report Resolution",
+            "statusToggleLabel": "Mark Report Status",
+            "statusResolved": "RESOLVED",
+            "statusUnresolved": "UNRESOLVED / PENDING",
+            "replyInputLabel": "Admin Response Message",
+            "replyPlaceholder": "Enter resolution notes or message to sending user...",
+            "cancel": "Cancel",
+            "submitBtn": "Save Resolution"
+        }
+    }
+}

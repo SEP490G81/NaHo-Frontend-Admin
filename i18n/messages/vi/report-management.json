@@ -1,0 +1,48 @@
+{
+    "reportManagement": {
+        "pageTitle": "Quản lý Báo cáo & Sự cố",
+        "pageSubtitle": "Xem, lọc và phản hồi các báo cáo từ người dùng hệ thống.",
+        "searchBox": {
+            "keywordPlaceholder": "Tìm theo tiêu đề, nội dung, tên người dùng...",
+            "searchButton": "Tìm kiếm",
+            "resetButton": "Đặt lại",
+            "statusLabel": "Trạng thái xử lý",
+            "reportTypeLabel": "Loại báo cáo",
+            "all": "Tất cả",
+            "statusResolved": "Đã xử lý",
+            "statusUnresolved": "Chờ xử lý"
+        },
+        "status": {
+            "resolved": "Đã xử lý",
+            "unresolved": "Chờ xử lý"
+        },
+        "table": {
+            "stt": "#",
+            "reporter": "Người báo cáo",
+            "type": "Loại báo cáo",
+            "content": "Nội dung",
+            "files": "Tệp đính kèm",
+            "status": "Trạng thái",
+            "actions": "Thao tác",
+            "noData": "Không tìm thấy báo cáo nào."
+        },
+        "detailsModal": {
+            "title": "Chi tiết báo cáo",
+            "descriptionLabel": "Nội dung mô tả chi tiết",
+            "attachedFiles": "Danh sách tệp hình ảnh đính kèm",
+            "adminReplyLabel": "Phản hồi từ Admin",
+            "resolveReportBtn": "Phản hồi & Xử lý báo cáo",
+            "close": "Đóng"
+        },
+        "resolveModal": {
+            "title": "Cập nhật xử lý báo cáo",
+            "statusToggleLabel": "Đánh dấu trạng thái báo cáo",
+            "statusResolved": "ĐÃ XỬ LÝ THÀNH CÔNG",
+            "statusUnresolved": "CHƯA XỬ LÝ (ĐANG XỬ LÝ)",
+            "replyInputLabel": "Nội dung phản hồi của Admin",
+            "replyPlaceholder": "Nhập lời nhắn, kết quả xử lý gửi tới người dùng...",
+            "cancel": "Hủy",
+            "submitBtn": "Lưu kết quả xử lý"
+        }
+    }
+}
