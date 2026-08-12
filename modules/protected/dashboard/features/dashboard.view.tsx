@@ -44,22 +44,6 @@ export default function DashboardView() {
                         {t("subtitle")}
                     </p>
                 </div>
-
-                <div className="w-full sm:w-48">
-                    <TextField
-                        select
-                        fullWidth
-                        size="small"
-                        value={timeRange}
-                        onChange={(e) => setTimeRange(e.target.value as TimeRangePreset)}
-                    >
-                        {TIME_RANGE_OPTIONS.map((opt) => (
-                            <MenuItem key={opt.value} value={opt.value}>
-                                {tTimeRange(opt.labelKey as "all" | "last7Days" | "last30Days" | "last12Months")}
-                            </MenuItem>
-                        ))}
-                    </TextField>
-                </div>
             </div>
 
             {/* KPI Cards Grid */}
@@ -110,6 +94,22 @@ export default function DashboardView() {
                 orders={recentPaidOrders}
                 isLoading={isLoading}
             />
+
+            <div className="w-full sm:w-48">
+                <TextField
+                    select
+                    fullWidth
+                    size="small"
+                    value={timeRange}
+                    onChange={(e) => setTimeRange(e.target.value as TimeRangePreset)}
+                >
+                    {TIME_RANGE_OPTIONS.map((opt) => (
+                        <MenuItem key={opt.value} value={opt.value}>
+                            {tTimeRange(opt.labelKey as "all" | "last7Days" | "last30Days" | "last12Months")}
+                        </MenuItem>
+                    ))}
+                </TextField>
+            </div>
 
             {/* Charts Section (Equal Height) */}
             <div className="grid grid-cols-1 gap-6 items-stretch lg:grid-cols-3">
