@@ -173,14 +173,16 @@ export function ReportDetailsModal() {
                     <Button onClick={closeDetail} variant="outlined" color="inherit">
                         {t("close")}
                     </Button>
-                    <Button
-                        onClick={handleResolveClick}
-                        variant="contained"
-                        startIcon={<CheckCircle2 className="h-4 w-4" />}
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl"
-                    >
-                        {t("resolveReportBtn")}
-                    </Button>
+                    {!selectedReportDetail.isResolved && (
+                        <Button
+                            onClick={handleResolveClick}
+                            variant="contained"
+                            startIcon={<CheckCircle2 className="h-4 w-4" />}
+                            className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl"
+                        >
+                            {t("resolveReportBtn")}
+                        </Button>
+                    )}
                 </DialogActions>
             </Dialog>
 

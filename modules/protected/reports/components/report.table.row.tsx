@@ -75,15 +75,17 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
                         </IconButton>
                     </Tooltip>
 
-                    <Tooltip title="Xử lý báo cáo">
-                        <IconButton
-                            size="small"
-                            onClick={() => openResolve(report)}
-                            className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
-                        >
-                            <CheckSquare className="h-4 w-4" />
-                        </IconButton>
-                    </Tooltip>
+                    {!report.isResolved && (
+                        <Tooltip title="Xử lý báo cáo">
+                            <IconButton
+                                size="small"
+                                onClick={() => openResolve(report)}
+                                className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
+                            >
+                                <CheckSquare className="h-4 w-4" />
+                            </IconButton>
+                        </Tooltip>
+                    )}
                 </div>
             </TableCell>
         </TableRow>
