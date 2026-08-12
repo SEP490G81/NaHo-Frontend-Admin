@@ -15,13 +15,15 @@ export default function PaymentManagementView() {
         <PaymentFilterProvider>
             <PaymentDetailProvider>
                 <div className="flex flex-col gap-6 p-6">
-                    <div>
-                        <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-                            {t("pageTitle")}
-                        </h1>
-                    </div>
+                    <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm dark:bg-gray-900 dark:border-gray-800">
+                        <div>
+                            <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                                {t("pageTitle")}
+                            </h1>
+                        </div>
 
-                    <PaymentSearchBox />
+                        <PaymentSearchBox />
+                    </div>
                     <PaymentTableContent />
                     <PaymentDetailsModal />
                 </div>
