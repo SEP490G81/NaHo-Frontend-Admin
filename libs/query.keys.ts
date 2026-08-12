@@ -5,4 +5,10 @@ export const queryKeys = {
     users: {
         all: ["users-all"] as const,
     },
+    payments: {
+        all: ["payments-all"] as const,
+    },
+    reports: {
+        all: ["reports-admin"] as const,
+    },
 };

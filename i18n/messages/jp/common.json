@@ -35,6 +35,7 @@
                 "settings": "設定",
                 "orders": "取引履歴",
                 "userManagement": "ユーザー管理",
+                "paymentManagement": "決済管理",
                 "terms": "利用規約",
                 "privacy": "プライバシーポリシー"
             },
@@ -54,6 +55,8 @@
             "sidebar": {
                 "dashboard": "ダッシュボード",
                 "userManagement": "ユーザー管理",
+                "paymentManagement": "決済管理",
+                "reportManagement": "レポート管理",
                 "kaiwaRoadmap": "会話ロードマップ",
                 "freeAiChat": "AIフリートーク",
                 "leaderboard": "ランキング"

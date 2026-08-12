@@ -1,0 +1,48 @@
+{
+    "reportManagement": {
+        "pageTitle": "レポート・問題管理",
+        "pageSubtitle": "ユーザーからの報告を確認・検索・対応します。",
+        "searchBox": {
+            "keywordPlaceholder": "タイトル、内容、ユーザー名で検索...",
+            "searchButton": "検索",
+            "resetButton": "リセット",
+            "statusLabel": "対応ステータス",
+            "reportTypeLabel": "レポート種別",
+            "all": "すべて",
+            "statusResolved": "対応済み",
+            "statusUnresolved": "未対応"
+        },
+        "status": {
+            "resolved": "対応済み",
+            "unresolved": "未対応"
+        },
+        "table": {
+            "stt": "#",
+            "reporter": "報告者",
+            "type": "種別",
+            "content": "内容",
+            "files": "添付ファイル",
+            "status": "ステータス",
+            "actions": "操作",
+            "noData": "レポートが見つかりません。"
+        },
+        "detailsModal": {
+            "title": "レポート詳細",
+            "descriptionLabel": "詳細内容",
+            "attachedFiles": "添付画像ファイル",
+            "adminReplyLabel": "管理者からの返信",
+            "resolveReportBtn": "返信とステータス更新",
+            "close": "閉じる"
+        },
+        "resolveModal": {
+            "title": "レポート対応の更新",
+            "statusToggleLabel": "ステータス設定",
+            "statusResolved": "対応完了 (RESOLVED)",
+            "statusUnresolved": "未対応 / 対応中 (UNRESOLVED)",
+            "replyInputLabel": "管理者返信メッセージ",
+            "replyPlaceholder": "ユーザーへの対応結果・返信を入力してください...",
+            "cancel": "キャンセル",
+            "submitBtn": "対応を保存"
+        }
+    }
+}

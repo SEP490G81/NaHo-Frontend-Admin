@@ -1,0 +1,119 @@
+{
+    "paymentManagement": {
+        "pageTitle": "決済注文管理",
+        "searchBox": {
+            "keywordPlaceholder": "注文コード、取引IDで検索...",
+            "searchButton": "検索",
+            "resetButton": "リセット",
+            "userIdLabel": "ユーザーID",
+            "userIdPlaceholder": "ユーザーIDを入力...",
+            "statusLabel": "決済ステータス",
+            "providerLabel": "決済ゲートウェイ",
+            "fromLabel": "開始日",
+            "toLabel": "終了日",
+            "sortColumnLabel": "並び替え基準",
+            "sortDirectionAsc": "昇順",
+            "sortDirectionDesc": "降順",
+            "all": "すべて",
+            "default": "デフォルト",
+            "statusPending": "保留中",
+            "statusPaid": "支払い済み",
+            "statusFailed": "失敗",
+            "statusCancelled": "キャンセル済み",
+            "statusExpired": "期限切れ",
+            "providerVnpay": "VNPay",
+            "sortCreatedTime": "作成日時",
+            "sortPaidTime": "決済日時",
+            "sortAmount": "金額",
+            "sortOrderCode": "注文コード",
+            "sortStatus": "ステータス"
+        },
+        "table": {
+            "stt": "#",
+            "orderCode": "注文コード",
+            "userId": "ユーザーID",
+            "planId": "サブスクリプションプラン",
+            "amount": "金額",
+            "provider": "決済サービス",
+            "status": "ステータス",
+            "createdTime": "作成日時",
+            "paidTime": "決済日時",
+            "actions": "操作",
+            "noData": "決済注文が見つかりません。",
+            "loading": "データを読み込み中..."
+        },
+        "actions": {
+            "viewDetail": "詳細を表示"
+        },
+        "detailsModal": {
+            "title": "決済注文の詳細",
+            "orderInfoSection": "注文情報",
+            "userInfoSection": "決済ユーザーの詳細情報",
+            "paymentSection": "取引情報",
+            "orderCode": "注文コード",
+            "userId": "ユーザーID",
+            "fullName": "氏名",
+            "email": "メールアドレス",
+            "username": "ユーザー名",
+            "gender": "性別",
+            "dob": "生年月日",
+            "role": "役割",
+            "accountStatus": "アカウント状態",
+            "planId": "プランID",
+            "amount": "決済金額",
+            "provider": "決済ゲートウェイ",
+            "status": "ステータス",
+            "transactionId": "取引ID",
+            "createdTime": "作成日時",
+            "expiresTime": "有効期限",
+            "paidTime": "完了日時",
+            "modifiedTime": "最終更新",
+            "close": "閉じる",
+            "unspecified": "未設定"
+        },
+        "pagination": {
+            "rowsPerPage": "1ページあたりの件数:",
+            "pageInfo": "ページ {current} / {total}",
+            "firstPage": "最初のページ",
+            "lastPage": "最後のページ",
+            "totalElements": "合計: {count} 件"
+        }
+    },
+    "dashboard": {
+        "pageTitle": "ダッシュボードと売上分析",
+        "subtitle": "財務概要、売上指標、決済トレンドの分析",
+        "timeRange": {
+            "all": "全期間",
+            "last7Days": "過去7日間",
+            "last30Days": "過去30日間",
+            "last12Months": "過去12ヶ月"
+        },
+        "kpi": {
+            "totalRevenue": "総売上高",
+            "revenueSubtitle": "決済完了(PAID)注文の合計金額",
+            "successRate": "決済成功率",
+            "successRateSubtitle": "{count} / {total} 件完了",
+            "unrealizedRevenue": "未実現 / キャンセル売上",
+            "unrealizedSubtitle": "キャンセル・期限切れ注文の総額",
+            "averageOrderValue": "平均注文単価 (AOV)",
+            "aovSubtitle": "1注文あたりの平均決済額"
+        },
+        "charts": {
+            "revenueTrendTitle": "売上推移チャート",
+            "revenueTrendSubtitle": "期間ごとの決済完了金額の推移",
+            "statusDistributionTitle": "決済ステータス分布",
+            "statusDistributionSubtitle": "注文ステータスごとの割合",
+            "recentTransactionsTitle": "最近の成功取引",
+            "recentTransactionsSubtitle": "直近で完了した決済注文",
+            "themeBadge": "NaHo ピンクテーマ",
+            "noRevenueData": "成功した取引データがありません。",
+            "noDistributionData": "分布データがありません。",
+            "noRecentTransactions": "最近の成功取引はありません。",
+            "tooltipRevenue": "売上高",
+            "tooltipDate": "日付: {label}",
+            "unitOrders": "件",
+            "quantity": "数量",
+            "viewAllOrders": "すべての注文"
+        }
+    }
+}

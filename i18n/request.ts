@@ -25,6 +25,8 @@ const MESSAGE_FILES = [
     "legal",
     "help",
     "user-management",
+    "payment-management",
+    "report-management",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

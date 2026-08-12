@@ -1,0 +1,119 @@
+{
+    "paymentManagement": {
+        "pageTitle": "Payment Orders Management",
+        "searchBox": {
+            "keywordPlaceholder": "Search by order code, transaction ID...",
+            "searchButton": "Search",
+            "resetButton": "Reset",
+            "userIdLabel": "User ID",
+            "userIdPlaceholder": "Enter User ID...",
+            "statusLabel": "Payment Status",
+            "providerLabel": "Payment Gateway",
+            "fromLabel": "From Date",
+            "toLabel": "To Date",
+            "sortColumnLabel": "Sort By",
+            "sortDirectionAsc": "Ascending",
+            "sortDirectionDesc": "Descending",
+            "all": "All",
+            "default": "Default",
+            "statusPending": "Pending",
+            "statusPaid": "Paid",
+            "statusFailed": "Failed",
+            "statusCancelled": "Cancelled",
+            "statusExpired": "Expired",
+            "providerVnpay": "VNPay",
+            "sortCreatedTime": "Created Time",
+            "sortPaidTime": "Paid Time",
+            "sortAmount": "Amount",
+            "sortOrderCode": "Order Code",
+            "sortStatus": "Status"
+        },
+        "table": {
+            "stt": "#",
+            "orderCode": "Order Code",
+            "userId": "User ID",
+            "planId": "Subscription Plan",
+            "amount": "Amount",
+            "provider": "Gateway",
+            "status": "Status",
+            "createdTime": "Created Time",
+            "paidTime": "Paid Time",
+            "actions": "Actions",
+            "noData": "No payment orders found.",
+            "loading": "Loading data..."
+        },
+        "actions": {
+            "viewDetail": "View Details"
+        },
+        "detailsModal": {
+            "title": "Payment Order Details",
+            "orderInfoSection": "Order Details",
+            "userInfoSection": "Payer User Details",
+            "paymentSection": "Transaction Info",
+            "orderCode": "Order Code",
+            "userId": "User ID",
+            "fullName": "Full Name",
+            "email": "Email",
+            "username": "Username",
+            "gender": "Gender",
+            "dob": "Date of Birth",
+            "role": "Role",
+            "accountStatus": "Account Status",
+            "planId": "Subscription Plan ID",
+            "amount": "Payment Amount",
+            "provider": "Gateway",
+            "status": "Status",
+            "transactionId": "Provider Transaction ID",
+            "createdTime": "Created Time",
+            "expiresTime": "Expires Time",
+            "paidTime": "Paid Time",
+            "modifiedTime": "Last Modified",
+            "close": "Close",
+            "unspecified": "N/A"
+        },
+        "pagination": {
+            "rowsPerPage": "Rows per page:",
+            "pageInfo": "Page {current} of {total}",
+            "firstPage": "First Page",
+            "lastPage": "Last Page",
+            "totalElements": "Total: {count} orders"
+        }
+    },
+    "dashboard": {
+        "pageTitle": "Analytics & Revenue Dashboard",
+        "subtitle": "Financial overview, revenue metrics, and system payment trends",
+        "timeRange": {
+            "all": "All Time",
+            "last7Days": "Last 7 Days",
+            "last30Days": "Last 30 Days",
+            "last12Months": "Last 12 Months"
+        },
+        "kpi": {
+            "totalRevenue": "Net Realized Revenue",
+            "revenueSubtitle": "Total amount from completed (PAID) orders",
+            "successRate": "Payment Success Rate",
+            "successRateSubtitle": "{count} / {total} orders completed",
+            "unrealizedRevenue": "Unrealized / Cancelled Revenue",
+            "unrealizedSubtitle": "Total value of CANCELLED & EXPIRED orders",
+            "averageOrderValue": "Average Order Value (AOV)",
+            "aovSubtitle": "Average amount per completed order"
+        },
+        "charts": {
+            "revenueTrendTitle": "Revenue Growth Trend",
+            "revenueTrendSubtitle": "Successful transaction volume over time",
+            "statusDistributionTitle": "Payment Status Distribution",
+            "statusDistributionSubtitle": "Percentage breakdown by order status",
+            "recentTransactionsTitle": "Recent Successful Transactions",
+            "recentTransactionsSubtitle": "Latest paid orders processed by the system",
+            "themeBadge": "NaHo Pink Theme",
+            "noRevenueData": "No successful transaction data available.",
+            "noDistributionData": "No distribution data available.",
+            "noRecentTransactions": "No recent successful transactions.",
+            "tooltipRevenue": "Revenue",
+            "tooltipDate": "Date: {label}",
+            "unitOrders": "orders",
+            "quantity": "Quantity",
+            "viewAllOrders": "All Orders"
+        }
+    }
+}
