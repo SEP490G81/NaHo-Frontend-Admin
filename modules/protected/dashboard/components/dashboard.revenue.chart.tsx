@@ -64,9 +64,6 @@ export function DashboardRevenueChart({
                         {t("revenueTrendSubtitle")}
                     </p>
                 </div>
-                <span className="rounded-full bg-pink-50 px-3 py-1 text-xs font-bold text-pink-600 border border-pink-200 dark:bg-pink-950/60 dark:text-pink-300 dark:border-pink-800">
-                    {t("themeBadge")}
-                </span>
             </div>
 
             <div className="h-72 w-full pt-4 flex-1 min-h-[280px]">
