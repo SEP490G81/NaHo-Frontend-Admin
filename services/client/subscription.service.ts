@@ -4,8 +4,8 @@ import {
     UserSubscriptionResponse,
 } from "@/types/responses/subscription.response";
 import {
-    UpgradeSubscriptionRequest,
     UpdateSubscriptionPlanRequest,
+    UpgradeSubscriptionRequest,
 } from "@/types/requests/subscription.request";
 import { ApiError } from "@/libs/api.error";
 
@@ -81,4 +81,3 @@ export async function upgradeUserSubscriptionClient(
 
     return result as ApiResponse<UserSubscriptionResponse>;
 }
-

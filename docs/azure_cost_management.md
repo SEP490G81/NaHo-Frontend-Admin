@@ -1,8 +1,6 @@
 api thứ 1: get http://localhost:8386/api/v1/admin/azure-cost/summary
 lấy cost của tháng hiện tại:
 
-
-
 {
 
 &#x20;   "meta": {
@@ -13,7 +11,7 @@ lấy cost của tháng hiện tại:
 
 &#x20;       "pageMeta": null
 
-&#x20;   },
+&#x20; },
 
 &#x20;   "message": "Lấy thông tin tổng quan chi phí Azure thành công!",
 
@@ -25,15 +23,11 @@ lấy cost của tháng hiện tại:
 
 &#x20;       "period": "MonthToDate"
 
-&#x20;   }
+&#x20; }
 
 }
 
 api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6Months\&granularity=Monthly
-
-
-
-
 
 {
 
@@ -45,7 +39,7 @@ api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6
 
 &#x20;       "pageMeta": null
 
-&#x20;   },
+&#x20; },
 
 &#x20;   "message": "Lấy dữ liệu biểu đồ chi phí Azure thành công!",
 
@@ -59,7 +53,7 @@ api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6
 
 &#x20;       "points": \[
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "2026-05-01T00:00:00",
 
@@ -67,9 +61,9 @@ api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "2026-06-01T00:00:00",
 
@@ -77,9 +71,9 @@ api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "2026-07-01T00:00:00",
 
@@ -87,9 +81,9 @@ api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "2026-08-01T00:00:00",
 
@@ -97,22 +91,18 @@ api thứ 2: http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Last6
 
 &#x20;               "currency": "USD"
 
-&#x20;           }
+&#x20; }
 
 &#x20;       ]
 
-&#x20;   }
+&#x20; }
 
 }
 
 http://localhost:8386/api/v1/admin/azure-cost/chart?timeframe=Custom\&granularity=Daily\&fromDate=2026-05-24\&toDate=2026-08-13
 
-public class AzureCostChartRequest {
-private String timeframe;
-private String granularity;
-private String fromDate;
-private String toDate;
-}
+public class AzureCostChartRequest { private String timeframe; private String granularity; private String fromDate;
+private String toDate; }
 
 {
 
@@ -124,7 +114,7 @@ private String toDate;
 
 &#x20;       "pageMeta": null
 
-&#x20;   },
+&#x20; },
 
 &#x20;   "message": "Lấy dữ liệu biểu đồ chi phí Azure thành công!",
 
@@ -138,7 +128,7 @@ private String toDate;
 
 &#x20;       "points": \[
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260802",
 
@@ -146,9 +136,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260803",
 
@@ -156,9 +146,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260804",
 
@@ -166,9 +156,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260805",
 
@@ -176,9 +166,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260806",
 
@@ -186,9 +176,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260807",
 
@@ -196,9 +186,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260808",
 
@@ -206,9 +196,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260809",
 
@@ -216,9 +206,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260811",
 
@@ -226,9 +216,9 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           },
+&#x20; },
 
-&#x20;           {
+&#x20; {
 
 &#x20;               "dateOrMonth": "20260812",
 
@@ -236,10 +226,10 @@ private String toDate;
 
 &#x20;               "currency": "USD"
 
-&#x20;           }
+&#x20; }
 
 &#x20;       ]
 
-&#x20;   }
+&#x20; }
 
 }

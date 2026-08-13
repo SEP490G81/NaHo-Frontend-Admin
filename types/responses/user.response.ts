@@ -86,4 +86,3 @@ export interface UserLearningProgressResponse {
     totalPoint: number;
     leaderboardUser: LeaderboardUserResponse | null;
 }
-

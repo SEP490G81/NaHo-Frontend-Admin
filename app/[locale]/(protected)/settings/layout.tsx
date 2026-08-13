@@ -1,5 +1,5 @@
 import React from "react";
-import SettingsSidebar from "@/modules/protected/settings/components/settings.sidebar";
+import SettingsSidebar from "@/modules/protected/shared/settings/components/settings.sidebar";
 import ContainerBox from "@/components/ui/container.box";
 
 const SettingsLayout = ({ children }: { children: React.ReactNode }) => {

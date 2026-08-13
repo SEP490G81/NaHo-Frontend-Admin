@@ -3,7 +3,7 @@ import {
     AzureCostChartData,
     AzureCostChartParams,
     AzureCostSummaryData,
-} from "@/modules/protected/cost-service-management/types/azure.cost.type";
+} from "@/modules/protected/admin/cost-service-management/types/azure.cost.type";
 import { ApiError } from "@/libs/api.error";
 
 export async function fetchAzureCostSummaryClient(): Promise<
@@ -29,7 +29,8 @@ export async function fetchAzureCostChartClient(
 ): Promise<ApiResponse<AzureCostChartData>> {
     const searchParams = new URLSearchParams();
     if (params?.timeframe) searchParams.set("timeframe", params.timeframe);
-    if (params?.granularity) searchParams.set("granularity", params.granularity);
+    if (params?.granularity)
+        searchParams.set("granularity", params.granularity);
     if (params?.fromDate) searchParams.set("fromDate", params.fromDate);
     if (params?.toDate) searchParams.set("toDate", params.toDate);
 
@@ -72,4 +73,3 @@ export async function triggerAzureCostSyncClient(): Promise<void> {
         throw new ApiError(errBody);
     }
 }
-

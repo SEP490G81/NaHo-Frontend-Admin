@@ -5,7 +5,7 @@ import {
     AzureCostChartData,
     AzureCostChartParams,
     AzureCostSummaryData,
-} from "@/modules/protected/cost-service-management/types/azure.cost.type";
+} from "@/modules/protected/admin/cost-service-management/types/azure.cost.type";
 
 const DEFAULT_PAGE_META = {
     currentPage: 0,
@@ -27,7 +27,9 @@ export async function fetchAzureCostSummaryServer(): Promise<
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+                    ...(accessToken
+                        ? { Authorization: `Bearer ${accessToken}` }
+                        : {}),
                 },
                 cache: "no-store",
             },
@@ -68,7 +70,8 @@ export async function fetchAzureCostChartServer(
 
         const searchParams = new URLSearchParams();
         if (params?.timeframe) searchParams.set("timeframe", params.timeframe);
-        if (params?.granularity) searchParams.set("granularity", params.granularity);
+        if (params?.granularity)
+            searchParams.set("granularity", params.granularity);
         if (params?.fromDate) searchParams.set("fromDate", params.fromDate);
         if (params?.toDate) searchParams.set("toDate", params.toDate);
 
@@ -79,7 +82,9 @@ export async function fetchAzureCostChartServer(
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+                ...(accessToken
+                    ? { Authorization: `Bearer ${accessToken}` }
+                    : {}),
             },
             cache: "no-store",
         });
@@ -92,7 +97,12 @@ export async function fetchAzureCostChartServer(
                     pageMeta: DEFAULT_PAGE_META,
                 },
                 message: "",
-                data: { totalCost: 0, currency: "USD", granularity: "Monthly", points: [] },
+                data: {
+                    totalCost: 0,
+                    currency: "USD",
+                    granularity: "Monthly",
+                    points: [],
+                },
             };
         }
 
@@ -105,9 +115,12 @@ export async function fetchAzureCostChartServer(
                 pageMeta: DEFAULT_PAGE_META,
             },
             message: "",
-            data: { totalCost: 0, currency: "USD", granularity: "Monthly", points: [] },
+            data: {
+                totalCost: 0,
+                currency: "USD",
+                granularity: "Monthly",
+                points: [],
+            },
         };
     }
 }
-
-

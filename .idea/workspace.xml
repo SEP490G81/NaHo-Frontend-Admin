@@ -5,24 +5,100 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/users_management/user.details.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/subscription-plans/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(content-manager)/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/protected/content-manager/index.htmlo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/mui-custom/tooltip.custom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/mui-custom/tooltip.custom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/en/user-management.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/en/user-management.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/jp/user-management.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/jp/user-management.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/user-management.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/user-management.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/components/user.table.row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/features/user.management.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/providers/user.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/users/providers/user.filter.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/server/backend.proxy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/backend.proxy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/responses/user.response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/responses/user.response.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users_management/user.button.update.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users_management/user.find.all.api.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users_management/user.table.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users_management/user.table.update.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users_management/user.type.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/dashboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/payments/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/payments/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/reports/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/reports/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/subscription-plans/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/users/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/error.code.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/error.code.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/users_management/user.button.update.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/users_management/user.button.update.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/users_management/user.change.status.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/users_management/user.change.status.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/en/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/en/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/jp/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/jp/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.kpi.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.kpi.card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.recent.transactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.recent.transactions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.revenue.chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.revenue.chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.status.pie.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.status.pie.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/constants/dashboard.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/constants/dashboard.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/features/dashboard.view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/hooks/use.dashboard.payment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/hooks/use.dashboard.payment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/types/dashboard.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/types/dashboard.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/utils/dashboard.calculator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/utils/dashboard.calculator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.details.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.search.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.search.box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.search.date.sort.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.search.date.sort.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.search.filter.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.search.filter.grid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.status.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.status.badge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.empty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.empty.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.skeleton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/constants/payment.table.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/constants/payment.table.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/features/payment.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/features/payment.management.view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/features/payment.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/features/payment.table.content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/hooks/use.payment.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/hooks/use.payment.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/hooks/use.user.detail.by.id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/hooks/use.user.detail.by.id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/providers/payment.detail.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/providers/payment.detail.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/providers/payment.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/providers/payment.filter.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/payment/types/payment.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/types/payment.table.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.details.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.resolve.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.resolve.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.search.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.search.box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.status.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.status.badge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.empty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.empty.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.skeleton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.type.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.type.badge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/constants/report.table.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/constants/report.table.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/features/report.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/features/report.management.view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/features/report.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/features/report.table.content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/hooks/use.report.mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/hooks/use.report.mutation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/hooks/use.report.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/hooks/use.report.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/providers/report.detail.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/providers/report.detail.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/providers/report.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/providers/report.filter.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/reports/types/report.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/types/report.table.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.badge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.edit.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.edit.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.upgrade.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.upgrade.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.lookup.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.lookup.box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.table.row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/features/subscription.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/features/subscription.management.view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/features/subscription.plans.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/features/subscription.plans.grid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/features/user.subscription.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/features/user.subscription.table.content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/hooks/use.subscription.mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/hooks/use.subscription.mutation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/hooks/use.subscription.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/hooks/use.subscription.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/providers/subscription.modal.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/providers/subscription.modal.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/email.verified.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/email.verified.badge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/scroll.to.top.button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/scroll.to.top.button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.details.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.search.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.search.dob.sort.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.dob.sort.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.search.filter.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.filter.grid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.empty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.empty.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.skeleton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/constants/user.table.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/constants/user.table.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.change.status.button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.change.status.button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.detail.modal.wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.detail.modal.wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.management.view.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.table.content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.change.user.status.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/hooks/use.change.user.status.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.learning.progress.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/hooks/use.user.learning.progress.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/hooks/use.user.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/providers/user.detail.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/providers/user.detail.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/providers/user.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/providers/user.filter.provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/users/types/user.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/types/user.table.type.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +106,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="244" />
+    <option name="cachedIndexableFilesCount" value="355" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FormatOnSaveOptions">
@@ -46,60 +122,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000016990045826" />
-      <entry key="S5" value="1.0052041830833738" />
-      <entry key="S10" value="1.0894201988939212" />
-      <entry key="S30" value="1.9064677605412317" />
-      <entry key="S60" value="3.1875019464109444" />
-      <entry key="M2" value="5.174106420254335" />
-      <entry key="M5" value="7.881017293387707" />
-      <entry key="M10" value="11.28601756003465" />
-      <entry key="M15" value="18.26156416868872" />
-      <entry key="M30" value="47.24408165311527" />
-      <entry key="H1" value="90.10041878117606" />
-      <entry key="H2" value="128.8101270403948" />
-      <entry key="H4" value="155.22602880272032" />
-      <entry key="D1" value="182.0300718009623" />
-      <entry key="W1" value="187.133749113093" />
+      <entry key="MS500" value="1.0000000000000002" />
+      <entry key="S2" value="1.0001918927241986" />
+      <entry key="S5" value="1.0494568139717508" />
+      <entry key="S10" value="1.3277485623049354" />
+      <entry key="S30" value="2.564147955055229" />
+      <entry key="S60" value="4.069417822914526" />
+      <entry key="M2" value="6.284397709048528" />
+      <entry key="M5" value="9.34445842188974" />
+      <entry key="M10" value="12.908811139087465" />
+      <entry key="M15" value="19.864986530718927" />
+      <entry key="M30" value="48.74446625752969" />
+      <entry key="H1" value="91.6273601255421" />
+      <entry key="H2" value="130.47262759418132" />
+      <entry key="H4" value="157.02280041434358" />
+      <entry key="D1" value="183.99036656991925" />
+      <entry key="W1" value="189.1279182087965" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="3.2444186004273484E-84" />
-      <entry key="S2" value="1.3437369263966695E-21" />
-      <entry key="S5" value="4.784379300825927E-9" />
-      <entry key="S10" value="8.441511394539603E-5" />
-      <entry key="S30" value="0.0665593221354997" />
-      <entry key="S60" value="0.362613797561045" />
-      <entry key="M2" value="0.8502784654355716" />
-      <entry key="M5" value="1.4219197466556663" />
-      <entry key="M10" value="1.7314836751142475" />
-      <entry key="M15" value="1.9306119018836028" />
-      <entry key="M30" value="2.449963869831788" />
-      <entry key="H1" value="3.1822093285732835" />
-      <entry key="H2" value="3.8774591641352503" />
-      <entry key="H4" value="4.370314710441394" />
-      <entry key="D1" value="4.883911350271596" />
-      <entry key="W1" value="4.983118649276988" />
+      <entry key="MS500" value="1.6874087512676075E-100" />
+      <entry key="S2" value="1.1411299541181994E-25" />
+      <entry key="S5" value="1.1257292335585742E-10" />
+      <entry key="S10" value="1.2948646709549116E-5" />
+      <entry key="S30" value="0.03562954534607903" />
+      <entry key="S60" value="0.26530474669721527" />
+      <entry key="M2" value="0.7272965502756885" />
+      <entry key="M5" value="1.3357808851317527" />
+      <entry key="M10" value="1.6782183705710416" />
+      <entry key="M15" value="1.890812039208285" />
+      <entry key="M30" value="2.424579169280836" />
+      <entry key="H1" value="3.165680561138757" />
+      <entry key="H2" value="3.867376065693488" />
+      <entry key="H4" value="4.3646286416994124" />
+      <entry key="D1" value="4.882851727031322" />
+      <entry key="W1" value="4.982964185277241" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9592641193252643" />
-      <entry key="MS500" value="0.9917167307382933" />
-      <entry key="S2" value="0.9979244138872745" />
-      <entry key="S5" value="1.004367748172658" />
-      <entry key="S10" value="1.0890442276597256" />
-      <entry key="S30" value="1.9720899521606976" />
-      <entry key="S60" value="3.5480772123076987" />
-      <entry key="M2" value="6.022075768443584" />
-      <entry key="M5" value="9.301400119111614" />
-      <entry key="M10" value="13.01652289885797" />
-      <entry key="M15" value="20.191381123110958" />
-      <entry key="M30" value="49.69342312810176" />
-      <entry key="H1" value="93.28216192140984" />
-      <entry key="H2" value="132.6872830606431" />
-      <entry key="H4" value="159.5961678147696" />
-      <entry key="D1" value="186.9139497524209" />
-      <entry key="W1" value="192.11686287857358" />
+      <entry key="MS100" value="0.010525262319263207" />
+      <entry key="MS500" value="0.402204185470958" />
+      <entry key="S2" value="0.7965337176923286" />
+      <entry key="S5" value="0.9601063905703349" />
+      <entry key="S10" value="1.2759253524833665" />
+      <entry key="S30" value="2.575909653738256" />
+      <entry key="S60" value="4.320018913578837" />
+      <entry key="M2" value="7.002634447706979" />
+      <entry key="M5" value="10.675831969938079" />
+      <entry key="M10" value="14.584576549924517" />
+      <entry key="M15" value="21.75401165732092" />
+      <entry key="M30" value="51.167922674325354" />
+      <entry key="H1" value="94.79232285406376" />
+      <entry key="H2" value="134.33957410518093" />
+      <entry key="H4" value="161.3871899450454" />
+      <entry key="D1" value="188.87317429272647" />
+      <entry key="W1" value="194.1108759941929" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -115,37 +191,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "develop",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.Next.js: server-side.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging feature/19-azure-call-cost-management&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\modules\protected\admin" />
+      <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\app\[locale]\(protected)\(admin)" />
       <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\docs\users_management" />
     </key>
   </component>
@@ -154,6 +232,19 @@
       <method v="2" />
     </configuration>
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
@@ -200,6 +291,8 @@
       <workItem from="1786360323110" duration="61000" />
       <workItem from="1786370176634" duration="1288000" />
       <workItem from="1786381408889" duration="3815000" />
+      <workItem from="1786559395162" duration="159000" />
+      <workItem from="1786559646739" duration="657000" />
     </task>
     <servers />
   </component>

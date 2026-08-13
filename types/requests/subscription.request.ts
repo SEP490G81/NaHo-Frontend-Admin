@@ -19,4 +19,3 @@ export interface UpdateSubscriptionPlanRequest {
     sampleAnswerEnabled?: boolean;
     status?: string;
 }
-

@@ -235,4 +235,3 @@ export async function proxyPutJson(path: string, request?: Request) {
 
     return forwardJson(backendResponse);
 }
-

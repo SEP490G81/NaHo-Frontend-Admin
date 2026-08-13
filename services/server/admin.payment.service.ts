@@ -43,5 +43,7 @@ export async function fetchAllPaymentOrders(
         };
     }
 
-    return (await backendResponse.json()) as ApiResponse<PaymentOrderResponse[]>;
+    return (await backendResponse.json()) as ApiResponse<
+        PaymentOrderResponse[]
+    >;
 }

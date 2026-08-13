@@ -6,7 +6,7 @@
 
 ### Mô tả bài toán
 
-- Sửa lại cho tôi các component user `../../modules/protected/users` như sau:
+- Sửa lại cho tôi các component user `../../modules/protected/admin/users` như sau:
 - Tôi muốn bạn xoá nút update người dùng.
 - Tôi muốn cái giao diện bảng nó có thanh scrollbar cuộn dọc, hiện giờ nó đang bị display hidden hoặc là none gì đó. Và
   khi cuộn thì cuộn cả trang chứ không phải mỗi các element trong bảng.

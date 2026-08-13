@@ -7,7 +7,7 @@
 ### Mô tả bài toán
 
 - Tôi muốn bạn làm cho tôi chức năng thay đổi trạng thái của 1 user
-  `modules/protected/users/components/user.table.row.tsx` như sau:
+  `../../modules/protected/admin/users/components/user.table.row.tsx` như sau:
 
 1. Backend API: `http://localhost:8386/api/v1/users/{userId}/status`, method PATCH
 2. Request kèm theo JWT token

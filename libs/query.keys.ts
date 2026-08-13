@@ -17,7 +17,7 @@ export const queryKeys = {
     },
     azureCost: {
         summary: ["azure-cost-summary"] as const,
-        chart: (params?: Record<string, unknown>) => ["azure-cost-chart", params] as const,
+        chart: (params?: Record<string, unknown>) =>
+            ["azure-cost-chart", params] as const,
     },
-
 };

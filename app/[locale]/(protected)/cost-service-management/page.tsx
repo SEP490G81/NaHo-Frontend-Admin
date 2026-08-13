@@ -10,7 +10,7 @@ import {
     fetchAzureCostChartServer,
     fetchAzureCostSummaryServer,
 } from "@/services/server/azure.cost.service";
-import CostServiceManagementView from "@/modules/protected/cost-service-management/features/cost.service.management.view";
+import CostServiceManagementView from "@/modules/protected/admin/cost-service-management/features/cost.service.management.view";
 
 export async function generateMetadata({
     params,
@@ -40,8 +40,15 @@ const CostServiceManagementPage = async () => {
             queryFn: fetchAzureCostSummaryServer,
         }),
         queryClient.prefetchQuery({
-            queryKey: queryKeys.azureCost.chart({ timeframe: "Last6Months", granularity: "Monthly" }),
-            queryFn: () => fetchAzureCostChartServer({ timeframe: "Last6Months", granularity: "Monthly" }),
+            queryKey: queryKeys.azureCost.chart({
+                timeframe: "Last6Months",
+                granularity: "Monthly",
+            }),
+            queryFn: () =>
+                fetchAzureCostChartServer({
+                    timeframe: "Last6Months",
+                    granularity: "Monthly",
+                }),
         }),
     ]);
 
