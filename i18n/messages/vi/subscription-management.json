@@ -21,7 +21,8 @@
             "dailyAiSessionLimit": "Giới hạn chấm phiên AI/ngày: {limit} lượt",
             "maxAiTurnSpeakingSeconds": "Thời lượng nói mỗi lượt AI: tối đa {seconds} giây",
             "sampleAnswerEnabled": "Hỗ trợ gợi ý đáp án mẫu (Sample Answer)",
-            "sampleAnswerDisabled": "Không gợi ý đáp án mẫu"
+            "sampleAnswerDisabled": "Không gợi ý đáp án mẫu",
+            "editButton": "Chỉnh sửa gói"
         },
         "lookupBox": {
             "title": "Tra cứu & Nâng cấp Gói học cho Người dùng",
@@ -45,6 +46,41 @@
             "errorHigher": "Gói nâng cấp ({target}) phải cao hơn gói hiện tại ({current})!",
             "errorDuration": "Thời hạn số ngày phải lớn hơn 0!",
             "errorFailed": "Nâng cấp gói thành viên thất bại!"
+        },
+        "editPlanModal": {
+            "title": "Cập nhật Gói học #{id} ({tier})",
+            "subtitle": "Chỉnh sửa thông tin chi tiết, đơn giá và các hạn mức sử dụng của gói học.",
+            "sections": {
+                "basicInfo": "Thông tin cơ bản & Giá cước",
+                "quotas": "Hạn mức Luyện tập & Chấm điểm",
+                "advanced": "Tính năng & Trạng thái"
+            },
+            "fields": {
+                "description": "Mô tả gói học",
+                "tier": "Mã Tier / Gói",
+                "status": "Trạng thái hoạt động",
+                "priceAmount": "Giá cước",
+                "priceCurrency": "Đơn vị tiền tệ",
+                "durationDays": "Thời hạn hiệu lực (Số ngày)",
+                "durationDaysPlaceholder": "Ví dụ: 30 (bỏ trống nếu vô thời hạn)",
+                "dailySpeakingQuestionEvaluationLimit": "Hạn mức chấm điểm câu hỏi nói / ngày",
+                "maxSpeakingQuestionRecordingSeconds": "Thời lượng ghi âm tối đa / câu hỏi (giây)",
+                "maxConcurrentAiSessionCount": "Số phiên AI đồng thời tối đa",
+                "maxTurnsPerAiSession": "Số lượt nói tối đa / phiên AI",
+                "dailyAiSessionEvaluationLimit": "Hạn mức đánh giá phiên AI / ngày",
+                "maxAiTurnSpeakingSeconds": "Thời lượng nói tối đa / lượt AI (giây)",
+                "sampleAnswerEnabled": "Cho phép gợi ý đáp án mẫu (Sample Answer)"
+            },
+            "statusOptions": {
+                "ACTIVE": "Hoạt động (ACTIVE)",
+                "INACTIVE": "Ngưng hoạt động (INACTIVE)"
+            },
+            "cancel": "Hủy",
+            "submitBtn": "Lưu thay đổi",
+            "submitting": "Đang lưu...",
+            "successToast": "Cập nhật gói học thành công!",
+            "errorToast": "Cập nhật gói học thất bại!"
         }
     }
 }
+

@@ -3,7 +3,10 @@ import {
     SubscriptionPlanResponse,
     UserSubscriptionResponse,
 } from "@/types/responses/subscription.response";
-import { UpgradeSubscriptionRequest } from "@/types/requests/subscription.request";
+import {
+    UpgradeSubscriptionRequest,
+    UpdateSubscriptionPlanRequest,
+} from "@/types/requests/subscription.request";
 import { ApiError } from "@/libs/api.error";
 
 export async function fetchSubscriptionPlansClient(): Promise<
@@ -22,6 +25,25 @@ export async function fetchSubscriptionPlansClient(): Promise<
     }
 
     return result as ApiResponse<SubscriptionPlanResponse[]>;
+}
+
+export async function updateSubscriptionPlanClient(
+    id: number,
+    body: UpdateSubscriptionPlanRequest,
+): Promise<ApiResponse<SubscriptionPlanResponse>> {
+    const response = await fetch(`/api/subscription-plans/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new ApiError(result as ProblemDetail);
+    }
+
+    return result as ApiResponse<SubscriptionPlanResponse>;
 }
 
 export async function fetchUserSubscriptionClient(
@@ -59,3 +81,4 @@ export async function upgradeUserSubscriptionClient(
 
     return result as ApiResponse<UserSubscriptionResponse>;
 }
+

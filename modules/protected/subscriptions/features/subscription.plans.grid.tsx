@@ -3,6 +3,7 @@
 import React from "react";
 import { useSubscriptionPlansQuery } from "../hooks/use.subscription.query";
 import { SubscriptionPlanCard } from "../components/subscription.plan.card";
+import { SubscriptionPlanEditModal } from "../components/subscription.plan.edit.modal";
 import { Skeleton } from "@mui/material";
 
 export function SubscriptionPlansGrid() {
@@ -20,10 +21,14 @@ export function SubscriptionPlansGrid() {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            {plans.map((plan) => (
-                <SubscriptionPlanCard key={plan.id} plan={plan} />
-            ))}
-        </div>
+        <>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                {plans.map((plan) => (
+                    <SubscriptionPlanCard key={plan.id} plan={plan} />
+                ))}
+            </div>
+            <SubscriptionPlanEditModal />
+        </>
     );
 }
+

@@ -2,9 +2,10 @@
 
 import React from "react";
 import { SubscriptionPlanResponse } from "@/types/responses/subscription.response";
-import { Check, Sparkles, Zap, ShieldCheck } from "lucide-react";
-import { Chip } from "@mui/material";
+import { Check, Sparkles, Zap, ShieldCheck, Edit3 } from "lucide-react";
+import { Chip, Button } from "@mui/material";
 import { useTranslations } from "next-intl";
+import { useSubscriptionModal } from "../providers/subscription.modal.provider";
 
 interface SubscriptionPlanCardProps {
     readonly plan: SubscriptionPlanResponse;
@@ -12,6 +13,7 @@ interface SubscriptionPlanCardProps {
 
 export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
     const t = useTranslations("subscriptionManagement.card");
+    const { openEditPlanModal } = useSubscriptionModal();
 
     const formatCurrency = (amount: number, currency: string) => {
         if (amount === 0) return t("free");
@@ -119,6 +121,20 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                     </li>
                 </ul>
             </div>
+
+            {/* Action Button */}
+            <div className="pt-4">
+                <Button
+                    fullWidth
+                    variant="outlined"
+                    startIcon={<Edit3 className="h-4 w-4" />}
+                    onClick={() => openEditPlanModal(plan)}
+                    className="rounded-2xl border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-bold hover:bg-pink-50 hover:text-pink-600 dark:hover:bg-pink-950/40 dark:hover:text-pink-300 transition-colors"
+                >
+                    {t("editButton")}
+                </Button>
+            </div>
         </div>
     );
 }
+

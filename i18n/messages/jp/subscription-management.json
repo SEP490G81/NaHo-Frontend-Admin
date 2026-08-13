@@ -21,7 +21,8 @@
             "dailyAiSessionLimit": "1日あたりのAIセッション採点上限: {limit}回",
             "maxAiTurnSpeakingSeconds": "AIターンごとの発話時間: 最大{seconds}秒",
             "sampleAnswerEnabled": "模範解答の提示サポートあり",
-            "sampleAnswerDisabled": "模範解答サポートなし"
+            "sampleAnswerDisabled": "模範解答サポートなし",
+            "editButton": "プラン編集"
         },
         "lookupBox": {
             "title": "ユーザーの会員プラン検索・アップグレード",
@@ -45,6 +46,41 @@
             "errorHigher": "アップグレード先プラン ({target}) は現在のプラン ({current}) より上位である必要があります。",
             "errorDuration": "日数は0より大きい値を入力してください。",
             "errorFailed": "会員プランのアップグレードに失敗しました。"
+        },
+        "editPlanModal": {
+            "title": "サブスクリプションプラン #{id} ({tier}) の編集",
+            "subtitle": "プラン詳細、料金、各種制限の上限値を変更します。",
+            "sections": {
+                "basicInfo": "基本情報・料金設定",
+                "quotas": "練習・採点制限",
+                "advanced": "機能設定・ステータス"
+            },
+            "fields": {
+                "description": "プラン説明",
+                "tier": "Tier / プランコード",
+                "status": "ステータス",
+                "priceAmount": "料金",
+                "priceCurrency": "通貨単位",
+                "durationDays": "有効期間 (日数)",
+                "durationDaysPlaceholder": "例: 30 (無制限/無料の場合は空欄)",
+                "dailySpeakingQuestionEvaluationLimit": "1日あたりのスピーキング採点上限",
+                "maxSpeakingQuestionRecordingSeconds": "問題ごとの最大録音時間 (秒)",
+                "maxConcurrentAiSessionCount": "最大同時AIセッション数",
+                "maxTurnsPerAiSession": "1セッションあたりの最大ターン数",
+                "dailyAiSessionEvaluationLimit": "1日あたりのAIセッション採点上限",
+                "maxAiTurnSpeakingSeconds": "1ターンあたりの最大発話時間 (秒)",
+                "sampleAnswerEnabled": "模範解答提示機能の有効化"
+            },
+            "statusOptions": {
+                "ACTIVE": "有効 (ACTIVE)",
+                "INACTIVE": "無効 (INACTIVE)"
+            },
+            "cancel": "キャンセル",
+            "submitBtn": "変更を保存",
+            "submitting": "保存中...",
+            "successToast": "プラン情報が正常に更新されました。",
+            "errorToast": "プラン情報の更新に失敗しました。"
         }
     }
 }
+

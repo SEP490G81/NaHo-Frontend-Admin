@@ -21,7 +21,8 @@
             "dailyAiSessionLimit": "Daily AI session evaluation limit: {limit} times",
             "maxAiTurnSpeakingSeconds": "AI turn speaking duration: max {seconds} seconds",
             "sampleAnswerEnabled": "Sample Answer Support Enabled",
-            "sampleAnswerDisabled": "No Sample Answer Support"
+            "sampleAnswerDisabled": "No Sample Answer Support",
+            "editButton": "Edit Plan"
         },
         "lookupBox": {
             "title": "Search & Upgrade User Membership",
@@ -45,6 +46,41 @@
             "errorHigher": "Target plan ({target}) must be higher than current plan ({current})!",
             "errorDuration": "Duration must be greater than 0 days!",
             "errorFailed": "Failed to upgrade membership plan!"
+        },
+        "editPlanModal": {
+            "title": "Update Subscription Plan #{id} ({tier})",
+            "subtitle": "Edit plan details, pricing, and service usage quotas.",
+            "sections": {
+                "basicInfo": "Basic Information & Pricing",
+                "quotas": "Practice & Evaluation Quotas",
+                "advanced": "Features & Status"
+            },
+            "fields": {
+                "description": "Plan Description",
+                "tier": "Tier / Code",
+                "status": "Active Status",
+                "priceAmount": "Price Amount",
+                "priceCurrency": "Price Currency",
+                "durationDays": "Duration (Days)",
+                "durationDaysPlaceholder": "e.g. 30 (leave blank for unlimited/free)",
+                "dailySpeakingQuestionEvaluationLimit": "Daily Speaking Question Evaluation Limit",
+                "maxSpeakingQuestionRecordingSeconds": "Max Recording Seconds per Question",
+                "maxConcurrentAiSessionCount": "Max Concurrent AI Sessions",
+                "maxTurnsPerAiSession": "Max Turns per AI Session",
+                "dailyAiSessionEvaluationLimit": "Daily AI Session Evaluation Limit",
+                "maxAiTurnSpeakingSeconds": "Max Speaking Seconds per AI Turn",
+                "sampleAnswerEnabled": "Enable Sample Answer Hints"
+            },
+            "statusOptions": {
+                "ACTIVE": "Active (ACTIVE)",
+                "INACTIVE": "Inactive (INACTIVE)"
+            },
+            "cancel": "Cancel",
+            "submitBtn": "Save Changes",
+            "submitting": "Saving...",
+            "successToast": "Subscription plan updated successfully!",
+            "errorToast": "Failed to update subscription plan!"
         }
     }
 }
+
