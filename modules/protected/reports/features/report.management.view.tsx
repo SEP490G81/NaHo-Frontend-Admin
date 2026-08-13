@@ -15,7 +15,7 @@ export default function ReportManagementView() {
             <ReportDetailProvider>
                 <div className="flex flex-col gap-6 p-6">
                     {/* Header */}
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 bg-white p-4 rounded-xl border-2 border-gray-200 dark:bg-gray-900">
                         <div className="flex items-center gap-2">
                             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-pink-100 text-pink-600 dark:bg-pink-950 dark:text-pink-300">
                                 <Flag className="h-4 w-4" />

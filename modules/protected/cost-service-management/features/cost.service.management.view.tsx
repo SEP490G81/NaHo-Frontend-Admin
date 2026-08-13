@@ -59,7 +59,7 @@ export default function CostServiceManagementView() {
             </Backdrop>
 
             {/* Header Title */}
-            <div>
+            <div className="flex flex-col gap-1 bg-white p-4 rounded-xl border-2 border-gray-200 dark:bg-gray-900">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
                     {t("pageTitle")}
                 </h1>

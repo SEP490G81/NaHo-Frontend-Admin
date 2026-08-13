@@ -39,6 +39,7 @@
             "fullName": "Tên đầy đủ",
             "role": "Vai trò",
             "emailVerified": "Xác thực email",
+            "subscriptionPlan": "Gói cước",
             "actions": "Hành động",
             "status": "Trạng thái",
             "verified": "Đã xác thực",
@@ -49,6 +50,7 @@
         "actions": {
             "viewDetail": "Xem chi tiết",
             "update": "Cập nhật",
+            "upgrade": "Nâng cấp gói",
             "lock": "Khóa tài khoản",
             "unlock": "Mở khóa tài khoản",
             "scrollToTop": "Cuộn lên đầu trang"

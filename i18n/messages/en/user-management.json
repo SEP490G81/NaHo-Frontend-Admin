@@ -39,6 +39,7 @@
             "fullName": "Full Name",
             "role": "Role",
             "emailVerified": "Email Verified",
+            "subscriptionPlan": "Subscription Plan",
             "actions": "Actions",
             "status": "Status",
             "verified": "Verified",
@@ -49,6 +50,7 @@
         "actions": {
             "viewDetail": "View Detail",
             "update": "Update",
+            "upgrade": "Upgrade Plan",
             "lock": "Lock Account",
             "unlock": "Unlock Account"
         },
