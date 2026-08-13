@@ -37,13 +37,8 @@ const inputSx = {
 
 export default function UserSearchDobSort() {
     const t = useTranslations("userManagement.searchBox");
-    const {
-        filter,
-        setSortColumn,
-        toggleSortDirection,
-        setDobFrom,
-        setDobTo,
-    } = useUserFilter();
+    const { filter, setSortColumn, toggleSortDirection, setDobFrom, setDobTo } =
+        useUserFilter();
 
     return (
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -77,9 +72,7 @@ export default function UserSearchDobSort() {
                         label={t("sortColumnLabel")}
                         value={filter.sortColumn}
                         onChange={(e) =>
-                            setSortColumn(
-                                e.target.value as UserSortColumn,
-                            )
+                            setSortColumn(e.target.value as UserSortColumn)
                         }
                     >
                         <MenuItem value={UserSortColumn.ID}>

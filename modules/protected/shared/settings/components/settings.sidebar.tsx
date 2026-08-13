@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { SETTING_MENU_ITEMS } from "@/modules/protected/settings/constants/settings.constant";
+import { SETTING_MENU_ITEMS } from "@/modules/protected/shared/settings/constants/settings.constant";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import SettingsSearchBox from "@/modules/protected/settings/components/settings.search.box";
+import SettingsSearchBox from "@/modules/protected/shared/settings/components/settings.search.box";
 import { Divider } from "@mui/material";
 import BackButton from "@/components/ui/back.button";
 import { cn } from "@/libs/utils";

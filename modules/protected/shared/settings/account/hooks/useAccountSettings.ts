@@ -12,7 +12,7 @@ import {
 } from "@/services/client/user.service";
 import { ApiError } from "@/libs/api.error";
 import { queryKeys } from "@/libs/query.keys";
-import { useSettingHighlight } from "@/modules/protected/settings/hooks/use.setting.highlight";
+import { useSettingHighlight } from "@/modules/protected/shared/settings/hooks/use.setting.highlight";
 import { GenderType } from "../types/account.ui.type";
 import {
     getFirstCharacter,

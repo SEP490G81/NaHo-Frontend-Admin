@@ -1,4 +1,7 @@
-import { SubscriptionStatus, SubscriptionTier } from "../enums/subscription.enum";
+import {
+    SubscriptionStatus,
+    SubscriptionTier,
+} from "../enums/subscription.enum";
 
 export interface SubscriptionPlanResponse {
     id: number;

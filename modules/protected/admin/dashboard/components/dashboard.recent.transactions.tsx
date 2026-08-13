@@ -58,8 +58,16 @@ export function DashboardRecentTransactions({
             <div className="divide-y divide-gray-100 dark:divide-gray-800">
                 {isLoading ? (
                     Array.from({ length: 4 }).map((_, idx) => (
-                        <div key={idx} className="flex items-center justify-between py-3">
-                            <Skeleton variant="rectangular" width={40} height={40} className="rounded-xl" />
+                        <div
+                            key={idx}
+                            className="flex items-center justify-between py-3"
+                        >
+                            <Skeleton
+                                variant="rectangular"
+                                width={40}
+                                height={40}
+                                className="rounded-xl"
+                            />
                             <div className="flex-1 px-3">
                                 <Skeleton variant="text" width={120} />
                                 <Skeleton variant="text" width={80} />
@@ -86,13 +94,20 @@ export function DashboardRecentTransactions({
                                         {order.orderCode}
                                     </p>
                                     <p className="text-[11px] text-gray-500">
-                                        User #{order.userId} • {formatDate(order.paidTime || order.createdTime)}
+                                        User #{order.userId} •{" "}
+                                        {formatDate(
+                                            order.paidTime || order.createdTime,
+                                        )}
                                     </p>
                                 </div>
                             </div>
                             <div className="text-right">
                                 <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
-                                    +{formatCurrency(order.amount, order.currency)}
+                                    +
+                                    {formatCurrency(
+                                        order.amount,
+                                        order.currency,
+                                    )}
                                 </p>
                                 <span className="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] font-semibold text-gray-600 dark:bg-gray-800 dark:text-gray-300">
                                     {order.provider}

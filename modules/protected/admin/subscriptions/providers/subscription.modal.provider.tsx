@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import { SubscriptionPlanResponse } from "@/types/responses/subscription.response";
 
 export interface UpgradeTargetUser {
     userId: number;
@@ -13,9 +14,13 @@ interface SubscriptionModalContextValue {
     upgradeTargetUser: UpgradeTargetUser | null;
     openUpgradeModal: (user: UpgradeTargetUser) => void;
     closeUpgradeModal: () => void;
+    editingPlan: SubscriptionPlanResponse | null;
+    openEditPlanModal: (plan: SubscriptionPlanResponse) => void;
+    closeEditPlanModal: () => void;
 }
 
-const SubscriptionModalContext = createContext<SubscriptionModalContextValue | null>(null);
+const SubscriptionModalContext =
+    createContext<SubscriptionModalContextValue | null>(null);
 
 export function useSubscriptionModal(): SubscriptionModalContextValue {
     const ctx = useContext(SubscriptionModalContext);
@@ -33,10 +38,18 @@ interface Props {
 
 export function SubscriptionModalProvider({ children }: Props) {
     const [lookupUserId, setLookupUserId] = useState<number | null>(null);
-    const [upgradeTargetUser, setUpgradeTargetUser] = useState<UpgradeTargetUser | null>(null);
+    const [upgradeTargetUser, setUpgradeTargetUser] =
+        useState<UpgradeTargetUser | null>(null);
+    const [editingPlan, setEditingPlan] =
+        useState<SubscriptionPlanResponse | null>(null);
 
-    const openUpgradeModal = (user: UpgradeTargetUser) => setUpgradeTargetUser(user);
+    const openUpgradeModal = (user: UpgradeTargetUser) =>
+        setUpgradeTargetUser(user);
     const closeUpgradeModal = () => setUpgradeTargetUser(null);
+
+    const openEditPlanModal = (plan: SubscriptionPlanResponse) =>
+        setEditingPlan(plan);
+    const closeEditPlanModal = () => setEditingPlan(null);
 
     return (
         <SubscriptionModalContext.Provider
@@ -46,6 +59,9 @@ export function SubscriptionModalProvider({ children }: Props) {
                 upgradeTargetUser,
                 openUpgradeModal,
                 closeUpgradeModal,
+                editingPlan,
+                openEditPlanModal,
+                closeEditPlanModal,
             }}
         >
             {children}

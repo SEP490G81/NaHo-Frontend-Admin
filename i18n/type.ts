@@ -32,6 +32,7 @@ export type AllRoute =
     | "/orders"
     | "/reports"
     | "/subscription-plans"
+    | "/cost-service-management"
     | "/dialogue-setup"
     | "/get-help"
     | "/features"

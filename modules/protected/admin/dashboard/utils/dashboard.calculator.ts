@@ -99,9 +99,7 @@ export function buildRevenueTrend(
     orders: PaymentOrderResponse[],
     range: TimeRangePreset = "all",
 ): RevenueChartPoint[] {
-    const paidOrders = orders.filter(
-        (o) => o.status === PaymentStatus.PAID,
-    );
+    const paidOrders = orders.filter((o) => o.status === PaymentStatus.PAID);
 
     const map = new Map<string, { revenue: number; paidCount: number }>();
 
@@ -160,10 +158,35 @@ export function buildStatusDistribution(
     }
 
     return [
-        { name: "Đã thanh toán (PAID)", value: counts.PAID, color: STATUS_COLORS.PAID, statusKey: "statusPaid" },
-        { name: "Chờ thanh toán (PENDING)", value: counts.PENDING, color: STATUS_COLORS.PENDING, statusKey: "statusPending" },
-        { name: "Đã hủy (CANCELLED)", value: counts.CANCELLED, color: STATUS_COLORS.CANCELLED, statusKey: "statusCancelled" },
-        { name: "Đã hết hạn (EXPIRED)", value: counts.EXPIRED, color: STATUS_COLORS.EXPIRED, statusKey: "statusExpired" },
-        { name: "Thất bại (FAILED)", value: counts.FAILED, color: STATUS_COLORS.FAILED, statusKey: "statusFailed" },
+        {
+            name: "Đã thanh toán (PAID)",
+            value: counts.PAID,
+            color: STATUS_COLORS.PAID,
+            statusKey: "statusPaid",
+        },
+        {
+            name: "Chờ thanh toán (PENDING)",
+            value: counts.PENDING,
+            color: STATUS_COLORS.PENDING,
+            statusKey: "statusPending",
+        },
+        {
+            name: "Đã hủy (CANCELLED)",
+            value: counts.CANCELLED,
+            color: STATUS_COLORS.CANCELLED,
+            statusKey: "statusCancelled",
+        },
+        {
+            name: "Đã hết hạn (EXPIRED)",
+            value: counts.EXPIRED,
+            color: STATUS_COLORS.EXPIRED,
+            statusKey: "statusExpired",
+        },
+        {
+            name: "Thất bại (FAILED)",
+            value: counts.FAILED,
+            color: STATUS_COLORS.FAILED,
+            statusKey: "statusFailed",
+        },
     ].filter((item) => item.value > 0);
 }

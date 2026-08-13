@@ -1,6 +1,9 @@
 import { TimeRangePreset } from "../types/dashboard.type";
 
-export const TIME_RANGE_OPTIONS: Array<{ value: TimeRangePreset; labelKey: string }> = [
+export const TIME_RANGE_OPTIONS: Array<{
+    value: TimeRangePreset;
+    labelKey: string;
+}> = [
     { value: "all", labelKey: "all" },
     { value: "7d", labelKey: "last7Days" },
     { value: "30d", labelKey: "last30Days" },

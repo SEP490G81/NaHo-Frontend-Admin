@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/subscription-plans/page.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(content-manager)/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/modules/protected/content-manager/index.htmlo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/dashboard/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/payments/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/payments/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/reports/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/reports/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/subscription-plans/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/subscription-plans/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/subscription-plans/page.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/users/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/error.code.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/error.code.constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/users_management/user.button.update.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/users_management/user.button.update.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/users_management/user.change.status.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/users_management/user.change.status.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/en/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/en/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/jp/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/jp/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/login.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.kpi.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.kpi.card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.recent.transactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.recent.transactions.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.revenue.chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.revenue.chart.tsx" afterDir="false" />
@@ -61,6 +66,7 @@
       <change beforePath="$PROJECT_DIR$/modules/protected/reports/types/report.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/types/report.table.type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.badge.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.edit.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.edit.modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.upgrade.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.upgrade.modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.lookup.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.lookup.box.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.table.row.tsx" afterDir="false" />
@@ -116,60 +122,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000016990045826" />
-      <entry key="S5" value="1.0052041830833738" />
-      <entry key="S10" value="1.0894201988939212" />
-      <entry key="S30" value="1.9064677605412317" />
-      <entry key="S60" value="3.1875019464109444" />
-      <entry key="M2" value="5.174106420254335" />
-      <entry key="M5" value="7.881017293387707" />
-      <entry key="M10" value="11.28601756003465" />
-      <entry key="M15" value="18.26156416868872" />
-      <entry key="M30" value="47.24408165311527" />
-      <entry key="H1" value="90.10041878117606" />
-      <entry key="H2" value="128.8101270403948" />
-      <entry key="H4" value="155.22602880272032" />
-      <entry key="D1" value="182.0300718009623" />
-      <entry key="W1" value="187.133749113093" />
+      <entry key="MS500" value="1.0000000000000002" />
+      <entry key="S2" value="1.0001918927241986" />
+      <entry key="S5" value="1.0494568139717508" />
+      <entry key="S10" value="1.3277485623049354" />
+      <entry key="S30" value="2.564147955055229" />
+      <entry key="S60" value="4.069417822914526" />
+      <entry key="M2" value="6.284397709048528" />
+      <entry key="M5" value="9.34445842188974" />
+      <entry key="M10" value="12.908811139087465" />
+      <entry key="M15" value="19.864986530718927" />
+      <entry key="M30" value="48.74446625752969" />
+      <entry key="H1" value="91.6273601255421" />
+      <entry key="H2" value="130.47262759418132" />
+      <entry key="H4" value="157.02280041434358" />
+      <entry key="D1" value="183.99036656991925" />
+      <entry key="W1" value="189.1279182087965" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="3.2444186004273484E-84" />
-      <entry key="S2" value="1.3437369263966695E-21" />
-      <entry key="S5" value="4.784379300825927E-9" />
-      <entry key="S10" value="8.441511394539603E-5" />
-      <entry key="S30" value="0.0665593221354997" />
-      <entry key="S60" value="0.362613797561045" />
-      <entry key="M2" value="0.8502784654355716" />
-      <entry key="M5" value="1.4219197466556663" />
-      <entry key="M10" value="1.7314836751142475" />
-      <entry key="M15" value="1.9306119018836028" />
-      <entry key="M30" value="2.449963869831788" />
-      <entry key="H1" value="3.1822093285732835" />
-      <entry key="H2" value="3.8774591641352503" />
-      <entry key="H4" value="4.370314710441394" />
-      <entry key="D1" value="4.883911350271596" />
-      <entry key="W1" value="4.983118649276988" />
+      <entry key="MS500" value="1.6874087512676075E-100" />
+      <entry key="S2" value="1.1411299541181994E-25" />
+      <entry key="S5" value="1.1257292335585742E-10" />
+      <entry key="S10" value="1.2948646709549116E-5" />
+      <entry key="S30" value="0.03562954534607903" />
+      <entry key="S60" value="0.26530474669721527" />
+      <entry key="M2" value="0.7272965502756885" />
+      <entry key="M5" value="1.3357808851317527" />
+      <entry key="M10" value="1.6782183705710416" />
+      <entry key="M15" value="1.890812039208285" />
+      <entry key="M30" value="2.424579169280836" />
+      <entry key="H1" value="3.165680561138757" />
+      <entry key="H2" value="3.867376065693488" />
+      <entry key="H4" value="4.3646286416994124" />
+      <entry key="D1" value="4.882851727031322" />
+      <entry key="W1" value="4.982964185277241" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9592641193252643" />
-      <entry key="MS500" value="0.9917167307382933" />
-      <entry key="S2" value="0.9979244138872745" />
-      <entry key="S5" value="1.004367748172658" />
-      <entry key="S10" value="1.0890442276597256" />
-      <entry key="S30" value="1.9720899521606976" />
-      <entry key="S60" value="3.5480772123076987" />
-      <entry key="M2" value="6.022075768443584" />
-      <entry key="M5" value="9.301400119111614" />
-      <entry key="M10" value="13.01652289885797" />
-      <entry key="M15" value="20.191381123110958" />
-      <entry key="M30" value="49.69342312810176" />
-      <entry key="H1" value="93.28216192140984" />
-      <entry key="H2" value="132.6872830606431" />
-      <entry key="H4" value="159.5961678147696" />
-      <entry key="D1" value="186.9139497524209" />
-      <entry key="W1" value="192.11686287857358" />
+      <entry key="MS100" value="0.010525262319263207" />
+      <entry key="MS500" value="0.402204185470958" />
+      <entry key="S2" value="0.7965337176923286" />
+      <entry key="S5" value="0.9601063905703349" />
+      <entry key="S10" value="1.2759253524833665" />
+      <entry key="S30" value="2.575909653738256" />
+      <entry key="S60" value="4.320018913578837" />
+      <entry key="M2" value="7.002634447706979" />
+      <entry key="M5" value="10.675831969938079" />
+      <entry key="M10" value="14.584576549924517" />
+      <entry key="M15" value="21.75401165732092" />
+      <entry key="M30" value="51.167922674325354" />
+      <entry key="H1" value="94.79232285406376" />
+      <entry key="H2" value="134.33957410518093" />
+      <entry key="H4" value="161.3871899450454" />
+      <entry key="D1" value="188.87317429272647" />
+      <entry key="W1" value="194.1108759941929" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -194,7 +200,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging feature/19-azure-call-cost-management&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
@@ -216,8 +222,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\app\[locale]\(protected)\(admin)" />
       <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\modules\protected\admin" />
+      <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\app\[locale]\(protected)\(admin)" />
       <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\docs\users_management" />
     </key>
   </component>

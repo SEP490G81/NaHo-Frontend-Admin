@@ -7,7 +7,7 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import { routing } from "@/i18n/routing";
 import { AppLocale, applyLocale } from "@/libs/locale";
-import { useSettingHighlight } from "@/modules/protected/settings/hooks/use.setting.highlight";
+import { useSettingHighlight } from "@/modules/protected/shared/settings/hooks/use.setting.highlight";
 import BackButton from "@/components/ui/back.button";
 
 const GeneralSettings = () => {

@@ -35,12 +35,8 @@ const inputSx = {
 
 export function PaymentSearchBox() {
     const t = useTranslations("paymentManagement.searchBox");
-    const {
-        pendingKeyword,
-        setPendingKeyword,
-        applySearch,
-        resetFilter,
-    } = usePaymentFilter();
+    const { pendingKeyword, setPendingKeyword, applySearch, resetFilter } =
+        usePaymentFilter();
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") applySearch();

@@ -3,7 +3,9 @@ import { ReportResponse } from "@/types/responses/report.response";
 import { ReportStatusPatchRequest } from "@/types/requests/report.request";
 import { ApiError } from "@/libs/api.error";
 
-export async function fetchAdminReportsClient(): Promise<ApiResponse<ReportResponse[]>> {
+export async function fetchAdminReportsClient(): Promise<
+    ApiResponse<ReportResponse[]>
+> {
     const response = await fetch("/api/reports/admin", {
         method: "GET",
         headers: { "Content-Type": "application/json" },

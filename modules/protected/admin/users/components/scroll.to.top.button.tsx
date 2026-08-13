@@ -36,7 +36,7 @@ export default function ScrollToTopButton() {
     if (!visible) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 transition-opacity duration-300">
+        <div className="fixed right-6 bottom-6 z-50 transition-opacity duration-300">
             <Tooltip title={t("scrollToTop")} placement="left">
                 <IconButton
                     onClick={scrollToTop}

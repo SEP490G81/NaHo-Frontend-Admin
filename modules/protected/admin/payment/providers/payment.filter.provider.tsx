@@ -31,7 +31,9 @@ interface PaymentFilterContextValue {
     resetVersion: number;
 }
 
-const PaymentFilterContext = createContext<PaymentFilterContextValue | null>(null);
+const PaymentFilterContext = createContext<PaymentFilterContextValue | null>(
+    null,
+);
 
 export function usePaymentFilter(): PaymentFilterContextValue {
     const ctx = useContext(PaymentFilterContext);
@@ -48,7 +50,9 @@ interface Props {
 }
 
 export function PaymentFilterProvider({ children }: Props) {
-    const [filter, setFilter] = useState<PaymentFilterState>(DEFAULT_PAYMENT_FILTER);
+    const [filter, setFilter] = useState<PaymentFilterState>(
+        DEFAULT_PAYMENT_FILTER,
+    );
     const [pendingKeyword, setPendingKeyword] = useState("");
     const [resetVersion, setResetVersion] = useState(0);
 

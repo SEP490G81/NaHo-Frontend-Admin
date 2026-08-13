@@ -2,13 +2,13 @@
 
 import React from "react";
 import {
-    LineChart,
+    CartesianGrid,
     Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
     XAxis,
     YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
 } from "recharts";
 import { useTranslations } from "next-intl";
 import { RevenueChartPoint } from "../types/dashboard.type";
@@ -48,8 +48,10 @@ export function DashboardRevenueChart({
     };
 
     return (
-        <div className={`relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] p-5 shadow-sm ${className}`}>
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-bgc-highlight)] via-pink-500 to-rose-400" />
+        <div
+            className={`relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] p-5 shadow-sm ${className}`}
+        >
+            <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-[var(--color-bgc-highlight)] via-pink-500 to-rose-400" />
             <div className="flex items-center justify-between">
                 <div>
                     <div className="flex items-center gap-2">
@@ -66,7 +68,7 @@ export function DashboardRevenueChart({
                 </div>
             </div>
 
-            <div className="h-72 w-full pt-4 flex-1 min-h-[280px]">
+            <div className="h-72 min-h-[280px] w-full flex-1 pt-4">
                 {isLoading ? (
                     <Skeleton variant="rounded" width="100%" height="100%" />
                 ) : !data || data.length === 0 ? (
@@ -79,7 +81,11 @@ export function DashboardRevenueChart({
                             data={data}
                             margin={{ top: 15, right: 25, left: 0, bottom: 5 }}
                         >
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3e8ff" />
+                            <CartesianGrid
+                                strokeDasharray="3 3"
+                                vertical={false}
+                                stroke="#f3e8ff"
+                            />
                             <XAxis
                                 dataKey="dateLabel"
                                 tick={{ fontSize: 12, fill: "#9ca3af" }}
@@ -95,12 +101,16 @@ export function DashboardRevenueChart({
                                     formatCurrency(Number(value || 0)),
                                     t("tooltipRevenue"),
                                 ]}
-                                labelFormatter={(label) => t("tooltipDate", { label })}
+                                labelFormatter={(label) =>
+                                    t("tooltipDate", { label })
+                                }
                                 contentStyle={{
                                     borderRadius: "14px",
                                     border: "1px solid #fbcfe8",
-                                    backgroundColor: "rgba(255, 255, 255, 0.95)",
-                                    boxShadow: "0 10px 25px -5px rgba(236, 72, 153, 0.2)",
+                                    backgroundColor:
+                                        "rgba(255, 255, 255, 0.95)",
+                                    boxShadow:
+                                        "0 10px 25px -5px rgba(236, 72, 153, 0.2)",
                                     fontWeight: 600,
                                 }}
                             />
@@ -109,8 +119,18 @@ export function DashboardRevenueChart({
                                 dataKey="revenue"
                                 stroke="#ec4899"
                                 strokeWidth={3.5}
-                                dot={{ r: 4, fill: "#ec4899", strokeWidth: 2, stroke: "#ffffff" }}
-                                activeDot={{ r: 8, fill: "#ec4899", stroke: "#ffffff", strokeWidth: 3 }}
+                                dot={{
+                                    r: 4,
+                                    fill: "#ec4899",
+                                    strokeWidth: 2,
+                                    stroke: "#ffffff",
+                                }}
+                                activeDot={{
+                                    r: 8,
+                                    fill: "#ec4899",
+                                    stroke: "#ffffff",
+                                    strokeWidth: 3,
+                                }}
                             />
                         </LineChart>
                     </ResponsiveContainer>

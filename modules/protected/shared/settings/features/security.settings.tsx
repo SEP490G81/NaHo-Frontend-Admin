@@ -8,10 +8,10 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import { toast } from "react-toastify";
 import { TextFieldCustom } from "@/components/ui/mui-custom/text.field.custom";
-import { useSettingHighlight } from "@/modules/protected/settings/hooks/use.setting.highlight";
+import { useSettingHighlight } from "@/modules/protected/shared/settings/hooks/use.setting.highlight";
 import { changePassword } from "@/services/client/user.service";
 import { ApiError } from "@/libs/api.error";
-import { validateChangePassword } from "@/modules/protected/settings/utils/settings.util";
+import { validateChangePassword } from "@/modules/protected/shared/settings/utils/settings.util";
 
 const SecuritySettings = () => {
     const t = useTranslations("settings.security");

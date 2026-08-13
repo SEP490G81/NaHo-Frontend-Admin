@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TableCell, TableRow, IconButton, Tooltip } from "@mui/material";
+import { IconButton, TableCell, TableRow, Tooltip } from "@mui/material";
 import { Eye } from "lucide-react";
 import { PaymentOrderResponse } from "@/types/responses/payment.response";
 import { PaymentStatus } from "@/types/enums/payment.enum";
@@ -69,21 +69,36 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
 
     return (
         <TableRow hover className={`transition-all ${getRowStyle()}`}>
-            <TableCell align="center" className="text-center font-bold text-gray-600 dark:text-gray-400">
+            <TableCell
+                align="center"
+                className="text-center font-bold text-gray-600 dark:text-gray-400"
+            >
                 {index + 1}
             </TableCell>
-            <TableCell align="center" className="text-center font-mono text-xs font-bold">
-                <span className="inline-block rounded-md bg-white/90 px-2.5 py-1 text-gray-900 shadow-2xs dark:bg-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
+            <TableCell
+                align="center"
+                className="text-center font-mono text-xs font-bold"
+            >
+                <span className="inline-block rounded-md border border-gray-200 bg-white/90 px-2.5 py-1 text-gray-900 shadow-2xs dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100">
                     {payment.orderCode}
                 </span>
             </TableCell>
-            <TableCell align="center" className="text-center font-bold text-gray-800 dark:text-gray-200">
+            <TableCell
+                align="center"
+                className="text-center font-bold text-gray-800 dark:text-gray-200"
+            >
                 #{payment.userId}
             </TableCell>
-            <TableCell align="center" className="text-center text-xs font-semibold text-gray-700 dark:text-gray-300">
+            <TableCell
+                align="center"
+                className="text-center text-xs font-semibold text-gray-700 dark:text-gray-300"
+            >
                 Plan #{payment.subscriptionPlanId}
             </TableCell>
-            <TableCell align="center" className={`text-center ${getAmountStyle()}`}>
+            <TableCell
+                align="center"
+                className={`text-center ${getAmountStyle()}`}
+            >
                 {formatCurrency(payment.amount, payment.currency)}
             </TableCell>
             <TableCell align="center" className="text-center">
@@ -94,10 +109,16 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
             <TableCell align="center" className="text-center">
                 <PaymentStatusBadge status={payment.status} />
             </TableCell>
-            <TableCell align="center" className="text-center text-xs font-medium text-gray-600 dark:text-gray-300">
+            <TableCell
+                align="center"
+                className="text-center text-xs font-medium text-gray-600 dark:text-gray-300"
+            >
                 {formatDate(payment.createdTime)}
             </TableCell>
-            <TableCell align="center" className="text-center text-xs font-medium text-gray-600 dark:text-gray-300">
+            <TableCell
+                align="center"
+                className="text-center text-xs font-medium text-gray-600 dark:text-gray-300"
+            >
                 {formatDate(payment.paidTime)}
             </TableCell>
             <TableCell align="center" className="text-center">
@@ -105,7 +126,7 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
                     <IconButton
                         size="small"
                         onClick={() => openDetail(payment)}
-                        className="text-gray-600 hover:text-[var(--color-bgc-highlight)] hover:bg-white/80 dark:hover:bg-gray-800"
+                        className="text-gray-600 hover:bg-white/80 hover:text-[var(--color-bgc-highlight)] dark:hover:bg-gray-800"
                     >
                         <Eye className="h-4 w-4" />
                     </IconButton>

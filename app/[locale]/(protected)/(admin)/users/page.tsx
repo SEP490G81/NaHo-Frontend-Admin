@@ -53,4 +53,3 @@ const UsersPage = async () => {
 };
 
 export default UsersPage;
-

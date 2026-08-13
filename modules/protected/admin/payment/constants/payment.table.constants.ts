@@ -1,10 +1,5 @@
 import { PaymentFilterState } from "../types/payment.table.type";
-import {
-    PaymentProvider,
-    PaymentSortColumn,
-    PaymentStatus,
-    SortDirection,
-} from "@/types/enums/payment.enum";
+import { PaymentSortColumn, SortDirection } from "@/types/enums/payment.enum";
 
 export const DEFAULT_PAYMENT_FILTER: PaymentFilterState = {
     page: 0,

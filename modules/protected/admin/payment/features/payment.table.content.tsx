@@ -11,9 +11,7 @@ export function PaymentTableContent() {
     const payments = data?.data;
     const pageMeta = data?.meta?.pageMeta;
 
-    const pageOffset = pageMeta
-        ? pageMeta.currentPage * pageMeta.pageSize
-        : 0;
+    const pageOffset = pageMeta ? pageMeta.currentPage * pageMeta.pageSize : 0;
 
     return (
         <div className="flex flex-col gap-4">

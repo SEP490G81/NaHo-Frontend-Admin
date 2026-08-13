@@ -77,8 +77,9 @@ export default function UserTable({
     }, [users, feSort]);
 
     const headClass =
-        "px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-text-muted";
-    const cellClass = "px-4 py-3 text-sm text-text-contrast whitespace-nowrap";
+        "px-4 py-3 text-center text-xs font-semibold uppercase tracking-wider text-text-muted";
+    const cellClass =
+        "px-4 py-3 text-center text-sm text-text-contrast whitespace-nowrap";
 
     const renderSortIcon = (col: FeSortColumn) => {
         if (feSort.column !== col) return null;
@@ -96,6 +97,7 @@ export default function UserTable({
         t("fullName"),
         t("role"),
         t("emailVerified"),
+        t("subscriptionPlan"),
         t("actions"),
     ];
 
@@ -137,6 +139,7 @@ export default function UserTable({
                             </th>
                         ))}
                         <th className={headClass}>{t("emailVerified")}</th>
+                        <th className={headClass}>{t("subscriptionPlan")}</th>
                         <th className={headClass}>{t("actions")}</th>
                     </tr>
                 </thead>

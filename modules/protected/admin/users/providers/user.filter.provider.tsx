@@ -63,17 +63,14 @@ export function UserFilterProvider({ children }: Props) {
     }, [pendingKeyword]);
 
     /** Helper: submit toàn bộ form (bao gồm cả keyword). */
-    const submitWithKeyword = useCallback(
-        (patch: Partial<UserFilterState>) => {
-            setFilter((prev) => ({
-                ...prev,
-                ...patch,
-                searchKeyword: pendingKeywordRef.current,
-                page: 0,
-            }));
-        },
-        [],
-    );
+    const submitWithKeyword = useCallback((patch: Partial<UserFilterState>) => {
+        setFilter((prev) => ({
+            ...prev,
+            ...patch,
+            searchKeyword: pendingKeywordRef.current,
+            page: 0,
+        }));
+    }, []);
 
     const setPage = useCallback(
         (page: number) => setFilter((prev) => ({ ...prev, page })),

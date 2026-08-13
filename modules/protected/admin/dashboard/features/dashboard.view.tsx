@@ -2,7 +2,12 @@
 
 import React from "react";
 import { MenuItem, TextField } from "@mui/material";
-import { DollarSign, CheckCircle, AlertTriangle, TrendingUp } from "lucide-react";
+import {
+    AlertTriangle,
+    CheckCircle,
+    DollarSign,
+    TrendingUp,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useDashboardPayment } from "../hooks/use.dashboard.payment";
 import { DashboardKpiCard } from "../components/dashboard.kpi.card";
@@ -101,19 +106,27 @@ export default function DashboardView() {
                     fullWidth
                     size="small"
                     value={timeRange}
-                    onChange={(e) => setTimeRange(e.target.value as TimeRangePreset)}
+                    onChange={(e) =>
+                        setTimeRange(e.target.value as TimeRangePreset)
+                    }
                 >
                     {TIME_RANGE_OPTIONS.map((opt) => (
                         <MenuItem key={opt.value} value={opt.value}>
-                            {tTimeRange(opt.labelKey as "all" | "last7Days" | "last30Days" | "last12Months")}
+                            {tTimeRange(
+                                opt.labelKey as
+                                    | "all"
+                                    | "last7Days"
+                                    | "last30Days"
+                                    | "last12Months",
+                            )}
                         </MenuItem>
                     ))}
                 </TextField>
             </div>
 
             {/* Charts Section (Equal Height) */}
-            <div className="grid grid-cols-1 gap-6 items-stretch lg:grid-cols-3">
-                <div className="lg:col-span-2 flex flex-col">
+            <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
+                <div className="flex flex-col lg:col-span-2">
                     <DashboardRevenueChart
                         data={revenueTrend}
                         isLoading={isLoading}

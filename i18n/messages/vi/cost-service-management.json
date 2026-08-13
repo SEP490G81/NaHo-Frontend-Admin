@@ -1,0 +1,64 @@
+{
+    "costServiceManagement": {
+        "pageTitle": "Quản lý chi phí dịch vụ bên ngoài",
+        "subtitle": "Theo dõi và phân tích chi tiết chi phí dịch vụ Azure Speech AI, OpenAI và AWS",
+        "loadingMessage": "Đang làm mới dữ liệu chi phí Azure...",
+        "tabs": {
+            "azure": "Microsoft Azure Speech AI",
+            "openai": "OpenAI API (Sắp có)",
+            "aws": "Amazon Web Services (Sắp có)"
+        },
+        "comingSoonTitle": "Dịch vụ chưa khả dụng",
+        "comingSoonDesc": "Hệ thống đang tích hợp API chi phí cho dịch vụ này. Vui lòng quay lại sau!",
+        "kpi": {
+            "mtdCost": "Chi phí tháng này (MTD)",
+            "mtdSubtitle": "Khoảng thời gian từ đầu tháng đến nay",
+            "periodCost": "Tổng chi phí kỳ xem",
+            "periodSubtitle": "Tính theo các điểm dữ liệu trong biểu đồ",
+            "avgCost": "Chi phí trung bình",
+            "avgSubtitle": "Trung bình cho mỗi mốc dữ liệu",
+            "dataPoints": "Số điểm dữ liệu",
+            "dataPointsSubtitle": "Các mốc thời gian ghi nhận chi phí"
+        },
+        "filters": {
+            "rangeLabel": "Khung thời gian:",
+            "presetLast6Months": "6 tháng gần nhất (Theo tháng)",
+            "presetLast30Days": "30 ngày gần nhất (Theo ngày)",
+            "presetLast12Months": "12 tháng gần nhất (Theo tháng)",
+            "presetCustom": "Tùy chỉnh khoảng ngày...",
+            "granularityLabel": "Độ phân giải:",
+            "granularityMonthly": "Theo tháng (Monthly)",
+            "granularityDaily": "Theo ngày (Daily)",
+            "fromDate": "Từ ngày",
+            "toDate": "Đến ngày",
+            "refresh": "Làm mới",
+            "syncData": "Đồng bộ Azure API",
+            "syncing": "Đang đồng bộ...",
+            "syncSuccess": "Đã khởi chạy đồng bộ dữ liệu Azure thành công!",
+            "syncError": "Đồng bộ dữ liệu thất bại."
+        },
+        "chart": {
+            "title": "Biểu đồ biến động chi phí Azure",
+            "subtitle": "Xu hướng chi phí theo thời gian ({granularity})",
+            "tooltipCost": "Chi phí",
+            "tooltipDate": "Thời gian: {label}",
+            "noData": "Không có dữ liệu chi phí cho khoảng thời gian này"
+        },
+        "table": {
+            "title": "Chi tiết các điểm dữ liệu chi phí",
+            "subtitle": "Danh sách ghi nhận chi phí thực tế từ Azure Cost Management API",
+            "colIndex": "STT",
+            "colDate": "Thời gian / Ngày",
+            "colCost": "Chi phí",
+            "colShare": "Tỷ trọng (%)",
+            "empty": "Không tìm thấy ghi nhận chi phí nào"
+        },
+        "error": {
+            "title": "Không thể tải dữ liệu chi phí Azure!",
+            "rateLimitTitle": "Hệ thống Azure quá tải (429 / 502 Rate Limit)",
+            "rateLimitDesc": "Tải dữ liệu thất bại do Azure Cost Management API tạm thời vượt quá giới hạn yêu cầu. Vui lòng bấm nút bên dưới để thử lại.",
+            "retryBtn": "Thử lại ngay",
+            "retrying": "Đang thử lại..."
+        }
+    }
+}

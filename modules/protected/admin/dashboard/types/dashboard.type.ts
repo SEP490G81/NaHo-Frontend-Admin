@@ -1,5 +1,3 @@
-import { PaymentOrderResponse } from "@/types/responses/payment.response";
-
 export type TimeRangePreset = "7d" | "30d" | "12m" | "all";
 
 export interface DashboardMetrics {

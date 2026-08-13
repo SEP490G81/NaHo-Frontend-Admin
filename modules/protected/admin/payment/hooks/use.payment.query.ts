@@ -26,8 +26,14 @@ export function usePaymentQuery() {
                 sortDirection: filter.sortDirection,
                 searchKeyword: filter.searchKeyword || undefined,
                 userId: filter.userId ?? undefined,
-                status: (filter.status && filter.status !== "ALL") ? (filter.status as PaymentStatus) : undefined,
-                provider: (filter.provider && filter.provider !== "ALL") ? (filter.provider as PaymentProvider) : undefined,
+                status:
+                    filter.status && filter.status !== "ALL"
+                        ? (filter.status as PaymentStatus)
+                        : undefined,
+                provider:
+                    filter.provider && filter.provider !== "ALL"
+                        ? (filter.provider as PaymentProvider)
+                        : undefined,
                 createdTimeFrom: filter.createdTimeFrom || undefined,
                 createdTimeTo: filter.createdTimeTo || undefined,
             };

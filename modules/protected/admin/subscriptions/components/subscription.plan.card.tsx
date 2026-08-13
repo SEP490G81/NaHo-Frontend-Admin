@@ -2,9 +2,10 @@
 
 import React from "react";
 import { SubscriptionPlanResponse } from "@/types/responses/subscription.response";
-import { Check, Sparkles, Zap, ShieldCheck } from "lucide-react";
-import { Chip } from "@mui/material";
+import { Check, Edit3, ShieldCheck, Sparkles, Zap } from "lucide-react";
+import { Button, Chip } from "@mui/material";
 import { useTranslations } from "next-intl";
+import { useSubscriptionModal } from "../providers/subscription.modal.provider";
 
 interface SubscriptionPlanCardProps {
     readonly plan: SubscriptionPlanResponse;
@@ -12,6 +13,7 @@ interface SubscriptionPlanCardProps {
 
 export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
     const t = useTranslations("subscriptionManagement.card");
+    const { openEditPlanModal } = useSubscriptionModal();
 
     const formatCurrency = (amount: number, currency: string) => {
         if (amount === 0) return t("free");
@@ -36,15 +38,20 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
     };
 
     const getHeaderIcon = () => {
-        if (isPremium) return <Sparkles className="h-6 w-6 text-amber-500 animate-pulse" />;
+        if (isPremium)
+            return (
+                <Sparkles className="h-6 w-6 animate-pulse text-amber-500" />
+            );
         if (isBasic) return <Zap className="h-6 w-6 text-pink-500" />;
         return <ShieldCheck className="h-6 w-6 text-slate-500" />;
     };
 
     return (
-        <div className={`relative flex flex-col justify-between rounded-3xl p-6 transition-all duration-300 ${getCardStyle()}`}>
+        <div
+            className={`relative flex flex-col justify-between rounded-3xl p-6 transition-all duration-300 ${getCardStyle()}`}
+        >
             {isPremium && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 px-4 py-1 text-[11px] font-extrabold tracking-wider text-white uppercase shadow-md">
                     {t("mostPopular")}
                 </div>
             )}
@@ -67,15 +74,18 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                 </div>
 
                 {/* Description */}
-                <p className="text-xs text-gray-600 dark:text-gray-400 min-h-[36px] line-clamp-2">
+                <p className="line-clamp-2 min-h-[36px] text-xs text-gray-600 dark:text-gray-400">
                     {plan.description}
                 </p>
 
                 {/* Pricing */}
-                <div className="py-2 border-y border-gray-100 dark:border-gray-800">
+                <div className="border-y border-gray-100 py-2 dark:border-gray-800">
                     <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-black text-gray-900 dark:text-gray-100">
-                            {formatCurrency(plan.priceAmount, plan.priceCurrency)}
+                            {formatCurrency(
+                                plan.priceAmount,
+                                plan.priceCurrency,
+                            )}
                         </span>
                         {plan.durationDays && (
                             <span className="text-xs font-semibold text-gray-500">
@@ -88,36 +98,84 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                 {/* Limits Feature List */}
                 <ul className="space-y-2.5 text-xs text-gray-700 dark:text-gray-300">
                     <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{t("dailySpeakingLimit", { limit: plan.dailySpeakingQuestionEvaluationLimit })}</span>
+                        <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                        <span>
+                            {t("dailySpeakingLimit", {
+                                limit: plan.dailySpeakingQuestionEvaluationLimit,
+                            })}
+                        </span>
                     </li>
                     <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{t("maxRecordingSeconds", { seconds: plan.maxSpeakingQuestionRecordingSeconds })}</span>
+                        <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                        <span>
+                            {t("maxRecordingSeconds", {
+                                seconds:
+                                    plan.maxSpeakingQuestionRecordingSeconds,
+                            })}
+                        </span>
                     </li>
                     <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{t("maxConcurrentAiSessions", { count: plan.maxConcurrentAiSessionCount })}</span>
+                        <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                        <span>
+                            {t("maxConcurrentAiSessions", {
+                                count: plan.maxConcurrentAiSessionCount,
+                            })}
+                        </span>
                     </li>
                     <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{t("maxTurnsPerAiSession", { turns: plan.maxTurnsPerAiSession })}</span>
+                        <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                        <span>
+                            {t("maxTurnsPerAiSession", {
+                                turns: plan.maxTurnsPerAiSession,
+                            })}
+                        </span>
                     </li>
                     <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{t("dailyAiSessionLimit", { limit: plan.dailyAiSessionEvaluationLimit })}</span>
+                        <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                        <span>
+                            {t("dailyAiSessionLimit", {
+                                limit: plan.dailyAiSessionEvaluationLimit,
+                            })}
+                        </span>
                     </li>
                     <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{t("maxAiTurnSpeakingSeconds", { seconds: plan.maxAiTurnSpeakingSeconds })}</span>
+                        <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                        <span>
+                            {t("maxAiTurnSpeakingSeconds", {
+                                seconds: plan.maxAiTurnSpeakingSeconds,
+                            })}
+                        </span>
                     </li>
                     <li className="flex items-center gap-2">
-                        <Check className={`h-4 w-4 ${plan.sampleAnswerEnabled ? "text-emerald-500" : "text-gray-300"} shrink-0`} />
-                        <span className={plan.sampleAnswerEnabled ? "font-semibold" : "text-gray-400 line-through"}>
-                            {plan.sampleAnswerEnabled ? t("sampleAnswerEnabled") : t("sampleAnswerDisabled")}
+                        <Check
+                            className={`h-4 w-4 ${plan.sampleAnswerEnabled ? "text-emerald-500" : "text-gray-300"} shrink-0`}
+                        />
+                        <span
+                            className={
+                                plan.sampleAnswerEnabled
+                                    ? "font-semibold"
+                                    : "text-gray-400 line-through"
+                            }
+                        >
+                            {plan.sampleAnswerEnabled
+                                ? t("sampleAnswerEnabled")
+                                : t("sampleAnswerDisabled")}
                         </span>
                     </li>
                 </ul>
+            </div>
+
+            {/* Action Button */}
+            <div className="pt-4">
+                <Button
+                    fullWidth
+                    variant="outlined"
+                    startIcon={<Edit3 className="h-4 w-4" />}
+                    onClick={() => openEditPlanModal(plan)}
+                    className="rounded-2xl border-gray-300 font-bold text-gray-700 transition-colors hover:bg-pink-50 hover:text-pink-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-pink-950/40 dark:hover:text-pink-300"
+                >
+                    {t("editButton")}
+                </Button>
             </div>
         </div>
     );

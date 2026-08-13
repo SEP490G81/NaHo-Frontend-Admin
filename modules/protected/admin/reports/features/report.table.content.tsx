@@ -18,10 +18,16 @@ export function ReportTableContent() {
     const filteredReports = useMemo(() => {
         return rawReports.filter((report) => {
             // 1. Status Filter
-            if (filter.isResolved === ReportStatusFilter.RESOLVED && !report.isResolved) {
+            if (
+                filter.isResolved === ReportStatusFilter.RESOLVED &&
+                !report.isResolved
+            ) {
                 return false;
             }
-            if (filter.isResolved === ReportStatusFilter.UNRESOLVED && report.isResolved) {
+            if (
+                filter.isResolved === ReportStatusFilter.UNRESOLVED &&
+                report.isResolved
+            ) {
                 return false;
             }
 
@@ -29,9 +35,13 @@ export function ReportTableContent() {
             if (filter.searchKeyword.trim()) {
                 const kw = filter.searchKeyword.toLowerCase().trim();
                 const matchTitle = report.title?.toLowerCase().includes(kw);
-                const matchDesc = report.description?.toLowerCase().includes(kw);
+                const matchDesc = report.description
+                    ?.toLowerCase()
+                    .includes(kw);
                 const matchName = report.fullName?.toLowerCase().includes(kw);
-                const matchId = String(report.id).includes(kw) || String(report.userId).includes(kw);
+                const matchId =
+                    String(report.id).includes(kw) ||
+                    String(report.userId).includes(kw);
                 if (!matchTitle && !matchDesc && !matchName && !matchId) {
                     return false;
                 }

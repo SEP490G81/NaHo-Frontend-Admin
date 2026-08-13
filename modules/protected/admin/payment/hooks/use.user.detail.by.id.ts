@@ -13,7 +13,10 @@ export function useUserDetailById(userId: number | null) {
             const res = await fetch(`/api/users/${userId}`);
             if (!res.ok) return null;
             const json = await res.json();
-            return (json as ApiResponse<UserResponse>).data ?? (json as UserResponse);
+            return (
+                (json as ApiResponse<UserResponse>).data ??
+                (json as UserResponse)
+            );
         },
     });
 }

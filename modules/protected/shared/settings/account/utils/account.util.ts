@@ -1,7 +1,7 @@
 export {
     validateUsername,
     validateAge,
-} from "@/modules/protected/settings/utils/settings.util";
+} from "@/modules/protected/shared/settings/utils/settings.util";
 
 export {
     getFirstCharacter,

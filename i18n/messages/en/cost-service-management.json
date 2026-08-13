@@ -1,0 +1,64 @@
+{
+    "costServiceManagement": {
+        "pageTitle": "External Service Cost Management",
+        "subtitle": "Monitor and analyze external service costs for Azure Speech AI, OpenAI, and AWS",
+        "loadingMessage": "Refreshing Azure cost data...",
+        "tabs": {
+            "azure": "Microsoft Azure Speech AI",
+            "openai": "OpenAI API (Coming Soon)",
+            "aws": "Amazon Web Services (Coming Soon)"
+        },
+        "comingSoonTitle": "Service Not Available Yet",
+        "comingSoonDesc": "Cost API integration for this service is currently in progress. Please check back later!",
+        "kpi": {
+            "mtdCost": "Current Month Cost (MTD)",
+            "mtdSubtitle": "Cost from start of the month to date",
+            "periodCost": "Selected Period Cost",
+            "periodSubtitle": "Sum of cost across chart data points",
+            "avgCost": "Average Spend",
+            "avgSubtitle": "Average spend per data point",
+            "dataPoints": "Data Points",
+            "dataPointsSubtitle": "Recorded period datapoints"
+        },
+        "filters": {
+            "rangeLabel": "Timeframe:",
+            "presetLast6Months": "Last 6 Months (Monthly)",
+            "presetLast30Days": "Last 30 Days (Daily)",
+            "presetLast12Months": "Last 12 Months (Monthly)",
+            "presetCustom": "Custom Date Range...",
+            "granularityLabel": "Granularity:",
+            "granularityMonthly": "Monthly",
+            "granularityDaily": "Daily",
+            "fromDate": "From Date",
+            "toDate": "To Date",
+            "refresh": "Refresh",
+            "syncData": "Sync Azure API",
+            "syncing": "Syncing...",
+            "syncSuccess": "Azure cost sync triggered successfully!",
+            "syncError": "Failed to trigger Azure sync."
+        },
+        "chart": {
+            "title": "Azure Cost Trend Chart",
+            "subtitle": "Cost fluctuation over time ({granularity})",
+            "tooltipCost": "Cost",
+            "tooltipDate": "Date: {label}",
+            "noData": "No cost data available for this timeframe"
+        },
+        "table": {
+            "title": "Cost Data Points Breakdown",
+            "subtitle": "Detailed list of cost records retrieved from Azure Cost Management API",
+            "colIndex": "#",
+            "colDate": "Date / Period",
+            "colCost": "Cost",
+            "colShare": "Share (%)",
+            "empty": "No cost entries found"
+        },
+        "error": {
+            "title": "Failed to load Azure cost data!",
+            "rateLimitTitle": "Azure Service Rate Limited (429 / 502)",
+            "rateLimitDesc": "Data retrieval failed because Azure Cost Management API temporarily exceeded request limit. Click retry below.",
+            "retryBtn": "Retry Now",
+            "retrying": "Retrying..."
+        }
+    }
+}

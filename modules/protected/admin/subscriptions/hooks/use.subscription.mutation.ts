@@ -2,8 +2,14 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "@/libs/query.keys";
-import { upgradeUserSubscriptionClient } from "@/services/client/subscription.service";
-import { UpgradeSubscriptionRequest } from "@/types/requests/subscription.request";
+import {
+    updateSubscriptionPlanClient,
+    upgradeUserSubscriptionClient,
+} from "@/services/client/subscription.service";
+import {
+    UpdateSubscriptionPlanRequest,
+    UpgradeSubscriptionRequest,
+} from "@/types/requests/subscription.request";
 
 export function useUpgradeSubscriptionMutation() {
     const queryClient = useQueryClient();
@@ -18,6 +24,27 @@ export function useUpgradeSubscriptionMutation() {
             });
             queryClient.invalidateQueries({
                 queryKey: [...queryKeys.users.all],
+            });
+        },
+    });
+}
+
+export function useUpdateSubscriptionPlanMutation() {
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: async ({
+            id,
+            body,
+        }: {
+            id: number;
+            body: UpdateSubscriptionPlanRequest;
+        }) => {
+            return updateSubscriptionPlanClient(id, body);
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: [...queryKeys.subscriptions.plans],
             });
         },
     });

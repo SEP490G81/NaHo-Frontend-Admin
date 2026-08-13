@@ -15,7 +15,7 @@ export default function PaymentManagementView() {
         <PaymentFilterProvider>
             <PaymentDetailProvider>
                 <div className="flex flex-col gap-6 p-6">
-                    <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm dark:bg-gray-900 dark:border-gray-800">
+                    <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                         <div>
                             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
                                 {t("pageTitle")}

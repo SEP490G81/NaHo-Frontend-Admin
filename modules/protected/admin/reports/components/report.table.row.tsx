@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { TableCell, TableRow, IconButton, Tooltip } from "@mui/material";
-import { Eye, CheckSquare, Image as ImageIcon } from "lucide-react";
+import { IconButton, TableCell, TableRow, Tooltip } from "@mui/material";
+import { CheckSquare, Eye, Image as ImageIcon } from "lucide-react";
 import { ReportResponse } from "@/types/responses/report.response";
 import { ReportStatusBadge } from "./report.status.badge";
 import { useReportDetail } from "../providers/report.detail.provider";
@@ -24,25 +24,30 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
 
     return (
         <TableRow hover className={`transition-all ${getRowStyle()}`}>
-            <TableCell align="center" className="text-center font-bold text-gray-600 dark:text-gray-400">
+            <TableCell
+                align="center"
+                className="text-center font-bold text-gray-600 dark:text-gray-400"
+            >
                 {index + 1}
             </TableCell>
 
             <TableCell align="center" className="text-center">
                 <div className="flex flex-col items-center justify-center">
-                    <span className="font-bold text-gray-900 dark:text-gray-100 text-xs">
+                    <span className="text-xs font-bold text-gray-900 dark:text-gray-100">
                         {report.fullName || `User #${report.userId}`}
                     </span>
-                    <span className="text-[11px] font-mono text-gray-500">#{report.userId}</span>
+                    <span className="font-mono text-[11px] text-gray-500">
+                        #{report.userId}
+                    </span>
                 </div>
             </TableCell>
 
-            <TableCell align="center" className="text-center max-w-xs">
+            <TableCell align="center" className="max-w-xs text-center">
                 <div className="flex flex-col items-center">
-                    <span className="font-bold text-xs text-gray-900 dark:text-gray-100 line-clamp-1">
+                    <span className="line-clamp-1 text-xs font-bold text-gray-900 dark:text-gray-100">
                         {report.title}
                     </span>
-                    <span className="text-[11px] text-gray-500 line-clamp-1">
+                    <span className="line-clamp-1 text-[11px] text-gray-500">
                         {report.description}
                     </span>
                 </div>
@@ -50,7 +55,7 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
 
             <TableCell align="center" className="text-center">
                 {report.files && report.files.length > 0 ? (
-                    <span className="inline-flex items-center gap-1 rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                    <span className="inline-flex items-center gap-1 rounded-md border border-blue-200 bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300">
                         <ImageIcon className="h-3.5 w-3.5 text-blue-600" />
                         <span>{report.files.length} tệp</span>
                     </span>
@@ -69,7 +74,7 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
                         <IconButton
                             size="small"
                             onClick={() => openDetail(report)}
-                            className="text-gray-600 hover:text-pink-600 hover:bg-pink-50 dark:hover:bg-pink-950/30"
+                            className="text-gray-600 hover:bg-pink-50 hover:text-pink-600 dark:hover:bg-pink-950/30"
                         >
                             <Eye className="h-4 w-4" />
                         </IconButton>
@@ -80,7 +85,7 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
                             <IconButton
                                 size="small"
                                 onClick={() => openResolve(report)}
-                                className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
+                                className="text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-950/30"
                             >
                                 <CheckSquare className="h-4 w-4" />
                             </IconButton>

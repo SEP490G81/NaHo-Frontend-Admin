@@ -1,4 +1,4 @@
-import { SettingsMenuItem } from "@/modules/protected/settings/types/settings.type";
+import { SettingsMenuItem } from "@/modules/protected/shared/settings/types/settings.type";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";

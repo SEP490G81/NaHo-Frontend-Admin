@@ -38,36 +38,66 @@ export function PaymentTable({
             <Table className="min-w-full">
                 <TableHead className="bg-gradient-to-r from-gray-50 via-pink-50/30 to-gray-50 dark:from-gray-800 dark:via-pink-950/20 dark:to-gray-800">
                     <TableRow>
-                        <TableCell align="center" className="w-12 text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="w-12 text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("stt")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("orderCode")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("userId")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("planId")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("amount")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("provider")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-extrabold text-pink-600 dark:text-pink-400 bg-pink-50/60 dark:bg-pink-950/40">
-                            <span className="inline-flex items-center justify-center gap-1 rounded-md px-2 py-0.5 border border-pink-200 dark:border-pink-800">
+                        <TableCell
+                            align="center"
+                            className="bg-pink-50/60 text-center font-extrabold text-pink-600 dark:bg-pink-950/40 dark:text-pink-400"
+                        >
+                            <span className="inline-flex items-center justify-center gap-1 rounded-md border border-pink-200 px-2 py-0.5 dark:border-pink-800">
                                 {t("status")}
                             </span>
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("createdTime")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("paidTime")}
                         </TableCell>
-                        <TableCell align="center" className="w-20 text-center font-bold text-gray-700 dark:text-gray-200">
+                        <TableCell
+                            align="center"
+                            className="w-20 text-center font-bold text-gray-700 dark:text-gray-200"
+                        >
                             {t("actions")}
                         </TableCell>
                     </TableRow>

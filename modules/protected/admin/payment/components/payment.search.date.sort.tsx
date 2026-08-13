@@ -54,7 +54,11 @@ export function PaymentSearchDateSort() {
                     size="small"
                     type="date"
                     label={t("fromLabel")}
-                    value={filter.createdTimeFrom ? filter.createdTimeFrom.split("T")[0] : ""}
+                    value={
+                        filter.createdTimeFrom
+                            ? filter.createdTimeFrom.split("T")[0]
+                            : ""
+                    }
                     onChange={(e) => {
                         const val = e.target.value;
                         setCreatedTimeFrom(val ? `${val}T00:00:00Z` : "");
@@ -66,7 +70,11 @@ export function PaymentSearchDateSort() {
                     size="small"
                     type="date"
                     label={t("toLabel")}
-                    value={filter.createdTimeTo ? filter.createdTimeTo.split("T")[0] : ""}
+                    value={
+                        filter.createdTimeTo
+                            ? filter.createdTimeTo.split("T")[0]
+                            : ""
+                    }
                     onChange={(e) => {
                         const val = e.target.value;
                         setCreatedTimeTo(val ? `${val}T23:59:59Z` : "");
@@ -84,9 +92,7 @@ export function PaymentSearchDateSort() {
                         label={t("sortColumnLabel")}
                         value={filter.sortColumn}
                         onChange={(e) =>
-                            setSortColumn(
-                                e.target.value as PaymentSortColumn,
-                            )
+                            setSortColumn(e.target.value as PaymentSortColumn)
                         }
                     >
                         {PAYMENT_SORT_OPTIONS.map((opt) => (

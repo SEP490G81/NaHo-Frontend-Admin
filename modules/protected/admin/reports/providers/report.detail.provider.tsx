@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 import { ReportResponse } from "@/types/responses/report.response";
 
 interface ReportDetailContextValue {
@@ -12,7 +12,9 @@ interface ReportDetailContextValue {
     closeResolve: () => void;
 }
 
-const ReportDetailContext = createContext<ReportDetailContextValue | null>(null);
+const ReportDetailContext = createContext<ReportDetailContextValue | null>(
+    null,
+);
 
 export function useReportDetail(): ReportDetailContextValue {
     const ctx = useContext(ReportDetailContext);
@@ -29,13 +31,17 @@ interface Props {
 }
 
 export function ReportDetailProvider({ children }: Props) {
-    const [selectedReportDetail, setSelectedReportDetail] = useState<ReportResponse | null>(null);
-    const [selectedReportResolve, setSelectedReportResolve] = useState<ReportResponse | null>(null);
+    const [selectedReportDetail, setSelectedReportDetail] =
+        useState<ReportResponse | null>(null);
+    const [selectedReportResolve, setSelectedReportResolve] =
+        useState<ReportResponse | null>(null);
 
-    const openDetail = (report: ReportResponse) => setSelectedReportDetail(report);
+    const openDetail = (report: ReportResponse) =>
+        setSelectedReportDetail(report);
     const closeDetail = () => setSelectedReportDetail(null);
 
-    const openResolve = (report: ReportResponse) => setSelectedReportResolve(report);
+    const openResolve = (report: ReportResponse) =>
+        setSelectedReportResolve(report);
     const closeResolve = () => setSelectedReportResolve(null);
 
     return (

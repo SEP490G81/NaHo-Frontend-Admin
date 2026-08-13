@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 import { UserResponse } from "@/types/responses/user.response";
 
 interface UserDetailContextValue {

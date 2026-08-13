@@ -191,3 +191,47 @@ export async function proxyPatchJson(path: string, request?: Request) {
 
     return forwardJson(backendResponse);
 }
+
+/**
+ * Helper cho route handler (lớp 1): forward request JSON/empty PUT lên BE, tự đính kèm
+ * access token.
+ */
+export async function proxyPutJson(path: string, request?: Request) {
+    if (!process.env.API_URL) {
+        return NextResponse.json(
+            {
+                detail: "API_URL chưa được cấu hình trên server.",
+            } as ProblemDetail,
+            { status: 500 },
+        );
+    }
+
+    const accessToken = (await cookies()).get(ACCESS_TOKEN_NAME)?.value;
+    const idempotencyKey = request?.headers.get("Idempotency-Key");
+    let body: string | undefined = undefined;
+    if (request) {
+        try {
+            const text = await request.text();
+            if (text && text.trim().length > 0) {
+                body = text;
+            }
+        } catch {
+            // empty body request
+        }
+    }
+
+    const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+        ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
+    };
+
+    const backendResponse = await fetch(`${process.env.API_URL}${path}`, {
+        method: "PUT",
+        headers,
+        ...(body ? { body } : {}),
+        cache: "no-store",
+    });
+
+    return forwardJson(backendResponse);
+}

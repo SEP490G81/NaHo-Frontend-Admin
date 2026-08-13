@@ -26,16 +26,16 @@ export function DashboardKpiCard({
         <div
             className={`relative overflow-hidden rounded-2xl border bg-[var(--color-bgc-app)] p-5 shadow-sm transition-all hover:shadow-md ${
                 isPrimary
-                    ? "border-pink-300 dark:border-pink-800 shadow-pink-500/5"
+                    ? "border-pink-300 shadow-pink-500/5 dark:border-pink-800"
                     : "border-[var(--color-bdc-primary)]"
             }`}
         >
             {isPrimary && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-bgc-highlight)] via-pink-500 to-rose-400" />
+                <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-[var(--color-bgc-highlight)] via-pink-500 to-rose-400" />
             )}
             <div className="flex items-start justify-between">
                 <div className="space-y-1">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    <p className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
                         {title}
                     </p>
                     {isLoading ? (

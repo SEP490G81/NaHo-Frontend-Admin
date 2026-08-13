@@ -36,6 +36,7 @@
                 "orders": "Order History",
                 "userManagement": "User Management",
                 "paymentManagement": "Payment Management",
+                "costServiceManagement": "Service Cost Management",
                 "terms": "Terms of Service",
                 "privacy": "Privacy Policy"
             },
@@ -57,6 +58,7 @@
                 "userManagement": "User Management",
                 "paymentManagement": "Payment Management",
                 "subscriptionManagement": "Subscription Plans",
+                "costServiceManagement": "Service Cost Management",
                 "reportManagement": "Report Management",
                 "kaiwaRoadmap": "Kaiwa Roadmap",
                 "freeAiChat": "Free AI Conversation",

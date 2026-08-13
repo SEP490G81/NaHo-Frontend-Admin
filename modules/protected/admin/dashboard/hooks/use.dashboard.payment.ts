@@ -1,14 +1,14 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "@/libs/query.keys";
 import { fetchPaymentOrdersClient } from "@/services/client/payment.service";
 import { TimeRangePreset } from "../types/dashboard.type";
 import {
-    calculateMetrics,
     buildRevenueTrend,
     buildStatusDistribution,
+    calculateMetrics,
     filterOrdersByTimeRange,
 } from "../utils/dashboard.calculator";
 
@@ -50,10 +50,7 @@ export function useDashboardPayment() {
     );
 
     const recentPaidOrders = useMemo(
-        () =>
-            filteredOrders
-                .filter((o) => o.status === "PAID")
-                .slice(0, 5),
+        () => filteredOrders.filter((o) => o.status === "PAID").slice(0, 5),
         [filteredOrders],
     );
 

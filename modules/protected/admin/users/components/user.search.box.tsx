@@ -35,12 +35,8 @@ const inputSx = {
 
 export default function UserSearchBox() {
     const t = useTranslations("userManagement.searchBox");
-    const {
-        pendingKeyword,
-        setPendingKeyword,
-        applySearch,
-        resetFilter,
-    } = useUserFilter();
+    const { pendingKeyword, setPendingKeyword, applySearch, resetFilter } =
+        useUserFilter();
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") applySearch();

@@ -53,9 +53,9 @@ export function ReportSearchBox() {
     };
 
     return (
-        <div className="flex flex-col sm:flex-row items-center gap-3">
+        <div className="flex flex-col items-center gap-3 sm:flex-row">
             {/* Keyword Search */}
-            <div className="flex-1 w-full">
+            <div className="w-full flex-1">
                 <TextField
                     size="small"
                     fullWidth
@@ -93,9 +93,15 @@ export function ReportSearchBox() {
                         value={filter.isResolved}
                         onChange={(e) => setIsResolved(e.target.value)}
                     >
-                        <MenuItem value={ReportStatusFilter.ALL}>{t("all")}</MenuItem>
-                        <MenuItem value={ReportStatusFilter.UNRESOLVED}>{t("statusUnresolved")}</MenuItem>
-                        <MenuItem value={ReportStatusFilter.RESOLVED}>{t("statusResolved")}</MenuItem>
+                        <MenuItem value={ReportStatusFilter.ALL}>
+                            {t("all")}
+                        </MenuItem>
+                        <MenuItem value={ReportStatusFilter.UNRESOLVED}>
+                            {t("statusUnresolved")}
+                        </MenuItem>
+                        <MenuItem value={ReportStatusFilter.RESOLVED}>
+                            {t("statusResolved")}
+                        </MenuItem>
                     </Select>
                 </FormControl>
             </div>

@@ -41,6 +41,7 @@
                 "orders": "Lịch sử giao dịch",
                 "userManagement": "Quản lý người dùng",
                 "paymentManagement": "Quản lý thanh toán",
+                "costServiceManagement": "Quản lý chi phí dịch vụ",
                 "terms": "Điều khoản sử dụng",
                 "privacy": "Chính sách bảo mật"
             },
@@ -62,6 +63,7 @@
                 "userManagement": "Quản lý người dùng",
                 "paymentManagement": "Quản lý thanh toán",
                 "subscriptionManagement": "Gói học & Nâng cấp",
+                "costServiceManagement": "Quản lý chi phí dịch vụ",
                 "reportManagement": "Quản lý báo cáo",
                 "kaiwaRoadmap": "Lộ trình Kaiwa",
                 "freeAiChat": "Trò chuyện tự do AI",

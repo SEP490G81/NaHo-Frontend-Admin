@@ -2,13 +2,13 @@
 
 import React from "react";
 import {
+    Paper,
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableHead,
     TableRow,
-    Paper,
 } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { ReportResponse } from "@/types/responses/report.response";
@@ -28,27 +28,45 @@ export function ReportTable({ reports, isLoading }: ReportTableProps) {
         <TableContainer
             component={Paper}
             elevation={0}
-            className="rounded-xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] shadow-sm overflow-hidden"
+            className="overflow-hidden rounded-xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] shadow-sm"
         >
             <Table>
                 <TableHead>
                     <TableRow className="bg-gray-50/80 dark:bg-gray-800/80">
-                        <TableCell align="center" className="text-center font-bold text-xs uppercase tracking-wider text-gray-600 dark:text-gray-300 w-12">
+                        <TableCell
+                            align="center"
+                            className="w-12 text-center text-xs font-bold tracking-wider text-gray-600 uppercase dark:text-gray-300"
+                        >
                             {t("stt")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-xs uppercase tracking-wider text-gray-600 dark:text-gray-300">
+                        <TableCell
+                            align="center"
+                            className="text-center text-xs font-bold tracking-wider text-gray-600 uppercase dark:text-gray-300"
+                        >
                             {t("reporter")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-xs uppercase tracking-wider text-gray-600 dark:text-gray-300">
+                        <TableCell
+                            align="center"
+                            className="text-center text-xs font-bold tracking-wider text-gray-600 uppercase dark:text-gray-300"
+                        >
                             {t("content")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-xs uppercase tracking-wider text-gray-600 dark:text-gray-300">
+                        <TableCell
+                            align="center"
+                            className="text-center text-xs font-bold tracking-wider text-gray-600 uppercase dark:text-gray-300"
+                        >
                             {t("files")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-xs uppercase tracking-wider text-gray-600 dark:text-gray-300">
+                        <TableCell
+                            align="center"
+                            className="text-center text-xs font-bold tracking-wider text-gray-600 uppercase dark:text-gray-300"
+                        >
                             {t("status")}
                         </TableCell>
-                        <TableCell align="center" className="text-center font-bold text-xs uppercase tracking-wider text-gray-600 dark:text-gray-300 w-28">
+                        <TableCell
+                            align="center"
+                            className="w-28 text-center text-xs font-bold tracking-wider text-gray-600 uppercase dark:text-gray-300"
+                        >
                             {t("actions")}
                         </TableCell>
                     </TableRow>

@@ -1,20 +1,20 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
     Button,
-    IconButton,
-    Divider,
-    TextField,
-    FormControlLabel,
-    Switch,
     CircularProgress,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    Divider,
+    FormControlLabel,
+    IconButton,
+    Switch,
+    TextField,
 } from "@mui/material";
-import { X, CheckSquare, Send } from "lucide-react";
+import { CheckSquare, Send, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useReportDetail } from "../providers/report.detail.provider";
 import { useReportStatusMutation } from "../hooks/use.report.mutation";
@@ -59,15 +59,18 @@ export function ReportResolveModal() {
             fullWidth
             slotProps={{
                 paper: {
-                    className: "rounded-2xl dark:bg-gray-900 border border-gray-200 dark:border-gray-800",
+                    className:
+                        "rounded-2xl dark:bg-gray-900 border border-gray-200 dark:border-gray-800",
                 },
             }}
         >
             <form onSubmit={handleSubmit}>
-                <DialogTitle className="flex items-center justify-between font-bold text-gray-900 dark:text-gray-100 px-6 py-4">
+                <DialogTitle className="flex items-center justify-between px-6 py-4 font-bold text-gray-900 dark:text-gray-100">
                     <div className="flex items-center gap-2">
                         <CheckSquare className="h-5 w-5 text-emerald-600" />
-                        <span>{t("title")} #{selectedReportResolve.id}</span>
+                        <span>
+                            {t("title")} #{selectedReportResolve.id}
+                        </span>
                     </div>
                     <IconButton onClick={closeResolve} size="small">
                         <X className="h-4 w-4" />
@@ -76,11 +79,11 @@ export function ReportResolveModal() {
                 <Divider />
 
                 <DialogContent className="space-y-4 px-6 py-5">
-                    <div className="rounded-xl bg-gray-50 p-3 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800 text-xs">
+                    <div className="rounded-xl border border-gray-100 bg-gray-50 p-3 text-xs dark:border-gray-800 dark:bg-gray-800/40">
                         <p className="font-bold text-gray-900 dark:text-gray-100">
                             {selectedReportResolve.title}
                         </p>
-                        <p className="text-gray-500 line-clamp-2 mt-0.5">
+                        <p className="mt-0.5 line-clamp-2 text-gray-500">
                             {selectedReportResolve.description}
                         </p>
                     </div>
@@ -93,13 +96,19 @@ export function ReportResolveModal() {
                             control={
                                 <Switch
                                     checked={isResolved}
-                                    onChange={(e) => setIsResolved(e.target.checked)}
+                                    onChange={(e) =>
+                                        setIsResolved(e.target.checked)
+                                    }
                                     color="success"
                                 />
                             }
                             label={
-                                <span className={`text-xs font-bold ${isResolved ? "text-emerald-600" : "text-amber-600"}`}>
-                                    {isResolved ? t("statusResolved") : t("statusUnresolved")}
+                                <span
+                                    className={`text-xs font-bold ${isResolved ? "text-emerald-600" : "text-amber-600"}`}
+                                >
+                                    {isResolved
+                                        ? t("statusResolved")
+                                        : t("statusUnresolved")}
                                 </span>
                             }
                         />
@@ -128,15 +137,25 @@ export function ReportResolveModal() {
                 </DialogContent>
                 <Divider />
                 <DialogActions className="px-6 py-4">
-                    <Button onClick={closeResolve} variant="outlined" color="inherit">
+                    <Button
+                        onClick={closeResolve}
+                        variant="outlined"
+                        color="inherit"
+                    >
                         {t("cancel")}
                     </Button>
                     <Button
                         type="submit"
                         variant="contained"
                         disabled={mutation.isPending}
-                        startIcon={mutation.isPending ? <CircularProgress size={16} color="inherit" /> : <Send className="h-4 w-4" />}
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl"
+                        startIcon={
+                            mutation.isPending ? (
+                                <CircularProgress size={16} color="inherit" />
+                            ) : (
+                                <Send className="h-4 w-4" />
+                            )
+                        }
+                        className="rounded-xl bg-emerald-600 font-bold text-white hover:bg-emerald-700"
                     >
                         {t("submitBtn")}
                     </Button>

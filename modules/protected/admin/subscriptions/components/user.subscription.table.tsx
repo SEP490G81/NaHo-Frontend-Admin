@@ -34,7 +34,11 @@ function getCellValue(user: UserResponse, col: FeSortColumn): string {
     }
 }
 
-export function UserSubscriptionTable({ users, pageOffset, isLoading }: Readonly<Props>) {
+export function UserSubscriptionTable({
+    users,
+    pageOffset,
+    isLoading,
+}: Readonly<Props>) {
     const t = useTranslations("userManagement.table");
     const { resetVersion } = useUserFilter();
 

@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
-import { IconButton, Tooltip, Chip, Button, Skeleton } from "@mui/material";
-import { Eye, ArrowUpCircle } from "lucide-react";
+import { Button, Chip, IconButton, Skeleton, Tooltip } from "@mui/material";
+import { ArrowUpCircle, Eye } from "lucide-react";
 import { UserResponse } from "@/types/responses/user.response";
 import EmailVerifiedBadge from "@/modules/protected/admin/users/components/email.verified.badge";
 import { useUserDetailModal } from "@/modules/protected/admin/users/providers/user.detail.provider";
@@ -30,7 +30,8 @@ export function UserSubscriptionTableRow({
     const { openDetail } = useUserDetailModal();
     const { openUpgradeModal } = useSubscriptionModal();
 
-    const { data: userSubResponse, isLoading: isSubLoading } = useUserSubscriptionQuery(user.id);
+    const { data: userSubResponse, isLoading: isSubLoading } =
+        useUserSubscriptionQuery(user.id);
     const userSub = userSubResponse?.data;
     const currentPlanCode = userSub?.subscriptionPlan?.code || "FREE";
     const isPremium = currentPlanCode === "PREMIUM";
@@ -42,7 +43,10 @@ export function UserSubscriptionTableRow({
 
             {/* Email */}
             <td className={cellClass}>
-                <span className="block max-w-[200px] truncate" title={user.email}>
+                <span
+                    className="block max-w-[200px] truncate"
+                    title={user.email}
+                >
                     {user.email}
                 </span>
             </td>
@@ -72,7 +76,12 @@ export function UserSubscriptionTableRow({
             {/* Gói cước hiện tại (Subscription Plan) */}
             <td className={cellClass}>
                 {isSubLoading ? (
-                    <Skeleton variant="rounded" width={90} height={24} className="rounded-md" />
+                    <Skeleton
+                        variant="rounded"
+                        width={90}
+                        height={24}
+                        className="rounded-md"
+                    />
                 ) : (
                     <div className="flex items-center gap-1.5">
                         <SubscriptionPlanBadge planCode={currentPlanCode} />
@@ -126,10 +135,10 @@ export function UserSubscriptionTableRow({
                             })
                         }
                         startIcon={<ArrowUpCircle className="h-3.5 w-3.5" />}
-                        className={`text-xs font-bold rounded-lg px-2.5 py-1 shadow-none transition-all ${
+                        className={`rounded-lg px-2.5 py-1 text-xs font-bold shadow-none transition-all ${
                             isPremium
                                 ? "bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500"
-                                : "bg-pink-50 hover:bg-pink-100 text-pink-600 dark:bg-pink-950/60 dark:hover:bg-pink-900/80 dark:text-pink-300 border border-pink-200 dark:border-pink-800/60"
+                                : "border border-pink-200 bg-pink-50 text-pink-600 hover:bg-pink-100 dark:border-pink-800/60 dark:bg-pink-950/60 dark:text-pink-300 dark:hover:bg-pink-900/80"
                         }`}
                     >
                         {isPremium ? "PREMIUM" : "Nâng cấp"}

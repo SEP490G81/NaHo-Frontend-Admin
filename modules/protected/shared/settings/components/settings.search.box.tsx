@@ -15,7 +15,7 @@ import { useRouter } from "@/i18n/navigation";
 import {
     SETTINGS_SEARCH_REGISTRY,
     SettingSearchItem,
-} from "@/modules/protected/settings/constants/search.registry";
+} from "@/modules/protected/shared/settings/constants/search.registry";
 
 const SettingsSearchBox = () => {
     const tRaw = useTranslations();

@@ -1,0 +1,64 @@
+{
+    "costServiceManagement": {
+        "pageTitle": "外部サービス費用管理",
+        "subtitle": "Azure Speech AI, OpenAI, AWSの外部サービス利用コストを監視・分析",
+        "loadingMessage": "Azure費用データを更新中...",
+        "tabs": {
+            "azure": "Microsoft Azure Speech AI",
+            "openai": "OpenAI API (準備中)",
+            "aws": "Amazon Web Services (準備中)"
+        },
+        "comingSoonTitle": "サービス準備中",
+        "comingSoonDesc": "このサービスの費用API連携を準備中です。しばらくお待ちください。",
+        "kpi": {
+            "mtdCost": "今月の費用 (MTD)",
+            "mtdSubtitle": "月初から現在までの費用",
+            "periodCost": "選択期間の合計費用",
+            "periodSubtitle": "グラフのデータポイントの合計",
+            "avgCost": "平均費用",
+            "avgSubtitle": "データポイントあたりの平均費用",
+            "dataPoints": "データポイント数",
+            "dataPointsSubtitle": "記録された期間の件数"
+        },
+        "filters": {
+            "rangeLabel": "表示期間:",
+            "presetLast6Months": "過去6ヶ月 (月次)",
+            "presetLast30Days": "過去30日間 (日次)",
+            "presetLast12Months": "過去12ヶ月 (月次)",
+            "presetCustom": "カスタム期間...",
+            "granularityLabel": "集計単位:",
+            "granularityMonthly": "月次 (Monthly)",
+            "granularityDaily": "日次 (Daily)",
+            "fromDate": "開始日",
+            "toDate": "終了日",
+            "refresh": "更新",
+            "syncData": "Azure API同期",
+            "syncing": "同期中...",
+            "syncSuccess": "Azure費用データの同期を開始しました！",
+            "syncError": "Azure同期の開始に失敗しました。"
+        },
+        "chart": {
+            "title": "Azure費用推移グラフ",
+            "subtitle": "時間経過による費用の変動 ({granularity})",
+            "tooltipCost": "費用",
+            "tooltipDate": "日付: {label}",
+            "noData": "この期間の費用データはありません"
+        },
+        "table": {
+            "title": "費用データポイント詳細",
+            "subtitle": "Azure Cost Management APIから取得した詳細な費用記録一覧",
+            "colIndex": "#",
+            "colDate": "日付 / 期間",
+            "colCost": "費用",
+            "colShare": "割合 (%)",
+            "empty": "費用記録が見つかりません"
+        },
+        "error": {
+            "title": "Azure費用データの取得に失敗しました",
+            "rateLimitTitle": "Azureサービス レート制限 (429 / 502)",
+            "rateLimitDesc": "Azure Cost Management APIのリクエスト上限を超えたため取得に失敗しました。下のボタンを押して再試行してください。",
+            "retryBtn": "今すぐ再試行",
+            "retrying": "再試行中..."
+        }
+    }
+}

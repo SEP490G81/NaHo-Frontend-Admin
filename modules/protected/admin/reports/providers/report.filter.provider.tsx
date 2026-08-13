@@ -22,7 +22,9 @@ interface ReportFilterContextValue {
     resetFilter: () => void;
 }
 
-const ReportFilterContext = createContext<ReportFilterContextValue | null>(null);
+const ReportFilterContext = createContext<ReportFilterContextValue | null>(
+    null,
+);
 
 export function useReportFilter(): ReportFilterContextValue {
     const ctx = useContext(ReportFilterContext);
@@ -39,7 +41,9 @@ interface Props {
 }
 
 export function ReportFilterProvider({ children }: Props) {
-    const [filter, setFilter] = useState<ReportFilterState>(DEFAULT_REPORT_FILTER);
+    const [filter, setFilter] = useState<ReportFilterState>(
+        DEFAULT_REPORT_FILTER,
+    );
     const [pendingKeyword, setPendingKeyword] = useState("");
 
     const pendingKeywordRef = useRef(pendingKeyword);
@@ -54,13 +58,16 @@ export function ReportFilterProvider({ children }: Props) {
         }));
     }, []);
 
-    const setIsResolved = useCallback((isResolved: ReportStatusFilter | string) => {
-        setFilter((prev) => ({
-            ...prev,
-            isResolved,
-            searchKeyword: pendingKeywordRef.current,
-        }));
-    }, []);
+    const setIsResolved = useCallback(
+        (isResolved: ReportStatusFilter | string) => {
+            setFilter((prev) => ({
+                ...prev,
+                isResolved,
+                searchKeyword: pendingKeywordRef.current,
+            }));
+        },
+        [],
+    );
 
     const resetFilter = useCallback(() => {
         setFilter(DEFAULT_REPORT_FILTER);

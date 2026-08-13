@@ -2,7 +2,13 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Select,
+    TextField,
+} from "@mui/material";
 import { usePaymentFilter } from "../providers/payment.filter.provider";
 import { PaymentProvider, PaymentStatus } from "@/types/enums/payment.enum";
 
@@ -30,12 +36,8 @@ const inputSx = {
 
 export function PaymentSearchFilterGrid() {
     const t = useTranslations("paymentManagement.searchBox");
-    const {
-        filter,
-        setStatusFilter,
-        setProviderFilter,
-        setUserIdFilter,
-    } = usePaymentFilter();
+    const { filter, setStatusFilter, setProviderFilter, setUserIdFilter } =
+        usePaymentFilter();
 
     return (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -52,11 +54,21 @@ export function PaymentSearchFilterGrid() {
                     }
                 >
                     <MenuItem value={ALL}>{t("all")}</MenuItem>
-                    <MenuItem value={PaymentStatus.PAID}>{t("statusPaid")}</MenuItem>
-                    <MenuItem value={PaymentStatus.PENDING}>{t("statusPending")}</MenuItem>
-                    <MenuItem value={PaymentStatus.FAILED}>{t("statusFailed")}</MenuItem>
-                    <MenuItem value={PaymentStatus.CANCELLED}>{t("statusCancelled")}</MenuItem>
-                    <MenuItem value={PaymentStatus.EXPIRED}>{t("statusExpired")}</MenuItem>
+                    <MenuItem value={PaymentStatus.PAID}>
+                        {t("statusPaid")}
+                    </MenuItem>
+                    <MenuItem value={PaymentStatus.PENDING}>
+                        {t("statusPending")}
+                    </MenuItem>
+                    <MenuItem value={PaymentStatus.FAILED}>
+                        {t("statusFailed")}
+                    </MenuItem>
+                    <MenuItem value={PaymentStatus.CANCELLED}>
+                        {t("statusCancelled")}
+                    </MenuItem>
+                    <MenuItem value={PaymentStatus.EXPIRED}>
+                        {t("statusExpired")}
+                    </MenuItem>
                 </Select>
             </FormControl>
 

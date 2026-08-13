@@ -39,6 +39,7 @@
             "fullName": "氏名",
             "role": "役割",
             "emailVerified": "メール認証",
+            "subscriptionPlan": "プラン",
             "actions": "アクション",
             "status": "ステータス",
             "verified": "認証済み",
@@ -49,6 +50,7 @@
         "actions": {
             "viewDetail": "詳細を見る",
             "update": "更新",
+            "upgrade": "プランのアップグレード",
             "lock": "アカウントをロック",
             "unlock": "アカウントのロックを解除",
             "scrollToTop": "トップへ戻る"

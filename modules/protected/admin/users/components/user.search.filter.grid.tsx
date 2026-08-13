@@ -30,13 +30,8 @@ const inputSx = {
 
 export default function UserSearchFilterGrid() {
     const t = useTranslations("userManagement.searchBox");
-    const {
-        filter,
-        setGender,
-        setStatus,
-        setIsEmailVerified,
-        setRoleId,
-    } = useUserFilter();
+    const { filter, setGender, setStatus, setIsEmailVerified, setRoleId } =
+        useUserFilter();
 
     return (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -91,9 +86,7 @@ export default function UserSearchFilterGrid() {
                     }
                     onChange={(e) => {
                         const val = e.target.value;
-                        setIsEmailVerified(
-                            val === ALL ? null : val === "true",
-                        );
+                        setIsEmailVerified(val === ALL ? null : val === "true");
                     }}
                 >
                     <MenuItem value={ALL}>{t("all")}</MenuItem>
@@ -120,9 +113,7 @@ export default function UserSearchFilterGrid() {
                     <MenuItem value={ROLE_ID_MAP.LEARNER.toString()}>
                         {t("roleLearner")}
                     </MenuItem>
-                    <MenuItem
-                        value={ROLE_ID_MAP.CONTENT_MANAGER.toString()}
-                    >
+                    <MenuItem value={ROLE_ID_MAP.CONTENT_MANAGER.toString()}>
                         {t("roleContentManager")}
                     </MenuItem>
                     <MenuItem value={ROLE_ID_MAP.ADMIN.toString()}>

@@ -30,10 +30,7 @@ export default function UserTableSkeleton({
                 </thead>
                 <tbody>
                     {Array.from({ length: rowCount }).map((_, i) => (
-                        <tr
-                            key={i}
-                            className="border-bdc-primary border-b"
-                        >
+                        <tr key={i} className="border-bdc-primary border-b">
                             {tableHeaders.map((_, j) => (
                                 <td key={j} className={cellClass}>
                                     <Skeleton
