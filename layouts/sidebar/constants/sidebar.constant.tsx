@@ -6,6 +6,7 @@ import {
     LayoutDashboard,
     MessagesSquare,
     Mic,
+    Receipt,
     Trophy,
     Users,
 } from "lucide-react";
@@ -28,6 +29,7 @@ export const NAV_ITEMS: NavItem[] = [
     { titleKey: "userManagement", url: "/users", icon: Users },
     { titleKey: "paymentManagement", url: "/payments", icon: CreditCard },
     { titleKey: "subscriptionManagement", url: "/subscription-plans", icon: Award },
+    { titleKey: "costServiceManagement", url: "/cost-service-management", icon: Receipt },
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
     { titleKey: "kaiwaRoadmap", url: "/books", icon: Mic },
     {

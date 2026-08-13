@@ -15,4 +15,9 @@ export const queryKeys = {
         plans: ["subscription-plans"] as const,
         user: (userId: number) => ["user-subscription", userId] as const,
     },
+    azureCost: {
+        summary: ["azure-cost-summary"] as const,
+        chart: (params?: Record<string, unknown>) => ["azure-cost-chart", params] as const,
+    },
+
 };

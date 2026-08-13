@@ -36,6 +36,7 @@
                 "orders": "取引履歴",
                 "userManagement": "ユーザー管理",
                 "paymentManagement": "決済管理",
+                "costServiceManagement": "サービス費用管理",
                 "terms": "利用規約",
                 "privacy": "プライバシーポリシー"
             },
@@ -57,6 +58,7 @@
                 "userManagement": "ユーザー管理",
                 "paymentManagement": "決済管理",
                 "subscriptionManagement": "サブスクプラン管理",
+                "costServiceManagement": "サービス費用管理",
                 "reportManagement": "レポート管理",
                 "kaiwaRoadmap": "会話ロードマップ",
                 "freeAiChat": "AIフリートーク",

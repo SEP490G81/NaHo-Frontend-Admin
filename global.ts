@@ -23,6 +23,7 @@ import userManagement from "@/i18n/messages/vi/user-management.json";
 import paymentManagement from "@/i18n/messages/vi/payment-management.json";
 import reportManagement from "@/i18n/messages/vi/report-management.json";
 import subscriptionManagement from "@/i18n/messages/vi/subscription-management.json";
+import costServiceManagement from "@/i18n/messages/vi/cost-service-management.json";
 
 declare module "next-intl" {
     interface AppConfig {
@@ -50,6 +51,7 @@ declare module "next-intl" {
             typeof userManagement &
             typeof paymentManagement &
             typeof reportManagement &
-            typeof subscriptionManagement;
+            typeof subscriptionManagement &
+            typeof costServiceManagement;
     }
 }
