@@ -26,7 +26,7 @@ export interface GranularityOption {
 
 export const PROVIDER_TABS: ProviderTabOption[] = [
     { id: "azure", labelKey: "tabs.azure", enabled: true },
-    { id: "openai", labelKey: "tabs.openai", enabled: false },
+    { id: "openai", labelKey: "tabs.openai", enabled: true },
     { id: "aws", labelKey: "tabs.aws", enabled: true },
 ];
 

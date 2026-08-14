@@ -14,23 +14,23 @@ import { Skeleton } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { BarChart2, TrendingUp } from "lucide-react";
 import ContainerBox from "@/components/ui/container.box";
-import { FormattedChartPoint } from "../types/azure.cost.type";
+import { FormattedOpenAiChartPoint } from "../types/openai.cost.type";
 import { formatCostCurrency } from "../utils/cost.service.util";
 
-interface AzureCostMainChartProps {
-    readonly data: FormattedChartPoint[];
+interface OpenAiCostMainChartProps {
+    readonly data: FormattedOpenAiChartPoint[];
     readonly granularity?: string;
     readonly currency?: string;
     readonly isLoading?: boolean;
 }
 
-export function AzureCostMainChart({
+export function OpenAiCostMainChart({
     data,
     granularity = "Monthly",
     currency = "USD",
     isLoading = false,
-}: AzureCostMainChartProps) {
-    const t = useTranslations("costServiceManagement.chart");
+}: OpenAiCostMainChartProps) {
+    const t = useTranslations("costServiceManagement.chartOpenAi");
 
     const formatYAxis = (val: number) => {
         if (val >= 1_000) return `$${(val / 1_000).toFixed(1)}k`;
@@ -39,12 +39,12 @@ export function AzureCostMainChart({
 
     return (
         <ContainerBox className="relative flex flex-col justify-between overflow-hidden">
-            <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
+            <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-600" />
 
             <div className="flex items-center justify-between pb-2">
                 <div>
                     <div className="flex items-center gap-2">
-                        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                             <TrendingUp className="h-4 w-4" />
                         </div>
                         <h3 className="text-text-contrast text-base font-bold">
@@ -73,7 +73,7 @@ export function AzureCostMainChart({
                         >
                             <defs>
                                 <linearGradient
-                                    id="azureCostGradient"
+                                    id="openAiCostGradient"
                                     x1="0"
                                     y1="0"
                                     x2="0"
@@ -81,12 +81,12 @@ export function AzureCostMainChart({
                                 >
                                     <stop
                                         offset="5%"
-                                        stopColor="#3b82f6"
+                                        stopColor="#10b981"
                                         stopOpacity={0.4}
                                     />
                                     <stop
                                         offset="95%"
-                                        stopColor="#6366f1"
+                                        stopColor="#059669"
                                         stopOpacity={0.0}
                                     />
                                 </linearGradient>
@@ -128,19 +128,19 @@ export function AzureCostMainChart({
                             <Area
                                 type="monotone"
                                 dataKey="cost"
-                                stroke="#2563eb"
+                                stroke="#059669"
                                 strokeWidth={3}
                                 fillOpacity={1}
-                                fill="url(#azureCostGradient)"
+                                fill="url(#openAiCostGradient)"
                                 dot={{
                                     r: 4,
-                                    fill: "#2563eb",
+                                    fill: "#059669",
                                     strokeWidth: 2,
                                     stroke: "#ffffff",
                                 }}
                                 activeDot={{
                                     r: 7,
-                                    fill: "#1d4ed8",
+                                    fill: "#047857",
                                     stroke: "#ffffff",
                                     strokeWidth: 3,
                                 }}
@@ -152,4 +152,3 @@ export function AzureCostMainChart({
         </ContainerBox>
     );
 }
-

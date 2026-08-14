@@ -3,16 +3,16 @@
 import React from "react";
 import { Button, MenuItem, TextField } from "@mui/material";
 import { useTranslations } from "next-intl";
-import { Calendar, RefreshCw } from "lucide-react";
+import { Calendar, CloudSync, RefreshCw } from "lucide-react";
 import ContainerBox from "@/components/ui/container.box";
 import {
     GRANULARITY_OPTIONS,
     PRESET_RANGE_OPTIONS,
 } from "../constants/cost.service.constants";
 import {
-    AwsCostGranularity,
-    AwsCostPresetRange,
-} from "../types/aws.cost.type";
+    OpenAiCostGranularity,
+    OpenAiCostPresetRange,
+} from "../types/openai.cost.type";
 
 const inputSx = {
     "& .MuiOutlinedInput-root": {
@@ -33,20 +33,22 @@ const inputSx = {
     },
 };
 
-interface AwsCostChartFilterProps {
-    readonly presetRange: AwsCostPresetRange;
-    readonly onPresetRangeChange: (range: AwsCostPresetRange) => void;
-    readonly customGranularity: AwsCostGranularity;
-    readonly onCustomGranularityChange: (val: AwsCostGranularity) => void;
+interface OpenAiCostChartFilterProps {
+    readonly presetRange: OpenAiCostPresetRange;
+    readonly onPresetRangeChange: (range: OpenAiCostPresetRange) => void;
+    readonly customGranularity: OpenAiCostGranularity;
+    readonly onCustomGranularityChange: (val: OpenAiCostGranularity) => void;
     readonly fromDate: string;
     readonly onFromDateChange: (val: string) => void;
     readonly toDate: string;
     readonly onToDateChange: (val: string) => void;
     readonly onRefresh: () => void;
+    readonly onSync: () => void;
     readonly isLoading?: boolean;
+    readonly isSyncing?: boolean;
 }
 
-export function AwsCostChartFilter({
+export function OpenAiCostChartFilter({
     presetRange,
     onPresetRangeChange,
     customGranularity,
@@ -56,8 +58,10 @@ export function AwsCostChartFilter({
     toDate,
     onToDateChange,
     onRefresh,
+    onSync,
     isLoading = false,
-}: AwsCostChartFilterProps) {
+    isSyncing = false,
+}: OpenAiCostChartFilterProps) {
     const t = useTranslations("costServiceManagement.filters");
 
     return (
@@ -79,7 +83,7 @@ export function AwsCostChartFilter({
                             value={presetRange}
                             onChange={(e) =>
                                 onPresetRangeChange(
-                                    e.target.value as AwsCostPresetRange,
+                                    e.target.value as OpenAiCostPresetRange,
                                 )
                             }
                             sx={inputSx}
@@ -136,7 +140,7 @@ export function AwsCostChartFilter({
                                     onChange={(e) =>
                                         onCustomGranularityChange(
                                             e.target
-                                                .value as AwsCostGranularity,
+                                                .value as OpenAiCostGranularity,
                                         )
                                     }
                                     sx={inputSx}
@@ -161,7 +165,7 @@ export function AwsCostChartFilter({
                         variant="outlined"
                         size="small"
                         onClick={onRefresh}
-                        disabled={isLoading}
+                        disabled={isLoading || isSyncing}
                         startIcon={
                             <RefreshCw
                                 className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`}
@@ -184,9 +188,37 @@ export function AwsCostChartFilter({
                     >
                         {t("refresh")}
                     </Button>
+
+                    <Button
+                        variant="contained"
+                        size="small"
+                        onClick={onSync}
+                        disabled={isLoading || isSyncing}
+                        startIcon={
+                            <CloudSync
+                                className={`h-4 w-4 ${isSyncing ? "animate-spin" : ""}`}
+                            />
+                        }
+                        sx={{
+                            borderRadius: "10px",
+                            backgroundColor: "var(--color-bgc-highlight)",
+                            color: "#ffffff",
+                            textTransform: "none",
+                            fontSize: "0.85rem",
+                            fontWeight: 600,
+                            px: 2,
+                            boxShadow: "none",
+                            "&:hover": {
+                                backgroundColor: "var(--color-bgc-highlight)",
+                                opacity: 0.9,
+                                boxShadow: "none",
+                            },
+                        }}
+                    >
+                        {isSyncing ? t("syncing") : t("syncDataOpenAi")}
+                    </Button>
                 </div>
             </div>
         </ContainerBox>
     );
 }
-

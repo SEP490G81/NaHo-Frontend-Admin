@@ -5,27 +5,27 @@ import { Skeleton } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { ListFilter, Table } from "lucide-react";
 import ContainerBox from "@/components/ui/container.box";
-import { FormattedChartPoint } from "../types/azure.cost.type";
+import { FormattedOpenAiChartPoint } from "../types/openai.cost.type";
 import { formatCostCurrency } from "../utils/cost.service.util";
 
-interface AzureCostBreakdownTableProps {
-    readonly data: FormattedChartPoint[];
+interface OpenAiCostBreakdownTableProps {
+    readonly data: FormattedOpenAiChartPoint[];
     readonly currency?: string;
     readonly isLoading?: boolean;
 }
 
-export function AzureCostBreakdownTable({
+export function OpenAiCostBreakdownTable({
     data,
     currency = "USD",
     isLoading = false,
-}: AzureCostBreakdownTableProps) {
-    const t = useTranslations("costServiceManagement.table");
+}: OpenAiCostBreakdownTableProps) {
+    const t = useTranslations("costServiceManagement.tableOpenAi");
 
     return (
         <ContainerBox className="!p-0 overflow-hidden">
             <div className="border-bdc-primary flex items-center justify-between border-b p-4 sm:p-5">
                 <div className="flex items-center gap-2">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                         <Table className="h-4 w-4" />
                     </div>
                     <div>
@@ -99,7 +99,7 @@ export function AzureCostBreakdownTable({
                                     <td className="text-text-contrast px-6 py-4 font-semibold">
                                         {row.formattedDate}
                                     </td>
-                                    <td className="px-6 py-4 font-bold text-blue-600 dark:text-blue-400">
+                                    <td className="px-6 py-4 font-bold text-emerald-600 dark:text-emerald-400">
                                         {formatCostCurrency(
                                             row.cost,
                                             row.currency || currency,
@@ -109,7 +109,7 @@ export function AzureCostBreakdownTable({
                                         <div className="flex items-center gap-3">
                                             <div className="bg-bdc-primary h-2 w-24 overflow-hidden rounded-full">
                                                 <div
-                                                    className="h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-500"
+                                                    className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-500"
                                                     style={{
                                                         width: `${Math.min(row.sharePercent, 100)}%`,
                                                     }}
@@ -129,4 +129,3 @@ export function AzureCostBreakdownTable({
         </ContainerBox>
     );
 }
-

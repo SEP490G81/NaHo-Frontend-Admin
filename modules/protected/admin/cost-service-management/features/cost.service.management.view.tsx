@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useTranslations } from "next-intl";
+import ContainerBox from "@/components/ui/container.box";
 import { useAzureCost } from "../hooks/use.azure.cost";
 import { useAwsCost } from "../hooks/use.aws.cost";
+import { useOpenAiCost } from "../hooks/use.openai.cost";
 import { ServiceProviderTabs } from "../components/service.provider.tabs";
 import { AzureCostSummaryCard } from "../components/azure.cost.summary.card";
 import { AzureCostChartFilter } from "../components/azure.cost.chart.filter";
@@ -16,9 +18,12 @@ import { AwsCostChartFilter } from "../components/aws.cost.chart.filter";
 import { AwsCostMainChart } from "../components/aws.cost.main.chart";
 import { AwsCostBreakdownTable } from "../components/aws.cost.breakdown.table";
 import { AwsCostErrorAlert } from "../components/aws.cost.error.alert";
+import { OpenAiCostSummaryCard } from "../components/openai.cost.summary.card";
+import { OpenAiCostChartFilter } from "../components/openai.cost.chart.filter";
+import { OpenAiCostMainChart } from "../components/openai.cost.main.chart";
+import { OpenAiCostBreakdownTable } from "../components/openai.cost.breakdown.table";
+import { OpenAiCostErrorAlert } from "../components/openai.cost.error.alert";
 import { ServiceProviderTab } from "../types/azure.cost.type";
-import Image from "next/image";
-import openAiLogo from "../assets/openAI.jpg";
 
 export default function CostServiceManagementView() {
     const t = useTranslations("costServiceManagement");
@@ -26,43 +31,48 @@ export default function CostServiceManagementView() {
 
     const azureCost = useAzureCost();
     const awsCost = useAwsCost();
+    const openAiCost = useOpenAiCost();
 
     const isFetching =
         activeTab === "azure"
             ? azureCost.isFetching
             : activeTab === "aws"
               ? awsCost.isFetching
-              : false;
+              : activeTab === "openai"
+                ? openAiCost.isFetching
+                : false;
 
     return (
-        <div className="relative flex flex-col gap-6 p-6">
+        <div className="flex w-full flex-col gap-y-4">
             {/* Centered Screen Loading Backdrop */}
             <Backdrop
                 open={isFetching}
                 sx={{
                     zIndex: (theme) => theme.zIndex.drawer + 2,
-                    color: "#ffffff",
+                    color: "var(--color-text-contrast)",
                     backgroundColor: "rgba(0, 0, 0, 0.4)",
                     backdropFilter: "blur(4px)",
                 }}
             >
-                <div className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-white/90 p-6 shadow-2xl backdrop-blur-md dark:bg-gray-900/90">
+                <div className="bg-bgc-app border-bdc-primary flex flex-col items-center justify-center gap-3 rounded-2xl border p-6 shadow-2xl backdrop-blur-md">
                     <CircularProgress size={44} thickness={4} color="primary" />
-                    <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                    <span className="text-text-contrast text-sm font-semibold">
                         {t("loadingMessage")}
                     </span>
                 </div>
             </Backdrop>
 
             {/* Header Title */}
-            <div className="flex flex-col gap-1 rounded-xl border-2 border-gray-200 bg-white p-4 dark:bg-gray-900">
-                <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-                    {t("pageTitle")}
-                </h1>
-                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    {t("subtitle")}
-                </p>
-            </div>
+            <ContainerBox>
+                <div className="flex flex-col gap-1">
+                    <h1 className="text-text-contrast text-2xl font-bold">
+                        {t("pageTitle")}
+                    </h1>
+                    <p className="text-text-muted mt-1 text-xs">
+                        {t("subtitle")}
+                    </p>
+                </div>
+            </ContainerBox>
 
             {/* Provider Tabs Switcher */}
             <ServiceProviderTabs
@@ -72,7 +82,7 @@ export default function CostServiceManagementView() {
 
             {/* Content for Azure Provider */}
             {activeTab === "azure" && (
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-y-4">
                     {/* Azure Rate Limit Error Alert if API error occurs */}
                     {azureCost.isError && (
                         <AzureCostErrorAlert
@@ -136,7 +146,7 @@ export default function CostServiceManagementView() {
 
             {/* Content for AWS Provider */}
             {activeTab === "aws" && (
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-y-4">
                     {/* AWS Error Alert if API error occurs */}
                     {awsCost.isError && (
                         <AwsCostErrorAlert
@@ -196,24 +206,67 @@ export default function CostServiceManagementView() {
                 </div>
             )}
 
-            {/* Coming Soon Placeholders for OpenAI */}
+            {/* Content for OpenAI Provider */}
             {activeTab === "openai" && (
-                <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] py-16 text-center shadow-sm">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 p-2 text-amber-600 dark:text-amber-400">
-                        <Image
-                            src={openAiLogo}
-                            alt="OpenAI Logo"
-                            width={48}
-                            height={48}
-                            className="h-12 w-12 rounded-xl object-contain"
+                <div className="flex flex-col gap-y-4">
+                    {/* OpenAI Error Alert if API error occurs */}
+                    {openAiCost.isError && (
+                        <OpenAiCostErrorAlert
+                            error={openAiCost.activeError}
+                            onRetry={openAiCost.refetchAll}
+                            isRetrying={openAiCost.isFetching}
                         />
-                    </div>
-                    <h3 className="mt-4 text-base font-bold text-gray-900 dark:text-gray-100">
-                        {t("comingSoonTitle")}
-                    </h3>
-                    <p className="mt-1 max-w-sm text-xs text-gray-500 dark:text-gray-400">
-                        {t("comingSoonDesc")}
-                    </p>
+                    )}
+
+                    {/* KPI Summary Cards */}
+                    <OpenAiCostSummaryCard
+                        mtdCost={openAiCost.summary?.cost}
+                        periodCost={openAiCost.chartData?.totalCost}
+                        currency={
+                            openAiCost.chartData?.currency ||
+                            openAiCost.summary?.currency ||
+                            "USD"
+                        }
+                        dataPointsCount={openAiCost.formattedPoints.length}
+                        isLoading={openAiCost.isLoading}
+                    />
+
+                    {/* Timeframe Selector Bar with Sync button */}
+                    <OpenAiCostChartFilter
+                        presetRange={openAiCost.presetRange}
+                        onPresetRangeChange={openAiCost.setPresetRange}
+                        customGranularity={openAiCost.customGranularity}
+                        onCustomGranularityChange={
+                            openAiCost.setCustomGranularity
+                        }
+                        fromDate={openAiCost.fromDate}
+                        onFromDateChange={openAiCost.setFromDate}
+                        toDate={openAiCost.toDate}
+                        onToDateChange={openAiCost.setToDate}
+                        onRefresh={openAiCost.refetchAll}
+                        onSync={openAiCost.handleSync}
+                        isLoading={openAiCost.isFetching}
+                        isSyncing={openAiCost.isSyncing}
+                    />
+
+                    {/* Main Recharts Visualizer */}
+                    <OpenAiCostMainChart
+                        data={openAiCost.formattedPoints}
+                        granularity={
+                            openAiCost.chartData?.granularity ||
+                            openAiCost.granularity ||
+                            "Monthly"
+                        }
+                        currency={openAiCost.chartData?.currency || "USD"}
+                        isLoading={openAiCost.isLoading}
+                    />
+
+                    {/* Data Points Breakdown Table */}
+                    <OpenAiCostBreakdownTable
+                        data={openAiCost.formattedPoints}
+                        currency={openAiCost.chartData?.currency || "USD"}
+                        isLoading={openAiCost.isLoading}
+                    />
                 </div>
             )}
         </div>

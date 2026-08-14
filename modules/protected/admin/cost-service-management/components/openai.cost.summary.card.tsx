@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { BarChart3, Calendar, DollarSign, TrendingUp } from "lucide-react";
 import { formatCostCurrency } from "../utils/cost.service.util";
 
-interface AzureCostSummaryCardProps {
+interface OpenAiCostSummaryCardProps {
     readonly mtdCost?: number;
     readonly periodCost?: number;
     readonly currency?: string;
@@ -14,13 +14,13 @@ interface AzureCostSummaryCardProps {
     readonly isLoading?: boolean;
 }
 
-export function AzureCostSummaryCard({
+export function OpenAiCostSummaryCard({
     mtdCost = 0,
     periodCost = 0,
     currency = "USD",
     dataPointsCount = 0,
     isLoading = false,
-}: AzureCostSummaryCardProps) {
+}: OpenAiCostSummaryCardProps) {
     const t = useTranslations("costServiceManagement.kpi");
 
     const avgCost = dataPointsCount > 0 ? periodCost / dataPointsCount : 0;
@@ -31,16 +31,17 @@ export function AzureCostSummaryCard({
             value: formatCostCurrency(mtdCost, currency),
             subtitle: t("mtdSubtitle"),
             icon: <DollarSign className="h-5 w-5" />,
-            colorClass: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-            borderColor: "border-l-4 border-l-blue-500",
+            colorClass:
+                "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+            borderColor: "border-l-4 border-l-emerald-500",
         },
         {
             title: t("periodCost"),
             value: formatCostCurrency(periodCost, currency),
             subtitle: t("periodSubtitle"),
             icon: <TrendingUp className="h-5 w-5" />,
-            colorClass: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
-            borderColor: "border-l-4 border-l-pink-500",
+            colorClass: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
+            borderColor: "border-l-4 border-l-teal-500",
         },
         {
             title: t("avgCost"),

@@ -111,13 +111,7 @@ export function UserSubscriptionTableRow({
                         <IconButton
                             size="small"
                             onClick={() => openDetail(user)}
-                            sx={{
-                                color: "#14b8a6",
-                                backgroundColor: "rgba(20,184,166,0.08)",
-                                "&:hover": {
-                                    backgroundColor: "rgba(20,184,166,0.18)",
-                                },
-                            }}
+                            className="text-text-contrast hover:bg-hbgc-app"
                         >
                             <Eye className="h-4 w-4" />
                         </IconButton>
@@ -135,11 +129,26 @@ export function UserSubscriptionTableRow({
                             })
                         }
                         startIcon={<ArrowUpCircle className="h-3.5 w-3.5" />}
-                        className={`rounded-lg px-2.5 py-1 text-xs font-bold shadow-none transition-all ${
-                            isPremium
-                                ? "bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500"
-                                : "border border-pink-200 bg-pink-50 text-pink-600 hover:bg-pink-100 dark:border-pink-800/60 dark:bg-pink-950/60 dark:text-pink-300 dark:hover:bg-pink-900/80"
-                        }`}
+                        sx={{
+                            borderRadius: "8px",
+                            backgroundColor: "var(--color-bgc-highlight)",
+                            color: "#fff",
+                            textTransform: "none",
+                            fontSize: "0.75rem",
+                            fontWeight: "bold",
+                            px: 1.5,
+                            py: 0.5,
+                            boxShadow: "none",
+                            "&:hover": {
+                                backgroundColor: "var(--color-bgc-highlight)",
+                                opacity: 0.9,
+                                boxShadow: "none",
+                            },
+                            "&.Mui-disabled": {
+                                backgroundColor: "var(--color-bdc-primary)",
+                                color: "var(--color-text-muted)",
+                            },
+                        }}
                     >
                         {isPremium ? "PREMIUM" : "Nâng cấp"}
                     </Button>
