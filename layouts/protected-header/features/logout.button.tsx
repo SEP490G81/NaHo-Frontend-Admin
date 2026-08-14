@@ -1,12 +1,16 @@
+"use client";
+
 import React from "react";
 import { useTranslations } from "next-intl";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Button } from "@mui/material";
+import { TooltipCustom } from "@/components/ui/mui-custom/tooltip.custom";
 import { logout } from "@/services/client/user.service";
 import { useRouter } from "@/i18n/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "@/libs/query.keys";
 
-const LogoutButton = () => {
+export default function LogoutButton() {
     const t = useTranslations();
     const { replace } = useRouter();
     const queryClient = useQueryClient();
@@ -14,9 +18,7 @@ const LogoutButton = () => {
     const handleLogout = async () => {
         try {
             await logout();
-
             queryClient.setQueryData(queryKeys.auth.currentUser, null);
-
             replace("/login");
         } catch (error) {
             console.error(error);
@@ -24,20 +26,28 @@ const LogoutButton = () => {
     };
 
     return (
-        <div className="px-1 py-2">
-            <button
-                className="hover:text-text-highlight hover:bg-hbgc-page flex h-10 w-full cursor-pointer items-center justify-start rounded-md px-5 transition-all duration-150"
+        <TooltipCustom
+            arrow
+            title={t("common.layout.header.logoutButton")}
+        >
+            <Button
+                variant="outlined"
                 onClick={handleLogout}
+                sx={{
+                    width: "40px",
+                    minWidth: "40px",
+                    height: "40px",
+                    borderColor: "var(--color-text-error)",
+                    color: "var(--color-text-error)",
+                    "&:hover": {
+                        borderColor: "var(--color-text-error)",
+                        backgroundColor:
+                            "color-mix(in srgb, var(--color-text-error) 10%, transparent)",
+                    },
+                }}
             >
-                <span className="flex h-10 w-10 items-center">
-                    <LogoutIcon fontSize="small" />
-                </span>
-                <p className="text-sm font-semibold whitespace-nowrap">
-                    {t("common.layout.header.logoutButton")}
-                </p>
-            </button>
-        </div>
+                <LogoutIcon fontSize="small" />
+            </Button>
+        </TooltipCustom>
     );
-};
-
-export default LogoutButton;
+}

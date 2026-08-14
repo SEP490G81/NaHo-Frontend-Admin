@@ -4,10 +4,7 @@ import {
     CreditCard,
     Flag,
     LayoutDashboard,
-    MessagesSquare,
-    Mic,
     Receipt,
-    Trophy,
     Users,
 } from "lucide-react";
 
@@ -39,17 +36,4 @@ export const NAV_ITEMS: NavItem[] = [
         icon: Receipt,
     },
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
-    { titleKey: "kaiwaRoadmap", url: "/books", icon: Mic },
-    {
-        titleKey: "freeAiChat",
-        url: "/dialogue-setup",
-        icon: MessagesSquare,
-        disabled: false,
-    },
-    {
-        titleKey: "leaderboard",
-        url: "/leaderboard",
-        icon: Trophy,
-        disabled: false,
-    },
 ];

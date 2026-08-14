@@ -2,7 +2,6 @@
 
 import React, { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { ArrowDown, ArrowUp } from "lucide-react";
 import { UserResponse } from "@/types/responses/user.response";
 import {
     FeSort,
@@ -82,11 +81,27 @@ export default function UserTable({
         "px-4 py-3 text-center text-sm text-text-contrast whitespace-nowrap";
 
     const renderSortIcon = (col: FeSortColumn) => {
-        if (feSort.column !== col) return null;
-        return feSort.direction === "asc" ? (
-            <ArrowUp className="ml-1 inline h-3 w-3" />
-        ) : (
-            <ArrowDown className="ml-1 inline h-3 w-3" />
+        const isSelected = feSort.column === col;
+        return (
+            <span className="ml-1.5 inline-flex flex-col items-center justify-center align-middle">
+                {/* Mũi tên tam giác lên */}
+                <span
+                    className={`inline-block border-r-[3.5px] border-b-[4.5px] border-l-[3.5px] border-r-transparent border-l-transparent transition-all ${
+                        isSelected && feSort.direction === "asc"
+                            ? "border-b-bgc-highlight opacity-100 scale-110"
+                            : "border-b-text-muted opacity-30 group-hover:opacity-60"
+                    }`}
+                    style={{ marginBottom: "1.5px" }}
+                />
+                {/* Mũi tên tam giác xuống */}
+                <span
+                    className={`inline-block border-t-[4.5px] border-r-[3.5px] border-l-[3.5px] border-r-transparent border-l-transparent transition-all ${
+                        isSelected && feSort.direction === "desc"
+                            ? "border-t-bgc-highlight opacity-100 scale-110"
+                            : "border-t-text-muted opacity-30 group-hover:opacity-60"
+                    }`}
+                />
+            </span>
         );
     };
 
@@ -131,11 +146,13 @@ export default function UserTable({
                         ).map((col) => (
                             <th
                                 key={col}
-                                className={`${headClass} hover:text-bgc-highlight cursor-pointer transition-colors select-none`}
+                                className={`${headClass} group hover:text-bgc-highlight cursor-pointer transition-colors select-none`}
                                 onClick={() => handleColumnSort(col)}
                             >
-                                {t(col)}
-                                {renderSortIcon(col)}
+                                <span className="inline-flex items-center justify-center">
+                                    {t(col)}
+                                    {renderSortIcon(col)}
+                                </span>
                             </th>
                         ))}
                         <th className={headClass}>{t("emailVerified")}</th>

@@ -1,18 +1,29 @@
 "use client";
-import React from "react";
-import NotificationButton from "@/layouts/protected-header/features/notification.button";
-import SettingsButton from "./settings.button";
-import { Button, Divider } from "@mui/material";
-import { useUiStore } from "@/store/uiStore";
-import { TooltipCustom } from "@/components/ui/mui-custom/tooltip.custom";
+
+import React, { useEffect } from "react";
 import { useTranslations } from "next-intl";
-import HeaderDecoration from "./header.decoration";
+import { Button, Divider } from "@mui/material";
 import KeyboardDoubleArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowLeftOutlined";
 import KeyboardDoubleArrowRightOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowRightOutlined";
+import { usePathname } from "@/i18n/navigation";
+import { useUiStore } from "@/store/uiStore";
+import { TooltipCustom } from "@/components/ui/mui-custom/tooltip.custom";
+import HeaderDecoration from "@/layouts/protected-header/components/header.decoration";
+import NotificationButton from "@/layouts/protected-header/features/notification.button";
+import SettingsButton from "@/layouts/protected-header/components/settings.button";
+import LogoutButton from "@/layouts/protected-header/features/logout.button";
+import { LAST_NON_SETTINGS_KEY } from "@/modules/protected/shared/settings/hooks/use.settings.back";
 
-const ProtectedHeader = () => {
+export default function ProtectedHeader() {
     const t = useTranslations();
+    const pathname = usePathname();
     const { toggleSidebarCollapse, isSidebarCollapsed } = useUiStore();
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && pathname && !pathname.startsWith("/settings")) {
+            sessionStorage.setItem(LAST_NON_SETTINGS_KEY, pathname);
+        }
+    }, [pathname]);
 
     return (
         <div className="border-b-bdc-primary bg-bgc-app sticky top-0 left-0 z-10 flex items-center justify-between overflow-hidden border-b px-3 py-3.5">
@@ -49,8 +60,11 @@ const ProtectedHeader = () => {
                 </TooltipCustom>
             </div>
 
-            {/* Right */}
+            {/* Right: notifications, settings, divider, logout */}
             <div className="z-10 flex items-center gap-x-3">
+                <NotificationButton />
+                <SettingsButton />
+
                 <Divider
                     orientation="vertical"
                     flexItem
@@ -60,11 +74,9 @@ const ProtectedHeader = () => {
                         borderColor: "var(--color-bdc-primary)",
                     }}
                 />
-                <NotificationButton />
-                <SettingsButton />
+
+                <LogoutButton />
             </div>
         </div>
     );
-};
-
-export default ProtectedHeader;
+}

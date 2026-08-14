@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
-import { Button, IconButton, Skeleton, Tooltip } from "@mui/material";
+import { IconButton, Skeleton, Tooltip } from "@mui/material";
 import { ArrowUpCircle, Eye } from "lucide-react";
 import { UserResponse } from "@/types/responses/user.response";
 import EmailVerifiedBadge from "@/modules/protected/admin/users/components/email.verified.badge";
@@ -111,12 +111,17 @@ export default function UserTableRow({
                         </IconButton>
                     </Tooltip>
 
-                    {/* Upgrade Button */}
-                    <Tooltip title={tActions("upgrade")}>
+                    {/* Upgrade Button — Violet */}
+                    <Tooltip
+                        title={
+                            isPremium
+                                ? "PREMIUM"
+                                : tActions("upgrade")
+                        }
+                    >
                         <span>
-                            <Button
+                            <IconButton
                                 size="small"
-                                variant="contained"
                                 disabled={isPremium || isSubLoading}
                                 onClick={() =>
                                     openUpgradeModal({
@@ -124,17 +129,25 @@ export default function UserTableRow({
                                         currentPlanCode,
                                     })
                                 }
-                                startIcon={
-                                    <ArrowUpCircle className="h-3.5 w-3.5" />
-                                }
-                                className={`!rounded-lg !px-2 !py-1 !text-xs !font-bold !shadow-none transition-all ${
-                                    isPremium
-                                        ? "!bg-gray-100 !text-gray-400 dark:!bg-gray-800 dark:!text-gray-500"
-                                        : "border border-pink-200 !bg-pink-50 !text-pink-600 hover:!bg-pink-100 dark:border-pink-800/60 dark:!bg-pink-950/60 dark:!text-pink-300 dark:hover:!bg-pink-900/80"
-                                }`}
+                                sx={{
+                                    color: isPremium
+                                        ? "var(--color-text-muted)"
+                                        : "#8b5cf6",
+                                    backgroundColor: isPremium
+                                        ? "transparent"
+                                        : "rgba(139,92,246,0.08)",
+                                    "&:hover": {
+                                        backgroundColor: isPremium
+                                            ? "transparent"
+                                            : "rgba(139,92,246,0.18)",
+                                    },
+                                    "&.Mui-disabled": {
+                                        opacity: 0.5,
+                                    },
+                                }}
                             >
-                                {isPremium ? "PREMIUM" : tActions("upgrade")}
-                            </Button>
+                                <ArrowUpCircle className="h-4 w-4" />
+                            </IconButton>
                         </span>
                     </Tooltip>
 
