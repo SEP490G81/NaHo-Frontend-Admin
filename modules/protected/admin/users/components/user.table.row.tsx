@@ -113,11 +113,7 @@ export default function UserTableRow({
 
                     {/* Upgrade Button — Violet */}
                     <Tooltip
-                        title={
-                            isPremium
-                                ? "PREMIUM"
-                                : tActions("upgrade")
-                        }
+                        title={isPremium ? "PREMIUM" : tActions("upgrade")}
                     >
                         <span>
                             <IconButton

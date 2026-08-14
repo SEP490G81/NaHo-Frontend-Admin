@@ -9,10 +9,7 @@ import {
     GRANULARITY_OPTIONS,
     PRESET_RANGE_OPTIONS,
 } from "../constants/cost.service.constants";
-import {
-    AwsCostGranularity,
-    AwsCostPresetRange,
-} from "../types/aws.cost.type";
+import { AwsCostGranularity, AwsCostPresetRange } from "../types/aws.cost.type";
 
 const inputSx = {
     "& .MuiOutlinedInput-root": {
@@ -189,4 +186,3 @@ export function AwsCostChartFilter({
         </ContainerBox>
     );
 }
-

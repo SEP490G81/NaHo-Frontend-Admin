@@ -93,7 +93,9 @@ function UpgradeForm({ targetUser, onClose }: UpgradeFormProps) {
             onClose();
         } catch (err: unknown) {
             const errorObj = err as { detail?: string; message?: string };
-            setErrorMessage(errorObj?.detail || errorObj?.message || t("errorFailed"));
+            setErrorMessage(
+                errorObj?.detail || errorObj?.message || t("errorFailed"),
+            );
         }
     };
 
@@ -102,11 +104,13 @@ function UpgradeForm({ targetUser, onClose }: UpgradeFormProps) {
             <DialogTitle className="text-text-contrast flex items-center justify-between px-6 py-4 font-bold">
                 <div className="flex items-center gap-2">
                     <ArrowUpCircle className="text-bgc-highlight h-5 w-5" />
-                    <span>
-                        {t("title", { userId: targetUser.userId })}
-                    </span>
+                    <span>{t("title", { userId: targetUser.userId })}</span>
                 </div>
-                <IconButton onClick={onClose} size="small" className="text-text-muted">
+                <IconButton
+                    onClick={onClose}
+                    size="small"
+                    className="text-text-muted"
+                >
                     <X className="h-4 w-4" />
                 </IconButton>
             </DialogTitle>
@@ -140,9 +144,7 @@ function UpgradeForm({ targetUser, onClose }: UpgradeFormProps) {
                         fullWidth
                         size="small"
                         value={selectedPlanCode}
-                        onChange={(e) =>
-                            setSelectedPlanCode(e.target.value)
-                        }
+                        onChange={(e) => setSelectedPlanCode(e.target.value)}
                         disabled={isPremium}
                         sx={inputSx}
                     >
@@ -247,4 +249,3 @@ export function SubscriptionUpgradeModal() {
         </Dialog>
     );
 }
-

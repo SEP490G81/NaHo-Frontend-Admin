@@ -96,4 +96,3 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
         </TableRow>
     );
 }
-

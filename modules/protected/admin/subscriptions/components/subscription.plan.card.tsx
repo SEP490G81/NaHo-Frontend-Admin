@@ -50,7 +50,7 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
             className={`relative flex flex-col justify-between rounded-3xl p-6 transition-all duration-300 ${getCardStyle()}`}
         >
             {isPremium && (
-                <div className="bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[11px] font-extrabold tracking-wider text-white uppercase shadow-md">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 px-4 py-1 text-[11px] font-extrabold tracking-wider text-white uppercase shadow-md">
                     {t("mostPopular")}
                 </div>
             )}
@@ -190,4 +190,3 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
         </div>
     );
 }
-

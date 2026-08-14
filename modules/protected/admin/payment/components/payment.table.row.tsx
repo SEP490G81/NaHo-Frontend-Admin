@@ -135,4 +135,3 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
         </TableRow>
     );
 }
-

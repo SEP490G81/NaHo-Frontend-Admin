@@ -77,9 +77,7 @@ export function UserSubscriptionLookupBox() {
                         <UserCheck className="text-bgc-highlight h-5 w-5" />
                         <span>{t("title")}</span>
                     </h3>
-                    <p className="text-text-muted text-xs">
-                        {t("subtitle")}
-                    </p>
+                    <p className="text-text-muted text-xs">{t("subtitle")}</p>
                 </div>
 
                 {/* Input Search Form */}
@@ -146,7 +144,9 @@ export function UserSubscriptionLookupBox() {
                         ) : isError || !userSub ? (
                             <div className="flex items-center gap-2 text-xs text-amber-600">
                                 <ShieldAlert className="h-4 w-4 shrink-0" />
-                                <span>{t("notFound", { id: lookupUserId })}</span>
+                                <span>
+                                    {t("notFound", { id: lookupUserId })}
+                                </span>
                             </div>
                         ) : (
                             <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
@@ -164,7 +164,8 @@ export function UserSubscriptionLookupBox() {
                                             color={
                                                 userSub.status === "ACTIVE"
                                                     ? "success"
-                                                    : userSub.status === "EXPIRED"
+                                                    : userSub.status ===
+                                                        "EXPIRED"
                                                       ? "warning"
                                                       : "error"
                                             }
@@ -208,18 +209,21 @@ export function UserSubscriptionLookupBox() {
                                     }
                                     sx={{
                                         borderRadius: "10px",
-                                        backgroundColor: "var(--color-bgc-highlight)",
+                                        backgroundColor:
+                                            "var(--color-bgc-highlight)",
                                         color: "#fff",
                                         textTransform: "none",
                                         fontWeight: "bold",
                                         px: 2,
                                         py: 1,
                                         "&:hover": {
-                                            backgroundColor: "var(--color-bgc-highlight)",
+                                            backgroundColor:
+                                                "var(--color-bgc-highlight)",
                                             opacity: 0.9,
                                         },
                                         "&.Mui-disabled": {
-                                            backgroundColor: "var(--color-bdc-primary)",
+                                            backgroundColor:
+                                                "var(--color-bdc-primary)",
                                             color: "var(--color-text-muted)",
                                         },
                                     }}
@@ -236,4 +240,3 @@ export function UserSubscriptionLookupBox() {
         </ContainerBox>
     );
 }
-

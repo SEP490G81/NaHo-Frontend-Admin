@@ -71,7 +71,11 @@ export function PaymentDetailsModal() {
                     <CreditCard className="text-bgc-highlight h-5 w-5" />
                     <span>{t("title")}</span>
                 </div>
-                <IconButton onClick={closeDetail} size="small" className="text-text-muted">
+                <IconButton
+                    onClick={closeDetail}
+                    size="small"
+                    className="text-text-muted"
+                >
                     <X className="h-4 w-4" />
                 </IconButton>
             </DialogTitle>
@@ -194,7 +198,9 @@ export function PaymentDetailsModal() {
                         <div className="bg-bgc-app border-bdc-primary text-text-muted rounded-xl border p-4 text-xs">
                             <span>
                                 User ID:{" "}
-                                <strong className="text-text-contrast">#{selectedPayment.userId}</strong>{" "}
+                                <strong className="text-text-contrast">
+                                    #{selectedPayment.userId}
+                                </strong>{" "}
                                 (Không tìm thấy thông tin chi tiết tài khoản).
                             </span>
                         </div>
@@ -249,7 +255,7 @@ export function PaymentDetailsModal() {
                 </div>
 
                 {/* 4. Timeline Information */}
-                <div className="border-bdc-primary bg-bgc-app rounded-xl border p-4 text-xs space-y-2">
+                <div className="border-bdc-primary bg-bgc-app space-y-2 rounded-xl border p-4 text-xs">
                     <div className="flex justify-between">
                         <span className="text-text-muted">
                             {t("createdTime")}:
@@ -267,7 +273,9 @@ export function PaymentDetailsModal() {
                         </span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-text-muted">{t("paidTime")}:</span>
+                        <span className="text-text-muted">
+                            {t("paidTime")}:
+                        </span>
                         <span className="text-text-contrast font-medium">
                             {formatDate(selectedPayment.paidTime)}
                         </span>
@@ -300,4 +308,3 @@ export function PaymentDetailsModal() {
         </Dialog>
     );
 }
-

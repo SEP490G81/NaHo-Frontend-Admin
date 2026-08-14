@@ -61,7 +61,11 @@ export function ReportDetailsModal() {
                             {t("title")} #{selectedReportDetail.id}
                         </span>
                     </div>
-                    <IconButton onClick={closeDetail} size="small" className="text-text-muted">
+                    <IconButton
+                        onClick={closeDetail}
+                        size="small"
+                        className="text-text-muted"
+                    >
                         <X className="h-4 w-4" />
                     </IconButton>
                 </DialogTitle>
@@ -259,4 +263,3 @@ export function ReportDetailsModal() {
         </>
     );
 }
-

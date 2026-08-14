@@ -60,10 +60,16 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
     const t = useTranslations("subscriptionManagement.editPlanModal");
     const mutation = useUpdateSubscriptionPlanMutation();
 
-    const [description, setDescription] = useState<string>(plan.description || "");
+    const [description, setDescription] = useState<string>(
+        plan.description || "",
+    );
     const [tier, setTier] = useState<string>(plan.tier || plan.code || "FREE");
-    const [priceAmount, setPriceAmount] = useState<number>(plan.priceAmount ?? 0);
-    const [priceCurrency, setPriceCurrency] = useState<string>(plan.priceCurrency || "VND");
+    const [priceAmount, setPriceAmount] = useState<number>(
+        plan.priceAmount ?? 0,
+    );
+    const [priceCurrency, setPriceCurrency] = useState<string>(
+        plan.priceCurrency || "VND",
+    );
     const [durationDays, setDurationDays] = useState<string>(
         plan.durationDays !== null && plan.durationDays !== undefined
             ? String(plan.durationDays)
@@ -123,7 +129,8 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
             onClose();
         } catch (err: unknown) {
             const errorObj = err as { detail?: string; message?: string };
-            const msg = errorObj?.detail || errorObj?.message || t("errorToast");
+            const msg =
+                errorObj?.detail || errorObj?.message || t("errorToast");
             setErrorMessage(msg);
             toast.error(msg);
         }
@@ -149,7 +156,11 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                         </p>
                     </div>
                 </div>
-                <IconButton onClick={onClose} size="small" className="text-text-muted">
+                <IconButton
+                    onClick={onClose}
+                    size="small"
+                    className="text-text-muted"
+                >
                     <X className="h-4 w-4" />
                 </IconButton>
             </DialogTitle>
@@ -214,9 +225,7 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                                 rows={2}
                                 size="small"
                                 value={description}
-                                onChange={(e) =>
-                                    setDescription(e.target.value)
-                                }
+                                onChange={(e) => setDescription(e.target.value)}
                                 sx={inputSx}
                             />
                         </div>
@@ -314,9 +323,7 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                                 size="small"
                                 value={maxRecordingSecs}
                                 onChange={(e) =>
-                                    setMaxRecordingSecs(
-                                        Number(e.target.value),
-                                    )
+                                    setMaxRecordingSecs(Number(e.target.value))
                                 }
                                 sx={inputSx}
                             />
@@ -332,9 +339,7 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                                 size="small"
                                 value={maxConcurrentAi}
                                 onChange={(e) =>
-                                    setMaxConcurrentAi(
-                                        Number(e.target.value),
-                                    )
+                                    setMaxConcurrentAi(Number(e.target.value))
                                 }
                                 sx={inputSx}
                             />
@@ -382,9 +387,7 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                                 size="small"
                                 value={maxAiSpeakingSecs}
                                 onChange={(e) =>
-                                    setMaxAiSpeakingSecs(
-                                        Number(e.target.value),
-                                    )
+                                    setMaxAiSpeakingSecs(Number(e.target.value))
                                 }
                                 sx={inputSx}
                             />
@@ -406,8 +409,8 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                                 {t("fields.sampleAnswerEnabled")}
                             </span>
                             <span className="text-text-muted block text-[11px]">
-                                Cho phép người dùng sử dụng gói này xem đáp
-                                án gợi ý mẫu trong quá trình học.
+                                Cho phép người dùng sử dụng gói này xem đáp án
+                                gợi ý mẫu trong quá trình học.
                             </span>
                         </div>
                         <FormControlLabel
@@ -415,9 +418,7 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                                 <Switch
                                     checked={sampleAnswerEnabled}
                                     onChange={(e) =>
-                                        setSampleAnswerEnabled(
-                                            e.target.checked,
-                                        )
+                                        setSampleAnswerEnabled(e.target.checked)
                                     }
                                     color="primary"
                                 />
@@ -499,4 +500,3 @@ export function SubscriptionPlanEditModal() {
         </Dialog>
     );
 }
-

@@ -24,43 +24,43 @@ export function ReportTable({ reports, isLoading }: ReportTableProps) {
     const t = useTranslations("reportManagement.table");
 
     return (
-        <ContainerBox className="!p-0 overflow-hidden">
+        <ContainerBox className="overflow-hidden !p-0">
             <Table>
                 <TableHead className="bg-bgc-app sticky top-0 z-10">
                     <TableRow className="border-bdc-primary border-b">
                         <TableCell
                             align="center"
-                            className="text-text-muted w-12 text-center text-xs font-semibold uppercase tracking-wider"
+                            className="text-text-muted w-12 text-center text-xs font-semibold tracking-wider uppercase"
                         >
                             {t("stt")}
                         </TableCell>
                         <TableCell
                             align="center"
-                            className="text-text-muted text-center text-xs font-semibold uppercase tracking-wider"
+                            className="text-text-muted text-center text-xs font-semibold tracking-wider uppercase"
                         >
                             {t("reporter")}
                         </TableCell>
                         <TableCell
                             align="center"
-                            className="text-text-muted text-center text-xs font-semibold uppercase tracking-wider"
+                            className="text-text-muted text-center text-xs font-semibold tracking-wider uppercase"
                         >
                             {t("content")}
                         </TableCell>
                         <TableCell
                             align="center"
-                            className="text-text-muted text-center text-xs font-semibold uppercase tracking-wider"
+                            className="text-text-muted text-center text-xs font-semibold tracking-wider uppercase"
                         >
                             {t("files")}
                         </TableCell>
                         <TableCell
                             align="center"
-                            className="text-text-muted text-center text-xs font-semibold uppercase tracking-wider"
+                            className="text-text-muted text-center text-xs font-semibold tracking-wider uppercase"
                         >
                             {t("status")}
                         </TableCell>
                         <TableCell
                             align="center"
-                            className="text-text-muted w-28 text-center text-xs font-semibold uppercase tracking-wider"
+                            className="text-text-muted w-28 text-center text-xs font-semibold tracking-wider uppercase"
                         >
                             {t("actions")}
                         </TableCell>
@@ -85,4 +85,3 @@ export function ReportTable({ reports, isLoading }: ReportTableProps) {
         </ContainerBox>
     );
 }
-

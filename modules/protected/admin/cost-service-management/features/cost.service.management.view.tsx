@@ -174,9 +174,7 @@ export default function CostServiceManagementView() {
                         presetRange={awsCost.presetRange}
                         onPresetRangeChange={awsCost.setPresetRange}
                         customGranularity={awsCost.customGranularity}
-                        onCustomGranularityChange={
-                            awsCost.setCustomGranularity
-                        }
+                        onCustomGranularityChange={awsCost.setCustomGranularity}
                         fromDate={awsCost.fromDate}
                         onFromDateChange={awsCost.setFromDate}
                         toDate={awsCost.toDate}

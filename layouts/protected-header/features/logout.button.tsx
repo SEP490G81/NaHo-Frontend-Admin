@@ -26,10 +26,7 @@ export default function LogoutButton() {
     };
 
     return (
-        <TooltipCustom
-            arrow
-            title={t("common.layout.header.logoutButton")}
-        >
+        <TooltipCustom arrow title={t("common.layout.header.logoutButton")}>
             <Button
                 variant="outlined"
                 onClick={handleLogout}

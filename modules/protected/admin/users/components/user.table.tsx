@@ -88,7 +88,7 @@ export default function UserTable({
                 <span
                     className={`inline-block border-r-[3.5px] border-b-[4.5px] border-l-[3.5px] border-r-transparent border-l-transparent transition-all ${
                         isSelected && feSort.direction === "asc"
-                            ? "border-b-bgc-highlight opacity-100 scale-110"
+                            ? "border-b-bgc-highlight scale-110 opacity-100"
                             : "border-b-text-muted opacity-30 group-hover:opacity-60"
                     }`}
                     style={{ marginBottom: "1.5px" }}
@@ -97,7 +97,7 @@ export default function UserTable({
                 <span
                     className={`inline-block border-t-[4.5px] border-r-[3.5px] border-l-[3.5px] border-r-transparent border-l-transparent transition-all ${
                         isSelected && feSort.direction === "desc"
-                            ? "border-t-bgc-highlight opacity-100 scale-110"
+                            ? "border-t-bgc-highlight scale-110 opacity-100"
                             : "border-t-text-muted opacity-30 group-hover:opacity-60"
                     }`}
                 />

@@ -170,7 +170,9 @@ export function useOpenAiCost() {
             toast.success("Đồng bộ dữ liệu OpenAI thành công!");
         } catch (err) {
             const errMsg =
-                err instanceof ApiError ? err.message : "Đồng bộ dữ liệu OpenAI thất bại.";
+                err instanceof ApiError
+                    ? err.message
+                    : "Đồng bộ dữ liệu OpenAI thất bại.";
             setSyncMessage(errMsg);
             toast.error(errMsg);
         } finally {

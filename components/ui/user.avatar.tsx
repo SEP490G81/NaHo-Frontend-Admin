@@ -87,7 +87,13 @@ export default function UserAvatar({
     });
 
     const displayName =
-        fullName ?? user?.fullName ?? username ?? user?.username ?? email ?? user?.email ?? "User";
+        fullName ??
+        user?.fullName ??
+        username ??
+        user?.username ??
+        email ??
+        user?.email ??
+        "User";
 
     return (
         <Avatar

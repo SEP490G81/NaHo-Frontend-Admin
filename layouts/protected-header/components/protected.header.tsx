@@ -20,7 +20,11 @@ export default function ProtectedHeader() {
     const { toggleSidebarCollapse, isSidebarCollapsed } = useUiStore();
 
     useEffect(() => {
-        if (typeof window !== "undefined" && pathname && !pathname.startsWith("/settings")) {
+        if (
+            typeof window !== "undefined" &&
+            pathname &&
+            !pathname.startsWith("/settings")
+        ) {
             sessionStorage.setItem(LAST_NON_SETTINGS_KEY, pathname);
         }
     }, [pathname]);

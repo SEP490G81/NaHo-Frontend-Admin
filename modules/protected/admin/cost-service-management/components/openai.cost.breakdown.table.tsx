@@ -22,7 +22,7 @@ export function OpenAiCostBreakdownTable({
     const t = useTranslations("costServiceManagement.tableOpenAi");
 
     return (
-        <ContainerBox className="!p-0 overflow-hidden">
+        <ContainerBox className="overflow-hidden !p-0">
             <div className="border-bdc-primary flex items-center justify-between border-b p-4 sm:p-5">
                 <div className="flex items-center gap-2">
                     <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
@@ -41,7 +41,7 @@ export function OpenAiCostBreakdownTable({
 
             <div className="w-full overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                    <thead className="bg-bgc-app border-bdc-primary text-text-muted border-b text-xs uppercase tracking-wider">
+                    <thead className="bg-bgc-app border-bdc-primary text-text-muted border-b text-xs tracking-wider uppercase">
                         <tr>
                             <th scope="col" className="px-6 py-3 font-semibold">
                                 {t("colIndex")}

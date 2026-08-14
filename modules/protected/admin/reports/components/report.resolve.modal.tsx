@@ -74,7 +74,11 @@ function ReportResolveForm({ report, onClose }: ReportResolveFormProps) {
                         {t("title")} #{report.id}
                     </span>
                 </div>
-                <IconButton onClick={onClose} size="small" className="text-text-muted">
+                <IconButton
+                    onClick={onClose}
+                    size="small"
+                    className="text-text-muted"
+                >
                     <X className="h-4 w-4" />
                 </IconButton>
             </DialogTitle>
@@ -192,5 +196,3 @@ export function ReportResolveModal() {
         </Dialog>
     );
 }
-
-

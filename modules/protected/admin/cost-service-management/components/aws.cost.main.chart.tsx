@@ -98,12 +98,18 @@ export function AwsCostMainChart({
                             />
                             <XAxis
                                 dataKey="formattedDate"
-                                tick={{ fontSize: 12, fill: "var(--color-text-muted)" }}
+                                tick={{
+                                    fontSize: 12,
+                                    fill: "var(--color-text-muted)",
+                                }}
                                 stroke="var(--color-bdc-muted)"
                             />
                             <YAxis
                                 tickFormatter={formatYAxis}
-                                tick={{ fontSize: 12, fill: "var(--color-text-muted)" }}
+                                tick={{
+                                    fontSize: 12,
+                                    fill: "var(--color-text-muted)",
+                                }}
                                 stroke="var(--color-bdc-muted)"
                             />
                             <Tooltip
@@ -152,4 +158,3 @@ export function AwsCostMainChart({
         </ContainerBox>
     );
 }
-
