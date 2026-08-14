@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useTranslations } from "next-intl";
+import ContainerBox from "@/components/ui/container.box";
 import { useAzureCost } from "../hooks/use.azure.cost";
 import { useAwsCost } from "../hooks/use.aws.cost";
 import { ServiceProviderTabs } from "../components/service.provider.tabs";
@@ -35,34 +36,36 @@ export default function CostServiceManagementView() {
               : false;
 
     return (
-        <div className="relative flex flex-col gap-6 p-6">
+        <div className="flex w-full flex-col gap-y-4">
             {/* Centered Screen Loading Backdrop */}
             <Backdrop
                 open={isFetching}
                 sx={{
                     zIndex: (theme) => theme.zIndex.drawer + 2,
-                    color: "#ffffff",
+                    color: "var(--color-text-contrast)",
                     backgroundColor: "rgba(0, 0, 0, 0.4)",
                     backdropFilter: "blur(4px)",
                 }}
             >
-                <div className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-white/90 p-6 shadow-2xl backdrop-blur-md dark:bg-gray-900/90">
+                <div className="bg-bgc-app border-bdc-primary flex flex-col items-center justify-center gap-3 rounded-2xl border p-6 shadow-2xl backdrop-blur-md">
                     <CircularProgress size={44} thickness={4} color="primary" />
-                    <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                    <span className="text-text-contrast text-sm font-semibold">
                         {t("loadingMessage")}
                     </span>
                 </div>
             </Backdrop>
 
             {/* Header Title */}
-            <div className="flex flex-col gap-1 rounded-xl border-2 border-gray-200 bg-white p-4 dark:bg-gray-900">
-                <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-                    {t("pageTitle")}
-                </h1>
-                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    {t("subtitle")}
-                </p>
-            </div>
+            <ContainerBox>
+                <div className="flex flex-col gap-1">
+                    <h1 className="text-text-contrast text-2xl font-bold">
+                        {t("pageTitle")}
+                    </h1>
+                    <p className="text-text-muted mt-1 text-xs">
+                        {t("subtitle")}
+                    </p>
+                </div>
+            </ContainerBox>
 
             {/* Provider Tabs Switcher */}
             <ServiceProviderTabs
@@ -72,7 +75,7 @@ export default function CostServiceManagementView() {
 
             {/* Content for Azure Provider */}
             {activeTab === "azure" && (
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-y-4">
                     {/* Azure Rate Limit Error Alert if API error occurs */}
                     {azureCost.isError && (
                         <AzureCostErrorAlert
@@ -136,7 +139,7 @@ export default function CostServiceManagementView() {
 
             {/* Content for AWS Provider */}
             {activeTab === "aws" && (
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-y-4">
                     {/* AWS Error Alert if API error occurs */}
                     {awsCost.isError && (
                         <AwsCostErrorAlert
@@ -198,24 +201,27 @@ export default function CostServiceManagementView() {
 
             {/* Coming Soon Placeholders for OpenAI */}
             {activeTab === "openai" && (
-                <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] py-16 text-center shadow-sm">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 p-2 text-amber-600 dark:text-amber-400">
-                        <Image
-                            src={openAiLogo}
-                            alt="OpenAI Logo"
-                            width={48}
-                            height={48}
-                            className="h-12 w-12 rounded-xl object-contain"
-                        />
+                <ContainerBox className="border-dashed py-16 text-center">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="bg-bgc-highlight/10 text-bgc-highlight flex h-16 w-16 items-center justify-center rounded-2xl p-2">
+                            <Image
+                                src={openAiLogo}
+                                alt="OpenAI Logo"
+                                width={48}
+                                height={48}
+                                className="h-12 w-12 rounded-xl object-contain"
+                            />
+                        </div>
+                        <h3 className="text-text-contrast mt-4 text-base font-bold">
+                            {t("comingSoonTitle")}
+                        </h3>
+                        <p className="text-text-muted mt-1 max-w-sm text-xs">
+                            {t("comingSoonDesc")}
+                        </p>
                     </div>
-                    <h3 className="mt-4 text-base font-bold text-gray-900 dark:text-gray-100">
-                        {t("comingSoonTitle")}
-                    </h3>
-                    <p className="mt-1 max-w-sm text-xs text-gray-500 dark:text-gray-400">
-                        {t("comingSoonDesc")}
-                    </p>
-                </div>
+                </ContainerBox>
             )}
         </div>
     );
 }
+

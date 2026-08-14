@@ -52,7 +52,7 @@ export function ReportTableContent() {
     }, [rawReports, filter]);
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-y-4">
             <ReportSearchBox />
             <ReportTable reports={filteredReports} isLoading={isLoading} />
             <ReportDetailsModal />

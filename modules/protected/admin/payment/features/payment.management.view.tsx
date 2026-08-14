@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
+import ContainerBox from "@/components/ui/container.box";
 import { PaymentFilterProvider } from "../providers/payment.filter.provider";
 import { PaymentDetailProvider } from "../providers/payment.detail.provider";
 import { PaymentSearchBox } from "../components/payment.search.box";
@@ -14,16 +15,16 @@ export default function PaymentManagementView() {
     return (
         <PaymentFilterProvider>
             <PaymentDetailProvider>
-                <div className="flex flex-col gap-6 p-6">
-                    <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900">
-                        <div>
-                            <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                <div className="flex w-full flex-col gap-y-4">
+                    <ContainerBox>
+                        <div className="flex flex-col gap-3">
+                            <h1 className="text-text-contrast text-2xl font-bold">
                                 {t("pageTitle")}
                             </h1>
+                            <PaymentSearchBox />
                         </div>
+                    </ContainerBox>
 
-                        <PaymentSearchBox />
-                    </div>
                     <PaymentTableContent />
                     <PaymentDetailsModal />
                 </div>
@@ -31,3 +32,4 @@ export default function PaymentManagementView() {
         </PaymentFilterProvider>
     );
 }
+

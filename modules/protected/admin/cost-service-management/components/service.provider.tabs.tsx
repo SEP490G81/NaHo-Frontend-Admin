@@ -56,7 +56,7 @@ export function ServiceProviderTabs({
     };
 
     return (
-        <div className="flex flex-wrap items-center justify-center gap-3 border-b border-[var(--color-bdc-primary)] pb-3">
+        <div className="border-bdc-primary flex flex-wrap items-center justify-start gap-3 border-b pb-3">
             {PROVIDER_TABS.map((tab) => {
                 const isActive = activeTab === tab.id;
                 const isEnabled = tab.enabled;
@@ -67,17 +67,18 @@ export function ServiceProviderTabs({
                         type="button"
                         onClick={() => isEnabled && onTabChange(tab.id)}
                         disabled={!isEnabled}
-                        className={`flex items-center gap-3 rounded-2xl px-5 py-3 text-sm font-bold transition-all duration-200 ${isActive
-                            ? "bg-gradient-to-r from-pink-400 to-pink-500 text-white shadow-lg shadow-pink-500/25 scale-[1.02]"
-                            : isEnabled
-                                ? "bg-[var(--color-bgc-app)] text-gray-700 hover:bg-pink-50 hover:text-pink-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-pink-400"
-                                : "cursor-not-allowed bg-gray-100/60 text-gray-400 opacity-60 dark:bg-gray-800/40 dark:text-gray-600"
-                            }`}
+                        className={`flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                            isActive
+                                ? "bg-bgc-highlight text-white shadow-sm"
+                                : isEnabled
+                                  ? "bg-bgc-app border-bdc-primary text-text-contrast hover:bg-hbgc-app border"
+                                  : "bg-bgc-app/50 border-bdc-primary/50 text-text-muted cursor-not-allowed border opacity-60"
+                        }`}
                     >
                         {getIcon(tab.id)}
                         <span>{t(tab.labelKey)}</span>
                         {!isEnabled && (
-                            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold tracking-wider text-amber-700 uppercase dark:bg-amber-950/80 dark:text-amber-300">
+                            <span className="bg-bgc-highlight/10 text-bgc-highlight rounded-full px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase">
                                 Sắp có
                             </span>
                         )}

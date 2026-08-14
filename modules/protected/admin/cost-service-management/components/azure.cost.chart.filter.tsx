@@ -4,6 +4,7 @@ import React from "react";
 import { Button, MenuItem, TextField } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { Calendar, CloudSync, RefreshCw } from "lucide-react";
+import ContainerBox from "@/components/ui/container.box";
 import {
     GRANULARITY_OPTIONS,
     PRESET_RANGE_OPTIONS,
@@ -12,6 +13,25 @@ import {
     AzureCostGranularity,
     AzureCostPresetRange,
 } from "../types/azure.cost.type";
+
+const inputSx = {
+    "& .MuiOutlinedInput-root": {
+        borderRadius: "10px",
+        fontSize: "0.85rem",
+        backgroundColor: "var(--color-bgc-app)",
+        color: "var(--color-text-contrast)",
+        "& fieldset": { borderColor: "var(--color-bdc-primary)" },
+        "&:hover fieldset": { borderColor: "var(--color-bgc-highlight)" },
+        "&.Mui-focused fieldset": {
+            borderColor: "var(--color-bgc-highlight)",
+        },
+    },
+    "& .MuiInputLabel-root": {
+        color: "var(--color-text-muted)",
+        fontSize: "0.85rem",
+        "&.Mui-focused": { color: "var(--color-bgc-highlight)" },
+    },
+};
 
 interface AzureCostChartFilterProps {
     readonly presetRange: AzureCostPresetRange;
@@ -45,12 +65,12 @@ export function AzureCostChartFilter({
     const t = useTranslations("costServiceManagement.filters");
 
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] p-4 shadow-sm">
+        <ContainerBox>
             <div className="flex flex-wrap items-center justify-between gap-3">
                 {/* Left controls group */}
                 <div className="flex flex-wrap items-center gap-3">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                        <Calendar className="h-4 w-4 text-blue-500" />
+                    <div className="text-text-contrast flex items-center gap-2 text-sm font-semibold">
+                        <Calendar className="text-bgc-highlight h-4 w-4" />
                         <span>{t("rangeLabel")}</span>
                     </div>
 
@@ -66,6 +86,7 @@ export function AzureCostChartFilter({
                                     e.target.value as AzureCostPresetRange,
                                 )
                             }
+                            sx={inputSx}
                         >
                             {PRESET_RANGE_OPTIONS.map((opt) => (
                                 <MenuItem key={opt.value} value={opt.value}>
@@ -77,7 +98,7 @@ export function AzureCostChartFilter({
 
                     {/* Conditional Custom Date Range Controls */}
                     {presetRange === "custom" && (
-                        <div className="flex flex-wrap items-center gap-3 border-l border-gray-200 pl-3 dark:border-gray-700">
+                        <div className="border-bdc-primary flex flex-wrap items-center gap-3 border-l pl-3">
                             <div className="w-36">
                                 <TextField
                                     type="date"
@@ -88,10 +109,11 @@ export function AzureCostChartFilter({
                                     onChange={(e) =>
                                         onFromDateChange(e.target.value)
                                     }
+                                    sx={inputSx}
                                     slotProps={{ inputLabel: { shrink: true } }}
                                 />
                             </div>
-                            <span className="text-xs text-gray-400">-</span>
+                            <span className="text-text-muted text-xs">-</span>
                             <div className="w-36">
                                 <TextField
                                     type="date"
@@ -102,6 +124,7 @@ export function AzureCostChartFilter({
                                     onChange={(e) =>
                                         onToDateChange(e.target.value)
                                     }
+                                    sx={inputSx}
                                     slotProps={{ inputLabel: { shrink: true } }}
                                 />
                             </div>
@@ -120,6 +143,7 @@ export function AzureCostChartFilter({
                                                 .value as AzureCostGranularity,
                                         )
                                     }
+                                    sx={inputSx}
                                 >
                                     {GRANULARITY_OPTIONS.map((opt) => (
                                         <MenuItem
@@ -139,7 +163,7 @@ export function AzureCostChartFilter({
                 <div className="flex items-center gap-2">
                     <Button
                         variant="outlined"
-                        size="medium"
+                        size="small"
                         onClick={onRefresh}
                         disabled={isLoading || isSyncing}
                         startIcon={
@@ -147,15 +171,27 @@ export function AzureCostChartFilter({
                                 className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`}
                             />
                         }
-                        className="!rounded-xl !text-xs !font-semibold !capitalize"
+                        sx={{
+                            borderRadius: "10px",
+                            borderColor: "var(--color-bdc-primary)",
+                            color: "var(--color-text-contrast)",
+                            textTransform: "none",
+                            fontSize: "0.85rem",
+                            px: 2,
+                            "&:hover": {
+                                borderColor: "var(--color-bgc-highlight)",
+                                color: "var(--color-bgc-highlight)",
+                                backgroundColor:
+                                    "color-mix(in srgb, var(--color-bgc-highlight) 8%, transparent)",
+                            },
+                        }}
                     >
                         {t("refresh")}
                     </Button>
 
                     <Button
                         variant="contained"
-                        size="medium"
-                        color="primary"
+                        size="small"
                         onClick={onSync}
                         disabled={isLoading || isSyncing}
                         startIcon={
@@ -163,12 +199,27 @@ export function AzureCostChartFilter({
                                 className={`h-4 w-4 ${isSyncing ? "animate-spin" : ""}`}
                             />
                         }
-                        className="!rounded-xl !text-xs !font-semibold !capitalize"
+                        sx={{
+                            borderRadius: "10px",
+                            backgroundColor: "var(--color-bgc-highlight)",
+                            color: "#ffffff",
+                            textTransform: "none",
+                            fontSize: "0.85rem",
+                            fontWeight: 600,
+                            px: 2,
+                            boxShadow: "none",
+                            "&:hover": {
+                                backgroundColor: "var(--color-bgc-highlight)",
+                                opacity: 0.9,
+                                boxShadow: "none",
+                            },
+                        }}
                     >
                         {isSyncing ? t("syncing") : t("syncData")}
                     </Button>
                 </div>
             </div>
-        </div>
+        </ContainerBox>
     );
 }
+

@@ -66,10 +66,10 @@ export function AwsCostSummaryCard({
             {cards.map((card, idx) => (
                 <div
                     key={idx}
-                    className={`flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] p-5 shadow-sm transition-all duration-200 hover:shadow-md ${card.borderColor}`}
+                    className={`bg-bgc-app border-bdc-primary flex flex-col justify-between overflow-hidden rounded-xl border p-5 transition-all duration-200 hover:shadow-sm ${card.borderColor}`}
                 >
                     <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                        <span className="text-text-muted text-xs font-semibold">
                             {card.title}
                         </span>
                         <div
@@ -83,11 +83,11 @@ export function AwsCostSummaryCard({
                         {isLoading ? (
                             <Skeleton variant="text" width="60%" height={40} />
                         ) : (
-                            <div className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+                            <div className="text-text-contrast text-2xl font-bold tracking-tight">
                                 {card.value}
                             </div>
                         )}
-                        <p className="mt-1 text-[11px] text-gray-500 dark:text-gray-400">
+                        <p className="text-text-muted mt-1 text-[11px]">
                             {card.subtitle}
                         </p>
                     </div>
