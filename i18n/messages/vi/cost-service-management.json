@@ -2,11 +2,11 @@
     "costServiceManagement": {
         "pageTitle": "Quản lý chi phí dịch vụ bên ngoài",
         "subtitle": "Theo dõi và phân tích chi tiết chi phí dịch vụ Azure Speech AI, OpenAI và AWS",
-        "loadingMessage": "Đang làm mới dữ liệu chi phí Azure...",
+        "loadingMessage": "Đang làm mới dữ liệu chi phí...",
         "tabs": {
             "azure": "Microsoft Azure Speech AI",
             "openai": "OpenAI API (Sắp có)",
-            "aws": "Amazon Web Services (Sắp có)"
+            "aws": "Amazon Web Services (AWS)"
         },
         "comingSoonTitle": "Dịch vụ chưa khả dụng",
         "comingSoonDesc": "Hệ thống đang tích hợp API chi phí cho dịch vụ này. Vui lòng quay lại sau!",
@@ -44,9 +44,25 @@
             "tooltipDate": "Thời gian: {label}",
             "noData": "Không có dữ liệu chi phí cho khoảng thời gian này"
         },
+        "chartAws": {
+            "title": "Biểu đồ biến động chi phí AWS",
+            "subtitle": "Xu hướng chi phí theo thời gian ({granularity})",
+            "tooltipCost": "Chi phí",
+            "tooltipDate": "Thời gian: {label}",
+            "noData": "Không có dữ liệu chi phí cho khoảng thời gian này"
+        },
         "table": {
-            "title": "Chi tiết các điểm dữ liệu chi phí",
+            "title": "Chi tiết các điểm dữ liệu chi phí Azure",
             "subtitle": "Danh sách ghi nhận chi phí thực tế từ Azure Cost Management API",
+            "colIndex": "STT",
+            "colDate": "Thời gian / Ngày",
+            "colCost": "Chi phí",
+            "colShare": "Tỷ trọng (%)",
+            "empty": "Không tìm thấy ghi nhận chi phí nào"
+        },
+        "tableAws": {
+            "title": "Chi tiết các điểm dữ liệu chi phí AWS",
+            "subtitle": "Danh sách ghi nhận chi phí thực tế từ AWS Cost API",
             "colIndex": "STT",
             "colDate": "Thời gian / Ngày",
             "colCost": "Chi phí",
@@ -57,6 +73,12 @@
             "title": "Không thể tải dữ liệu chi phí Azure!",
             "rateLimitTitle": "Hệ thống Azure quá tải (429 / 502 Rate Limit)",
             "rateLimitDesc": "Tải dữ liệu thất bại do Azure Cost Management API tạm thời vượt quá giới hạn yêu cầu. Vui lòng bấm nút bên dưới để thử lại.",
+            "retryBtn": "Thử lại ngay",
+            "retrying": "Đang thử lại..."
+        },
+        "errorAws": {
+            "title": "Không thể tải dữ liệu chi phí AWS!",
+            "desc": "Tải dữ liệu thất bại từ AWS Cost API. Vui lòng kiểm tra kết nối hệ thống và thử lại.",
             "retryBtn": "Thử lại ngay",
             "retrying": "Đang thử lại..."
         }

@@ -27,7 +27,7 @@ export interface GranularityOption {
 export const PROVIDER_TABS: ProviderTabOption[] = [
     { id: "azure", labelKey: "tabs.azure", enabled: true },
     { id: "openai", labelKey: "tabs.openai", enabled: false },
-    { id: "aws", labelKey: "tabs.aws", enabled: false },
+    { id: "aws", labelKey: "tabs.aws", enabled: true },
 ];
 
 export const PRESET_RANGE_OPTIONS: PresetRangeOption[] = [

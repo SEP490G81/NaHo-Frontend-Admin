@@ -4,21 +4,18 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "@/libs/query.keys";
 import {
-    fetchAzureCostChartClient,
-    fetchAzureCostSummaryClient,
-    triggerAzureCostSyncClient,
-} from "@/services/client/azure.cost.service";
+    fetchAwsCostChartClient,
+    fetchAwsCostSummaryClient,
+} from "@/services/client/aws.cost.service";
 import { DEFAULT_PRESET_RANGE } from "../constants/cost.service.constants";
 import {
-    AzureCostChartParams,
-    AzureCostGranularity,
-    AzureCostPresetRange,
-    FormattedChartPoint,
-    ServiceProviderTab,
-} from "../types/azure.cost.type";
+    AwsCostChartParams,
+    AwsCostGranularity,
+    AwsCostPresetRange,
+    FormattedAwsChartPoint,
+} from "../types/aws.cost.type";
 import { processChartPoints } from "../utils/cost.service.util";
 import { ApiError } from "@/libs/api.error";
-import { toast } from "react-toastify";
 
 function getDefaultDates() {
     const today = new Date();
@@ -30,22 +27,18 @@ function getDefaultDates() {
     return { fromDate, toDate };
 }
 
-export function useAzureCost() {
-    const [activeTab, setActiveTab] = useState<ServiceProviderTab>("azure");
+export function useAwsCost() {
     const [presetRange, setPresetRange] =
-        useState<AzureCostPresetRange>(DEFAULT_PRESET_RANGE);
+        useState<AwsCostPresetRange>(DEFAULT_PRESET_RANGE);
     const [customGranularity, setCustomGranularity] =
-        useState<AzureCostGranularity>("Daily");
+        useState<AwsCostGranularity>("Daily");
 
     const defaults = useMemo(() => getDefaultDates(), []);
     const [fromDate, setFromDate] = useState<string>(defaults.fromDate);
     const [toDate, setToDate] = useState<string>(defaults.toDate);
 
-    const [isSyncing, setIsSyncing] = useState<boolean>(false);
-    const [syncMessage, setSyncMessage] = useState<string | null>(null);
-
     // Deterministic chart parameters based on preset rules
-    const chartParams = useMemo<AzureCostChartParams>(() => {
+    const chartParams = useMemo<AwsCostChartParams>(() => {
         switch (presetRange) {
             case "last30Days":
                 return {
@@ -76,10 +69,10 @@ export function useAzureCost() {
     }, [presetRange, customGranularity, fromDate, toDate, defaults]);
 
     // Active granularity for displaying chart & table labels
-    const currentGranularity: AzureCostGranularity =
+    const currentGranularity: AwsCostGranularity =
         chartParams.granularity || "Monthly";
 
-    // Fetch Summary (Month to Date cost - API #1)
+    // Fetch Summary (Month to Date cost - AWS API)
     const {
         data: summaryResponse,
         isLoading: isLoadingSummary,
@@ -88,8 +81,8 @@ export function useAzureCost() {
         error: errorSummary,
         refetch: refetchSummary,
     } = useQuery({
-        queryKey: queryKeys.azureCost.summary,
-        queryFn: fetchAzureCostSummaryClient,
+        queryKey: queryKeys.awsCost.summary,
+        queryFn: fetchAwsCostSummaryClient,
         staleTime: 1000 * 60 * 5, // 5 mins
         retry: (failureCount, error) => {
             if (
@@ -102,7 +95,7 @@ export function useAzureCost() {
         },
     });
 
-    // Fetch Chart Data (Preset / Custom - API #2 & API #3)
+    // Fetch Chart Data (Preset / Custom - AWS API)
     const {
         data: chartResponse,
         isLoading: isLoadingChart,
@@ -111,10 +104,10 @@ export function useAzureCost() {
         error: errorChart,
         refetch: refetchChart,
     } = useQuery({
-        queryKey: queryKeys.azureCost.chart(
+        queryKey: queryKeys.awsCost.chart(
             chartParams as Record<string, unknown>,
         ),
-        queryFn: () => fetchAzureCostChartClient(chartParams),
+        queryFn: () => fetchAwsCostChartClient(chartParams),
         staleTime: 1000 * 60 * 5,
         retry: (failureCount, error) => {
             if (
@@ -131,7 +124,7 @@ export function useAzureCost() {
     const chartData = chartResponse?.data;
 
     // Process and format points for chart and table
-    const formattedPoints = useMemo<FormattedChartPoint[]>(() => {
+    const formattedPoints = useMemo<FormattedAwsChartPoint[]>(() => {
         const rawPoints = chartData?.points || [];
         const curr = chartData?.currency || summary?.currency || "USD";
         const monthsCount = presetRange === "last12Months" ? 12 : 6;
@@ -153,25 +146,7 @@ export function useAzureCost() {
         await Promise.all([refetchSummary(), refetchChart()]);
     };
 
-    const handleSync = async () => {
-        try {
-            setIsSyncing(true);
-            setSyncMessage(null);
-            await triggerAzureCostSyncClient();
-            await refetchAll();
-            toast.success("Đồng bộ dữ liệu Azure thành công!");
-        } catch (err) {
-            const errMsg = err instanceof ApiError ? err.message : "Đồng bộ dữ liệu thất bại.";
-            setSyncMessage(errMsg);
-            toast.error(errMsg);
-        } finally {
-            setIsSyncing(false);
-        }
-    };
-
     return {
-        activeTab,
-        setActiveTab,
         presetRange,
         setPresetRange,
         granularity: currentGranularity,
@@ -188,9 +163,6 @@ export function useAzureCost() {
         isFetching,
         isError,
         activeError,
-        isSyncing,
-        syncMessage,
-        handleSync,
         refetchAll,
     };
 }
