@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import ContainerBox from "@/components/ui/container.box";
 import { useAzureCost } from "../hooks/use.azure.cost";
 import { useAwsCost } from "../hooks/use.aws.cost";
+import { useOpenAiCost } from "../hooks/use.openai.cost";
 import { ServiceProviderTabs } from "../components/service.provider.tabs";
 import { AzureCostSummaryCard } from "../components/azure.cost.summary.card";
 import { AzureCostChartFilter } from "../components/azure.cost.chart.filter";
@@ -17,9 +18,12 @@ import { AwsCostChartFilter } from "../components/aws.cost.chart.filter";
 import { AwsCostMainChart } from "../components/aws.cost.main.chart";
 import { AwsCostBreakdownTable } from "../components/aws.cost.breakdown.table";
 import { AwsCostErrorAlert } from "../components/aws.cost.error.alert";
+import { OpenAiCostSummaryCard } from "../components/openai.cost.summary.card";
+import { OpenAiCostChartFilter } from "../components/openai.cost.chart.filter";
+import { OpenAiCostMainChart } from "../components/openai.cost.main.chart";
+import { OpenAiCostBreakdownTable } from "../components/openai.cost.breakdown.table";
+import { OpenAiCostErrorAlert } from "../components/openai.cost.error.alert";
 import { ServiceProviderTab } from "../types/azure.cost.type";
-import Image from "next/image";
-import openAiLogo from "../assets/openAI.jpg";
 
 export default function CostServiceManagementView() {
     const t = useTranslations("costServiceManagement");
@@ -27,13 +31,16 @@ export default function CostServiceManagementView() {
 
     const azureCost = useAzureCost();
     const awsCost = useAwsCost();
+    const openAiCost = useOpenAiCost();
 
     const isFetching =
         activeTab === "azure"
             ? azureCost.isFetching
             : activeTab === "aws"
               ? awsCost.isFetching
-              : false;
+              : activeTab === "openai"
+                ? openAiCost.isFetching
+                : false;
 
     return (
         <div className="flex w-full flex-col gap-y-4">
@@ -199,29 +206,69 @@ export default function CostServiceManagementView() {
                 </div>
             )}
 
-            {/* Coming Soon Placeholders for OpenAI */}
+            {/* Content for OpenAI Provider */}
             {activeTab === "openai" && (
-                <ContainerBox className="border-dashed py-16 text-center">
-                    <div className="flex flex-col items-center justify-center">
-                        <div className="bg-bgc-highlight/10 text-bgc-highlight flex h-16 w-16 items-center justify-center rounded-2xl p-2">
-                            <Image
-                                src={openAiLogo}
-                                alt="OpenAI Logo"
-                                width={48}
-                                height={48}
-                                className="h-12 w-12 rounded-xl object-contain"
-                            />
-                        </div>
-                        <h3 className="text-text-contrast mt-4 text-base font-bold">
-                            {t("comingSoonTitle")}
-                        </h3>
-                        <p className="text-text-muted mt-1 max-w-sm text-xs">
-                            {t("comingSoonDesc")}
-                        </p>
-                    </div>
-                </ContainerBox>
+                <div className="flex flex-col gap-y-4">
+                    {/* OpenAI Error Alert if API error occurs */}
+                    {openAiCost.isError && (
+                        <OpenAiCostErrorAlert
+                            error={openAiCost.activeError}
+                            onRetry={openAiCost.refetchAll}
+                            isRetrying={openAiCost.isFetching}
+                        />
+                    )}
+
+                    {/* KPI Summary Cards */}
+                    <OpenAiCostSummaryCard
+                        mtdCost={openAiCost.summary?.cost}
+                        periodCost={openAiCost.chartData?.totalCost}
+                        currency={
+                            openAiCost.chartData?.currency ||
+                            openAiCost.summary?.currency ||
+                            "USD"
+                        }
+                        dataPointsCount={openAiCost.formattedPoints.length}
+                        isLoading={openAiCost.isLoading}
+                    />
+
+                    {/* Timeframe Selector Bar with Sync button */}
+                    <OpenAiCostChartFilter
+                        presetRange={openAiCost.presetRange}
+                        onPresetRangeChange={openAiCost.setPresetRange}
+                        customGranularity={openAiCost.customGranularity}
+                        onCustomGranularityChange={
+                            openAiCost.setCustomGranularity
+                        }
+                        fromDate={openAiCost.fromDate}
+                        onFromDateChange={openAiCost.setFromDate}
+                        toDate={openAiCost.toDate}
+                        onToDateChange={openAiCost.setToDate}
+                        onRefresh={openAiCost.refetchAll}
+                        onSync={openAiCost.handleSync}
+                        isLoading={openAiCost.isFetching}
+                        isSyncing={openAiCost.isSyncing}
+                    />
+
+                    {/* Main Recharts Visualizer */}
+                    <OpenAiCostMainChart
+                        data={openAiCost.formattedPoints}
+                        granularity={
+                            openAiCost.chartData?.granularity ||
+                            openAiCost.granularity ||
+                            "Monthly"
+                        }
+                        currency={openAiCost.chartData?.currency || "USD"}
+                        isLoading={openAiCost.isLoading}
+                    />
+
+                    {/* Data Points Breakdown Table */}
+                    <OpenAiCostBreakdownTable
+                        data={openAiCost.formattedPoints}
+                        currency={openAiCost.chartData?.currency || "USD"}
+                        isLoading={openAiCost.isLoading}
+                    />
+                </div>
             )}
         </div>
     );
 }
-

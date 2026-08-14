@@ -56,7 +56,7 @@ export function ServiceProviderTabs({
     };
 
     return (
-        <div className="border-bdc-primary flex flex-wrap items-center justify-start gap-3 border-b pb-3">
+        <div className="border-bdc-primary flex flex-wrap items-center justify-center gap-3 border-b pb-3">
             {PROVIDER_TABS.map((tab) => {
                 const isActive = activeTab === tab.id;
                 const isEnabled = tab.enabled;

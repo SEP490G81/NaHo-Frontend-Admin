@@ -5,7 +5,7 @@
         "loadingMessage": "Refreshing cost data...",
         "tabs": {
             "azure": "Microsoft Azure Speech AI",
-            "openai": "OpenAI API (Coming Soon)",
+            "openai": "OpenAI API",
             "aws": "Amazon Web Services (AWS)"
         },
         "comingSoonTitle": "Service Not Available Yet",
@@ -33,6 +33,7 @@
             "toDate": "To Date",
             "refresh": "Refresh",
             "syncData": "Sync Azure API",
+            "syncDataOpenAi": "Sync OpenAI API",
             "syncing": "Syncing...",
             "syncSuccess": "Azure cost sync triggered successfully!",
             "syncError": "Failed to trigger Azure sync."
@@ -46,6 +47,13 @@
         },
         "chartAws": {
             "title": "AWS Cost Trend Chart",
+            "subtitle": "Cost fluctuation over time ({granularity})",
+            "tooltipCost": "Cost",
+            "tooltipDate": "Date: {label}",
+            "noData": "No cost data available for this timeframe"
+        },
+        "chartOpenAi": {
+            "title": "OpenAI Cost Trend Chart",
             "subtitle": "Cost fluctuation over time ({granularity})",
             "tooltipCost": "Cost",
             "tooltipDate": "Date: {label}",
@@ -69,6 +77,15 @@
             "colShare": "Share (%)",
             "empty": "No cost entries found"
         },
+        "tableOpenAi": {
+            "title": "OpenAI Cost Data Points Breakdown",
+            "subtitle": "Detailed list of cost records retrieved from OpenAI Cost API",
+            "colIndex": "#",
+            "colDate": "Date / Period",
+            "colCost": "Cost",
+            "colShare": "Share (%)",
+            "empty": "No cost entries found"
+        },
         "error": {
             "title": "Failed to load Azure cost data!",
             "rateLimitTitle": "Azure Service Rate Limited (429 / 502)",
@@ -79,6 +96,12 @@
         "errorAws": {
             "title": "Failed to load AWS cost data!",
             "desc": "Data retrieval failed from AWS Cost API. Please check system connection and retry.",
+            "retryBtn": "Retry Now",
+            "retrying": "Retrying..."
+        },
+        "errorOpenAi": {
+            "title": "Failed to load OpenAI cost data!",
+            "desc": "Data retrieval failed from OpenAI Cost API. Please check system connection and retry.",
             "retryBtn": "Retry Now",
             "retrying": "Retrying..."
         }

@@ -25,4 +25,9 @@ export const queryKeys = {
         chart: (params?: Record<string, unknown>) =>
             ["aws-cost-chart", params] as const,
     },
+    openAiCost: {
+        summary: ["openai-cost-summary"] as const,
+        chart: (params?: Record<string, unknown>) =>
+            ["openai-cost-chart", params] as const,
+    },
 };

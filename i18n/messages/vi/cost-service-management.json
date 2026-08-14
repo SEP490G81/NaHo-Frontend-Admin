@@ -5,7 +5,7 @@
         "loadingMessage": "Đang làm mới dữ liệu chi phí...",
         "tabs": {
             "azure": "Microsoft Azure Speech AI",
-            "openai": "OpenAI API (Sắp có)",
+            "openai": "OpenAI API",
             "aws": "Amazon Web Services (AWS)"
         },
         "comingSoonTitle": "Dịch vụ chưa khả dụng",
@@ -33,6 +33,7 @@
             "toDate": "Đến ngày",
             "refresh": "Làm mới",
             "syncData": "Đồng bộ Azure API",
+            "syncDataOpenAi": "Đồng bộ OpenAI API",
             "syncing": "Đang đồng bộ...",
             "syncSuccess": "Đã khởi chạy đồng bộ dữ liệu Azure thành công!",
             "syncError": "Đồng bộ dữ liệu thất bại."
@@ -46,6 +47,13 @@
         },
         "chartAws": {
             "title": "Biểu đồ biến động chi phí AWS",
+            "subtitle": "Xu hướng chi phí theo thời gian ({granularity})",
+            "tooltipCost": "Chi phí",
+            "tooltipDate": "Thời gian: {label}",
+            "noData": "Không có dữ liệu chi phí cho khoảng thời gian này"
+        },
+        "chartOpenAi": {
+            "title": "Biểu đồ biến động chi phí OpenAI",
             "subtitle": "Xu hướng chi phí theo thời gian ({granularity})",
             "tooltipCost": "Chi phí",
             "tooltipDate": "Thời gian: {label}",
@@ -69,6 +77,15 @@
             "colShare": "Tỷ trọng (%)",
             "empty": "Không tìm thấy ghi nhận chi phí nào"
         },
+        "tableOpenAi": {
+            "title": "Chi tiết các điểm dữ liệu chi phí OpenAI",
+            "subtitle": "Danh sách ghi nhận chi phí thực tế từ OpenAI Cost API",
+            "colIndex": "STT",
+            "colDate": "Thời gian / Ngày",
+            "colCost": "Chi phí",
+            "colShare": "Tỷ trọng (%)",
+            "empty": "Không tìm thấy ghi nhận chi phí nào"
+        },
         "error": {
             "title": "Không thể tải dữ liệu chi phí Azure!",
             "rateLimitTitle": "Hệ thống Azure quá tải (429 / 502 Rate Limit)",
@@ -79,6 +96,12 @@
         "errorAws": {
             "title": "Không thể tải dữ liệu chi phí AWS!",
             "desc": "Tải dữ liệu thất bại từ AWS Cost API. Vui lòng kiểm tra kết nối hệ thống và thử lại.",
+            "retryBtn": "Thử lại ngay",
+            "retrying": "Đang thử lại..."
+        },
+        "errorOpenAi": {
+            "title": "Không thể tải dữ liệu chi phí OpenAI!",
+            "desc": "Tải dữ liệu thất bại từ OpenAI Cost API. Vui lòng kiểm tra kết nối hệ thống và thử lại.",
             "retryBtn": "Thử lại ngay",
             "retrying": "Đang thử lại..."
         }
