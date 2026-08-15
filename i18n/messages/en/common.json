@@ -60,6 +60,11 @@
                 "subscriptionManagement": "Subscription Plans",
                 "costServiceManagement": "Service Cost Management",
                 "reportManagement": "Report Management",
+                "contentManagement": "Content Management",
+                "editBook": "Edit Books",
+                "editTopic": "Edit Topics",
+                "editLesson": "Edit Lessons",
+                "editObjective": "Edit Objectives",
                 "kaiwaRoadmap": "Kaiwa Roadmap",
                 "freeAiChat": "Free AI Conversation",
                 "leaderboard": "Leaderboard"

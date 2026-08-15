@@ -33,6 +33,7 @@ export function SubscriptionUpgradeModal() {
     const [durationDays, setDurationDays] = useState<number>(30);
     const [errorMessage, setErrorMessage] = useState<string>("");
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     useEffect(() => {
         if (upgradeTargetUser) {
             const currentLevel =
@@ -77,7 +78,8 @@ export function SubscriptionUpgradeModal() {
                 durationDays: Number(durationDays),
             });
             closeUpgradeModal();
-        } catch (err: any) {
+        } catch (error: unknown) {
+            const err = error as { detail?: string; message?: string };
             setErrorMessage(err?.detail || err?.message || t("errorFailed"));
         }
     };

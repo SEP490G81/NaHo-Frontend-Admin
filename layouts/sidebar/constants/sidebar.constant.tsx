@@ -5,15 +5,20 @@ import {
     Flag,
     LayoutDashboard,
     MessagesSquare,
-    Mic,
     Receipt,
     Trophy,
     Users,
+    LibraryBig,
+    BookType,
+    FolderKanban,
+    NotebookPen,
+    Target
 } from "lucide-react";
 
 export interface SubNavItem {
     titleKey: string;
     url: string;
+    icon?: React.ComponentType<{ className?: string }>;
 }
 
 export interface NavItem {
@@ -39,7 +44,16 @@ export const NAV_ITEMS: NavItem[] = [
         icon: Receipt,
     },
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
-    { titleKey: "kaiwaRoadmap", url: "/books", icon: Mic },
+    {
+        titleKey: "contentManagement",
+        icon: LibraryBig,
+        children: [
+            { titleKey: "editBook", url: "/books", icon: BookType },
+            { titleKey: "editTopic", url: "/topics", icon: FolderKanban },
+            { titleKey: "editLesson", url: "/lessons", icon: NotebookPen },
+            { titleKey: "editObjective", url: "/objectives", icon: Target },
+        ]
+    },
     {
         titleKey: "freeAiChat",
         url: "/dialogue-setup",

@@ -65,6 +65,11 @@
                 "subscriptionManagement": "Gói học & Nâng cấp",
                 "costServiceManagement": "Quản lý chi phí dịch vụ",
                 "reportManagement": "Quản lý báo cáo",
+                "contentManagement": "Chỉnh sửa nội dung",
+                "editBook": "Chỉnh sửa sách",
+                "editTopic": "Chỉnh sửa chủ đề",
+                "editLesson": "Chỉnh sửa bài học",
+                "editObjective": "Chỉnh sửa mục tiêu",
                 "kaiwaRoadmap": "Lộ trình Kaiwa",
                 "freeAiChat": "Trò chuyện tự do AI",
                 "leaderboard": "Bảng xếp hạng thi đua"

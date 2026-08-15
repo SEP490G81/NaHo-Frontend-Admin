@@ -1,0 +1,32 @@
+{
+  "topicManagement": {
+    "title": "Quản lý chủ đề",
+    "editTopic": "Chỉnh sửa chủ đề",
+    "selectBookFirst": "Vui lòng chọn một cuốn sách để xem danh sách chủ đề",
+    "bookLabel": "Sách",
+    "allBooks": "Tất cả sách",
+    "searchByTitle": "Tìm kiếm theo tên chủ đề",
+    "allStatus": "Tất cả trạng thái",
+    "status": "Trạng thái",
+    "topicName": "Tên chủ đề (Tiếng Nhật)",
+    "description": "Mô tả",
+    "actions": "Hành động",
+    "updateSuccess": "Cập nhật chủ đề thành công",
+    "updateFailed": "Cập nhật chủ đề thất bại",
+    "updateTitle": "Cập nhật thông tin chủ đề",
+    "japaneseName": "Tên tiếng Nhật",
+    "japaneseDescription": "Mô tả (Tiếng Nhật)",
+    "vietnameseDescription": "Mô tả (Tiếng Việt)",
+    "englishDescription": "Mô tả (Tiếng Anh)",
+    "update": "Cập nhật",
+    "cancel": "Hủy",
+    "save": "Lưu thay đổi",
+    "noData": "Không có dữ liệu.",
+    "loading": "Đang tải...",
+    "statusDraft": "Bản nháp",
+    "statusPublished": "Đã xuất bản",
+    "statusArchive": "Lưu trữ",
+    "clearAll": "Xóa bộ lọc",
+    "backToBooks": "Quay lại chọn sách"
+  }
+}
