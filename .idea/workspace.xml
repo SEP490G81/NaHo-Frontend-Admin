@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/settings/fix.back.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/users_management/logout.button.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/users_management/user.details.update.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/users_management/user.table.search.update.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/naho-fe-admin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/protected-header/components/protected.header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/protected-header/components/protected.header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/protected-header/constants/protected.header.constant.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/protected-header/features/logout.button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/protected-header/features/logout.button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/components/account.menu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/components/user.avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/sidebar/components/user.avatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/sidebar/constants/sidebar.constant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/sidebar/constants/sidebar.constant.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/admin/users/components/user.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.details.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.filter.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.filter.grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/shared/settings/components/settings.modal.close.button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/public/login/components/right.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/public/login/components/right.content.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="384" />
+    <option name="cachedIndexableFilesCount" value="407" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FormatOnSaveOptions">
@@ -43,61 +32,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.000000000318056" />
-      <entry key="MS500" value="1.0126686989981988" />
-      <entry key="S2" value="1.4471044907127435" />
-      <entry key="S5" value="2.337879612726871" />
-      <entry key="S10" value="3.418547213390931" />
-      <entry key="S30" value="5.242111991339763" />
-      <entry key="S60" value="6.041859655514045" />
-      <entry key="M2" value="6.855507993591666" />
-      <entry key="M5" value="10.251055466564157" />
-      <entry key="M10" value="16.73686568293034" />
-      <entry key="M15" value="23.390712554546205" />
-      <entry key="M30" value="47.559152765681176" />
-      <entry key="H1" value="91.40651020183198" />
-      <entry key="H2" value="138.8383463567441" />
-      <entry key="H4" value="174.80812641956516" />
-      <entry key="D1" value="213.9457402928767" />
-      <entry key="W1" value="221.67884916873155" />
+      <entry key="MS100" value="1.3806728091571994" />
+      <entry key="MS500" value="2.8111110369835153" />
+      <entry key="S2" value="5.263904209913352" />
+      <entry key="S5" value="8.08328712567316" />
+      <entry key="S10" value="10.73406470558972" />
+      <entry key="S30" value="14.506188065615428" />
+      <entry key="S60" value="16.06789789697325" />
+      <entry key="M2" value="17.321934600174338" />
+      <entry key="M5" value="20.97336797877786" />
+      <entry key="M10" value="27.538374809748483" />
+      <entry key="M15" value="34.21774432084505" />
+      <entry key="M30" value="58.3989710131644" />
+      <entry key="H1" value="102.25957168124272" />
+      <entry key="H2" value="149.72871186108017" />
+      <entry key="H4" value="185.73959380371426" />
+      <entry key="D1" value="224.93183066140736" />
+      <entry key="W1" value="232.67679185869062" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="4.936287528200441E-104" />
-      <entry key="S5" value="7.254581820152492E-42" />
-      <entry key="S10" value="4.1313915528649336E-21" />
-      <entry key="S30" value="3.2340332446166476E-7" />
-      <entry key="S60" value="0.0010909108466731355" />
-      <entry key="M2" value="0.07280277673823082" />
-      <entry key="M5" value="1.0113990289038906" />
-      <entry key="M10" value="2.612698660721326" />
-      <entry key="M15" value="3.7109222592380506" />
-      <entry key="M30" value="5.590287507278816" />
-      <entry key="H1" value="7.343226070833167" />
-      <entry key="H2" value="8.776190862340131" />
-      <entry key="H4" value="9.755761026132204" />
-      <entry key="D1" value="10.770337409080543" />
-      <entry key="W1" value="10.966584768063052" />
+      <entry key="S2" value="3.1752155344610947E-105" />
+      <entry key="S5" value="2.4208143667576896E-42" />
+      <entry key="S10" value="2.3865520445211966E-21" />
+      <entry key="S30" value="2.6934112149077835E-7" />
+      <entry key="S60" value="9.955620927066078E-4" />
+      <entry key="M2" value="0.06954845551174635" />
+      <entry key="M5" value="0.9930665435119205" />
+      <entry key="M10" value="2.5889116621457586" />
+      <entry key="M15" value="3.688364181166756" />
+      <entry key="M30" value="5.573270393678273" />
+      <entry key="H1" value="7.332040979404508" />
+      <entry key="H2" value="8.769504434287366" />
+      <entry key="H4" value="9.752043945191875" />
+      <entry key="D1" value="10.76965335902811" />
+      <entry key="W1" value="10.966485263326748" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9330329918294786" />
-      <entry key="MS500" value="0.9986930182334322" />
-      <entry key="S2" value="1.4420445316941577" />
-      <entry key="S5" value="2.3348422104330755" />
-      <entry key="S10" value="3.416451573257433" />
-      <entry key="S30" value="5.241088271780314" />
-      <entry key="S60" value="6.042354563747026" />
-      <entry key="M2" value="6.9273809888488715" />
-      <entry key="M5" value="11.257629176003856" />
-      <entry key="M10" value="19.34290809002882" />
-      <entry key="M15" value="27.0952800071899" />
-      <entry key="M30" value="53.144741851270986" />
-      <entry key="H1" value="98.74677566445224" />
-      <entry key="H2" value="147.6128387706407" />
-      <entry key="H4" value="184.56296964281043" />
-      <entry key="D1" value="224.71591352877215" />
-      <entry key="W1" value="232.6454101826103" />
+      <entry key="MS100" value="1.3429750495069632" />
+      <entry key="MS500" value="2.796595577298118" />
+      <entry key="S2" value="5.255172211005815" />
+      <entry key="S5" value="8.074679701743682" />
+      <entry key="S10" value="10.727288248540647" />
+      <entry key="S30" value="14.502880549013105" />
+      <entry key="S60" value="16.067029523325484" />
+      <entry key="M2" value="17.389910137678253" />
+      <entry key="M5" value="21.96141665366644" />
+      <entry key="M10" value="30.12054977319896" />
+      <entry key="M15" value="37.89969806202806" />
+      <entry key="M30" value="63.96751003922325" />
+      <entry key="H1" value="109.588632908705" />
+      <entry key="H2" value="158.4965073069921" />
+      <entry key="H4" value="195.4907143769116" />
+      <entry key="D1" value="235.70131887095624" />
+      <entry key="W1" value="243.64325322708223" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -122,11 +111,13 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
@@ -138,7 +129,8 @@
     &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/truc/Documents/SEP490/Code/NaHo-Frontend-Admin/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -194,7 +186,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.9437.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
       </set>
     </attachedChunks>
   </component>
@@ -218,6 +210,9 @@
       <workItem from="1786559646739" duration="657000" />
       <workItem from="1786643412951" duration="237000" />
       <workItem from="1786711597119" duration="2429000" />
+      <workItem from="1786758698550" duration="6000" />
+      <workItem from="1786788389805" duration="686000" />
+      <workItem from="1786831517861" duration="1369000" />
     </task>
     <servers />
   </component>
