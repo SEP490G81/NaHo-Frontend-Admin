@@ -16,3 +16,7 @@ export interface TopicResponse {
     readonly firstNodeGlobalOrderIndex: number;
     readonly lastNodeGlobalOrderIndex: number;
 }
+
+export interface TopicDetailResponse extends TopicResponse {
+    readonly lessons: import("./lesson.response").LessonResponse[];
+}

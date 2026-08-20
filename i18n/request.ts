@@ -30,7 +30,8 @@ const MESSAGE_FILES = [
     "subscription-management",
     "cost-service-management",
     "books",
-    "topic-management"
+    "topic-management",
+    "lesson-management"
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

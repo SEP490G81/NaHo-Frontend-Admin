@@ -13,6 +13,8 @@ export type AllRoute =
     | "/register"
     | "/verify-email"
     | "/topics"
+    | "/lessons"
+    | "/objectives"
     | "/books"
     | `/books/${string}` // "/books/[bookId]"
     | `/books/${string}/${string}/${string}` // "/books/[bookId]/topics/[topicId]"

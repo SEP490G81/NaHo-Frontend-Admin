@@ -10,6 +10,14 @@ export const findTopicsByBookId = async (bookId: number): Promise<BaseResponse<T
     return res.json();
 };
 
+export const findTopicDetail = async (id: number): Promise<BaseResponse<import("@/types/responses/topic.response").TopicDetailResponse>> => {
+    const res = await fetch(`/api/topics/${id}`);
+    if (!res.ok) {
+        throw await res.json();
+    }
+    return res.json();
+};
+
 export const updateTopic = async (
     id: number,
     request: UpdateTopicRequest
