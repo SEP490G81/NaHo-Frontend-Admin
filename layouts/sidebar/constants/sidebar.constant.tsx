@@ -46,13 +46,8 @@ export const NAV_ITEMS: NavItem[] = [
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
     {
         titleKey: "contentManagement",
+        url: "/books",
         icon: LibraryBig,
-        children: [
-            { titleKey: "editBook", url: "/books", icon: BookType },
-            { titleKey: "editTopic", url: "/topics", icon: FolderKanban },
-            { titleKey: "editLesson", url: "/lessons", icon: NotebookPen },
-            { titleKey: "editObjective", url: "/objectives", icon: Target },
-        ]
     },
     {
         titleKey: "freeAiChat",

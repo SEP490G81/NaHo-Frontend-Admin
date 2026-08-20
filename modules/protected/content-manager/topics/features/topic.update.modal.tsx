@@ -151,8 +151,8 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                         />
                     </div>
 
-                    <div className="space-y-4">
-                        <h4 className="font-medium text-text-muted mb-2">{t("description")}</h4>
+                    <div className="flex flex-col gap-5">
+                        <h4 className="font-medium text-text-muted mb-1">{t("description")}</h4>
                         <Controller
                             name="japaneseDescription"
                             control={control}

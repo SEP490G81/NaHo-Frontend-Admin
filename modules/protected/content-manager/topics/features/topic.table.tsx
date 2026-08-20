@@ -8,9 +8,10 @@ import { TopicStatus } from "@/types/enums/topic.enum";
 interface TopicTableProps {
     topics: TopicResponse[];
     onEdit: (topicId: number) => void;
+    bookId: number;
 }
 
-export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit }) => {
+export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit, bookId }) => {
     const t = useTranslations("topicManagement");
 
     const getStatusChip = (status: TopicStatus) => {
@@ -62,7 +63,7 @@ export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit }) => {
                                     )}
                                 </td>
                                 <td className={cellClass}>{getStatusChip(topic.status)}</td>
-                                <td className={`${cellClass} text-right`}>
+                                <td className={`${cellClass} text-right flex items-center justify-end gap-2`}>
                                     <Tooltip title={t("editTopic")}>
                                         <IconButton 
                                             onClick={() => onEdit(topic.id)} 
@@ -71,6 +72,18 @@ export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit }) => {
                                         >
                                             <Edit2 className="w-4 h-4" />
                                         </IconButton>
+                                    </Tooltip>
+                                    
+                                    {/* View Lessons button */}
+                                    <Tooltip title="Quản lý Bài học">
+                                        <a href={`/books/${bookId}/topics/${topic.id}/lessons`}>
+                                            <IconButton 
+                                                size="small"
+                                                className="text-text-contrast hover:bg-bgc-highlight/10 hover:text-bgc-highlight"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-notebook-pen"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z"/></svg>
+                                            </IconButton>
+                                        </a>
                                     </Tooltip>
                                 </td>
                             </tr>
