@@ -1,0 +1,105 @@
+{
+    "personaManagement": {
+        "pageTitle": "AI Persona Management",
+        "pageSubtitle": "Create and configure AI personas and their conversation styles for 1-1 speaking rooms.",
+        "addButton": "Add new persona",
+        "formality": {
+            "INFORMAL": "Casual",
+            "NEUTRAL": "Polite",
+            "FORMAL": "Formal"
+        },
+        "marugoto": {
+            "STARTER_A1": "Starter (A1)",
+            "ELEMENTARY_1_A2": "Elementary 1 (A2.1)",
+            "ELEMENTARY_2_A2": "Elementary 2 (A2.2)",
+            "PRE_INTERMEDIATE_A2_B1": "Pre-intermediate (A2/B1)",
+            "INTERMEDIATE_1_B1": "Intermediate 1 (B1.1)",
+            "INTERMEDIATE_2_B1": "Intermediate 2 (B1.2)"
+        },
+        "searchBox": {
+            "keywordPlaceholder": "Search by persona name, prompt content, persona id...",
+            "formalityLabel": "Formality level",
+            "all": "All",
+            "resetButton": "Reset"
+        },
+        "card": {
+            "id": "#{id}",
+            "idWithAvatar": "#{id} · Image #{fileId}",
+            "noStyle": "No conversation style attached",
+            "detailButton": "View details",
+            "editButton": "Edit"
+        },
+        "grid": {
+            "countLabel": "Showing {shown}/{total} personas",
+            "empty": "No AI persona yet. Add the first one.",
+            "emptyFiltered": "No persona matches the current filters.",
+            "loadError": "Could not load personas. Please try again."
+        },
+        "detail": {
+            "subtitle": "Persona #{id}",
+            "personaPrompt": "Persona prompt",
+            "styleSection": "Suggested conversation style",
+            "styleId": "Style #{id}",
+            "styleDescription": "Description",
+            "stylePrompt": "Style prompt",
+            "none": "Not set",
+            "noStyle": "This persona has no conversation style attached.",
+            "close": "Close",
+            "editButton": "Edit"
+        },
+        "form": {
+            "createTitle": "Add new AI persona",
+            "editTitle": "Edit persona {name}",
+            "subtitle": "The prompt defines personality and context; the conversation style defines how formal the AI speaks.",
+            "sections": {
+                "basic": "Persona information",
+                "style": "Conversation style"
+            },
+            "fields": {
+                "name": "Persona name",
+                "namePlaceholder": "E.g. Sakura (Cafe barista)",
+                "avatarFileId": "Avatar file id",
+                "avatarFileIdPlaceholder": "E.g. 120",
+                "avatarFileIdHint": "Optional - leave blank to use the initials avatar.",
+                "prompt": "Persona prompt",
+                "promptPlaceholder": "Describe the role, personality, context and how the persona drives the conversation...",
+                "promptHint": "Describe only the persona and its context, not platform-wide rules.",
+                "styleModeExisting": "Use existing style",
+                "styleModeCustom": "Create new style",
+                "styleModeEdit": "Edit style content",
+                "existingStyle": "Conversation style",
+                "existingStyleHint": "The style sets the formality level and Marugoto level of AI replies.",
+                "existingStyleEmpty": "No conversation style available yet",
+                "formalityLevel": "Formality level",
+                "marugotoLevel": "Marugoto level",
+                "marugotoLevelNone": "No level restriction",
+                "styleDescription": "Style description",
+                "styleDescriptionPlaceholder": "E.g. Polite Japanese (masu form)",
+                "stylePrompt": "Style prompt",
+                "stylePromptPlaceholder": "E.g. Please respond using polite Japanese (desu/masu form)...",
+                "stylePromptHint": "Tell the AI which speech level and honorifics to use."
+            },
+            "styleUsage": "used by {count} personas",
+            "sharedStyleWarning": "This style is shared with {count} other personas. Saving will overwrite the style content for all of them.",
+            "newStyleHint": "A new conversation style will be created and attached to this persona only.",
+            "errors": {
+                "nameRequired": "Please enter the persona name.",
+                "nameTooLong": "Persona name is too long (max 255 characters).",
+                "nameDuplicated": "This persona name already exists, please pick another one.",
+                "promptRequired": "Please enter the persona prompt.",
+                "promptTooLong": "Persona prompt is too long (max 5000 characters).",
+                "avatarFileIdInvalid": "Avatar file id must be a positive integer.",
+                "styleRequired": "Please choose a conversation style.",
+                "stylePromptRequired": "Please enter the conversation style prompt.",
+                "stylePromptTooLong": "Style prompt is too long (max 2000 characters).",
+                "styleDescriptionTooLong": "Style description is too long (max 512 characters)."
+            },
+            "cancel": "Cancel",
+            "submit": "Save persona",
+            "submitting": "Saving...",
+            "createSuccess": "New AI persona created.",
+            "updateSuccess": "AI persona updated.",
+            "errorFallback": "Could not save the persona. Please try again."
+        }
+    }
+}

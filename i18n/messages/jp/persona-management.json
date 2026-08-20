@@ -1,0 +1,105 @@
+{
+    "personaManagement": {
+        "pageTitle": "AIキャラクター管理",
+        "pageSubtitle": "1対1会話ルーム向けのAIキャラクターと会話スタイルを作成・設定します。",
+        "addButton": "キャラクターを追加",
+        "formality": {
+            "INFORMAL": "カジュアル",
+            "NEUTRAL": "丁寧",
+            "FORMAL": "敬語"
+        },
+        "marugoto": {
+            "STARTER_A1": "入門 (A1)",
+            "ELEMENTARY_1_A2": "初級1 (A2.1)",
+            "ELEMENTARY_2_A2": "初級2 (A2.2)",
+            "PRE_INTERMEDIATE_A2_B1": "初中級 (A2/B1)",
+            "INTERMEDIATE_1_B1": "中級1 (B1.1)",
+            "INTERMEDIATE_2_B1": "中級2 (B1.2)"
+        },
+        "searchBox": {
+            "keywordPlaceholder": "キャラクター名、プロンプト、IDで検索...",
+            "formalityLabel": "丁寧さレベル",
+            "all": "すべて",
+            "resetButton": "リセット"
+        },
+        "card": {
+            "id": "#{id}",
+            "idWithAvatar": "#{id} · 画像 #{fileId}",
+            "noStyle": "会話スタイル未設定",
+            "detailButton": "詳細を見る",
+            "editButton": "編集"
+        },
+        "grid": {
+            "countLabel": "{total}件中{shown}件を表示",
+            "empty": "AIキャラクターがまだありません。最初のキャラクターを追加してください。",
+            "emptyFiltered": "条件に一致するキャラクターが見つかりません。",
+            "loadError": "キャラクター一覧を読み込めませんでした。もう一度お試しください。"
+        },
+        "detail": {
+            "subtitle": "キャラクターID #{id}",
+            "personaPrompt": "キャラクタープロンプト",
+            "styleSection": "推奨会話スタイル",
+            "styleId": "スタイルID #{id}",
+            "styleDescription": "説明",
+            "stylePrompt": "スタイルプロンプト",
+            "none": "未設定",
+            "noStyle": "このキャラクターには会話スタイルが設定されていません。",
+            "close": "閉じる",
+            "editButton": "編集"
+        },
+        "form": {
+            "createTitle": "AIキャラクターを追加",
+            "editTitle": "キャラクター{name}を編集",
+            "subtitle": "プロンプトは性格と場面を、会話スタイルは話し方の丁寧さを決めます。",
+            "sections": {
+                "basic": "キャラクター情報",
+                "style": "会話スタイル"
+            },
+            "fields": {
+                "name": "キャラクター名",
+                "namePlaceholder": "例：さくら（カフェ店員）",
+                "avatarFileId": "アバター画像ID",
+                "avatarFileIdPlaceholder": "例：120",
+                "avatarFileIdHint": "任意 - 空欄の場合はイニシャルアバターを使用します。",
+                "prompt": "キャラクタープロンプト",
+                "promptPlaceholder": "役割、性格、場面、会話の進め方を記述してください...",
+                "promptHint": "キャラクターと場面のみを記述し、システム全体のルールは書かないでください。",
+                "styleModeExisting": "既存スタイルを使う",
+                "styleModeCustom": "新しいスタイルを作る",
+                "styleModeEdit": "スタイル内容を編集",
+                "existingStyle": "会話スタイル",
+                "existingStyleHint": "スタイルはAIの丁寧さレベルとまるごとレベルを決めます。",
+                "existingStyleEmpty": "会話スタイルがまだありません",
+                "formalityLevel": "丁寧さレベル",
+                "marugotoLevel": "まるごとレベル",
+                "marugotoLevelNone": "レベル指定なし",
+                "styleDescription": "スタイルの説明",
+                "styleDescriptionPlaceholder": "例：丁寧な日本語（ます形）",
+                "stylePrompt": "スタイルプロンプト",
+                "stylePromptPlaceholder": "例：丁寧な日本語（です・ます形）で答えてください...",
+                "stylePromptHint": "話し方の文体と敬語レベルをAIに指示します。"
+            },
+            "styleUsage": "{count}体が使用中",
+            "sharedStyleWarning": "このスタイルは他の{count}体のキャラクターと共有されています。保存するとすべてのキャラクターのスタイル内容が上書きされます。",
+            "newStyleHint": "新しい会話スタイルを作成し、このキャラクターのみに設定します。",
+            "errors": {
+                "nameRequired": "キャラクター名を入力してください。",
+                "nameTooLong": "キャラクター名が長すぎます（最大255文字）。",
+                "nameDuplicated": "このキャラクター名は既に存在します。別の名前を選んでください。",
+                "promptRequired": "キャラクタープロンプトを入力してください。",
+                "promptTooLong": "キャラクタープロンプトが長すぎます（最大5000文字）。",
+                "avatarFileIdInvalid": "アバター画像IDは正の整数で入力してください。",
+                "styleRequired": "会話スタイルを選択してください。",
+                "stylePromptRequired": "スタイルプロンプトを入力してください。",
+                "stylePromptTooLong": "スタイルプロンプトが長すぎます（最大2000文字）。",
+                "styleDescriptionTooLong": "スタイルの説明が長すぎます（最大512文字）。"
+            },
+            "cancel": "キャンセル",
+            "submit": "保存する",
+            "submitting": "保存中...",
+            "createSuccess": "新しいAIキャラクターを追加しました。",
+            "updateSuccess": "AIキャラクターを更新しました。",
+            "errorFallback": "キャラクターを保存できませんでした。もう一度お試しください。"
+        }
+    }
+}
