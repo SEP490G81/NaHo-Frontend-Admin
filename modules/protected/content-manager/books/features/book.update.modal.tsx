@@ -171,26 +171,72 @@ export default function UpdateBookModal({
         // The parent will handle isUpdating state. The useEffect above will reset isUploading when isUpdating becomes false.
     };
 
+    const inputSx = {
+        "& .MuiOutlinedInput-root": {
+            borderRadius: "10px",
+            backgroundColor: "var(--color-bgc-app)",
+            color: "var(--color-text-contrast)",
+            "& fieldset": { borderColor: "var(--color-bdc-primary)" },
+            "&:hover fieldset": { borderColor: "var(--color-bgc-highlight)" },
+            "&.Mui-focused fieldset": {
+                borderColor: "var(--color-bgc-highlight)",
+            },
+        },
+        "& .MuiInputLabel-root": {
+            color: "var(--color-text-muted)",
+            "&.Mui-focused": { color: "var(--color-bgc-highlight)" },
+        },
+        "& .MuiSelect-icon": { color: "var(--color-text-muted)" },
+    };
+
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-            <DialogTitle className="font-bold border-b border-gray-100">
+        <Dialog 
+            open={open} 
+            onClose={onClose} 
+            maxWidth="sm" 
+            fullWidth
+            slotProps={{
+                paper: {
+                    className: "bg-bgc-modal text-text-contrast border border-bdc-primary rounded-xl",
+                    sx: {
+                        backgroundColor: "var(--color-bgc-modal)",
+                        color: "var(--color-text-contrast)",
+                        borderRadius: "16px",
+                    },
+                },
+            }}
+        >
+            <DialogTitle className="font-bold border-b border-bdc-primary px-6 py-4">
                 {t("updateBook") || "Update Book"}
             </DialogTitle>
-            <DialogContent dividers className="flex flex-col gap-6 py-6">
+            <DialogContent className="flex flex-col gap-6 py-6 px-6">
                 
                 <Box className="flex flex-col gap-2">
-                    <span className="text-sm font-medium text-gray-700 w-full text-left">{t("coverImage") || "Cover Image"}</span>
-                    <div className="flex flex-col items-center w-full bg-gray-50/50 p-6 rounded-lg border border-gray-200 border-dashed hover:bg-gray-50 transition-colors">
+                    <span className="text-sm font-medium text-text-muted w-full text-left">{t("coverImage") || "Cover Image"}</span>
+                    <div className="flex flex-col items-center w-full bg-bgc-panel p-6 rounded-lg border border-bdc-primary border-dashed hover:bg-hbgc-app transition-colors">
                         {previewUrl ? (
-                            <div className="relative w-40 h-56 rounded border border-gray-200 overflow-hidden mb-4 shadow-sm bg-white">
+                            <div className="relative w-40 h-56 rounded border border-bdc-primary overflow-hidden mb-4 shadow-sm bg-bgc-app">
                                 <Image src={previewUrl} alt="Cover" fill className="object-contain" sizes="160px" />
                             </div>
                         ) : (
-                            <div className="w-40 h-56 bg-gray-100 rounded border border-gray-300 border-dashed flex items-center justify-center text-xs text-gray-400 mb-4 text-center p-4">
+                            <div className="w-40 h-56 bg-bgc-app rounded border border-bdc-primary border-dashed flex items-center justify-center text-xs text-text-muted mb-4 text-center p-4">
                                 {t("noData") || "No Cover Image"}
                             </div>
                         )}
-                        <Button variant="outlined" component="label" size="small" disabled={isUploading || isUpdating}>
+                        <Button 
+                            variant="outlined" 
+                            component="label" 
+                            size="small" 
+                            disabled={isUploading || isUpdating}
+                            sx={{
+                                color: "var(--color-text-contrast)",
+                                borderColor: "var(--color-bdc-primary)",
+                                "&:hover": {
+                                    borderColor: "var(--color-text-contrast)",
+                                    backgroundColor: "var(--color-hbgc-app)"
+                                }
+                            }}
+                        >
                             {isUploading ? <CircularProgress size={16} className="mr-2" /> : null}
                             {t("selectImage") || "Select Image"}
                             <input 
@@ -219,6 +265,7 @@ export default function UpdateBookModal({
                     }}
                     error={!!errors.title}
                     helperText={errors.title}
+                    sx={inputSx}
                 />
 
                 <TextField
@@ -228,15 +275,24 @@ export default function UpdateBookModal({
                     rows={4}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                    sx={inputSx}
                 />
 
                 <Box className="flex gap-4">
-                    <FormControl fullWidth required>
+                    <FormControl fullWidth required sx={inputSx}>
                         <InputLabel>{t("cefrLevel") || "CEFR Level"}</InputLabel>
                         <Select
                             value={cefrLevel}
                             label={t("cefrLevel") || "CEFR Level"}
                             onChange={(e) => setCefrLevel(e.target.value as CefrLevel)}
+                            MenuProps={{
+                                PaperProps: {
+                                    sx: {
+                                        backgroundColor: "var(--color-bgc-panel)",
+                                        color: "var(--color-text-contrast)",
+                                    }
+                                }
+                            }}
                         >
                             {Object.values(CefrLevel).map((level) => (
                                 <MenuItem key={level} value={level}>{level}</MenuItem>
@@ -246,16 +302,27 @@ export default function UpdateBookModal({
                 </Box>
 
             </DialogContent>
-            <DialogActions className="px-6 py-4 border-t border-gray-100">
-                <Button onClick={onClose} disabled={isUpdating} color="inherit">
+            <DialogActions className="px-6 py-4 border-t border-bdc-primary">
+                <Button 
+                    onClick={onClose} 
+                    disabled={isUpdating}
+                    sx={{ color: "var(--color-text-muted)" }}
+                >
                     {t("cancel") || "Cancel"}
                 </Button>
                 <Button 
                     onClick={handleSave} 
                     variant="contained" 
-                    color="primary"
                     disabled={isUpdating}
                     startIcon={isUpdating ? <CircularProgress size={20} /> : null}
+                    sx={{
+                        backgroundColor: "var(--color-bgc-highlight)",
+                        color: "white",
+                        "&:hover": {
+                            backgroundColor: "var(--color-bgc-highlight)",
+                            opacity: 0.9
+                        }
+                    }}
                 >
                     {t("save") || "Save Changes"}
                 </Button>

@@ -1,11 +1,11 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useBookManagement } from "@/modules/protected/books/hooks/useBookManagement";
-import BookTable from "@/modules/protected/books/features/BookTable";
-import BookSearchFilter from "@/modules/protected/books/features/BookSearchFilter";
-import UpdateBookModal from "@/modules/protected/books/features/UpdateBookModal";
-import { Box, Typography } from "@mui/material";
+import { useBookManagement } from "@/modules/protected/content-manager/books/hooks/use.book.management";
+import BookTable from "@/modules/protected/content-manager/books/features/book.table";
+import BookSearchFilter from "@/modules/protected/content-manager/books/features/book.search.filter";
+import UpdateBookModal from "@/modules/protected/content-manager/books/features/book.update.modal";
+import ContainerBox from "@/components/ui/container.box";
 
 export default function BookManagementPage() {
     const t = useTranslations("books");
@@ -25,16 +25,17 @@ export default function BookManagementPage() {
     const selectedBook = books.find((b) => b.id === selectedBookId) || null;
 
     return (
-        <Box className="p-6">
-            <Box className="flex justify-between items-center mb-6">
-                <Typography variant="h4" className="font-bold text-gray-800">
-                    {t("bookManagement") || "Book Management"}
-                </Typography>
-            </Box>
+        <div className="flex w-full flex-col gap-y-4">
+            <ContainerBox>
+                <div className="flex flex-col gap-3">
+                    <h1 className="text-text-contrast text-2xl font-bold">
+                        {t("bookManagement") || "Book Management"}
+                    </h1>
+                    <BookSearchFilter onSearch={handleSearch} />
+                </div>
+            </ContainerBox>
 
-            <Box className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <BookSearchFilter onSearch={handleSearch} />
-                
+            <ContainerBox>
                 <BookTable
                     books={books}
                     pageMeta={pageMeta}
@@ -42,7 +43,7 @@ export default function BookManagementPage() {
                     onPageChange={handlePageChange}
                     onUpdateClick={openUpdateModal}
                 />
-            </Box>
+            </ContainerBox>
 
             <UpdateBookModal
                 open={isUpdateModalOpen}
@@ -51,6 +52,6 @@ export default function BookManagementPage() {
                 onSave={updateMutation.mutate}
                 isUpdating={updateMutation.isPending}
             />
-        </Box>
+        </div>
     );
 }

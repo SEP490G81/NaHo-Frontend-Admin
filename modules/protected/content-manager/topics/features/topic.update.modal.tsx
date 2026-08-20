@@ -65,13 +65,46 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
         onSave(data);
     };
 
+    const inputSx = {
+        "& .MuiOutlinedInput-root": {
+            borderRadius: "10px",
+            backgroundColor: "var(--color-bgc-app)",
+            color: "var(--color-text-contrast)",
+            "& fieldset": { borderColor: "var(--color-bdc-primary)" },
+            "&:hover fieldset": { borderColor: "var(--color-bgc-highlight)" },
+            "&.Mui-focused fieldset": {
+                borderColor: "var(--color-bgc-highlight)",
+            },
+        },
+        "& .MuiInputLabel-root": {
+            color: "var(--color-text-muted)",
+            "&.Mui-focused": { color: "var(--color-bgc-highlight)" },
+        },
+        "& .MuiSelect-icon": { color: "var(--color-text-muted)" },
+    };
+
     return (
-        <Dialog open={isOpen} onClose={!isSaving ? onClose : undefined} maxWidth="md" fullWidth>
-            <DialogTitle className="border-b pb-4 text-xl font-bold">
+        <Dialog 
+            open={isOpen} 
+            onClose={!isSaving ? onClose : undefined} 
+            maxWidth="md" 
+            fullWidth
+            slotProps={{
+                paper: {
+                    className: "bg-bgc-modal text-text-contrast border border-bdc-primary rounded-xl",
+                    sx: {
+                        backgroundColor: "var(--color-bgc-modal)",
+                        color: "var(--color-text-contrast)",
+                        borderRadius: "16px",
+                    },
+                },
+            }}
+        >
+            <DialogTitle className="border-b border-bdc-primary pb-4 pt-5 px-6 text-xl font-bold">
                 {t("updateTitle")}
             </DialogTitle>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <DialogContent className="pt-6 space-y-6">
+                <DialogContent className="pt-6 px-6 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <Controller
                             name="japaneseName"
@@ -86,6 +119,7 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                                     error={!!errors.japaneseName}
                                     helperText={errors.japaneseName?.message}
                                     disabled={isSaving}
+                                    sx={inputSx}
                                 />
                             )}
                         />
@@ -94,9 +128,20 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                             name="status"
                             control={control}
                             render={({ field }) => (
-                                <FormControl fullWidth variant="outlined" disabled={isSaving}>
+                                <FormControl fullWidth variant="outlined" disabled={isSaving} sx={inputSx}>
                                     <InputLabel>{t("status")}</InputLabel>
-                                    <Select {...field} label={t("status")}>
+                                    <Select 
+                                        {...field} 
+                                        label={t("status")}
+                                        MenuProps={{
+                                            PaperProps: {
+                                                sx: {
+                                                    backgroundColor: "var(--color-bgc-panel)",
+                                                    color: "var(--color-text-contrast)",
+                                                }
+                                            }
+                                        }}
+                                    >
                                         <MenuItem value={TopicStatus.DRAFT}>{t("statusDraft")}</MenuItem>
                                         <MenuItem value={TopicStatus.PUBLISHED}>{t("statusPublished")}</MenuItem>
                                         <MenuItem value={TopicStatus.ARCHIVE}>{t("statusArchive")}</MenuItem>
@@ -107,7 +152,7 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                     </div>
 
                     <div className="space-y-4">
-                        <h4 className="font-medium text-muted-foreground">{t("description")}</h4>
+                        <h4 className="font-medium text-text-muted mb-2">{t("description")}</h4>
                         <Controller
                             name="japaneseDescription"
                             control={control}
@@ -120,6 +165,7 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                                     multiline
                                     rows={2}
                                     disabled={isSaving}
+                                    sx={inputSx}
                                 />
                             )}
                         />
@@ -135,6 +181,7 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                                     multiline
                                     rows={2}
                                     disabled={isSaving}
+                                    sx={inputSx}
                                 />
                             )}
                         />
@@ -150,20 +197,32 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                                     multiline
                                     rows={2}
                                     disabled={isSaving}
+                                    sx={inputSx}
                                 />
                             )}
                         />
                     </div>
                 </DialogContent>
-                <DialogActions className="border-t p-4">
-                    <Button onClick={onClose} disabled={isSaving} color="inherit">
+                <DialogActions className="border-t border-bdc-primary px-6 py-4">
+                    <Button 
+                        onClick={onClose} 
+                        disabled={isSaving}
+                        sx={{ color: "var(--color-text-muted)" }}
+                    >
                         {t("cancel")}
                     </Button>
                     <Button
                         type="submit"
                         variant="contained"
                         disabled={isSaving}
-                        className="bg-primary text-primary-foreground hover:bg-primary/90"
+                        sx={{
+                            backgroundColor: "var(--color-bgc-highlight)",
+                            color: "white",
+                            "&:hover": {
+                                backgroundColor: "var(--color-bgc-highlight)",
+                                opacity: 0.9
+                            }
+                        }}
                     >
                         {isSaving ? t("loading") : t("save")}
                     </Button>

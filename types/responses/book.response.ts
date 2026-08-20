@@ -3,7 +3,7 @@ import { JlptLevel } from "../enums/user.enum";
 
 export interface FileResponse {
     readonly id: number;
-    readonly url: string;
+    readonly accessUrl: string;
     readonly name?: string;
 }
 

@@ -23,10 +23,10 @@ export const BookSelector: React.FC<BookSelectorProps> = ({ books, onSelectBook,
     return (
         <div className="space-y-6">
             <div className="text-center space-y-2">
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                <h2 className="text-2xl font-bold tracking-tight text-text-contrast">
                     {t("selectBookFirst")}
                 </h2>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-text-muted text-sm">
                     {t("allBooks")} ({books.length})
                 </p>
             </div>
@@ -36,18 +36,18 @@ export const BookSelector: React.FC<BookSelectorProps> = ({ books, onSelectBook,
                     <div
                         key={book.id}
                         onClick={() => onSelectBook(book.id)}
-                        className="group relative flex flex-col bg-card hover:bg-accent hover:text-accent-foreground border rounded-xl overflow-hidden shadow-sm transition-all duration-200 hover:shadow-md cursor-pointer hover:-translate-y-1"
+                        className="group relative flex flex-col bg-bgc-panel hover:bg-hbgc-app text-text-contrast border border-bdc-primary rounded-xl overflow-hidden shadow-sm transition-all duration-200 hover:shadow-md cursor-pointer hover:-translate-y-1"
                     >
                         {/* Book Cover Placeholder/Image */}
-                        <div className="aspect-[1/1.414] w-full bg-muted/50 border-b flex items-center justify-center relative overflow-hidden">
-                            {book.coverImage?.url ? (
+                        <div className="aspect-[1/1.414] w-full bg-bgc-app border-b border-bdc-primary flex items-center justify-center relative overflow-hidden">
+                            {book.coverImage?.accessUrl ? (
                                 <img 
-                                    src={book.coverImage.url} 
+                                    src={book.coverImage.accessUrl} 
                                     alt={book.title}
                                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
                             ) : (
-                                <BookIcon className="w-16 h-16 text-muted-foreground/30" strokeWidth={1} />
+                                <BookIcon className="w-16 h-16 text-text-muted/30" strokeWidth={1} />
                             )}
                             <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
                         </div>
@@ -58,10 +58,10 @@ export const BookSelector: React.FC<BookSelectorProps> = ({ books, onSelectBook,
                                 {book.title}
                             </h3>
                             <div className="flex items-center gap-2">
-                                <span className="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-400/20">
+                                <span className="inline-flex items-center rounded-md bg-blue-500/10 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-600 dark:text-blue-300 ring-1 ring-inset ring-blue-500/20">
                                     {book.jlptLevel}
                                 </span>
-                                <span className="inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-900/30 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-300 ring-1 ring-inset ring-purple-700/10 dark:ring-purple-400/20">
+                                <span className="inline-flex items-center rounded-md bg-purple-500/10 dark:bg-purple-900/30 px-2 py-1 text-xs font-medium text-purple-600 dark:text-purple-300 ring-1 ring-inset ring-purple-500/20">
                                     {book.cefrLevel}
                                 </span>
                             </div>
@@ -71,7 +71,7 @@ export const BookSelector: React.FC<BookSelectorProps> = ({ books, onSelectBook,
             </div>
             
             {books.length === 0 && (
-                <div className="text-center py-10 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/20">
+                <div className="text-center py-10 text-text-muted border-2 border-dashed border-bdc-primary rounded-xl bg-bgc-panel">
                     {t("noData")}
                 </div>
             )}
