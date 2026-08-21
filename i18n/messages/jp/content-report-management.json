@@ -1,0 +1,89 @@
+{
+    "contentReportManagement": {
+        "pageTitle": "コンテンツ報告管理",
+        "pageSubtitle": "スピーキング問題やコミュニティのコメントに関する学習者からの報告を確認・対応します。",
+        "loadError": "コンテンツ報告を読み込めませんでした。もう一度お試しください。",
+        "resultCount": "{total}件中{shown}件を表示",
+        "stats": {
+            "total": "報告総数",
+            "unresolved": "未対応",
+            "question": "問題への報告",
+            "comment": "コメントへの報告"
+        },
+        "type": {
+            "question": "問題",
+            "comment": "コメント",
+            "other": "その他"
+        },
+        "status": {
+            "resolved": "対応済み",
+            "unresolved": "未対応"
+        },
+        "target": {
+            "question": "問題",
+            "comment": "コメント",
+            "none": "不明"
+        },
+        "searchBox": {
+            "keywordPlaceholder": "タイトル、内容、報告者名で検索...",
+            "reportTypeLabel": "報告種別",
+            "statusLabel": "対応ステータス",
+            "all": "すべて",
+            "statusResolved": "対応済み",
+            "statusUnresolved": "未対応",
+            "resetButton": "リセット"
+        },
+        "table": {
+            "stt": "#",
+            "reporter": "報告者",
+            "content": "報告内容",
+            "type": "種別",
+            "target": "対象",
+            "files": "添付",
+            "status": "ステータス",
+            "actions": "操作",
+            "noData": "コンテンツ報告が見つかりません。",
+            "viewDetail": "詳細を見る",
+            "resolve": "報告を処理する"
+        },
+        "targetPanel": {
+            "title": "報告された内容",
+            "commentRef": "コメントID",
+            "questionRef": "問題ID",
+            "missingRef": "なし",
+            "inQuestion": "問題#{id}内",
+            "unknownUser": "匿名ユーザー",
+            "loadFailed": "報告されたコメントを読み込めませんでした。",
+            "commentNotFound": "このコメントは見つかりません。削除された可能性があります。",
+            "commentNoQuestionId": "報告に問題IDが含まれていないため、コメント内容を取得できません。",
+            "questionNoApi": "スピーキング問題の詳細を取得するAPIがまだないため、参照IDのみ表示しています。"
+        },
+        "detailsModal": {
+            "title": "報告の詳細",
+            "reporter": "報告者：",
+            "descriptionLabel": "報告者からの説明",
+            "attachedFiles": "添付された証拠画像",
+            "zoomIn": "拡大",
+            "openLink": "リンクを開く",
+            "adminReplyLabel": "送信済みの返信",
+            "resolveReportBtn": "返信して処理する",
+            "close": "閉じる"
+        },
+        "resolveModal": {
+            "title": "報告の処理",
+            "warningTitle": "処理前の確認",
+            "warningIrreversible": "この操作は取り消せません。処理済みの報告は再度開けません。",
+            "warningEmail": "報告者には以下の返信内容がメールで送信されます。",
+            "replyInputLabel": "返信内容",
+            "replyPlaceholder": "審査結果と対応内容を報告者向けに記入してください...",
+            "replyHint": "この内容はメールで報告者に直接送信されます。",
+            "replyRequired": "{min}文字以上の返信を入力してください。",
+            "cancel": "キャンセル",
+            "submitBtn": "処理済みとして確定"
+        },
+        "toast": {
+            "resolveSuccess": "報告を処理し、報告者へ返信を送信しました。",
+            "resolveError": "報告の処理に失敗しました。もう一度お試しください。"
+        }
+    }
+}

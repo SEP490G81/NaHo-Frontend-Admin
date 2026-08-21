@@ -1,0 +1,89 @@
+{
+    "contentReportManagement": {
+        "pageTitle": "Content Report Management",
+        "pageSubtitle": "Review and resolve learner reports about speaking questions and community comments.",
+        "loadError": "Could not load content reports. Please try again.",
+        "resultCount": "Showing {shown}/{total} reports",
+        "stats": {
+            "total": "Total reports",
+            "unresolved": "Pending",
+            "question": "Question reports",
+            "comment": "Comment reports"
+        },
+        "type": {
+            "question": "Question",
+            "comment": "Comment",
+            "other": "Other"
+        },
+        "status": {
+            "resolved": "Resolved",
+            "unresolved": "Pending"
+        },
+        "target": {
+            "question": "Question",
+            "comment": "Comment",
+            "none": "Unknown"
+        },
+        "searchBox": {
+            "keywordPlaceholder": "Search by title, description, reporter name...",
+            "reportTypeLabel": "Report type",
+            "statusLabel": "Resolution status",
+            "all": "All",
+            "statusResolved": "Resolved",
+            "statusUnresolved": "Pending",
+            "resetButton": "Reset"
+        },
+        "table": {
+            "stt": "#",
+            "reporter": "Reporter",
+            "content": "Report content",
+            "type": "Type",
+            "target": "Target",
+            "files": "Files",
+            "status": "Status",
+            "actions": "Actions",
+            "noData": "No content reports found.",
+            "viewDetail": "View details",
+            "resolve": "Resolve report"
+        },
+        "targetPanel": {
+            "title": "Reported content",
+            "commentRef": "Comment ID",
+            "questionRef": "Question ID",
+            "missingRef": "None",
+            "inQuestion": "in question #{id}",
+            "unknownUser": "Anonymous user",
+            "loadFailed": "Could not load the reported comment.",
+            "commentNotFound": "This comment was not found, it may have been deleted.",
+            "commentNoQuestionId": "The report has no question ID, so the comment content cannot be looked up.",
+            "questionNoApi": "There is no API to fetch speaking question details yet, only the reference ID is shown."
+        },
+        "detailsModal": {
+            "title": "Report details",
+            "reporter": "Reported by:",
+            "descriptionLabel": "Description from the reporter",
+            "attachedFiles": "Attached evidence images",
+            "zoomIn": "Zoom in",
+            "openLink": "Open link",
+            "adminReplyLabel": "Response sent",
+            "resolveReportBtn": "Reply & resolve report",
+            "close": "Close"
+        },
+        "resolveModal": {
+            "title": "Resolve report",
+            "warningTitle": "Confirm before resolving",
+            "warningIrreversible": "This action cannot be undone: a resolved report cannot be reopened.",
+            "warningEmail": "The reporter will receive an email containing the response below.",
+            "replyInputLabel": "Response message",
+            "replyPlaceholder": "Describe the moderation outcome and next steps for the reporter...",
+            "replyHint": "This message is sent directly to the reporter by email.",
+            "replyRequired": "Please enter a response of at least {min} characters.",
+            "cancel": "Cancel",
+            "submitBtn": "Confirm resolution"
+        },
+        "toast": {
+            "resolveSuccess": "Report resolved and the response was sent to the reporter.",
+            "resolveError": "Could not resolve the report. Please try again."
+        }
+    }
+}
