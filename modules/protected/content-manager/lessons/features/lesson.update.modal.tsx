@@ -74,6 +74,8 @@ export const UpdateLessonModal: React.FC<UpdateLessonModalProps> = ({
         },
         "& .MuiInputLabel-root": {
             color: "var(--color-text-muted)",
+            backgroundColor: "var(--color-bgc-modal)",
+            padding: "0 4px",
             "&.Mui-focused": { color: "var(--color-bgc-highlight)" },
         },
         "& .MuiSelect-icon": { color: "var(--color-text-muted)" },

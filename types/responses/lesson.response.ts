@@ -1,4 +1,5 @@
 import { TopicStatus } from "../enums/topic.enum";
+import { ObjectiveResponse } from "./objective.response";
 
 export interface LessonResponse {
     id: number;
@@ -13,5 +14,5 @@ export interface LessonResponse {
 }
 
 export interface LessonDetailResponse extends LessonResponse {
-    objectives?: any[]; // Keep it any[] or define ObjectiveResponse if needed
+    objectives?: ObjectiveResponse[];
 }

@@ -53,6 +53,21 @@
             "back": "戻る"
         },
         "layout": {
+            "nav": {
+                "dashboard": "ダッシュボード",
+                "userManagement": "ユーザー管理",
+                "paymentManagement": "決済管理",
+                "subscriptionManagement": "サブスクプラン管理",
+                "costServiceManagement": "サービス費用管理",
+                "reportManagement": "Report Management",
+                "contentManagement": "コンテンツ管理",
+                "bookManagement": "書籍",
+                "vocabularyManagement": "語彙",
+                "grammarManagement": "文法",
+                "freeAiChat": "AIとの自由会話",
+                "leaderboard": "ランキング",
+                "logout": "ログアウト"
+            },
             "sidebar": {
                 "dashboard": "ダッシュボード",
                 "userManagement": "ユーザー管理",
@@ -61,7 +76,10 @@
                 "costServiceManagement": "サービス費用管理",
                 "reportManagement": "Report Management",
                 "contentManagement": "コンテンツ管理",
+                "bookManagement": "本",
                 "editBook": "書籍の編集",
+                "vocabularyManagement": "語彙",
+                "grammarManagement": "文法",
                 "editTopic": "トピックの編集",
                 "editLesson": "レッスンの編集",
                 "editObjective": "目標の編集",

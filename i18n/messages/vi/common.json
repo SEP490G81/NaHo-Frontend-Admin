@@ -58,6 +58,21 @@
             "back": "Quay lại"
         },
         "layout": {
+            "nav": {
+                "dashboard": "Bảng điều khiển",
+                "userManagement": "Quản lý người dùng",
+                "paymentManagement": "Quản lý thanh toán",
+                "subscriptionManagement": "Gói học & Nâng cấp",
+                "costServiceManagement": "Quản lý chi phí dịch vụ",
+                "reportManagement": "Quản lý báo cáo",
+                "contentManagement": "Quản lý nội dung",
+                "bookManagement": "Sách",
+                "vocabularyManagement": "Kho từ vựng",
+                "grammarManagement": "Kho ngữ pháp",
+                "freeAiChat": "Trò chuyện tự do AI",
+                "leaderboard": "Bảng xếp hạng thi đua",
+                "logout": "Đăng xuất"
+            },
             "sidebar": {
                 "dashboard": "Dashboard",
                 "userManagement": "Quản lý người dùng",
@@ -66,7 +81,10 @@
                 "costServiceManagement": "Quản lý chi phí dịch vụ",
                 "reportManagement": "Quản lý báo cáo",
                 "contentManagement": "Chỉnh sửa nội dung",
+                "bookManagement": "Quản lý sách",
                 "editBook": "Chỉnh sửa sách",
+                "vocabularyManagement": "Kho từ vựng",
+                "grammarManagement": "Kho ngữ pháp",
                 "editTopic": "Chỉnh sửa chủ đề",
                 "editLesson": "Chỉnh sửa bài học",
                 "editObjective": "Chỉnh sửa mục tiêu",

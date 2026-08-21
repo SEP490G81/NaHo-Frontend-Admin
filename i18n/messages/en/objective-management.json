@@ -1,0 +1,33 @@
+{
+    "objectiveManagement": {
+        "title": "Edit Objective",
+        "description": "Add, edit, delete and manage learning objectives",
+        "noData": "No data",
+        "table": {
+            "id": "ID",
+            "name": "Objective Name",
+            "description": "Description",
+            "status": "Status",
+            "actions": "Actions",
+            "empty": "No objective data"
+        },
+        "status": {
+            "PUBLISHED": "Published",
+            "DRAFT": "Draft",
+            "ARCHIVE": "Archived"
+        },
+        "statusLabel": "Status",
+        "statusDraft": "Draft",
+        "statusPublished": "Published",
+        "statusArchive": "Archived",
+        "updateTitle": "Edit Objective",
+        "japaneseName": "Japanese Name",
+        "japaneseDescription": "Japanese Description",
+        "cancel": "Cancel",
+        "save": "Save",
+        "loading": "Loading...",
+        "editObjective": "Edit Objective",
+        "updateSuccess": "Objective updated successfully!",
+        "updateError": "Failed to update objective. Please try again."
+    }
+}

@@ -40,10 +40,10 @@ export default function BookTopicsPage({ params }: { params: Promise<{ bookId: s
 
     return (
         <div className="flex w-full flex-col gap-y-4">
-            <ContainerBox>
+            <ContainerBox className="p-0 border-none bg-transparent shadow-none">
                 <div className="flex flex-col gap-4">
                     {/* Breadcrumb / Header */}
-                    <div className="flex items-center gap-4 border-b border-bdc-primary pb-4">
+                    <div className="flex items-center gap-4 pb-4">
                         <Link 
                             href="/books" 
                             className="p-2 bg-bgc-panel hover:bg-hbgc-app border border-bdc-primary rounded-lg text-text-muted hover:text-text-contrast transition-colors"
@@ -56,10 +56,10 @@ export default function BookTopicsPage({ params }: { params: Promise<{ bookId: s
                             </h1>
                             <div className="flex items-center text-sm text-text-muted mt-1">
                                 <Link href="/books" className="hover:text-bgc-highlight transition-colors">
-                                    {t("bookLabel")}
+                                    {t("bookLabel") || "Sách"}
                                 </Link>
                                 <ChevronRight size={14} className="mx-1 opacity-50" />
-                                <span className="text-text-contrast font-medium">Chủ đề (ID: {bookId})</span>
+                                <span className="text-text-contrast font-medium">Chủ đề</span>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export default function BookTopicsPage({ params }: { params: Promise<{ bookId: s
                 </div>
             </ContainerBox>
 
-            <ContainerBox>
+            <ContainerBox className="p-0 border-none bg-transparent shadow-none">
                 <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="relative">
                         {isFetchingTopics && (

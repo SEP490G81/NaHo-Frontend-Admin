@@ -26,7 +26,7 @@ export default function BookManagementPage() {
 
     return (
         <div className="flex w-full flex-col gap-y-4">
-            <ContainerBox>
+            <ContainerBox className="p-0 border-none bg-transparent shadow-none">
                 <div className="flex flex-col gap-3">
                     <h1 className="text-text-contrast text-2xl font-bold">
                         {t("bookManagement") || "Book Management"}
@@ -35,7 +35,7 @@ export default function BookManagementPage() {
                 </div>
             </ContainerBox>
 
-            <ContainerBox>
+            <ContainerBox className="p-0 border-none bg-transparent shadow-none">
                 <BookTable
                     books={books}
                     pageMeta={pageMeta}

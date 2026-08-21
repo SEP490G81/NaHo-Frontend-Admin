@@ -4,16 +4,7 @@ import { useTranslations } from "next-intl";
 import { BookQueryRequest } from "@/types/requests/book.request";
 import { CefrLevel } from "@/types/enums/book.enum";
 import { SortDirection } from "@/types/enums/user.enum";
-import {
-    Box,
-    TextField,
-    MenuItem,
-    Select,
-    FormControl,
-    InputLabel,
-    Button,
-} from "@mui/material";
-import { XCircle } from "lucide-react";
+import { Search, XCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface BookSearchFilterProps {
@@ -50,53 +41,49 @@ export default function BookSearchFilter({ onSearch }: Readonly<BookSearchFilter
     };
 
     return (
-        <Box className="mb-6 flex flex-wrap gap-4 items-center">
-            <TextField
-                label={t("searchByTitle") || "Search by title"}
-                variant="outlined"
-                size="small"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                className="min-w-[250px] flex-grow"
-            />
+        <div className="bg-bgc-panel border border-bdc-primary rounded-xl p-4 flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full mb-6">
+            <div className="flex-1 min-w-[250px] w-full flex items-center relative">
+                <Search className="absolute left-3 text-text-muted" size={18} />
+                <input
+                    type="text"
+                    placeholder={t("searchByTitle") || "Tìm kiếm sách..."}
+                    className="w-full bg-bgc-app border border-bdc-primary rounded-lg pl-10 pr-4 py-2 text-sm text-text-contrast focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                />
+            </div>
 
-            <FormControl size="small" className="min-w-[150px]">
-                <InputLabel>{t("sort") || "Sort"}</InputLabel>
-                <Select
-                    value={sortDirection}
-                    label={t("sort") || "Sort"}
-                    onChange={(e) => setSortDirection(e.target.value as SortDirection)}
-                >
-                    <MenuItem value={SortDirection.ASC}>{t("asc") || "Ascending"}</MenuItem>
-                    <MenuItem value={SortDirection.DESC}>{t("desc") || "Descending"}</MenuItem>
-                </Select>
-            </FormControl>
-
-            <FormControl size="small" className="min-w-[150px]">
-                <InputLabel>{t("cefrLevel") || "CEFR Level"}</InputLabel>
-                <Select
-                    value={cefrLevel}
-                    label={t("cefrLevel") || "CEFR Level"}
-                    onChange={(e) => setCefrLevel(e.target.value as CefrLevel | "ALL")}
-                >
-                    <MenuItem value="ALL">{t("all") || "All"}</MenuItem>
-                    {Object.values(CefrLevel).map((level) => (
-                        <MenuItem key={level} value={level}>
-                            {level}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-
-            <Button
-                variant="outlined"
-                color="secondary"
-                startIcon={<XCircle size={18} />}
-                onClick={handleClearAll}
-                className="h-10 text-gray-500 border-gray-300 hover:bg-gray-50"
+            <select
+                className="bg-bgc-app border border-bdc-primary rounded-lg px-4 py-2 text-sm text-text-contrast focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all min-w-[150px] appearance-none cursor-pointer"
+                value={sortDirection}
+                onChange={(e) => setSortDirection(e.target.value as SortDirection)}
+                style={{ backgroundImage: `url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.7rem top 50%', backgroundSize: '0.65rem auto' }}
             >
-                {t("clearAll") || "Clear All"}
-            </Button>
-        </Box>
+                <option value={SortDirection.ASC}>{t("asc") || "Tăng dần (A-Z)"}</option>
+                <option value={SortDirection.DESC}>{t("desc") || "Giảm dần (Z-A)"}</option>
+            </select>
+
+            <select
+                className="bg-bgc-app border border-bdc-primary rounded-lg px-4 py-2 text-sm text-text-contrast focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all min-w-[150px] appearance-none cursor-pointer"
+                value={cefrLevel}
+                onChange={(e) => setCefrLevel(e.target.value as CefrLevel | "ALL")}
+                style={{ backgroundImage: `url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.7rem top 50%', backgroundSize: '0.65rem auto' }}
+            >
+                <option value="ALL">{t("all") || "Tất cả CEFR"}</option>
+                {Object.values(CefrLevel).map((level) => (
+                    <option key={level} value={level}>
+                        {level}
+                    </option>
+                ))}
+            </select>
+
+            <button
+                onClick={handleClearAll}
+                className="flex items-center gap-2 px-4 py-2 text-sm text-text-muted border border-bdc-primary rounded-lg hover:bg-hbgc-app hover:text-text-contrast transition-all"
+            >
+                <XCircle size={16} />
+                {t("clearAll") || "Xóa bộ lọc"}
+            </button>
+        </div>
     );
 }

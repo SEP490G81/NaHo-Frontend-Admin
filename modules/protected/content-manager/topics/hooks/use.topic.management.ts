@@ -24,6 +24,8 @@ export function useTopicManagement(bookId: number) {
         enabled: !!bookId,
     });
 
+    // Removed book fetch
+
     // Update topic
     const updateMutation = useMutation({
         mutationFn: (data: { id: number; request: UpdateTopicRequest }) =>

@@ -23,11 +23,18 @@ export interface ApiMeta {
     pageMeta: PageMeta;
 }
 
+export interface PageDataResponse<T> {
+    data: T[];
+    pageMeta: PageMeta;
+}
+
 export interface ApiResponse<T> {
     meta: ApiMeta;
     message: string;
     data: T;
 }
+
+export type BaseResponse<T> = ApiResponse<T>;
 
 export interface FieldErrorResponse {
     field: string;

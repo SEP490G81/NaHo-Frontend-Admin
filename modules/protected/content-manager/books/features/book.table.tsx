@@ -109,26 +109,28 @@ export default function BookTable({
                                         <td className={cellClass}>
                                             {book.cefrLevel}
                                         </td>
-                                        <td className={`${cellClass} flex items-center justify-center gap-2`}>
-                                            <Tooltip title={t("update") || "Update"}>
-                                                <IconButton 
-                                                    size="small" 
-                                                    onClick={() => onUpdateClick(book.id)}
-                                                    className="text-text-contrast hover:bg-bgc-app"
-                                                >
-                                                    <Edit2 size={18} />
-                                                </IconButton>
-                                            </Tooltip>
-                                            <Tooltip title="Quản lý Chủ đề">
-                                                <a href={`/books/${book.id}/topics`}>
+                                        <td className={cellClass}>
+                                            <div className="flex items-center justify-center gap-2">
+                                                <Tooltip title={t("update") || "Update"}>
                                                     <IconButton 
-                                                        size="small"
-                                                        className="text-text-contrast hover:bg-bgc-highlight/10 hover:text-bgc-highlight"
+                                                        size="small" 
+                                                        onClick={() => onUpdateClick(book.id)}
+                                                        className="text-text-contrast hover:bg-bgc-app"
                                                     >
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-folder-kanban"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-1.22-1.82A2 2 0 0 0 7.53 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><path d="M8 10v4"/><path d="M12 10v2"/><path d="M16 10v6"/></svg>
+                                                        <Edit2 size={18} />
                                                     </IconButton>
-                                                </a>
-                                            </Tooltip>
+                                                </Tooltip>
+                                                <Tooltip title="Quản lý Chủ đề">
+                                                    <a href={`/books/${book.id}/topics`}>
+                                                        <IconButton 
+                                                            size="small"
+                                                            className="text-text-contrast hover:bg-bgc-highlight/10 hover:text-bgc-highlight"
+                                                        >
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-folder-kanban"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-1.22-1.82A2 2 0 0 0 7.53 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><path d="M8 10v4"/><path d="M12 10v2"/><path d="M16 10v6"/></svg>
+                                                        </IconButton>
+                                                    </a>
+                                                </Tooltip>
+                                            </div>
                                         </td>
                                     </tr>
                                 );

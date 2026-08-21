@@ -10,6 +10,10 @@ import { ProblemDetail } from "@/types/responses/base.response";
  * rồi vỡ khi parse ("Unexpected token '<'").
  */
 async function forwardJson(backendResponse: Response) {
+    if (backendResponse.status === 204) {
+        return new NextResponse(null, { status: 204 });
+    }
+
     const text = await backendResponse.text();
     let body: unknown = null;
     if (text) {
@@ -230,6 +234,36 @@ export async function proxyPutJson(path: string, request?: Request) {
         method: "PUT",
         headers,
         ...(body ? { body } : {}),
+        cache: "no-store",
+    });
+
+    return forwardJson(backendResponse);
+}
+
+/**
+ * Helper cho route handler (lớp 1): forward request DELETE lên BE, tự đính kèm
+ * access token.
+ */
+export async function proxyDelete(path: string) {
+    if (!process.env.API_URL) {
+        return NextResponse.json(
+            {
+                detail: "API_URL chưa được cấu hình trên server.",
+            } as ProblemDetail,
+            { status: 500 },
+        );
+    }
+
+    const accessToken = (await cookies()).get(ACCESS_TOKEN_NAME)?.value;
+
+    const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+    };
+
+    const backendResponse = await fetch(`${process.env.API_URL}${path}`, {
+        method: "DELETE",
+        headers,
         cache: "no-store",
     });
 

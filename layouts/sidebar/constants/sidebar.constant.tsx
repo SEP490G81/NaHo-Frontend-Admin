@@ -46,8 +46,12 @@ export const NAV_ITEMS: NavItem[] = [
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
     {
         titleKey: "contentManagement",
-        url: "/books",
         icon: LibraryBig,
+        children: [
+            { titleKey: "bookManagement", url: "/books" },
+            { titleKey: "vocabularyManagement", url: "/vocabularies" },
+            { titleKey: "grammarManagement", url: "/grammars" },
+        ]
     },
     {
         titleKey: "freeAiChat",

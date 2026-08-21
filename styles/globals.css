@@ -20,6 +20,9 @@
     --color-bgc-highlight: #ff99ac;
     --color-bgc-error: #f87171;
     --color-bgc-modal: #ffffff;
+    
+    --color-primary: #ff99ac;
+    --color-primary-hover: #ff758f;
 
     /*hover background color*/
     --color-hbgc-app: #f1f3f4;
@@ -133,6 +136,9 @@
         --color-bgc-highlight: #ff99ac;
         --color-bgc-error: #f87171;
         --color-bgc-modal: #2c2c2a;
+        
+        --color-primary: #ff99ac;
+        --color-primary-hover: #ff758f;
 
         /*hover background color*/
         --color-hbgc-app: #2e2e2e;

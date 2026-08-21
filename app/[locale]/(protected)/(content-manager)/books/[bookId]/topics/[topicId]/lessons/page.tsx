@@ -38,8 +38,8 @@ export default function TopicLessonsPage({ params }: { params: Promise<{ bookId:
 
     return (
         <div className="flex w-full flex-col gap-y-4">
-            <ContainerBox>
-                <div className="flex flex-col gap-4 border-b border-bdc-primary pb-4">
+            <ContainerBox className="p-0 border-none bg-transparent shadow-none">
+                <div className="flex flex-col gap-4 pb-4">
                     {/* Breadcrumb / Header */}
                     <div className="flex items-center gap-4">
                         <Link 
@@ -54,26 +54,28 @@ export default function TopicLessonsPage({ params }: { params: Promise<{ bookId:
                             </h1>
                             <div className="flex items-center text-sm text-text-muted mt-1">
                                 <Link href="/books" className="hover:text-bgc-highlight transition-colors">
-                                    {t("bookLabel")}
+                                    {t("bookLabel") || "Sách"}
                                 </Link>
                                 <ChevronRight size={14} className="mx-1 opacity-50" />
                                 <Link href={`/books/${bookId}/topics`} className="hover:text-bgc-highlight transition-colors">
                                     Chủ đề
                                 </Link>
                                 <ChevronRight size={14} className="mx-1 opacity-50" />
-                                <span className="text-text-contrast font-medium">Bài học (ID: {topicId})</span>
+                                <span className="text-text-contrast font-medium">Bài học</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </ContainerBox>
 
-            <ContainerBox>
+            <ContainerBox className="p-0 border-none bg-transparent shadow-none">
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <LessonTable 
                         lessons={lessons} 
                         isLoading={isFetchingLessons} 
                         onEdit={openUpdateModal} 
+                        bookId={bookId}
+                        topicId={topicId}
                     />
                 </div>
             </ContainerBox>

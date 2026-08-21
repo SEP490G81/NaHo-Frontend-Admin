@@ -53,6 +53,21 @@
             "back": "Back"
         },
         "layout": {
+            "nav": {
+                "dashboard": "Dashboard",
+                "userManagement": "User Management",
+                "paymentManagement": "Payment Management",
+                "subscriptionManagement": "Subscription Plans",
+                "costServiceManagement": "Service Cost Management",
+                "reportManagement": "Report Management",
+                "contentManagement": "Content Management",
+                "bookManagement": "Books",
+                "vocabularyManagement": "Vocabularies",
+                "grammarManagement": "Grammars",
+                "freeAiChat": "Free AI Conversation",
+                "leaderboard": "Leaderboard",
+                "logout": "Logout"
+            },
             "sidebar": {
                 "dashboard": "Dashboard",
                 "userManagement": "User Management",
@@ -61,7 +76,10 @@
                 "costServiceManagement": "Service Cost Management",
                 "reportManagement": "Report Management",
                 "contentManagement": "Content Management",
+                "bookManagement": "Books",
                 "editBook": "Edit Books",
+                "vocabularyManagement": "Vocabularies",
+                "grammarManagement": "Grammars",
                 "editTopic": "Edit Topics",
                 "editLesson": "Edit Lessons",
                 "editObjective": "Edit Objectives",

@@ -3,14 +3,17 @@ import { LessonResponse } from "@/types/responses/lesson.response";
 import { TopicStatus } from "@/types/enums/topic.enum";
 import { useTranslations } from "next-intl";
 import { Edit3 } from "lucide-react";
+import { Tooltip } from "@mui/material";
 
 interface LessonTableProps {
     lessons: LessonResponse[];
     isLoading: boolean;
     onEdit: (lessonId: number) => void;
+    bookId: number;
+    topicId: number;
 }
 
-export const LessonTable: React.FC<LessonTableProps> = ({ lessons, isLoading, onEdit }) => {
+export const LessonTable: React.FC<LessonTableProps> = ({ lessons, isLoading, onEdit, bookId, topicId }) => {
     const t = useTranslations("lessonManagement");
 
     if (isLoading) {
@@ -22,22 +25,22 @@ export const LessonTable: React.FC<LessonTableProps> = ({ lessons, isLoading, on
     }
 
     return (
-        <div className="bg-bgc-panel border border-bdc-primary rounded-xl overflow-hidden shadow-sm">
-            <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                    <thead>
-                        <tr className="border-b border-bdc-primary bg-hbgc-app/30 text-text-muted text-xs uppercase tracking-wider">
-                            <th className="p-4 font-medium">{t("table.id")}</th>
-                            <th className="p-4 font-medium">{t("table.name")}</th>
-                            <th className="p-4 font-medium">{t("table.description")}</th>
-                            <th className="p-4 font-medium">{t("table.status")}</th>
-                            <th className="p-4 font-medium text-right">{t("table.actions")}</th>
+        <div className="w-full overflow-hidden flex flex-col gap-4">
+            <div className="w-full overflow-x-auto rounded-lg border border-bdc-primary custom-scrollbar">
+                <table className="w-full table-auto text-left">
+                    <thead className="bg-bgc-app sticky top-0 z-10">
+                        <tr className="border-b border-bdc-primary text-text-muted text-xs uppercase tracking-wider">
+                            <th className="p-4 font-semibold">{t("table.id")}</th>
+                            <th className="p-4 font-semibold">{t("table.name")}</th>
+                            <th className="p-4 font-semibold">{t("table.description")}</th>
+                            <th className="p-4 font-semibold">{t("table.status")}</th>
+                            <th className="p-4 font-semibold text-center">{t("table.actions")}</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-bdc-primary">
+                    <tbody>
                         {lessons.length > 0 ? (
                             lessons.map((lesson) => (
-                                <tr key={lesson.id} className="hover:bg-hbgc-app transition-colors group">
+                                <tr key={lesson.id} className="border-bdc-primary border-b hover:bg-hbgc-app transition-colors group">
                                     <td className="p-4 text-sm text-text-muted">{lesson.id}</td>
                                     <td className="p-4 text-sm font-medium text-text-contrast">
                                         {lesson.japaneseName}
@@ -56,14 +59,27 @@ export const LessonTable: React.FC<LessonTableProps> = ({ lessons, isLoading, on
                                             {t(`status.${lesson.status}`) || lesson.status}
                                         </span>
                                     </td>
-                                    <td className="p-4 text-right">
-                                        <button
-                                            onClick={() => onEdit(lesson.id)}
-                                            className="p-2 rounded-lg text-text-muted hover:text-bgc-highlight hover:bg-bgc-highlight/10 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
-                                            title={t("editLesson")}
-                                        >
-                                            <Edit3 size={18} />
-                                        </button>
+                                    <td className="p-4">
+                                        <div className="flex items-center justify-center">
+                                            <button
+                                                onClick={() => onEdit(lesson.id)}
+                                                className="p-2 rounded-lg text-text-muted hover:text-bgc-highlight hover:bg-bgc-highlight/10 transition-colors"
+                                                title={t("editLesson")}
+                                            >
+                                                <Edit3 size={18} />
+                                            </button>
+                                            
+                                            {/* View Objectives button */}
+                                            <Tooltip title="Quản lý Mục tiêu">
+                                                <a href={`/books/${bookId}/topics/${topicId}/lessons/${lesson.id}/objectives`}>
+                                                    <button
+                                                        className="p-2 rounded-lg text-text-muted hover:text-bgc-highlight hover:bg-bgc-highlight/10 transition-colors"
+                                                    >
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-target"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                                    </button>
+                                                </a>
+                                            </Tooltip>
+                                        </div>
                                     </td>
                                 </tr>
                             ))
