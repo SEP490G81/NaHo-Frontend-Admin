@@ -9,6 +9,7 @@ import { logout } from "@/services/client/user.service";
 import { useRouter } from "@/i18n/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "@/libs/query.keys";
+import { useAuthStore } from "@/store/authStore";
 
 export default function LogoutButton() {
     const t = useTranslations();
@@ -18,10 +19,16 @@ export default function LogoutButton() {
     const handleLogout = async () => {
         try {
             await logout();
-            queryClient.setQueryData(queryKeys.auth.currentUser, null);
-            replace("/login");
         } catch (error) {
-            console.error(error);
+            console.error("Logout API error:", error);
+        } finally {
+            useAuthStore.getState().logout();
+            if (typeof window !== "undefined") {
+                localStorage.removeItem("naho-auth");
+            }
+            queryClient.setQueryData(queryKeys.auth.currentUser, null);
+            queryClient.clear();
+            replace("/login");
         }
     };
 
