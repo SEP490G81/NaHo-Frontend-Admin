@@ -81,8 +81,7 @@
                 "formalityLevel": "Formality level",
                 "formalityLevelHint": "Whether the persona speaks casually, politely or with keigo.",
                 "marugotoLevel": "Marugoto level",
-                "marugotoLevelHint": "How difficult the vocabulary and grammar of the AI may be.",
-                "avatarPending": "Avatar: the current image is kept. Uploading will be enabled once the backend provides the upload API."
+                "marugotoLevelHint": "How difficult the vocabulary and grammar of the AI may be."
             },
             "errors": {
                 "nameRequired": "Please enter the persona name.",

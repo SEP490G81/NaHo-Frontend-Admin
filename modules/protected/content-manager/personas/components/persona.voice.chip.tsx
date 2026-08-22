@@ -1,10 +1,12 @@
 "use client";
 
 import React from "react";
-import { Mic, UserRound } from "lucide-react";
+import { Tooltip } from "@mui/material";
+import { Mic } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Gender } from "@/types/enums/user.enum";
 import { DEFAULT_AZURE_VOICE } from "../constants/persona.constants";
+import { PersonaGenderIcon } from "./persona.gender.icon";
 
 interface PersonaVoiceChipProps {
     readonly gender: Gender;
@@ -17,10 +19,11 @@ export function PersonaVoiceChip({ gender, voiceName }: PersonaVoiceChipProps) {
 
     return (
         <span className="text-text-muted inline-flex items-center gap-2 text-[11px] font-semibold">
-            <span className="inline-flex items-center gap-1">
-                <UserRound className="h-3 w-3 shrink-0" />
-                {t(gender)}
-            </span>
+            <Tooltip title={t(gender)}>
+                <span className="inline-flex">
+                    <PersonaGenderIcon gender={gender} />
+                </span>
+            </Tooltip>
             <span className="inline-flex items-center gap-1">
                 <Mic className="h-3 w-3 shrink-0" />
                 {(voiceName || DEFAULT_AZURE_VOICE).replace("ja-JP-", "")}

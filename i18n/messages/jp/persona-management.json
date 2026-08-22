@@ -81,8 +81,7 @@
                 "formalityLevel": "丁寧さレベル",
                 "formalityLevelHint": "カジュアル・丁寧・敬語のどれで話すかを決めます。",
                 "marugotoLevel": "まるごとレベル",
-                "marugotoLevelHint": "AIが使える語彙と文法の難易度です。",
-                "avatarPending": "アバター：現在の画像を維持します。バックエンドのアップロードAPIが用意され次第、画像アップロードを有効にします。"
+                "marugotoLevelHint": "AIが使える語彙と文法の難易度です。"
             },
             "errors": {
                 "nameRequired": "キャラクター名を入力してください。",

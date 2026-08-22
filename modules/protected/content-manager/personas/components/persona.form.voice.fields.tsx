@@ -12,6 +12,7 @@ import {
 } from "../constants/persona.constants";
 import { personaInputSx } from "../constants/persona.input.sx";
 import { usePersonaFormContext } from "../providers/persona.form.provider";
+import { PersonaGenderIcon } from "./persona.gender.icon";
 
 /** Giới tính, giọng đọc Azure và trạng thái hoạt động của nhân vật. */
 export function PersonaFormVoiceFields() {
@@ -57,7 +58,13 @@ export function PersonaFormVoiceFields() {
                 >
                     {GENDER_OPTIONS.map((gender) => (
                         <MenuItem key={gender} value={gender}>
-                            {tGender(gender)}
+                            <span className="flex items-center gap-2">
+                                <PersonaGenderIcon
+                                    gender={gender}
+                                    className="h-4 w-4"
+                                />
+                                {tGender(gender)}
+                            </span>
                         </MenuItem>
                     ))}
                 </TextField>

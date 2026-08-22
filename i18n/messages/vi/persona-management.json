@@ -81,8 +81,7 @@
                 "formalityLevel": "Mức trang trọng",
                 "formalityLevelHint": "Nhân vật xưng hô thân mật, lịch sự hay dùng kính ngữ.",
                 "marugotoLevel": "Trình độ Marugoto",
-                "marugotoLevelHint": "Độ khó từ vựng và ngữ pháp mà AI được dùng.",
-                "avatarPending": "Ảnh đại diện: giữ nguyên ảnh hiện tại. Chức năng tải ảnh lên sẽ mở khi backend hoàn thiện API upload."
+                "marugotoLevelHint": "Độ khó từ vựng và ngữ pháp mà AI được dùng."
             },
             "errors": {
                 "nameRequired": "Vui lòng nhập tên nhân vật.",

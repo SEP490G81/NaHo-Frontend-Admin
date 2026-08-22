@@ -75,11 +75,6 @@ export function PersonaFormBasicFields() {
                     sx={personaInputSx}
                 />
             </div>
-
-            {/* Ảnh đại diện: chờ BE mở API upload, tạm thời giữ nguyên ảnh cũ */}
-            <p className="border-bdc-primary bg-bgc-page text-text-muted rounded-xl border p-3 text-[11px] font-semibold">
-                {t("fields.avatarPending")}
-            </p>
         </div>
     );
 }
