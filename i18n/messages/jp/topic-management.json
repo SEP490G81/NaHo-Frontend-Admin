@@ -27,6 +27,10 @@
     "statusPublished": "公開済み",
     "statusArchive": "アーカイブ",
     "clearAll": "フィルターをクリア",
-    "backToBooks": "本に戻る"
+    "backToBooks": "本に戻る",
+    "editLessons": "レッスンの編集",
+    "topicLabel": "トピック",
+    "sortDefault": "デフォルト（名前で並べ替え）"
   }
 }
+

@@ -14,6 +14,7 @@ import {
 import { X } from "lucide-react";
 import { CreateGrammarRequest, UpdateGrammarRequest } from "@/types/requests/grammar.request";
 import { GrammarResponse } from "@/types/responses/vocabulary.response";
+import { useTranslations } from "next-intl";
 
 interface GrammarFormModalProps {
     open: boolean;
@@ -38,6 +39,7 @@ export default function GrammarFormModal({
     isSubmitting,
 }: Readonly<GrammarFormModalProps>) {
     const isUpdate = !!grammar;
+    const t = useTranslations("grammarManagement");
 
     const {
         control,
@@ -84,7 +86,7 @@ export default function GrammarFormModal({
         <Dialog open={open} onClose={!isSubmitting ? onClose : undefined} maxWidth="sm" fullWidth>
             <DialogTitle className="flex justify-between items-center bg-bgc-app border-b border-bdc-primary">
                 <Typography variant="h6" className="font-semibold text-text-contrast">
-                    {isUpdate ? "Cập nhật Ngữ pháp" : "Thêm Ngữ pháp mới"}
+                    {isUpdate ? t("updateTitle") : t("createTitle")}
                 </Typography>
                 <IconButton onClick={onClose} disabled={isSubmitting} size="small" className="text-text-muted hover:text-text-contrast">
                     <X size={20} />
@@ -95,11 +97,11 @@ export default function GrammarFormModal({
                     <Controller
                         name="japanese"
                         control={control}
-                        rules={{ required: "Vui lòng nhập mẫu ngữ pháp (tiếng Nhật)" }}
+                        rules={{ required: t("japaneseRequired") }}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Ngữ pháp (Tiếng Nhật) *"
+                                label={t("japaneseLabel")}
                                 variant="outlined"
                                 fullWidth
                                 error={!!errors.japanese}
@@ -111,11 +113,11 @@ export default function GrammarFormModal({
                     <Controller
                         name="reading"
                         control={control}
-                        rules={{ required: "Vui lòng nhập cách đọc (Hiragana/Romaji)" }}
+                        rules={{ required: t("readingRequired") }}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Cách đọc (Hiragana/Romaji) *"
+                                label={t("readingLabel")}
                                 variant="outlined"
                                 fullWidth
                                 error={!!errors.reading}
@@ -127,11 +129,11 @@ export default function GrammarFormModal({
                     <Controller
                         name="vietnameseMeaningText"
                         control={control}
-                        rules={{ required: "Vui lòng nhập ý nghĩa tiếng Việt" }}
+                        rules={{ required: t("vietnameseMeaningRequired") }}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Ý nghĩa (Tiếng Việt) *"
+                                label={t("vietnameseMeaningLabel")}
                                 variant="outlined"
                                 fullWidth
                                 multiline
@@ -148,7 +150,7 @@ export default function GrammarFormModal({
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Ý nghĩa (Tiếng Anh)"
+                                label={t("englishMeaningLabel")}
                                 variant="outlined"
                                 fullWidth
                                 multiline
@@ -168,7 +170,7 @@ export default function GrammarFormModal({
                         color="inherit"
                         className="text-text-muted border-bdc-primary hover:bg-hbgc-app"
                     >
-                        Hủy
+                        {t("cancel")}
                     </Button>
                     <Button
                         type="submit"
@@ -177,7 +179,7 @@ export default function GrammarFormModal({
                         color="primary"
                         startIcon={isSubmitting ? <CircularProgress size={20} /> : undefined}
                     >
-                        {isSubmitting ? "Đang lưu..." : isUpdate ? "Cập nhật" : "Tạo mới"}
+                        {isSubmitting ? t("saving") : isUpdate ? t("update") : t("create")}
                     </Button>
                 </DialogActions>
             </form>

@@ -6,6 +6,7 @@ import GrammarFormModal from "@/modules/protected/content-manager/grammars/featu
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, Typography } from "@mui/material";
 import { Plus, Search } from "lucide-react";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 export default function GrammarsPage() {
     const {
@@ -28,6 +29,8 @@ export default function GrammarsPage() {
         closeDeleteModal,
         grammarToDelete,
     } = useGrammarManagement();
+
+    const t = useTranslations("grammarManagement");
 
     const [searchInput, setSearchInput] = React.useState(queryParams.keyword);
 
@@ -65,9 +68,9 @@ export default function GrammarsPage() {
         <div className="flex flex-col gap-6 p-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-2xl font-bold text-text-contrast">Quản lý Ngữ pháp</h1>
+                    <h1 className="text-2xl font-bold text-text-contrast">{t("title")}</h1>
                     <p className="text-text-muted mt-1 text-sm">
-                        Thêm, sửa, xóa và tìm kiếm ngữ pháp trong hệ thống
+                        {t("subtitle")}
                     </p>
                 </div>
                 <Button
@@ -77,7 +80,7 @@ export default function GrammarsPage() {
                     onClick={openCreateModal}
                     className="shadow-sm"
                 >
-                    Thêm Ngữ pháp
+                    {t("addGrammar")}
                 </Button>
             </div>
 
@@ -86,7 +89,7 @@ export default function GrammarsPage() {
                     <Search className="absolute left-3 text-text-muted" size={18} />
                     <input
                         type="text"
-                        placeholder="Tìm kiếm ngữ pháp..."
+                        placeholder={t("searchPlaceholder")}
                         className="w-full bg-bgc-app border border-bdc-primary rounded-lg pl-10 pr-4 py-2 text-sm text-text-contrast focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                         value={searchInput}
                         onChange={(e) => setSearchInput(e.target.value)}
@@ -118,19 +121,19 @@ export default function GrammarsPage() {
             {/* Delete Confirmation Modal */}
             <Dialog open={isDeleteModalOpen} onClose={closeDeleteModal} maxWidth="xs" fullWidth>
                 <DialogTitle className="text-text-contrast font-bold bg-bgc-app border-b border-bdc-primary">
-                    Xác nhận xóa
+                    {t("deleteConfirmTitle")}
                 </DialogTitle>
                 <DialogContent className="bg-bgc-app py-6">
                     <DialogContentText className="text-text-muted mt-2">
-                        Bạn có chắc chắn muốn xóa ngữ pháp này không? Hành động này không thể hoàn tác.
+                        {t("deleteConfirmMessage")}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions className="bg-bgc-app border-t border-bdc-primary px-4 py-3">
                     <Button onClick={closeDeleteModal} color="inherit" className="text-text-muted hover:bg-hbgc-app" disabled={deleteMutation.isPending}>
-                        Hủy
+                        {t("cancel")}
                     </Button>
                     <Button onClick={handleDeleteConfirm} color="error" variant="contained" disabled={deleteMutation.isPending}>
-                        {deleteMutation.isPending ? "Đang xóa..." : "Xóa"}
+                        {deleteMutation.isPending ? t("deleting") : t("delete")}
                     </Button>
                 </DialogActions>
             </Dialog>

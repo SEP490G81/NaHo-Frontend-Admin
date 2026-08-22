@@ -14,6 +14,14 @@ export const findSpeakingQuestionDetail = async (nodeId: number): Promise<BaseRe
     };
 };
 
+export const findSpeakingQuestionForAdmin = async (questionId: number): Promise<BaseResponse<SpeakingQuestionResponse>> => {
+    const res = await fetch(`/api/speaking-questions/${questionId}`);
+    if (!res.ok) {
+        throw await res.json();
+    }
+    return res.json();
+};
+
 export const updateSpeakingQuestion = async (
     id: number,
     request: UpdateSpeakingQuestionRequest

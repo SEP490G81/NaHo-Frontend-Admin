@@ -11,7 +11,7 @@ import ContainerBox from "@/components/ui/container.box";
 import Link from "next/link";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 
-export default function BookTopicsPage({ params }: { params: Promise<{ bookId: string }> }) {
+export default function BookTopicsPage({ params }: { params: Promise<{ locale: string; bookId: string }> }) {
     const t = useTranslations("topicManagement");
     
     // Unwrap params in Next 15+
@@ -45,7 +45,7 @@ export default function BookTopicsPage({ params }: { params: Promise<{ bookId: s
                     {/* Breadcrumb / Header */}
                     <div className="flex items-center gap-4 pb-4">
                         <Link 
-                            href="/books" 
+                            href={`/${resolvedParams.locale || 'vi'}/books`} 
                             className="p-2 bg-bgc-panel hover:bg-hbgc-app border border-bdc-primary rounded-lg text-text-muted hover:text-text-contrast transition-colors"
                         >
                             <ArrowLeft size={20} />
@@ -55,11 +55,11 @@ export default function BookTopicsPage({ params }: { params: Promise<{ bookId: s
                                 {t("title")}
                             </h1>
                             <div className="flex items-center text-sm text-text-muted mt-1">
-                                <Link href="/books" className="hover:text-bgc-highlight transition-colors">
-                                    {t("bookLabel") || "Sách"}
+                                <Link href={`/${resolvedParams.locale || 'vi'}/books`} className="hover:text-bgc-highlight transition-colors">
+                                    {t("bookLabel")}
                                 </Link>
                                 <ChevronRight size={14} className="mx-1 opacity-50" />
-                                <span className="text-text-contrast font-medium">Chủ đề</span>
+                                <span className="text-text-contrast font-medium">{t("topicLabel")}</span>
                             </div>
                         </div>
                     </div>

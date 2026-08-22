@@ -59,7 +59,7 @@ export const ObjectiveTable: React.FC<ObjectiveTableProps> = ({ objectives, isLo
                                                     <Edit3 size={18} />
                                                 </button>
                                             </Tooltip>
-                                            <Tooltip title="Quản lý Nodes (Câu hỏi)">
+                                            <Tooltip title={t("editQuestions")}>
                                                 <button
                                                     onClick={() => router.push(`/${locale}/books/${bookId}/topics/${topicId}/lessons/${lessonId}/objectives/${objective.id}/nodes`)}
                                                     className="p-2 rounded-lg text-text-muted hover:text-primary hover:bg-primary/10 transition-colors"

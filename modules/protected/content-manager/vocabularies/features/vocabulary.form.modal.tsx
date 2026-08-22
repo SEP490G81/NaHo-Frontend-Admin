@@ -14,6 +14,7 @@ import {
 import { X } from "lucide-react";
 import { CreateVocabularyRequest, UpdateVocabularyRequest } from "@/types/requests/vocabulary.request";
 import { VocabularyResponse } from "@/types/responses/vocabulary.response";
+import { useTranslations } from "next-intl";
 
 interface VocabularyFormModalProps {
     open: boolean;
@@ -38,6 +39,7 @@ export default function VocabularyFormModal({
     isSubmitting,
 }: Readonly<VocabularyFormModalProps>) {
     const isUpdate = !!vocabulary;
+    const t = useTranslations("vocabularyManagement");
 
     const {
         control,
@@ -84,7 +86,7 @@ export default function VocabularyFormModal({
         <Dialog open={open} onClose={!isSubmitting ? onClose : undefined} maxWidth="sm" fullWidth>
             <DialogTitle className="flex justify-between items-center bg-bgc-app border-b border-bdc-primary">
                 <Typography variant="h6" className="font-semibold text-text-contrast">
-                    {isUpdate ? "Cập nhật Từ vựng" : "Thêm Từ vựng mới"}
+                    {isUpdate ? t("updateTitle") : t("createTitle")}
                 </Typography>
                 <IconButton onClick={onClose} disabled={isSubmitting} size="small" className="text-text-muted hover:text-text-contrast">
                     <X size={20} />
@@ -95,11 +97,11 @@ export default function VocabularyFormModal({
                     <Controller
                         name="japanese"
                         control={control}
-                        rules={{ required: "Vui lòng nhập từ vựng (tiếng Nhật)" }}
+                        rules={{ required: t("japaneseRequired") }}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Từ vựng (Tiếng Nhật) *"
+                                label={t("japaneseLabel")}
                                 variant="outlined"
                                 fullWidth
                                 error={!!errors.japanese}
@@ -111,11 +113,11 @@ export default function VocabularyFormModal({
                     <Controller
                         name="reading"
                         control={control}
-                        rules={{ required: "Vui lòng nhập cách đọc (Hiragana/Romaji)" }}
+                        rules={{ required: t("readingRequired") }}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Cách đọc (Hiragana/Romaji) *"
+                                label={t("readingLabel")}
                                 variant="outlined"
                                 fullWidth
                                 error={!!errors.reading}
@@ -127,11 +129,11 @@ export default function VocabularyFormModal({
                     <Controller
                         name="vietnameseMeaningText"
                         control={control}
-                        rules={{ required: "Vui lòng nhập ý nghĩa tiếng Việt" }}
+                        rules={{ required: t("vietnameseMeaningRequired") }}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Ý nghĩa (Tiếng Việt) *"
+                                label={t("vietnameseMeaningLabel")}
                                 variant="outlined"
                                 fullWidth
                                 multiline
@@ -148,7 +150,7 @@ export default function VocabularyFormModal({
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Ý nghĩa (Tiếng Anh)"
+                                label={t("englishMeaningLabel")}
                                 variant="outlined"
                                 fullWidth
                                 multiline
@@ -168,7 +170,7 @@ export default function VocabularyFormModal({
                         color="inherit"
                         className="text-text-muted border-bdc-primary hover:bg-hbgc-app"
                     >
-                        Hủy
+                        {t("cancel")}
                     </Button>
                     <Button
                         type="submit"
@@ -177,7 +179,7 @@ export default function VocabularyFormModal({
                         color="primary"
                         startIcon={isSubmitting ? <CircularProgress size={20} /> : undefined}
                     >
-                        {isSubmitting ? "Đang lưu..." : isUpdate ? "Cập nhật" : "Tạo mới"}
+                        {isSubmitting ? t("saving") : isUpdate ? t("update") : t("create")}
                     </Button>
                 </DialogActions>
             </form>

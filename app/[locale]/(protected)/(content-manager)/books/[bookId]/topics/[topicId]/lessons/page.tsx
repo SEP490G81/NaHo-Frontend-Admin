@@ -9,7 +9,7 @@ import ContainerBox from "@/components/ui/container.box";
 import Link from "next/link";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 
-export default function TopicLessonsPage({ params }: { params: Promise<{ bookId: string, topicId: string }> }) {
+export default function TopicLessonsPage({ params }: { params: Promise<{ locale: string, bookId: string, topicId: string }> }) {
     const t = useTranslations("lessonManagement");
     
     // Unwrap params
@@ -43,7 +43,7 @@ export default function TopicLessonsPage({ params }: { params: Promise<{ bookId:
                     {/* Breadcrumb / Header */}
                     <div className="flex items-center gap-4">
                         <Link 
-                            href={`/books/${bookId}/topics`} 
+                            href={`/${resolvedParams.locale || 'vi'}/books/${bookId}/topics`} 
                             className="p-2 bg-bgc-panel hover:bg-hbgc-app border border-bdc-primary rounded-lg text-text-muted hover:text-text-contrast transition-colors"
                         >
                             <ArrowLeft size={20} />
@@ -53,15 +53,15 @@ export default function TopicLessonsPage({ params }: { params: Promise<{ bookId:
                                 {t("title")}
                             </h1>
                             <div className="flex items-center text-sm text-text-muted mt-1">
-                                <Link href="/books" className="hover:text-bgc-highlight transition-colors">
-                                    {t("bookLabel") || "Sách"}
+                                <Link href={`/${resolvedParams.locale || 'vi'}/books`} className="hover:text-bgc-highlight transition-colors">
+                                    {t("bookLabel")}
                                 </Link>
                                 <ChevronRight size={14} className="mx-1 opacity-50" />
-                                <Link href={`/books/${bookId}/topics`} className="hover:text-bgc-highlight transition-colors">
-                                    Chủ đề
+                                <Link href={`/${resolvedParams.locale || 'vi'}/books/${bookId}/topics`} className="hover:text-bgc-highlight transition-colors">
+                                    {t("topicLabel")}
                                 </Link>
                                 <ChevronRight size={14} className="mx-1 opacity-50" />
-                                <span className="text-text-contrast font-medium">Bài học</span>
+                                <span className="text-text-contrast font-medium">{t("lessonLabel")}</span>
                             </div>
                         </div>
                     </div>

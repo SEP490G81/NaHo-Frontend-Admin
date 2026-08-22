@@ -35,9 +35,9 @@ export const useObjectiveManagement = (lessonId: number) => {
     const updateObjectiveMutation = useMutation({
         mutationFn: ({ id, request }: { id: number; request: UpdateObjectiveRequest }) =>
             updateObjective(id, request),
-        onSuccess: () => {
+        onSuccess: (res: any) => {
             queryClient.invalidateQueries({ queryKey: ["objectives", lessonId] });
-            toast.success("Cập nhật mục tiêu thành công!");
+            toast.success(res?.message || "Cập nhật mục tiêu thành công!");
             closeUpdateModal();
         },
         onError: (error: any) => {

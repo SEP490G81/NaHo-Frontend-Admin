@@ -3,6 +3,7 @@ import { NestedVocabularyUpsertRequest } from "@/types/requests/question.request
 import { searchVocabularies } from "@/services/client/vocabulary.service";
 import { VocabularyResponse } from "@/types/responses/vocabulary.response";
 import { Search, Plus, Trash2, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface NestedVocabulariesManagerProps {
     vocabularies: NestedVocabularyUpsertRequest[];
@@ -10,6 +11,7 @@ interface NestedVocabulariesManagerProps {
 }
 
 export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps> = ({ vocabularies, onChange }) => {
+    const t = useTranslations("objectiveManagement");
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState<VocabularyResponse[]>([]);
     const [isSearching, setIsSearching] = useState(false);
@@ -91,22 +93,22 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
 
     return (
         <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-text-contrast border-b border-bdc-primary pb-2">Từ vựng (Vocabularies)</h3>
+            <h3 className="font-semibold text-text-contrast border-b border-bdc-primary pb-2">{t("vocabulariesHeader")}</h3>
 
             {/* List of currently assigned vocabularies */}
             <div className="flex flex-col gap-2">
                 {vocabularies.length === 0 ? (
-                    <div className="text-sm text-text-muted italic py-2">Chưa có từ vựng nào được gán.</div>
+                    <div className="text-sm text-text-muted italic py-2">{t("noVocabulariesAssigned")}</div>
                 ) : (
                     <div className="overflow-x-auto rounded-lg border border-bdc-primary">
                         <table className="w-full text-left text-sm border-collapse">
                             <thead>
                                 <tr className="bg-hbgc-app border-b border-bdc-primary text-text-muted">
-                                    <th className="p-2 font-medium">Trạng thái</th>
-                                    <th className="p-2 font-medium">Từ (Japanese)</th>
-                                    <th className="p-2 font-medium">Cách đọc (Reading)</th>
-                                    <th className="p-2 font-medium">Nghĩa Tiếng Việt</th>
-                                    <th className="p-2 font-medium text-center w-12">Xóa</th>
+                                    <th className="p-2 font-medium">{t("statusColumn")}</th>
+                                    <th className="p-2 font-medium">{t("japaneseColumn")}</th>
+                                    <th className="p-2 font-medium">{t("readingColumn")}</th>
+                                    <th className="p-2 font-medium">{t("vietnameseMeaningColumn")}</th>
+                                    <th className="p-2 font-medium text-center w-12">{t("deleteColumn")}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-bdc-primary">
@@ -114,9 +116,9 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                                     <tr key={v.id ? `existing-${v.id}` : `new-${i}`} className="bg-bgc-panel">
                                         <td className="p-2">
                                             {v.id === null ? (
-                                                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium border border-blue-200">Tạo mới</span>
+                                                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium border border-blue-200">{t("statusNew")}</span>
                                             ) : (
-                                                <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs font-medium border border-green-200">Đã có</span>
+                                                <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs font-medium border border-green-200">{t("statusExisting")}</span>
                                             )}
                                         </td>
                                         <td className="p-2 text-text-contrast">{v.japanese || "-"}</td>
@@ -146,7 +148,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                         <div className="relative">
                             <input
                                 type="text"
-                                placeholder="Tìm kiếm từ vựng có sẵn để gán..."
+                                placeholder={t("searchVocabPlaceholder")}
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 className="w-full p-2.5 pl-9 bg-bgc-panel border border-bdc-primary rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm text-text-contrast"
@@ -176,7 +178,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                                         </button>
                                     ))
                                 ) : (
-                                    <div className="p-3 text-sm text-text-muted text-center italic">Không tìm thấy từ vựng nào. Bạn có muốn tạo mới không?</div>
+                                    <div className="p-3 text-sm text-text-muted text-center italic">{t("noVocabFound")}</div>
                                 )}
                             </div>
                         )}
@@ -186,13 +188,13 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                         onClick={() => setIsCreatingNew(true)}
                         className="px-4 py-2.5 text-sm font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors border border-primary/20 whitespace-nowrap"
                     >
-                        + Thêm từ mới
+                        {t("addNewVocab")}
                     </button>
                 </div>
             ) : (
                 <div className="bg-bgc-panel p-4 rounded-lg border border-primary/30 flex flex-col gap-3">
                     <div className="flex justify-between items-center">
-                        <h4 className="text-sm font-semibold text-primary">Tạo Từ vựng mới</h4>
+                        <h4 className="text-sm font-semibold text-primary">{t("createNewVocabTitle")}</h4>
                         <button type="button" onClick={() => setIsCreatingNew(false)} className="text-text-muted hover:text-text-contrast p-1">
                             <X size={16} />
                         </button>
@@ -200,7 +202,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                     <div className="grid grid-cols-2 gap-3">
                         <div>
                             <input
-                                placeholder="Tiếng Nhật (Kanji/Kana) *"
+                                placeholder={t("jpInputPlaceholder")}
                                 value={newVocab.japanese}
                                 onChange={e => setNewVocab({ ...newVocab, japanese: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -208,7 +210,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                         </div>
                         <div>
                             <input
-                                placeholder="Cách đọc (Reading)"
+                                placeholder={t("readingInputPlaceholder")}
                                 value={newVocab.reading}
                                 onChange={e => setNewVocab({ ...newVocab, reading: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -216,7 +218,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                         </div>
                         <div>
                             <input
-                                placeholder="Nghĩa Tiếng Việt"
+                                placeholder={t("vnMeaningInputPlaceholder")}
                                 value={newVocab.vietnameseMeaningText}
                                 onChange={e => setNewVocab({ ...newVocab, vietnameseMeaningText: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -224,7 +226,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                         </div>
                         <div>
                             <input
-                                placeholder="Nghĩa Tiếng Anh"
+                                placeholder={t("enMeaningInputPlaceholder")}
                                 value={newVocab.englishMeaningText}
                                 onChange={e => setNewVocab({ ...newVocab, englishMeaningText: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -237,7 +239,7 @@ export const NestedVocabulariesManager: React.FC<NestedVocabulariesManagerProps>
                         disabled={!newVocab.japanese.trim()}
                         className="self-end px-4 py-1.5 bg-primary text-white text-sm font-medium rounded hover:bg-primary-hover disabled:opacity-50 transition-colors"
                     >
-                        Lưu từ mới
+                        {t("saveNewVocab")}
                     </button>
                 </div>
             )}

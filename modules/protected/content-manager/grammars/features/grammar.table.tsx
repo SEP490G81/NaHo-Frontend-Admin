@@ -11,6 +11,7 @@ import {
     CircularProgress
 } from "@mui/material";
 import { Edit2, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface GrammarTableProps {
     grammars: GrammarResponse[];
@@ -29,6 +30,8 @@ export default function GrammarTable({
     onUpdateClick,
     onDeleteClick,
 }: Readonly<GrammarTableProps>) {
+    const t = useTranslations("grammarManagement");
+
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
         onPageChange(value - 1);
     };
@@ -43,11 +46,11 @@ export default function GrammarTable({
                     <thead className="bg-bgc-app sticky top-0 z-10">
                         <tr className="border-bdc-primary border-b">
                             <th className={headClass + " text-center"}>#</th>
-                            <th className={headClass}>Ngữ pháp</th>
-                            <th className={headClass}>Cách đọc</th>
-                            <th className={headClass}>Ý nghĩa (VN)</th>
-                            <th className={headClass}>Ý nghĩa (EN)</th>
-                            <th className={headClass + " text-center"}>Thao tác</th>
+                            <th className={headClass}>{t("grammar")}</th>
+                            <th className={headClass}>{t("reading")}</th>
+                            <th className={headClass}>{t("vietnameseMeaning")}</th>
+                            <th className={headClass}>{t("englishMeaning")}</th>
+                            <th className={headClass + " text-center"}>{t("actions")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,14 +58,14 @@ export default function GrammarTable({
                             <tr>
                                 <td colSpan={6} align="center" className="py-16">
                                     <CircularProgress size={32} className="mb-4 text-text-muted" />
-                                    <Typography className="text-text-muted">Đang tải...</Typography>
+                                    <Typography className="text-text-muted">{t("loading")}</Typography>
                                 </td>
                             </tr>
                         ) : grammars.length === 0 ? (
                             <tr>
                                 <td colSpan={6} align="center" className="py-16">
                                     <div className="flex flex-col items-center justify-center text-text-muted">
-                                        <Typography>Không có dữ liệu ngữ pháp.</Typography>
+                                        <Typography>{t("noData")}</Typography>
                                     </div>
                                 </td>
                             </tr>
@@ -84,7 +87,7 @@ export default function GrammarTable({
                                         <td className={cellClass}>{grammar.englishMeaningText || "-"}</td>
                                         <td className={cellClass + " text-center"}>
                                             <div className="flex items-center justify-center gap-2">
-                                                <Tooltip title="Sửa">
+                                                <Tooltip title={t("editTooltip")}>
                                                     <IconButton 
                                                         size="small" 
                                                         onClick={() => onUpdateClick(grammar.id)}
@@ -93,7 +96,7 @@ export default function GrammarTable({
                                                         <Edit2 size={18} />
                                                     </IconButton>
                                                 </Tooltip>
-                                                <Tooltip title="Xóa">
+                                                <Tooltip title={t("deleteTooltip")}>
                                                     <IconButton 
                                                         size="small" 
                                                         onClick={() => onDeleteClick(grammar.id)}

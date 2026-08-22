@@ -71,7 +71,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
         <Modal open={isOpen} onClose={onClose} disableScrollLock>
             <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bgc-app rounded-xl shadow-xl border border-bdc-primary p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-bold text-text-contrast">Chỉnh sửa Speaking Question</h2>
+                    <h2 className="text-xl font-bold text-text-contrast">{t("editSpeakingQuestion")}</h2>
                     <button onClick={onClose} className="p-2 hover:bg-hbgc-app rounded-full transition-colors text-text-muted hover:text-text-contrast">
                         <X size={20} />
                     </button>
@@ -86,7 +86,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                         {/* Base Fields */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="flex flex-col gap-1">
-                                <label className="text-sm font-medium text-text-muted">Tên Tiếng Nhật <span className="text-red-500">*</span></label>
+                                <label className="text-sm font-medium text-text-muted">{t("japaneseNameLabel")} <span className="text-red-500">*</span></label>
                                 <input
                                     required
                                     type="text"
@@ -96,7 +96,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                                 />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <label className="text-sm font-medium text-text-muted">Tên Tiếng Việt</label>
+                                <label className="text-sm font-medium text-text-muted">{t("vietnameseNameLabel")}</label>
                                 <input
                                     type="text"
                                     value={formData.vietnameseName}
@@ -105,7 +105,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                                 />
                             </div>
                             <div className="flex flex-col gap-1 md:col-span-2">
-                                <label className="text-sm font-medium text-text-muted">Mô tả</label>
+                                <label className="text-sm font-medium text-text-muted">{t("descriptionLabel")}</label>
                                 <textarea
                                     rows={3}
                                     value={formData.description}
@@ -114,7 +114,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                                 />
                             </div>
                             <div className="flex flex-col gap-1 md:col-span-2">
-                                <label className="text-sm font-medium text-text-muted">Câu trả lời mẫu Tiếng Nhật</label>
+                                <label className="text-sm font-medium text-text-muted">{t("japaneseSampleAnswerLabel")}</label>
                                 <textarea
                                     rows={2}
                                     value={formData.japaneseSampleAnswer}
@@ -123,7 +123,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                                 />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <label className="text-sm font-medium text-text-muted">Câu trả lời mẫu Tiếng Việt</label>
+                                <label className="text-sm font-medium text-text-muted">{t("vietnameseSampleAnswerLabel")}</label>
                                 <textarea
                                     rows={2}
                                     value={formData.vietnameseSampleAnswer}
@@ -132,7 +132,7 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                                 />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <label className="text-sm font-medium text-text-muted">Câu trả lời mẫu Tiếng Anh</label>
+                                <label className="text-sm font-medium text-text-muted">{t("englishSampleAnswerLabel")}</label>
                                 <textarea
                                     rows={2}
                                     value={formData.englishSampleAnswer}
@@ -162,14 +162,14 @@ export const SpeakingQuestionUpdateModal: React.FC<SpeakingQuestionUpdateModalPr
                                 disabled={isUpdating}
                                 className="px-5 py-2.5 rounded-lg font-medium text-text-contrast bg-hbgc-app hover:bg-hbgc-hover transition-colors disabled:opacity-50"
                             >
-                                Hủy
+                                {t("cancel")}
                             </button>
                             <button
                                 type="submit"
                                 disabled={isUpdating}
                                 className="px-5 py-2.5 rounded-lg font-medium text-white bg-primary hover:bg-primary-hover shadow-md shadow-primary/20 transition-all disabled:opacity-50 flex items-center justify-center min-w-[120px]"
                             >
-                                {isUpdating ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : "Lưu thay đổi"}
+                                {isUpdating ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : t("save")}
                             </button>
                         </div>
                     </form>

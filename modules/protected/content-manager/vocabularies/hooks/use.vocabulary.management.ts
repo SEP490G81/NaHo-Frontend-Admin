@@ -28,8 +28,8 @@ export function useVocabularyManagement() {
 
     const createMutation = useMutation({
         mutationFn: (request: CreateVocabularyRequest) => createVocabulary(request),
-        onSuccess: () => {
-            toast.success("Tạo từ vựng thành công!");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || "Tạo từ vựng thành công!");
             queryClient.invalidateQueries({ queryKey: ["vocabularies"] });
             setIsFormModalOpen(false);
         },
@@ -40,8 +40,8 @@ export function useVocabularyManagement() {
 
     const updateMutation = useMutation({
         mutationFn: ({ id, request }: { id: number; request: UpdateVocabularyRequest }) => updateVocabulary(id, request),
-        onSuccess: () => {
-            toast.success("Cập nhật từ vựng thành công!");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || "Cập nhật từ vựng thành công!");
             queryClient.invalidateQueries({ queryKey: ["vocabularies"] });
             setIsFormModalOpen(false);
             setSelectedVocabularyId(null);
@@ -53,8 +53,8 @@ export function useVocabularyManagement() {
 
     const deleteMutation = useMutation({
         mutationFn: (id: number) => deleteVocabulary(id),
-        onSuccess: () => {
-            toast.success("Xóa từ vựng thành công!");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || "Xóa từ vựng thành công!");
             queryClient.invalidateQueries({ queryKey: ["vocabularies"] });
             setIsDeleteModalOpen(false);
             setVocabularyToDelete(null);

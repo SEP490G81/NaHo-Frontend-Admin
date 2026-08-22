@@ -27,6 +27,10 @@
     "statusPublished": "Published",
     "statusArchive": "Archived",
     "clearAll": "Clear Filters",
-    "backToBooks": "Back to Books"
+    "backToBooks": "Back to Books",
+    "editLessons": "Edit Lessons",
+    "topicLabel": "Topic",
+    "sortDefault": "Default (Sort by Name)"
   }
 }
+

@@ -4,6 +4,7 @@ import { TopicStatus } from "@/types/enums/topic.enum";
 import { useTranslations } from "next-intl";
 import { Edit3 } from "lucide-react";
 import { Tooltip } from "@mui/material";
+import { useParams } from "next/navigation";
 
 interface LessonTableProps {
     lessons: LessonResponse[];
@@ -15,6 +16,8 @@ interface LessonTableProps {
 
 export const LessonTable: React.FC<LessonTableProps> = ({ lessons, isLoading, onEdit, bookId, topicId }) => {
     const t = useTranslations("lessonManagement");
+    const params = useParams();
+    const locale = params?.locale || "vi";
 
     if (isLoading) {
         return (
@@ -58,8 +61,8 @@ export const LessonTable: React.FC<LessonTableProps> = ({ lessons, isLoading, on
                                             </button>
                                             
                                             {/* View Objectives button */}
-                                            <Tooltip title="Quản lý Mục tiêu">
-                                                <a href={`/books/${bookId}/topics/${topicId}/lessons/${lesson.id}/objectives`}>
+                                            <Tooltip title={t("editObjectives")}>
+                                                <a href={`/${locale}/books/${bookId}/topics/${topicId}/lessons/${lesson.id}/objectives`}>
                                                     <button
                                                         className="p-2 rounded-lg text-text-muted hover:text-bgc-highlight hover:bg-bgc-highlight/10 transition-colors"
                                                     >

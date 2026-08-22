@@ -37,6 +37,8 @@
     "japaneseDescription": "Mô tả (Tiếng Nhật)",
     "cancel": "Hủy",
     "save": "Lưu thay đổi",
-    "loading": "Đang lưu..."
+    "loading": "Đang lưu...",
+    "lessonLabel": "Bài học",
+    "editObjectives": "Chỉnh sửa Mục tiêu"
   }
 }

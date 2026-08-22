@@ -49,22 +49,22 @@ export default function ObjectiveManagementPage({ params }: PageProps) {
                 </Link>
                 <div>
                     <h1 className="text-2xl font-bold text-text-contrast">
-                        {t("title") || "Quản lý Mục tiêu"}
+                        {t("title")}
                     </h1>
                     <div className="flex items-center text-sm text-text-muted mt-1 gap-2">
-                        <Link href={`/books`} className="hover:text-bgc-highlight transition-colors">
-                            Sách
+                        <Link href={`/${locale}/books`} className="hover:text-bgc-highlight transition-colors">
+                            {t("book")}
                         </Link>
                         <ChevronRight size={14} />
-                        <Link href={`/books/${parsedBookId}/topics`} className="hover:text-bgc-highlight transition-colors">
-                            Chủ đề
+                        <Link href={`/${locale}/books/${parsedBookId}/topics`} className="hover:text-bgc-highlight transition-colors">
+                            {t("topic")}
                         </Link>
                         <ChevronRight size={14} />
-                        <Link href={`/books/${parsedBookId}/topics/${parsedTopicId}/lessons`} className="hover:text-bgc-highlight transition-colors">
-                            Bài học
+                        <Link href={`/${locale}/books/${parsedBookId}/topics/${parsedTopicId}/lessons`} className="hover:text-bgc-highlight transition-colors">
+                            {t("lesson")}
                         </Link>
                         <ChevronRight size={14} />
-                        <span className="text-text-contrast font-medium">Mục tiêu</span>
+                        <span className="text-text-contrast font-medium">{t("objective")}</span>
                     </div>
                 </div>
             </div>

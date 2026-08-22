@@ -95,12 +95,12 @@ export default function UpdateBookModal({
             
             // Validate file
             if (!ALLOWED_TYPES.includes(file.type)) {
-                setErrors((prev) => ({ ...prev, coverImage: t("invalidImageType") || "Invalid image format. Allowed: PNG, JPEG, WEBP." }));
+                setErrors((prev) => ({ ...prev, coverImage: t("invalidImageType") }));
                 e.target.value = "";
                 return;
             }
             if (file.size > MAX_SIZE) {
-                setErrors((prev) => ({ ...prev, coverImage: t("invalidImageSize") || "Image size exceeds 5MB." }));
+                setErrors((prev) => ({ ...prev, coverImage: t("invalidImageSize") }));
                 e.target.value = "";
                 return;
             }
@@ -133,7 +133,7 @@ export default function UpdateBookModal({
 
     const handleSave = async () => {
         if (!title.trim()) {
-            setErrors({ title: t("titleRequired") || "Title is required" });
+            setErrors({ title: t("titleRequired") });
             return;
         }
 
@@ -209,12 +209,12 @@ export default function UpdateBookModal({
             }}
         >
             <DialogTitle className="font-bold border-b border-bdc-primary px-6 py-4">
-                {t("updateBook") || "Update Book"}
+                {t("updateBook")}
             </DialogTitle>
             <DialogContent className="flex flex-col gap-6 py-6 px-6">
                 
                 <Box className="flex flex-col gap-2">
-                    <span className="text-sm font-medium text-text-muted w-full text-left">{t("coverImage") || "Cover Image"}</span>
+                    <span className="text-sm font-medium text-text-muted w-full text-left">{t("coverImage")}</span>
                     <div className="flex flex-col items-center w-full bg-bgc-panel p-6 rounded-lg border border-bdc-primary border-dashed hover:bg-hbgc-app transition-colors">
                         {previewUrl ? (
                             <div className="relative w-40 h-56 rounded border border-bdc-primary overflow-hidden mb-4 shadow-sm bg-bgc-app">
@@ -222,7 +222,7 @@ export default function UpdateBookModal({
                             </div>
                         ) : (
                             <div className="w-40 h-56 bg-bgc-app rounded border border-bdc-primary border-dashed flex items-center justify-center text-xs text-text-muted mb-4 text-center p-4">
-                                {t("noData") || "No Cover Image"}
+                                {t("noData")}
                             </div>
                         )}
                         <Button 
@@ -240,7 +240,7 @@ export default function UpdateBookModal({
                             }}
                         >
                             {isUploading ? <CircularProgress size={16} className="mr-2" /> : null}
-                            {t("selectImage") || "Select Image"}
+                            {t("selectImage")}
                             <input 
                                 type="file" 
                                 hidden 
@@ -257,7 +257,7 @@ export default function UpdateBookModal({
                 </Box>
 
                 <TextField
-                    label={t("title") || "Title"}
+                    label={t("title")}
                     fullWidth
                     required
                     value={title}
@@ -271,7 +271,7 @@ export default function UpdateBookModal({
                 />
 
                 <TextField
-                    label={t("description") || "Description"}
+                    label={t("description")}
                     fullWidth
                     multiline
                     rows={4}
@@ -282,10 +282,10 @@ export default function UpdateBookModal({
 
                 <Box className="flex gap-4">
                     <FormControl fullWidth required sx={inputSx}>
-                        <InputLabel>{t("cefrLevel") || "CEFR Level"}</InputLabel>
+                        <InputLabel>{t("cefrLevel")}</InputLabel>
                         <Select
                             value={cefrLevel}
-                            label={t("cefrLevel") || "CEFR Level"}
+                            label={t("cefrLevel")}
                             onChange={(e) => setCefrLevel(e.target.value as CefrLevel)}
                             MenuProps={{
                                 PaperProps: {
@@ -310,7 +310,7 @@ export default function UpdateBookModal({
                     disabled={isUpdating}
                     sx={{ color: "var(--color-text-muted)" }}
                 >
-                    {t("cancel") || "Cancel"}
+                    {t("cancel")}
                 </Button>
                 <Button 
                     onClick={handleSave} 
@@ -326,7 +326,7 @@ export default function UpdateBookModal({
                         }
                     }}
                 >
-                    {t("save") || "Save Changes"}
+                    {t("save")}
                 </Button>
             </DialogActions>
 

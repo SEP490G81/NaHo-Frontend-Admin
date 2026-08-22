@@ -33,6 +33,7 @@
     "confirmCrop": "Confirm Crop",
     "invalidImageType": "Invalid image format. Allowed: PNG, JPEG, WEBP.",
     "invalidImageSize": "Image size exceeds 5MB.",
-    "clearAll": "Clear All"
+    "clearAll": "Clear filters",
+    "editTopics": "Edit Topics"
   }
 }

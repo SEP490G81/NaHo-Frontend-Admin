@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Edit2 } from "lucide-react";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 
 interface BookTableProps {
     books: BookResponse[];
@@ -30,6 +31,8 @@ export default function BookTable({
     onUpdateClick,
 }: Readonly<BookTableProps>) {
     const t = useTranslations("books");
+    const params = useParams();
+    const locale = params?.locale || "vi";
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
         // MUI Pagination is 1-indexed, but our API uses 0-indexed pages
@@ -46,11 +49,11 @@ export default function BookTable({
                     <thead className="bg-bgc-app sticky top-0 z-10">
                         <tr className="border-bdc-primary border-b">
                             <th className={headClass}>#</th>
-                            <th className={headClass}>{t("coverImage") || "Cover"}</th>
-                            <th className={headClass}>{t("title") || "Title"}</th>
-                            <th className={headClass}>{t("description") || "Description"}</th>
+                            <th className={headClass}>{t("coverImage")}</th>
+                            <th className={headClass}>{t("title")}</th>
+                            <th className={headClass}>{t("description")}</th>
                             <th className={headClass}>CEFR</th>
-                            <th className={headClass}>{t("actions") || "Actions"}</th>
+                            <th className={headClass}>{t("actions")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,14 +61,14 @@ export default function BookTable({
                             <tr>
                                 <td colSpan={6} align="center" className="py-16">
                                     <CircularProgress size={32} className="mb-4 text-text-muted" />
-                                    <Typography className="text-text-muted">{t("loading") || "Loading..."}</Typography>
+                                    <Typography className="text-text-muted">{t("loading")}</Typography>
                                 </td>
                             </tr>
                         ) : books.length === 0 ? (
                             <tr>
                                 <td colSpan={6} align="center" className="py-16">
                                     <div className="flex flex-col items-center justify-center text-text-muted">
-                                        <Typography>{t("noData") || "No books found."}</Typography>
+                                        <Typography>{t("noData")}</Typography>
                                     </div>
                                 </td>
                             </tr>
@@ -111,7 +114,7 @@ export default function BookTable({
                                         </td>
                                         <td className={cellClass}>
                                             <div className="flex items-center justify-center gap-2">
-                                                <Tooltip title={t("update") || "Update"}>
+                                                <Tooltip title={t("update")}>
                                                     <IconButton 
                                                         size="small" 
                                                         onClick={() => onUpdateClick(book.id)}
@@ -120,8 +123,8 @@ export default function BookTable({
                                                         <Edit2 size={18} />
                                                     </IconButton>
                                                 </Tooltip>
-                                                <Tooltip title="Quản lý Chủ đề">
-                                                    <a href={`/books/${book.id}/topics`}>
+                                                <Tooltip title={t("editTopics")}>
+                                                    <a href={`/${locale}/books/${book.id}/topics`}>
                                                         <IconButton 
                                                             size="small"
                                                             className="text-text-contrast hover:bg-bgc-highlight/10 hover:text-bgc-highlight"

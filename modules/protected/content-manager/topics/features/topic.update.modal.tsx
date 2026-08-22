@@ -107,7 +107,7 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
             </DialogTitle>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <DialogContent className="pt-6 px-6 space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6">
                         <Controller
                             name="japaneseName"
                             control={control}
@@ -123,32 +123,6 @@ export const UpdateTopicModal: React.FC<UpdateTopicModalProps> = ({
                                     disabled={isSaving}
                                     sx={inputSx}
                                 />
-                            )}
-                        />
-
-                        <Controller
-                            name="status"
-                            control={control}
-                            render={({ field }) => (
-                                <FormControl fullWidth variant="outlined" disabled={isSaving} sx={inputSx}>
-                                    <InputLabel>{t("status")}</InputLabel>
-                                    <Select 
-                                        {...field} 
-                                        label={t("status")}
-                                        MenuProps={{
-                                            PaperProps: {
-                                                sx: {
-                                                    backgroundColor: "var(--color-bgc-panel)",
-                                                    color: "var(--color-text-contrast)",
-                                                }
-                                            }
-                                        }}
-                                    >
-                                        <MenuItem value={TopicStatus.DRAFT}>{t("statusDraft")}</MenuItem>
-                                        <MenuItem value={TopicStatus.PUBLISHED}>{t("statusPublished")}</MenuItem>
-                                        <MenuItem value={TopicStatus.ARCHIVE}>{t("statusArchive")}</MenuItem>
-                                    </Select>
-                                </FormControl>
                             )}
                         />
                     </div>

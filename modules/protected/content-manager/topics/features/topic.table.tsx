@@ -4,6 +4,7 @@ import { IconButton, Tooltip, Chip } from "@mui/material";
 import { Edit2 } from "lucide-react";
 import { TopicResponse } from "@/types/responses/topic.response";
 import { TopicStatus } from "@/types/enums/topic.enum";
+import { useParams } from "next/navigation";
 
 interface TopicTableProps {
     topics: TopicResponse[];
@@ -13,6 +14,8 @@ interface TopicTableProps {
 
 export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit, bookId }) => {
     const t = useTranslations("topicManagement");
+    const params = useParams();
+    const locale = params?.locale || "vi";
 
     const getStatusChip = (status: TopicStatus) => {
         switch (status) {
@@ -74,8 +77,8 @@ export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit, bookId }
                                         </Tooltip>
                                         
                                         {/* View Lessons button */}
-                                        <Tooltip title="Quản lý Bài học">
-                                            <a href={`/books/${bookId}/topics/${topic.id}/lessons`}>
+                                        <Tooltip title={t("editLessons")}>
+                                            <a href={`/${locale}/books/${bookId}/topics/${topic.id}/lessons`}>
                                                 <IconButton 
                                                     size="small"
                                                     className="text-text-contrast hover:bg-bgc-highlight/10 hover:text-bgc-highlight"

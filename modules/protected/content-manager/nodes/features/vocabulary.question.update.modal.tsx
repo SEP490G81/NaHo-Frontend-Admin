@@ -50,7 +50,7 @@ export const VocabularyQuestionUpdateModal: React.FC<VocabularyQuestionUpdateMod
         <Modal open={isOpen} onClose={onClose} disableScrollLock>
             <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bgc-app rounded-xl shadow-xl border border-bdc-primary p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-bold text-text-contrast">Chỉnh sửa Vocabulary Question</h2>
+                    <h2 className="text-xl font-bold text-text-contrast">{t("editVocabularyQuestion")}</h2>
                     <button onClick={onClose} className="p-2 hover:bg-hbgc-app rounded-full transition-colors text-text-muted hover:text-text-contrast">
                         <X size={20} />
                     </button>
@@ -76,14 +76,14 @@ export const VocabularyQuestionUpdateModal: React.FC<VocabularyQuestionUpdateMod
                                 disabled={isUpdating}
                                 className="px-5 py-2.5 rounded-lg font-medium text-text-contrast bg-hbgc-app hover:bg-hbgc-hover transition-colors disabled:opacity-50"
                             >
-                                Hủy
+                                {t("cancel")}
                             </button>
                             <button
                                 type="submit"
                                 disabled={isUpdating}
                                 className="px-5 py-2.5 rounded-lg font-medium text-white bg-primary hover:bg-primary-hover shadow-md shadow-primary/20 transition-all disabled:opacity-50 flex items-center justify-center min-w-[120px]"
                             >
-                                {isUpdating ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : "Lưu thay đổi"}
+                                {isUpdating ? <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></span> : t("save")}
                             </button>
                         </div>
                     </form>

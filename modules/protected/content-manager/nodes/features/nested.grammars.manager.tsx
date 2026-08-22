@@ -3,6 +3,7 @@ import { NestedGrammarUpsertRequest } from "@/types/requests/question.request";
 import { GrammarResponse } from "@/types/responses/vocabulary.response";
 import { Search, Plus, Trash2, X } from "lucide-react";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 import { searchGrammars } from "@/services/client/grammar.service";
 
@@ -12,6 +13,7 @@ interface NestedGrammarsManagerProps {
 }
 
 export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ grammars, onChange }) => {
+    const t = useTranslations("objectiveManagement");
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState<GrammarResponse[]>([]);
     const [isSearching, setIsSearching] = useState(false);
@@ -89,21 +91,21 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
 
     return (
         <div className="flex flex-col gap-4 mt-6">
-            <h3 className="font-semibold text-text-contrast border-b border-bdc-primary pb-2">Ngữ pháp (Grammars)</h3>
+            <h3 className="font-semibold text-text-contrast border-b border-bdc-primary pb-2">{t("grammarsHeader")}</h3>
 
             <div className="flex flex-col gap-2">
                 {grammars.length === 0 ? (
-                    <div className="text-sm text-text-muted italic py-2">Chưa có ngữ pháp nào được gán.</div>
+                    <div className="text-sm text-text-muted italic py-2">{t("noGrammarsAssigned")}</div>
                 ) : (
                     <div className="overflow-x-auto rounded-lg border border-bdc-primary">
                         <table className="w-full text-left text-sm border-collapse">
                             <thead>
                                 <tr className="bg-hbgc-app border-b border-bdc-primary text-text-muted">
-                                    <th className="p-2 font-medium">Trạng thái</th>
-                                    <th className="p-2 font-medium">Ngữ pháp (Japanese)</th>
-                                    <th className="p-2 font-medium">Cách đọc (Reading)</th>
-                                    <th className="p-2 font-medium">Nghĩa Tiếng Việt</th>
-                                    <th className="p-2 font-medium text-center w-12">Xóa</th>
+                                    <th className="p-2 font-medium">{t("statusColumn")}</th>
+                                    <th className="p-2 font-medium">{t("grammarJapaneseColumn")}</th>
+                                    <th className="p-2 font-medium">{t("readingColumn")}</th>
+                                    <th className="p-2 font-medium">{t("vietnameseMeaningColumn")}</th>
+                                    <th className="p-2 font-medium text-center w-12">{t("deleteColumn")}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-bdc-primary">
@@ -111,9 +113,9 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                                     <tr key={g.id ? `existing-${g.id}` : `new-${i}`} className="bg-bgc-panel">
                                         <td className="p-2">
                                             {g.id === null ? (
-                                                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium border border-blue-200">Tạo mới</span>
+                                                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium border border-blue-200">{t("statusNew")}</span>
                                             ) : (
-                                                <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs font-medium border border-green-200">Đã có</span>
+                                                <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs font-medium border border-green-200">{t("statusExisting")}</span>
                                             )}
                                         </td>
                                         <td className="p-2 text-text-contrast">{g.japanese || "-"}</td>
@@ -142,7 +144,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                         <div className="relative">
                             <input
                                 type="text"
-                                placeholder="Tìm kiếm ngữ pháp có sẵn để gán..."
+                                placeholder={t("searchGrammarPlaceholder")}
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 className="w-full p-2.5 pl-9 bg-bgc-panel border border-bdc-primary rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm text-text-contrast"
@@ -172,7 +174,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                                         </button>
                                     ))
                                 ) : (
-                                    <div className="p-3 text-sm text-text-muted text-center italic">Không tìm thấy ngữ pháp nào. Bạn có muốn tạo mới không?</div>
+                                    <div className="p-3 text-sm text-text-muted text-center italic">{t("noGrammarFound")}</div>
                                 )}
                             </div>
                         )}
@@ -182,13 +184,13 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                         onClick={() => setIsCreatingNew(true)}
                         className="px-4 py-2.5 text-sm font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors border border-primary/20 whitespace-nowrap"
                     >
-                        + Thêm NP mới
+                        {t("addNewGrammar")}
                     </button>
                 </div>
             ) : (
                 <div className="bg-bgc-panel p-4 rounded-lg border border-primary/30 flex flex-col gap-3">
                     <div className="flex justify-between items-center">
-                        <h4 className="text-sm font-semibold text-primary">Tạo Ngữ pháp mới</h4>
+                        <h4 className="text-sm font-semibold text-primary">{t("createNewGrammarTitle")}</h4>
                         <button type="button" onClick={() => setIsCreatingNew(false)} className="text-text-muted hover:text-text-contrast p-1">
                             <X size={16} />
                         </button>
@@ -196,7 +198,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                     <div className="grid grid-cols-2 gap-3">
                         <div>
                             <input
-                                placeholder="Tiếng Nhật (Cấu trúc) *"
+                                placeholder={t("jpGrammarInputPlaceholder")}
                                 value={newGrammar.japanese}
                                 onChange={e => setNewGrammar({ ...newGrammar, japanese: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -204,7 +206,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                         </div>
                         <div>
                             <input
-                                placeholder="Cách đọc (Reading)"
+                                placeholder={t("readingInputPlaceholder")}
                                 value={newGrammar.reading}
                                 onChange={e => setNewGrammar({ ...newGrammar, reading: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -212,7 +214,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                         </div>
                         <div>
                             <input
-                                placeholder="Nghĩa Tiếng Việt"
+                                placeholder={t("vnMeaningInputPlaceholder")}
                                 value={newGrammar.vietnameseMeaningText}
                                 onChange={e => setNewGrammar({ ...newGrammar, vietnameseMeaningText: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -220,7 +222,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                         </div>
                         <div>
                             <input
-                                placeholder="Nghĩa Tiếng Anh"
+                                placeholder={t("enMeaningInputPlaceholder")}
                                 value={newGrammar.englishMeaningText}
                                 onChange={e => setNewGrammar({ ...newGrammar, englishMeaningText: e.target.value })}
                                 className="w-full p-2 text-sm bg-bgc-app border border-bdc-primary rounded focus:border-primary outline-none"
@@ -233,7 +235,7 @@ export const NestedGrammarsManager: React.FC<NestedGrammarsManagerProps> = ({ gr
                         disabled={!newGrammar.japanese.trim()}
                         className="self-end px-4 py-1.5 bg-primary text-white text-sm font-medium rounded hover:bg-primary-hover disabled:opacity-50 transition-colors"
                     >
-                        Lưu ngữ pháp mới
+                        {t("saveNewGrammar")}
                     </button>
                 </div>
             )}

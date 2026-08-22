@@ -37,6 +37,8 @@
     "japaneseDescription": "説明（日本語）",
     "cancel": "キャンセル",
     "save": "変更を保存",
-    "loading": "保存中..."
+    "loading": "保存中...",
+    "lessonLabel": "レッスン",
+    "editObjectives": "目標の編集"
   }
 }

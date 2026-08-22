@@ -33,6 +33,7 @@
     "confirmCrop": "Xác nhận cắt",
     "invalidImageType": "Định dạng không hợp lệ. Chỉ cho phép PNG, JPEG, WEBP.",
     "invalidImageSize": "Dung lượng ảnh vượt quá 5MB.",
-    "clearAll": "Xóa bộ lọc"
+    "clearAll": "Xóa bộ lọc",
+    "editTopics": "Chỉnh sửa Chủ đề"
   }
 }

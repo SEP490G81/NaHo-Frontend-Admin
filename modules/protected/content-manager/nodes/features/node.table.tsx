@@ -15,11 +15,11 @@ export const NodeTable: React.FC<NodeTableProps> = ({ nodes, isLoading, onEdit }
     const renderNodeType = (nodeType: string) => {
         switch (nodeType) {
             case "SPEAKING_QUESTION":
-                return <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Luyện nói</span>;
+                return <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">{t("speaking")}</span>;
             case "VOCABULARY_QUESTION":
-                return <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Từ vựng</span>;
+                return <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">{t("vocabulary")}</span>;
             case "CHEST":
-                return <span className="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium">Rương thưởng</span>;
+                return <span className="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium">{t("chest")}</span>;
             default:
                 return <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">{nodeType}</span>;
         }
@@ -31,9 +31,9 @@ export const NodeTable: React.FC<NodeTableProps> = ({ nodes, isLoading, onEdit }
                 <table className="w-full table-auto text-left">
                     <thead className="bg-bgc-app sticky top-0 z-10">
                         <tr className="border-bdc-primary border-b">
-                            <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-muted">Loại Câu Hỏi (Node Type)</th>
-                            <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-muted">Vị trí (Order)</th>
-                            <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-muted text-center w-32">Thao tác</th>
+                            <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-muted">{t("nodeType")}</th>
+                            <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-muted">{t("orderIndex")}</th>
+                            <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-muted text-center w-32">{t("actions")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,7 +49,7 @@ export const NodeTable: React.FC<NodeTableProps> = ({ nodes, isLoading, onEdit }
                                             <button
                                                 onClick={() => onEdit(node)}
                                                 className="p-1 text-text-muted hover:text-text-contrast hover:bg-hbgc-hover rounded transition-colors"
-                                                title="Sửa nội dung"
+                                                title={t("editContent")}
                                             >
                                                 <Edit2 size={16} />
                                             </button>
@@ -60,7 +60,7 @@ export const NodeTable: React.FC<NodeTableProps> = ({ nodes, isLoading, onEdit }
                         ) : (
                             <tr>
                                 <td colSpan={3} className="p-8 text-center text-text-muted">
-                                    {isLoading ? "Đang tải dữ liệu..." : "Chưa có nội dung (Node) nào trong mục tiêu này."}
+                                    {isLoading ? t("loadingData") : t("noNodesInObjective")}
                                 </td>
                             </tr>
                         )}

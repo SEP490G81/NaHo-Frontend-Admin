@@ -138,31 +138,7 @@ export const UpdateLessonModal: React.FC<UpdateLessonModalProps> = ({
                         )}
                     />
 
-                    <Controller
-                        name="status"
-                        control={control}
-                        render={({ field }) => (
-                            <FormControl fullWidth variant="outlined" disabled={isSaving} sx={inputSx}>
-                                <InputLabel>{t("statusLabel")}</InputLabel>
-                                <Select 
-                                    {...field} 
-                                    label={t("statusLabel")}
-                                    MenuProps={{
-                                        PaperProps: {
-                                            sx: {
-                                                backgroundColor: "var(--color-bgc-panel)",
-                                                color: "var(--color-text-contrast)",
-                                            }
-                                        }
-                                    }}
-                                >
-                                    <MenuItem value={TopicStatus.DRAFT}>{t("statusDraft")}</MenuItem>
-                                    <MenuItem value={TopicStatus.PUBLISHED}>{t("statusPublished")}</MenuItem>
-                                    <MenuItem value={TopicStatus.ARCHIVE}>{t("statusArchive")}</MenuItem>
-                                </Select>
-                            </FormControl>
-                        )}
-                    />
+
                 </DialogContent>
                 <DialogActions className="border-t border-bdc-primary px-6 py-4">
                     <Button 

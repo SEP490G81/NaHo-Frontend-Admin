@@ -99,7 +99,7 @@ export const UpdateObjectiveModal: React.FC<UpdateObjectiveModalProps> = ({
             }}
         >
             <DialogTitle className="border-b border-bdc-primary pb-4 pt-5 px-6 text-xl font-bold">
-                {t("updateTitle") || "Chỉnh sửa Mục tiêu"}
+                {t("updateTitle")}
             </DialogTitle>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <DialogContent className="pt-6 px-6 space-y-6">
@@ -110,7 +110,7 @@ export const UpdateObjectiveModal: React.FC<UpdateObjectiveModalProps> = ({
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label={t("japaneseName") || "Tên tiếng Nhật"}
+                                label={t("japaneseName")}
                                 variant="outlined"
                                 fullWidth
                                 error={!!errors.japaneseName}
@@ -127,7 +127,7 @@ export const UpdateObjectiveModal: React.FC<UpdateObjectiveModalProps> = ({
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label={t("japaneseDescription") || "Mô tả tiếng Nhật"}
+                                label={t("japaneseDescription")}
                                 variant="outlined"
                                 fullWidth
                                 multiline
@@ -138,31 +138,7 @@ export const UpdateObjectiveModal: React.FC<UpdateObjectiveModalProps> = ({
                         )}
                     />
 
-                    <Controller
-                        name="status"
-                        control={control}
-                        render={({ field }) => (
-                            <FormControl fullWidth variant="outlined" disabled={isSaving} sx={inputSx}>
-                                <InputLabel>{t("statusLabel") || "Trạng thái"}</InputLabel>
-                                <Select 
-                                    {...field} 
-                                    label={t("statusLabel") || "Trạng thái"}
-                                    MenuProps={{
-                                        PaperProps: {
-                                            sx: {
-                                                backgroundColor: "var(--color-bgc-panel)",
-                                                color: "var(--color-text-contrast)",
-                                            }
-                                        }
-                                    }}
-                                >
-                                    <MenuItem value={TopicStatus.DRAFT}>{t("statusDraft") || "Bản nháp"}</MenuItem>
-                                    <MenuItem value={TopicStatus.PUBLISHED}>{t("statusPublished") || "Đã xuất bản"}</MenuItem>
-                                    <MenuItem value={TopicStatus.ARCHIVE}>{t("statusArchive") || "Lưu trữ"}</MenuItem>
-                                </Select>
-                            </FormControl>
-                        )}
-                    />
+
                 </DialogContent>
                 <DialogActions className="border-t border-bdc-primary px-6 py-4">
                     <Button 
@@ -170,7 +146,7 @@ export const UpdateObjectiveModal: React.FC<UpdateObjectiveModalProps> = ({
                         disabled={isSaving}
                         sx={{ color: "var(--color-text-muted)" }}
                     >
-                        {t("cancel") || "Hủy"}
+                        {t("cancel")}
                     </Button>
                     <Button
                         type="submit"
@@ -185,7 +161,7 @@ export const UpdateObjectiveModal: React.FC<UpdateObjectiveModalProps> = ({
                             }
                         }}
                     >
-                        {isSaving ? (t("loading") || "Đang lưu...") : (t("save") || "Lưu")}
+                        {isSaving ? t("loading") : t("save")}
                     </Button>
                 </DialogActions>
             </form>

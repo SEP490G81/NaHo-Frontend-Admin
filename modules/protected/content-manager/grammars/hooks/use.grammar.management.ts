@@ -28,8 +28,8 @@ export function useGrammarManagement() {
 
     const createMutation = useMutation({
         mutationFn: (request: CreateGrammarRequest) => createGrammar(request),
-        onSuccess: () => {
-            toast.success("Tạo ngữ pháp thành công!");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || "Tạo ngữ pháp thành công!");
             queryClient.invalidateQueries({ queryKey: ["grammars"] });
             setIsFormModalOpen(false);
         },
@@ -40,8 +40,8 @@ export function useGrammarManagement() {
 
     const updateMutation = useMutation({
         mutationFn: ({ id, request }: { id: number; request: UpdateGrammarRequest }) => updateGrammar(id, request),
-        onSuccess: () => {
-            toast.success("Cập nhật ngữ pháp thành công!");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || "Cập nhật ngữ pháp thành công!");
             queryClient.invalidateQueries({ queryKey: ["grammars"] });
             setIsFormModalOpen(false);
             setSelectedGrammarId(null);
@@ -53,8 +53,8 @@ export function useGrammarManagement() {
 
     const deleteMutation = useMutation({
         mutationFn: (id: number) => deleteGrammar(id),
-        onSuccess: () => {
-            toast.success("Xóa ngữ pháp thành công!");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || "Xóa ngữ pháp thành công!");
             queryClient.invalidateQueries({ queryKey: ["grammars"] });
             setIsDeleteModalOpen(false);
             setGrammarToDelete(null);

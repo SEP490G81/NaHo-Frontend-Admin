@@ -27,8 +27,8 @@ export function useBookManagement() {
     const updateMutation = useMutation({
         mutationFn: (data: { id: number; request: UpdateBookRequest }) =>
             updateBook(data.id, data.request),
-        onSuccess: () => {
-            toast.success(t("updateSuccess") || "Update successful");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || t("updateSuccess") || "Update successful");
             queryClient.invalidateQueries({ queryKey: ["books"] });
             setIsUpdateModalOpen(false);
             setSelectedBookId(null);
@@ -42,8 +42,8 @@ export function useBookManagement() {
     // Import books
     const importMutation = useMutation({
         mutationFn: (file: File) => importBooks(file),
-        onSuccess: () => {
-            toast.success(t("importSuccess") || "Import successful");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || t("importSuccess") || "Import successful");
             queryClient.invalidateQueries({ queryKey: ["books"] });
         },
         onError: (error: unknown) => {

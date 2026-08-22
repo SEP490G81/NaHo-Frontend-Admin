@@ -37,6 +37,8 @@
     "japaneseDescription": "Description (Japanese)",
     "cancel": "Cancel",
     "save": "Save Changes",
-    "loading": "Saving..."
+    "loading": "Saving...",
+    "lessonLabel": "Lesson",
+    "editObjectives": "Edit Objectives"
   }
 }

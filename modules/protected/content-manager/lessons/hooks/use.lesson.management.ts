@@ -24,8 +24,8 @@ export function useLessonManagement(topicId: number) {
     const updateMutation = useMutation({
         mutationFn: (data: { id: number; request: UpdateLessonRequest }) =>
             updateLesson(data.id, data.request),
-        onSuccess: () => {
-            toast.success(t("updateSuccess") || "Cập nhật bài học thành công");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || t("updateSuccess") || "Cập nhật bài học thành công");
             queryClient.invalidateQueries({ queryKey: ["topicDetail", topicId] });
             setIsUpdateModalOpen(false);
             setSelectedLessonId(null);

@@ -27,6 +27,9 @@
     "statusPublished": "Đã xuất bản",
     "statusArchive": "Lưu trữ",
     "clearAll": "Xóa bộ lọc",
-    "backToBooks": "Quay lại chọn sách"
+    "backToBooks": "Quay lại chọn sách",
+    "editLessons": "Chỉnh sửa Bài học",
+    "topicLabel": "Chủ đề",
+    "sortDefault": "Mặc định (Sắp xếp tên)"
   }
 }

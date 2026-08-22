@@ -43,7 +43,7 @@ export default function NodeManagementPage({ params }: PageProps) {
             setEditSpeakingQuestionNodeId(node.id);
             setIsVocabularyModalOpen(true);
         } else {
-            alert(`Chức năng sửa câu hỏi ${node.nodeType} sẽ được cập nhật ở Phase tiếp theo!`);
+            alert(t("unsupportedEditFunc", { nodeType: node.nodeType }));
         }
     };
 
@@ -57,37 +57,37 @@ export default function NodeManagementPage({ params }: PageProps) {
                     <ArrowLeft size={20} />
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold text-text-contrast">Chỉnh sửa câu hỏi</h1>
+                    <h1 className="text-2xl font-bold text-text-contrast">{t("editQuestions")}</h1>
                     <div className="flex items-center gap-2 text-sm text-text-muted mt-1">
                         <Link
                             href={`/${locale}/books`}
                             className="hover:text-primary transition-colors"
                         >
-                            Sách
+                            {t("book")}
                         </Link>
                         <ChevronRight size={14} />
                         <Link
                             href={`/${locale}/books/${parsedBookId}/topics`}
                             className="hover:text-primary transition-colors"
                         >
-                            Chuyên đề
+                            {t("topic")}
                         </Link>
                         <ChevronRight size={14} />
                         <Link
                             href={`/${locale}/books/${parsedBookId}/topics/${parsedTopicId}/lessons`}
                             className="hover:text-primary transition-colors"
                         >
-                            Bài học
+                            {t("lesson")}
                         </Link>
                         <ChevronRight size={14} />
                         <Link
                             href={`/${locale}/books/${parsedBookId}/topics/${parsedTopicId}/lessons/${parsedLessonId}/objectives`}
                             className="hover:text-primary transition-colors"
                         >
-                            Mục tiêu
+                            {t("objective")}
                         </Link>
                         <ChevronRight size={14} />
-                        <span className="text-text-contrast font-medium">Câu hỏi</span>
+                        <span className="text-text-contrast font-medium">{t("question")}</span>
                     </div>
                 </div>
             </div>

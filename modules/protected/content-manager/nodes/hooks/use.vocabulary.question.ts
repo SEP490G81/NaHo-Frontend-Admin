@@ -18,9 +18,9 @@ export const useVocabularyQuestion = (questionId: number | null, nodeId: number 
 
     const updateMutation = useMutation({
         mutationFn: (request: UpdateVocabularyQuestionRequest) => updateVocabularyQuestion(questionId as number, request),
-        onSuccess: () => {
+        onSuccess: (res: any) => {
             queryClient.invalidateQueries({ queryKey: ["vocabulary-question", nodeId] });
-            toast.success("Cập nhật câu hỏi từ vựng thành công");
+            toast.success(res?.message || "Cập nhật câu hỏi từ vựng thành công");
         },
         onError: (error: any) => {
             toast.error(error?.message || "Lỗi khi cập nhật câu hỏi từ vựng");

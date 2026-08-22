@@ -30,8 +30,8 @@ export function useTopicManagement(bookId: number) {
     const updateMutation = useMutation({
         mutationFn: (data: { id: number; request: UpdateTopicRequest }) =>
             updateTopic(data.id, data.request),
-        onSuccess: () => {
-            toast.success(t("updateSuccess") || "Update successful");
+        onSuccess: (res: any) => {
+            toast.success(res?.message || t("updateSuccess") || "Update successful");
             queryClient.invalidateQueries({ queryKey: ["topics", bookId] });
             setIsUpdateModalOpen(false);
             setSelectedTopicId(null);
