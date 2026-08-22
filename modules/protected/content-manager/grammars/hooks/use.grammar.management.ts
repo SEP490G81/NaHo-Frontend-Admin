@@ -3,9 +3,11 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { searchGrammars, createGrammar, updateGrammar, deleteGrammar } from "@/services/client/grammar.service";
 import { CreateGrammarRequest, UpdateGrammarRequest } from "@/types/requests/grammar.request";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 export function useGrammarManagement() {
     const queryClient = useQueryClient();
+    const t = useTranslations("common.errors");
 
     const [queryParams, setQueryParams] = useState({
         keyword: "",
@@ -58,7 +60,18 @@ export function useGrammarManagement() {
             setGrammarToDelete(null);
         },
         onError: (error: any) => {
-            toast.error(error?.detail || "Xóa ngữ pháp thất bại!");
+            const errorCode = error?.code;
+            const fallbackMessage = error?.detail && error.detail !== "grammar.in_use.detail" 
+                ? error.detail 
+                : "Xóa ngữ pháp thất bại!";
+            
+            try {
+                toast.error(errorCode && t.has(errorCode as any) ? t(errorCode as any) : fallbackMessage);
+            } catch (e) {
+                toast.error(fallbackMessage);
+            }
+            setIsDeleteModalOpen(false);
+            setGrammarToDelete(null);
         },
     });
 

@@ -3,9 +3,11 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { searchVocabularies, createVocabulary, updateVocabulary, deleteVocabulary } from "@/services/client/vocabulary.service";
 import { CreateVocabularyRequest, UpdateVocabularyRequest } from "@/types/requests/vocabulary.request";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 export function useVocabularyManagement() {
     const queryClient = useQueryClient();
+    const t = useTranslations("common.errors");
 
     const [queryParams, setQueryParams] = useState({
         keyword: "",
@@ -58,7 +60,18 @@ export function useVocabularyManagement() {
             setVocabularyToDelete(null);
         },
         onError: (error: any) => {
-            toast.error(error?.detail || "Xóa từ vựng thất bại!");
+            const errorCode = error?.code;
+            const fallbackMessage = error?.detail && error.detail !== "vocabulary.in_use.detail" 
+                ? error.detail 
+                : "Xóa từ vựng thất bại!";
+            
+            try {
+                toast.error(errorCode && t.has(errorCode as any) ? t(errorCode as any) : fallbackMessage);
+            } catch (e) {
+                toast.error(fallbackMessage);
+            }
+            setIsDeleteModalOpen(false);
+            setVocabularyToDelete(null);
         },
     });
 

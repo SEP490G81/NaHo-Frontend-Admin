@@ -46,7 +46,6 @@ export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit, bookId }
                         <tr className="border-bdc-primary border-b">
                             <th className={headClass}>ID</th>
                             <th className={headClass}>{t("topicName")}</th>
-                            <th className={headClass}>{t("status")}</th>
                             <th className={`${headClass} text-center`}>{t("actions")}</th>
                         </tr>
                     </thead>
@@ -62,7 +61,6 @@ export const TopicTable: React.FC<TopicTableProps> = ({ topics, onEdit, bookId }
                                         </p>
                                     )}
                                 </td>
-                                <td className={cellClass}>{getStatusChip(topic.status)}</td>
                                 <td className={cellClass}>
                                     <div className="flex items-center justify-center gap-2">
                                         <Tooltip title={t("editTopic")}>

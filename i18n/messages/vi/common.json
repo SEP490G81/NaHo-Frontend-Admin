@@ -173,6 +173,10 @@
             "tableHeaderDate": "Thời gian",
             "viewImages": "Xem ảnh ({count})",
             "noImages": "Không có ảnh"
+        },
+        "errors": {
+            "VOCABULARY_E005": "Từ vựng đang được sử dụng trong một hoặc nhiều câu hỏi. Vui lòng gỡ hoặc xóa câu hỏi liên quan trước khi xóa từ vựng này.",
+            "GRAMMAR_E004": "Ngữ pháp đang được sử dụng trong một hoặc nhiều câu hỏi. Vui lòng gỡ hoặc xóa câu hỏi liên quan trước khi xóa ngữ pháp này."
         }
     }
 }

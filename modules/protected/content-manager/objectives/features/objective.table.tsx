@@ -35,7 +35,6 @@ export const ObjectiveTable: React.FC<ObjectiveTableProps> = ({ objectives, isLo
                             <th className="p-4 font-semibold">{t("table.id")}</th>
                             <th className="p-4 font-semibold">{t("table.name")}</th>
                             <th className="p-4 font-semibold">{t("table.description")}</th>
-                            <th className="p-4 font-semibold">{t("table.status")}</th>
                             <th className="p-4 font-semibold text-center">{t("table.actions")}</th>
                         </tr>
                     </thead>
@@ -49,17 +48,6 @@ export const ObjectiveTable: React.FC<ObjectiveTableProps> = ({ objectives, isLo
                                     </td>
                                     <td className="p-4 text-sm text-text-muted max-w-xs truncate">
                                         {objective.japaneseDescription || "-"}
-                                    </td>
-                                    <td className="p-4 text-sm">
-                                        <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border ${
-                                            objective.status === TopicStatus.PUBLISHED 
-                                                ? "bg-green-500/10 text-green-600 border-green-500/20" 
-                                                : objective.status === TopicStatus.DRAFT
-                                                ? "bg-yellow-500/10 text-yellow-600 border-yellow-500/20"
-                                                : "bg-gray-500/10 text-gray-500 border-gray-500/20"
-                                        }`}>
-                                            {t(`status.${objective.status}`) || objective.status}
-                                        </span>
                                     </td>
                                     <td className="p-4">
                                         <div className="flex items-center justify-center">
