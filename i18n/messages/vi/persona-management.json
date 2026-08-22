@@ -1,0 +1,103 @@
+{
+    "personaManagement": {
+        "pageTitle": "Quản lý Nhân vật AI",
+        "pageSubtitle": "Tạo và cấu hình nhân vật AI cùng phong cách hội thoại cho phòng luyện nói 1-1.",
+        "addButton": "Thêm nhân vật mới",
+        "formality": {
+            "INFORMAL": "Thân mật",
+            "NEUTRAL": "Lịch sự",
+            "FORMAL": "Trang trọng"
+        },
+        "marugoto": {
+            "STARTER_A1": "Nhập môn (A1)",
+            "ELEMENTARY_1_A2": "Sơ cấp 1 (A2.1)",
+            "ELEMENTARY_2_A2": "Sơ cấp 2 (A2.2)",
+            "PRE_INTERMEDIATE_A2_B1": "Tiền trung cấp (A2/B1)",
+            "INTERMEDIATE_1_B1": "Trung cấp 1 (B1.1)",
+            "INTERMEDIATE_2_B1": "Trung cấp 2 (B1.2)"
+        },
+        "status": {
+            "ACTIVE": "Đang dùng",
+            "UNACTIVE": "Tạm ẩn"
+        },
+        "gender": {
+            "MALE": "Nam",
+            "FEMALE": "Nữ"
+        },
+        "actions": {
+            "hide": "Tạm ẩn nhân vật",
+            "show": "Mở lại nhân vật"
+        },
+        "notifications": {
+            "hideSuccess": "Đã tạm ẩn nhân vật khỏi người học.",
+            "showSuccess": "Đã mở lại nhân vật cho người học.",
+            "changeStatusError": "Không đổi được trạng thái nhân vật. Vui lòng thử lại."
+        },
+        "searchBox": {
+            "keywordPlaceholder": "Tìm theo tên nhân vật, nội dung prompt, mã nhân vật...",
+            "formalityLabel": "Mức trang trọng",
+            "statusLabel": "Trạng thái",
+            "all": "Tất cả",
+            "resetButton": "Đặt lại"
+        },
+        "card": {
+            "noStyle": "Chưa gắn phong cách hội thoại",
+            "detailButton": "Xem chi tiết",
+            "editButton": "Chỉnh sửa"
+        },
+        "grid": {
+            "countLabel": "Đang hiển thị {shown}/{total} nhân vật",
+            "empty": "Chưa có nhân vật AI nào. Hãy thêm nhân vật đầu tiên.",
+            "emptyFiltered": "Không tìm thấy nhân vật nào khớp với bộ lọc.",
+            "loadError": "Không tải được danh sách nhân vật. Vui lòng thử lại."
+        },
+        "detail": {
+            "personaPrompt": "Prompt nhân vật",
+            "styleSection": "Phong cách hội thoại",
+            "noStyle": "Nhân vật chưa được gắn phong cách hội thoại.",
+            "close": "Đóng",
+            "editButton": "Chỉnh sửa",
+            "styleHint": "Người học vẫn có thể đổi lại hai mức này khi bắt đầu phiên trò chuyện."
+        },
+        "form": {
+            "createTitle": "Thêm nhân vật AI mới",
+            "editTitle": "Chỉnh sửa nhân vật {name}",
+            "subtitle": "Prompt quyết định tính cách và bối cảnh, phong cách hội thoại quyết định cách nói của nhân vật.",
+            "sections": {
+                "basic": "Thông tin nhân vật",
+                "style": "Phong cách hội thoại"
+            },
+            "fields": {
+                "name": "Tên nhân vật",
+                "namePlaceholder": "Ví dụ: 田中先生",
+                "gender": "Giới tính",
+                "voiceName": "Giọng đọc",
+                "voiceNameHint": "Giọng Azure đọc câu trả lời của nhân vật.",
+                "status": "Trạng thái",
+                "statusHint": "Tạm ẩn thì người học không chọn được nhân vật này.",
+                "prompt": "Prompt nhân vật",
+                "promptPlaceholder": "Mô tả vai trò, tính cách, bối cảnh và cách nhân vật dẫn dắt hội thoại...",
+                "promptHint": "Chỉ mô tả nhân vật và bối cảnh, không đặt quy tắc chung của hệ thống ở đây.",
+                "formalityLevel": "Mức trang trọng",
+                "formalityLevelHint": "Nhân vật xưng hô thân mật, lịch sự hay dùng kính ngữ.",
+                "marugotoLevel": "Trình độ Marugoto",
+                "marugotoLevelHint": "Độ khó từ vựng và ngữ pháp mà AI được dùng."
+            },
+            "errors": {
+                "nameRequired": "Vui lòng nhập tên nhân vật.",
+                "nameTooLong": "Tên nhân vật quá dài (tối đa 255 ký tự).",
+                "nameDuplicated": "Tên nhân vật đã tồn tại, vui lòng chọn tên khác.",
+                "promptRequired": "Vui lòng nhập prompt cho nhân vật.",
+                "promptTooLong": "Prompt nhân vật quá dài (tối đa 5000 ký tự).",
+                "avatarFileNotFound": "Ảnh đại diện không tồn tại trong hệ thống.",
+                "saveConflict": "Dữ liệu không hợp lệ hoặc trùng với nhân vật khác. Vui lòng kiểm tra lại."
+            },
+            "cancel": "Hủy",
+            "submit": "Lưu nhân vật",
+            "submitting": "Đang lưu...",
+            "createSuccess": "Đã thêm nhân vật AI mới.",
+            "updateSuccess": "Đã cập nhật nhân vật AI.",
+            "errorFallback": "Không lưu được nhân vật. Vui lòng thử lại."
+        }
+    }
+}

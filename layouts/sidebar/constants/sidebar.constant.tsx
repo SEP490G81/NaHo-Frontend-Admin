@@ -1,6 +1,7 @@
 import React from "react";
 import {
     Award,
+    Bot,
     CreditCard,
     Flag,
     LayoutDashboard,
@@ -42,4 +43,5 @@ export const NAV_ITEMS: NavItem[] = [
         url: "/content-reports",
         icon: ShieldAlert,
     },
+    { titleKey: "personaManagement", url: "/personas", icon: Bot },
 ];

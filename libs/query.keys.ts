@@ -16,6 +16,9 @@ export const queryKeys = {
         byQuestion: (speakingQuestionId: number) =>
             ["comments-by-question", speakingQuestionId] as const,
     },
+    personas: {
+        all: ["personas-all"] as const,
+    },
     subscriptions: {
         plans: ["subscription-plans"] as const,
         user: (userId: number) => ["user-subscription", userId] as const,

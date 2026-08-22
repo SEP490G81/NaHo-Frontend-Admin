@@ -34,6 +34,7 @@ export type AllRoute =
     | "/content-reports"
     | "/subscription-plans"
     | "/cost-service-management"
+    | "/personas"
     | "/dialogue-setup"
     | "/get-help"
     | "/features"
