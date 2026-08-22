@@ -11,6 +11,9 @@ export const queryKeys = {
     reports: {
         all: ["reports-admin"] as const,
     },
+    personas: {
+        all: ["personas-all"] as const,
+    },
     subscriptions: {
         plans: ["subscription-plans"] as const,
         user: (userId: number) => ["user-subscription", userId] as const,
