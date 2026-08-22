@@ -5,100 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/subscription-plans/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(content-manager)/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/protected/content-manager/index.htmlo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/payments/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/payments/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/reports/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/reports/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/subscription-plans/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/(protected)/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/(protected)/(admin)/users/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/error.code.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/error.code.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/users_management/user.button.update.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/users_management/user.button.update.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/users_management/user.change.status.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/users_management/user.change.status.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/en/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/en/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/jp/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/jp/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/messages/vi/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/messages/vi/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.kpi.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.kpi.card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.recent.transactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.recent.transactions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.revenue.chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.revenue.chart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/components/dashboard.status.pie.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/components/dashboard.status.pie.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/constants/dashboard.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/constants/dashboard.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/features/dashboard.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/features/dashboard.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/hooks/use.dashboard.payment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/hooks/use.dashboard.payment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/types/dashboard.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/types/dashboard.type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/dashboard/utils/dashboard.calculator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/dashboard/utils/dashboard.calculator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.details.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.search.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.search.box.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.search.date.sort.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.search.date.sort.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.search.filter.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.search.filter.grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.status.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.status.badge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.empty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.empty.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.skeleton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/components/payment.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/components/payment.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/constants/payment.table.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/constants/payment.table.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/features/payment.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/features/payment.management.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/features/payment.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/features/payment.table.content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/hooks/use.payment.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/hooks/use.payment.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/hooks/use.user.detail.by.id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/hooks/use.user.detail.by.id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/providers/payment.detail.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/providers/payment.detail.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/providers/payment.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/providers/payment.filter.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/payment/types/payment.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/payment/types/payment.table.type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.details.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.resolve.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.resolve.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.search.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.search.box.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.status.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.status.badge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.empty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.empty.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.skeleton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/components/report.type.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/components/report.type.badge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/constants/report.table.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/constants/report.table.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/features/report.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/features/report.management.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/features/report.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/features/report.table.content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/hooks/use.report.mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/hooks/use.report.mutation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/hooks/use.report.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/hooks/use.report.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/providers/report.detail.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/providers/report.detail.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/providers/report.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/providers/report.filter.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/reports/types/report.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/reports/types/report.table.type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.badge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.plan.edit.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.plan.edit.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/subscription.upgrade.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/subscription.upgrade.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.lookup.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.lookup.box.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.table.row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/components/user.subscription.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/components/user.subscription.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/features/subscription.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/features/subscription.management.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/features/subscription.plans.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/features/subscription.plans.grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/features/user.subscription.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/features/user.subscription.table.content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/hooks/use.subscription.mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/hooks/use.subscription.mutation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/hooks/use.subscription.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/hooks/use.subscription.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/subscriptions/providers/subscription.modal.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/subscriptions/providers/subscription.modal.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/email.verified.badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/email.verified.badge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/scroll.to.top.button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/scroll.to.top.button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.details.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.details.modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.search.box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.box.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.search.dob.sort.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.dob.sort.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.search.filter.grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.search.filter.grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.empty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.empty.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.skeleton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/components/user.table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/components/user.table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/constants/user.table.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/constants/user.table.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.change.status.button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.change.status.button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.detail.modal.wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.detail.modal.wrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.management.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.management.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/features/user.table.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/features/user.table.content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.change.user.status.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/hooks/use.change.user.status.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.learning.progress.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/hooks/use.user.learning.progress.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/hooks/use.user.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/hooks/use.user.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/providers/user.detail.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/providers/user.detail.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/providers/user.filter.provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/providers/user.filter.provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/protected/users/types/user.table.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modules/protected/admin/users/types/user.table.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/request.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +109,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging feature/19-azure-call-cost-management&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/25-crud-and-ru&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,

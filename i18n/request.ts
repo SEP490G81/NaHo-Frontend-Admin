@@ -32,7 +32,9 @@ const MESSAGE_FILES = [
     "books",
     "topic-management",
     "lesson-management",
-    "objective-management"
+    "objective-management",
+    "grammar-management",
+    "vocabulary-management"
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {
