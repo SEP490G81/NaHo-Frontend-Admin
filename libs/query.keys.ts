@@ -10,6 +10,11 @@ export const queryKeys = {
     },
     reports: {
         all: ["reports-admin"] as const,
+        contentManager: ["reports-content-manager"] as const,
+    },
+    comments: {
+        byQuestion: (speakingQuestionId: number) =>
+            ["comments-by-question", speakingQuestionId] as const,
     },
     personas: {
         all: ["personas-all"] as const,

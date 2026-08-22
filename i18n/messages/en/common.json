@@ -37,6 +37,7 @@
                 "userManagement": "User Management",
                 "paymentManagement": "Payment Management",
                 "costServiceManagement": "Service Cost Management",
+                "contentReportManagement": "Content Report Management",
                 "terms": "Terms of Service",
                 "privacy": "Privacy Policy"
             },
@@ -60,6 +61,7 @@
                 "subscriptionManagement": "Subscription Plans",
                 "costServiceManagement": "Service Cost Management",
                 "reportManagement": "Report Management",
+                "contentReportManagement": "Content Report Management",
                 "personaManagement": "AI Persona Management",
                 "kaiwaRoadmap": "Kaiwa Roadmap",
                 "freeAiChat": "Free AI Conversation",

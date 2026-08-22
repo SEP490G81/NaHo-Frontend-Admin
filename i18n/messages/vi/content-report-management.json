@@ -1,0 +1,89 @@
+{
+    "contentReportManagement": {
+        "pageTitle": "Quản lý báo cáo nội dung",
+        "pageSubtitle": "Tiếp nhận và xử lý báo cáo của người học về câu hỏi luyện nói và bình luận trong cộng đồng.",
+        "loadError": "Không tải được danh sách báo cáo nội dung. Vui lòng thử lại.",
+        "resultCount": "Hiển thị {shown}/{total} báo cáo",
+        "stats": {
+            "total": "Tổng báo cáo",
+            "unresolved": "Chờ xử lý",
+            "question": "Báo cáo câu hỏi",
+            "comment": "Báo cáo bình luận"
+        },
+        "type": {
+            "question": "Câu hỏi",
+            "comment": "Bình luận",
+            "other": "Khác"
+        },
+        "status": {
+            "resolved": "Đã xử lý",
+            "unresolved": "Chờ xử lý"
+        },
+        "target": {
+            "question": "Câu hỏi",
+            "comment": "Bình luận",
+            "none": "Không xác định"
+        },
+        "searchBox": {
+            "keywordPlaceholder": "Tìm theo tiêu đề, nội dung, tên người báo cáo...",
+            "reportTypeLabel": "Loại báo cáo",
+            "statusLabel": "Trạng thái xử lý",
+            "all": "Tất cả",
+            "statusResolved": "Đã xử lý",
+            "statusUnresolved": "Chờ xử lý",
+            "resetButton": "Đặt lại"
+        },
+        "table": {
+            "stt": "#",
+            "reporter": "Người báo cáo",
+            "content": "Nội dung báo cáo",
+            "type": "Loại",
+            "target": "Đối tượng",
+            "files": "Tệp",
+            "status": "Trạng thái",
+            "actions": "Thao tác",
+            "noData": "Không tìm thấy báo cáo nội dung nào.",
+            "viewDetail": "Xem chi tiết",
+            "resolve": "Xử lý báo cáo"
+        },
+        "targetPanel": {
+            "title": "Nội dung bị báo cáo",
+            "commentRef": "Mã bình luận",
+            "questionRef": "Mã câu hỏi",
+            "missingRef": "Không có",
+            "inQuestion": "thuộc câu hỏi #{id}",
+            "unknownUser": "Người dùng ẩn danh",
+            "loadFailed": "Không tải được nội dung bình luận bị báo cáo.",
+            "commentNotFound": "Không tìm thấy bình luận này, có thể nó đã bị xoá.",
+            "commentNoQuestionId": "Báo cáo không kèm mã câu hỏi nên chưa tra được nội dung bình luận.",
+            "questionNoApi": "Hệ thống chưa có API lấy chi tiết câu hỏi luyện nói, hiện chỉ hiển thị mã tham chiếu."
+        },
+        "detailsModal": {
+            "title": "Chi tiết báo cáo",
+            "reporter": "Người báo cáo:",
+            "descriptionLabel": "Mô tả từ người báo cáo",
+            "attachedFiles": "Ảnh minh chứng đính kèm",
+            "zoomIn": "Phóng to",
+            "openLink": "Mở link",
+            "adminReplyLabel": "Phản hồi đã gửi",
+            "resolveReportBtn": "Phản hồi & xử lý báo cáo",
+            "close": "Đóng"
+        },
+        "resolveModal": {
+            "title": "Xử lý báo cáo",
+            "warningTitle": "Xác nhận trước khi xử lý",
+            "warningIrreversible": "Thao tác này không thể hoàn tác: báo cáo đã xử lý sẽ không mở lại được.",
+            "warningEmail": "Người báo cáo sẽ nhận email kèm nội dung phản hồi bên dưới.",
+            "replyInputLabel": "Nội dung phản hồi",
+            "replyPlaceholder": "Mô tả kết quả kiểm duyệt và hướng xử lý gửi tới người báo cáo...",
+            "replyHint": "Nội dung này được gửi trực tiếp tới người báo cáo qua email.",
+            "replyRequired": "Vui lòng nhập phản hồi tối thiểu {min} ký tự.",
+            "cancel": "Hủy",
+            "submitBtn": "Xác nhận đã xử lý"
+        },
+        "toast": {
+            "resolveSuccess": "Đã xử lý báo cáo và gửi phản hồi tới người báo cáo.",
+            "resolveError": "Xử lý báo cáo thất bại. Vui lòng thử lại."
+        }
+    }
+}

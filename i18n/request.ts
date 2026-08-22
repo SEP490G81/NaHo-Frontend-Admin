@@ -27,6 +27,7 @@ const MESSAGE_FILES = [
     "user-management",
     "payment-management",
     "report-management",
+    "content-report-management",
     "subscription-management",
     "cost-service-management",
     "persona-management",

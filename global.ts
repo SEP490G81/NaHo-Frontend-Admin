@@ -22,6 +22,7 @@ import help from "@/i18n/messages/vi/help.json";
 import userManagement from "@/i18n/messages/vi/user-management.json";
 import paymentManagement from "@/i18n/messages/vi/payment-management.json";
 import reportManagement from "@/i18n/messages/vi/report-management.json";
+import contentReportManagement from "@/i18n/messages/vi/content-report-management.json";
 import subscriptionManagement from "@/i18n/messages/vi/subscription-management.json";
 import costServiceManagement from "@/i18n/messages/vi/cost-service-management.json";
 import personaManagement from "@/i18n/messages/vi/persona-management.json";
@@ -52,6 +53,7 @@ declare module "next-intl" {
             typeof userManagement &
             typeof paymentManagement &
             typeof reportManagement &
+            typeof contentReportManagement &
             typeof subscriptionManagement &
             typeof costServiceManagement &
             typeof personaManagement;

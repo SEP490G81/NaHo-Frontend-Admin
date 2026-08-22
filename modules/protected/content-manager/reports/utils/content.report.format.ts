@@ -1,0 +1,17 @@
+/** "HH:mm DD/MM/YYYY" — khớp cách hiển thị thời gian ở các màn hình khác. */
+export function formatCommentTime(value?: string | null): string {
+    if (!value) {
+        return "";
+    }
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+        return "";
+    }
+
+    const pad = (n: number) => String(n).padStart(2, "0");
+
+    return `${pad(date.getHours())}:${pad(date.getMinutes())} ${pad(
+        date.getDate(),
+    )}/${pad(date.getMonth() + 1)}/${date.getFullYear()}`;
+}

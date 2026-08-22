@@ -31,6 +31,7 @@ export type AllRoute =
     | "/settings/billing"
     | "/orders"
     | "/reports"
+    | "/content-reports"
     | "/subscription-plans"
     | "/cost-service-management"
     | "/personas"

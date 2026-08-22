@@ -6,6 +6,7 @@ import {
     Flag,
     LayoutDashboard,
     Receipt,
+    ShieldAlert,
     Users,
 } from "lucide-react";
 
@@ -37,5 +38,10 @@ export const NAV_ITEMS: NavItem[] = [
         icon: Receipt,
     },
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
+    {
+        titleKey: "contentReportManagement",
+        url: "/content-reports",
+        icon: ShieldAlert,
+    },
     { titleKey: "personaManagement", url: "/personas", icon: Bot },
 ];
