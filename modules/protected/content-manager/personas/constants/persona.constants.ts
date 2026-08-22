@@ -1,13 +1,17 @@
+import { Gender } from "@/types/enums/user.enum";
 import {
     FormalityLevel,
     FormalityLevelFilter,
     MarugotoLevel,
+    PersonaStatus,
+    PersonaStatusFilter,
 } from "@/types/enums/persona.enum";
 import { PersonaFilterState } from "../types/persona.grid.type";
 
 export const DEFAULT_PERSONA_FILTER: PersonaFilterState = {
     searchKeyword: "",
     formalityLevel: FormalityLevelFilter.ALL,
+    status: PersonaStatusFilter.ALL,
 };
 
 export const FORMALITY_LEVEL_OPTIONS: FormalityLevel[] = [
@@ -24,6 +28,32 @@ export const MARUGOTO_LEVEL_OPTIONS: MarugotoLevel[] = [
     MarugotoLevel.INTERMEDIATE_1_B1,
     MarugotoLevel.INTERMEDIATE_2_B1,
 ];
+
+export const PERSONA_STATUS_OPTIONS: PersonaStatus[] = [
+    PersonaStatus.ACTIVE,
+    PersonaStatus.UNACTIVE,
+];
+
+export const GENDER_OPTIONS: Gender[] = [Gender.MALE, Gender.FEMALE];
+
+/** Giọng đọc Azure TTS đang dùng trong hệ thống (theo seed V6 của BE). */
+export interface AzureVoiceOption {
+    name: string;
+    gender: Gender;
+}
+
+export const AZURE_VOICE_OPTIONS: AzureVoiceOption[] = [
+    { name: "ja-JP-NanamiNeural", gender: Gender.FEMALE },
+    { name: "ja-JP-MayuNeural", gender: Gender.FEMALE },
+    { name: "ja-JP-ShioriNeural", gender: Gender.FEMALE },
+    { name: "ja-JP-KeitaNeural", gender: Gender.MALE },
+    { name: "ja-JP-DaichiNeural", gender: Gender.MALE },
+    { name: "ja-JP-NaokiNeural", gender: Gender.MALE },
+    { name: "ja-JP-MasahiroNeural", gender: Gender.MALE },
+];
+
+/** Giọng BE dùng khi nhân vật chưa gán giọng riêng. */
+export const DEFAULT_AZURE_VOICE = "ja-JP-NanamiNeural";
 
 /** Màu nhãn theo mức trang trọng, dùng chung cho badge trên thẻ và modal. */
 export const FORMALITY_LEVEL_CLASSES: Record<FormalityLevel, string> = {
@@ -47,5 +77,3 @@ export const PERSONA_AVATAR_GRADIENTS: string[] = [
 
 export const PERSONA_NAME_MAX_LENGTH = 255;
 export const PERSONA_PROMPT_MAX_LENGTH = 5000;
-export const CONVERSATION_STYLE_PROMPT_MAX_LENGTH = 2000;
-export const CONVERSATION_STYLE_DESCRIPTION_MAX_LENGTH = 512;

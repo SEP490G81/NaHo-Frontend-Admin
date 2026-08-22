@@ -1,36 +1,50 @@
 "use client";
 
 import React from "react";
+import { Avatar } from "@mui/material";
 import { cn } from "@/libs/utils";
+import { PersonaResponse } from "@/types/responses/persona.response";
 import {
     getPersonaGradient,
     getPersonaInitials,
 } from "../utils/persona.format.util";
 
 interface PersonaAvatarProps {
-    readonly personaId: number;
-    readonly name: string;
+    readonly persona: PersonaResponse;
+    readonly size?: number;
     readonly className?: string;
 }
 
 /**
- * Avatar chữ cái đầu với dải màu cố định theo id. BE mới chỉ lưu `avatarFileId`
- * và chưa có API lấy đường dẫn ảnh nên tạm thời hiển thị chữ thay cho ảnh.
+ * Ảnh đại diện nhân vật lấy từ `avatarFile.accessUrl`; nhân vật chưa có ảnh thì
+ * hiển thị chữ cái đầu trên nền gradient cố định theo id.
  */
 export function PersonaAvatar({
-    personaId,
-    name,
+    persona,
+    size = 48,
     className,
 }: PersonaAvatarProps) {
+    const avatarUrl = persona.avatarFile?.accessUrl || undefined;
+
     return (
-        <div
+        <Avatar
+            src={avatarUrl}
+            alt={persona.name}
+            variant="rounded"
             className={cn(
-                "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-sm font-black text-white shadow-sm",
-                getPersonaGradient(personaId),
+                "shrink-0 rounded-2xl font-black text-white shadow-sm select-none",
+                !avatarUrl &&
+                    `bg-gradient-to-br ${getPersonaGradient(persona.id)}`,
                 className,
             )}
+            sx={{
+                width: size,
+                height: size,
+                fontSize: Math.max(12, Math.round(size * 0.32)),
+                bgcolor: avatarUrl ? "transparent" : undefined,
+            }}
         >
-            {getPersonaInitials(name)}
-        </div>
+            {!avatarUrl ? getPersonaInitials(persona.name) : null}
+        </Avatar>
     );
 }

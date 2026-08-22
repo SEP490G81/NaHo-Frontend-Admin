@@ -1,6 +1,4 @@
 import {
-    CONVERSATION_STYLE_DESCRIPTION_MAX_LENGTH,
-    CONVERSATION_STYLE_PROMPT_MAX_LENGTH,
     PERSONA_NAME_MAX_LENGTH,
     PERSONA_PROMPT_MAX_LENGTH,
 } from "../constants/persona.constants";
@@ -35,32 +33,6 @@ export function validatePersonaForm(
         errors.prompt = "promptRequired";
     } else if (prompt.length > PERSONA_PROMPT_MAX_LENGTH) {
         errors.prompt = "promptTooLong";
-    }
-
-    const avatarFileId = values.avatarFileId.trim();
-    if (avatarFileId && !/^\d+$/.test(avatarFileId)) {
-        errors.avatarFileId = "avatarFileIdInvalid";
-    }
-
-    if (values.styleMode === "EXISTING") {
-        if (!values.suggestedConversationStyleId) {
-            errors.suggestedConversationStyleId = "styleRequired";
-        }
-        return errors;
-    }
-
-    const stylePrompt = values.stylePrompt.trim();
-    if (!stylePrompt) {
-        errors.stylePrompt = "stylePromptRequired";
-    } else if (stylePrompt.length > CONVERSATION_STYLE_PROMPT_MAX_LENGTH) {
-        errors.stylePrompt = "stylePromptTooLong";
-    }
-
-    if (
-        values.styleDescription.trim().length >
-        CONVERSATION_STYLE_DESCRIPTION_MAX_LENGTH
-    ) {
-        errors.styleDescription = "styleDescriptionTooLong";
     }
 
     return errors;

@@ -4,7 +4,10 @@ import React, { useMemo } from "react";
 import { CircleAlert } from "lucide-react";
 import { useTranslations } from "next-intl";
 import ContainerBox from "@/components/ui/container.box";
-import { FormalityLevelFilter } from "@/types/enums/persona.enum";
+import {
+    FormalityLevelFilter,
+    PersonaStatusFilter,
+} from "@/types/enums/persona.enum";
 import { PersonaCard } from "../components/persona.card";
 import { PersonaDetailsModal } from "../components/persona.details.modal";
 import { PersonaGridEmpty } from "../components/persona.grid.empty";
@@ -26,32 +29,35 @@ export function PersonaGridContent() {
             // 1. Lọc theo mức trang trọng của phong cách hội thoại
             if (
                 filter.formalityLevel !== FormalityLevelFilter.ALL &&
-                persona.conversationStyle?.formalityLevel !==
-                    filter.formalityLevel
+                persona.defaultFormalityLevel !== filter.formalityLevel
             ) {
                 return false;
             }
 
-            // 2. Tìm theo tên, prompt, mô tả phong cách hoặc mã nhân vật
+            // 2. Lọc theo trạng thái hoạt động
+            if (
+                filter.status !== PersonaStatusFilter.ALL &&
+                persona.status !== filter.status
+            ) {
+                return false;
+            }
+
+            // 3. Tìm theo tên, prompt, mô tả phong cách hoặc mã nhân vật
             const keyword = filter.searchKeyword.trim().toLowerCase();
             if (!keyword) return true;
 
             return (
                 persona.name.toLowerCase().includes(keyword) ||
                 persona.prompt.toLowerCase().includes(keyword) ||
-                String(persona.id).includes(keyword) ||
-                Boolean(
-                    persona.conversationStyle?.description
-                        ?.toLowerCase()
-                        .includes(keyword),
-                )
+                String(persona.id).includes(keyword)
             );
         });
     }, [personas, filter]);
 
     const isFiltered =
         Boolean(filter.searchKeyword.trim()) ||
-        filter.formalityLevel !== FormalityLevelFilter.ALL;
+        filter.formalityLevel !== FormalityLevelFilter.ALL ||
+        filter.status !== PersonaStatusFilter.ALL;
 
     const renderGrid = () => {
         if (isLoading) return <PersonaGridSkeleton />;

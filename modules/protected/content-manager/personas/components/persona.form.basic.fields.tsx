@@ -10,6 +10,7 @@ import {
 } from "../constants/persona.constants";
 import { personaInputSx } from "../constants/persona.input.sx";
 import { usePersonaFormContext } from "../providers/persona.form.provider";
+import { PersonaFormVoiceFields } from "./persona.form.voice.fields";
 
 export function PersonaFormBasicFields() {
     const t = useTranslations("personaManagement.form");
@@ -26,47 +27,26 @@ export function PersonaFormBasicFields() {
                 <span>{t("sections.basic")}</span>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <div className="space-y-1 md:col-span-2">
-                    <label className="text-text-contrast text-xs font-bold">
-                        {t("fields.name")}
-                    </label>
-                    <TextField
-                        fullWidth
-                        size="small"
-                        value={values.name}
-                        placeholder={t("fields.namePlaceholder")}
-                        onChange={(e) => setField("name", e.target.value)}
-                        error={Boolean(errors.name)}
-                        helperText={errorText(errors.name)}
-                        slotProps={{
-                            htmlInput: { maxLength: PERSONA_NAME_MAX_LENGTH },
-                        }}
-                        sx={personaInputSx}
-                    />
-                </div>
-
-                <div className="space-y-1">
-                    <label className="text-text-contrast text-xs font-bold">
-                        {t("fields.avatarFileId")}
-                    </label>
-                    <TextField
-                        fullWidth
-                        size="small"
-                        value={values.avatarFileId}
-                        placeholder={t("fields.avatarFileIdPlaceholder")}
-                        onChange={(e) =>
-                            setField("avatarFileId", e.target.value)
-                        }
-                        error={Boolean(errors.avatarFileId)}
-                        helperText={
-                            errorText(errors.avatarFileId) ||
-                            t("fields.avatarFileIdHint")
-                        }
-                        sx={personaInputSx}
-                    />
-                </div>
+            <div className="space-y-1">
+                <label className="text-text-contrast text-xs font-bold">
+                    {t("fields.name")}
+                </label>
+                <TextField
+                    fullWidth
+                    size="small"
+                    value={values.name}
+                    placeholder={t("fields.namePlaceholder")}
+                    onChange={(e) => setField("name", e.target.value)}
+                    error={Boolean(errors.name)}
+                    helperText={errorText(errors.name)}
+                    slotProps={{
+                        htmlInput: { maxLength: PERSONA_NAME_MAX_LENGTH },
+                    }}
+                    sx={personaInputSx}
+                />
             </div>
+
+            <PersonaFormVoiceFields />
 
             <div className="space-y-1">
                 <div className="flex items-end justify-between">
@@ -95,6 +75,11 @@ export function PersonaFormBasicFields() {
                     sx={personaInputSx}
                 />
             </div>
+
+            {/* Ảnh đại diện: chờ BE mở API upload, tạm thời giữ nguyên ảnh cũ */}
+            <p className="border-bdc-primary bg-bgc-page text-text-muted rounded-xl border p-3 text-[11px] font-semibold">
+                {t("fields.avatarPending")}
+            </p>
         </div>
     );
 }

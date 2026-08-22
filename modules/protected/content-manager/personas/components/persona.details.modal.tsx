@@ -16,14 +16,14 @@ import { usePersonaModal } from "../providers/persona.modal.provider";
 import { PersonaAvatar } from "./persona.avatar";
 import { PersonaFormalityBadge } from "./persona.formality.badge";
 import { PersonaMarugotoBadge } from "./persona.marugoto.badge";
+import { PersonaStatusBadge } from "./persona.status.badge";
+import { PersonaVoiceChip } from "./persona.voice.chip";
 
 export function PersonaDetailsModal() {
     const t = useTranslations("personaManagement.detail");
     const { detailPersona, closeDetail, openEditForm } = usePersonaModal();
 
     if (!detailPersona) return null;
-
-    const style = detailPersona.conversationStyle;
 
     const handleEdit = () => {
         closeDetail();
@@ -45,17 +45,18 @@ export function PersonaDetailsModal() {
         >
             <DialogTitle className="text-text-contrast flex items-center justify-between px-6 py-4 font-bold">
                 <div className="flex items-center gap-3">
-                    <PersonaAvatar
-                        personaId={detailPersona.id}
-                        name={detailPersona.name}
-                    />
+                    <PersonaAvatar persona={detailPersona} />
                     <div>
-                        <h2 className="text-lg font-bold">
-                            {detailPersona.name}
-                        </h2>
-                        <p className="text-text-muted text-xs font-normal">
-                            {t("subtitle", { id: detailPersona.id })}
-                        </p>
+                        <div className="flex items-center gap-2">
+                            <h2 className="text-lg font-bold">
+                                {detailPersona.name}
+                            </h2>
+                            <PersonaStatusBadge status={detailPersona.status} />
+                        </div>
+                        <PersonaVoiceChip
+                            gender={detailPersona.gender}
+                            voiceName={detailPersona.voiceName}
+                        />
                     </div>
                 </div>
                 <IconButton
@@ -82,50 +83,34 @@ export function PersonaDetailsModal() {
 
                 <Divider className="border-bdc-primary" />
 
-                {/* Phong cách hội thoại gợi ý */}
+                {/* Mặc định phong cách hội thoại */}
                 <div className="space-y-2">
                     <div className="text-bgc-highlight flex items-center gap-2 text-xs font-extrabold tracking-wider uppercase">
                         <MessagesSquare className="h-4 w-4" />
                         <span>{t("styleSection")}</span>
                     </div>
 
-                    {style ? (
-                        <div className="border-bdc-primary bg-bgc-page space-y-3 rounded-xl border p-4">
-                            <div className="flex flex-wrap items-center gap-2">
-                                <PersonaFormalityBadge
-                                    level={style.formalityLevel}
-                                />
-                                {style.marugotoLevel && (
-                                    <PersonaMarugotoBadge
-                                        level={style.marugotoLevel}
-                                    />
-                                )}
-                                <span className="text-text-muted text-[11px] font-semibold">
-                                    {t("styleId", { id: style.id })}
+                    <div className="border-bdc-primary bg-bgc-page flex flex-wrap items-center gap-2 rounded-xl border p-4">
+                        {detailPersona.defaultFormalityLevel && (
+                            <PersonaFormalityBadge
+                                level={detailPersona.defaultFormalityLevel}
+                            />
+                        )}
+                        {detailPersona.defaultMarugotoLevel && (
+                            <PersonaMarugotoBadge
+                                level={detailPersona.defaultMarugotoLevel}
+                            />
+                        )}
+                        {!detailPersona.defaultFormalityLevel &&
+                            !detailPersona.defaultMarugotoLevel && (
+                                <span className="text-text-muted text-xs font-semibold">
+                                    {t("noStyle")}
                                 </span>
-                            </div>
-                            <div>
-                                <p className="text-text-muted text-[11px] font-bold uppercase">
-                                    {t("styleDescription")}
-                                </p>
-                                <p className="text-text-contrast text-xs">
-                                    {style.description || t("none")}
-                                </p>
-                            </div>
-                            <div>
-                                <p className="text-text-muted text-[11px] font-bold uppercase">
-                                    {t("stylePrompt")}
-                                </p>
-                                <p className="text-text-contrast text-xs leading-relaxed whitespace-pre-wrap">
-                                    {style.prompt}
-                                </p>
-                            </div>
-                        </div>
-                    ) : (
-                        <p className="text-text-error text-xs font-semibold">
-                            {t("noStyle")}
-                        </p>
-                    )}
+                            )}
+                    </div>
+                    <p className="text-text-muted text-[11px]">
+                        {t("styleHint")}
+                    </p>
                 </div>
             </DialogContent>
 

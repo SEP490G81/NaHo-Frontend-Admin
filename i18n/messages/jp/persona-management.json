@@ -16,15 +16,31 @@
             "INTERMEDIATE_1_B1": "中級1 (B1.1)",
             "INTERMEDIATE_2_B1": "中級2 (B1.2)"
         },
+        "status": {
+            "ACTIVE": "公開中",
+            "UNACTIVE": "非公開"
+        },
+        "gender": {
+            "MALE": "男性",
+            "FEMALE": "女性"
+        },
+        "actions": {
+            "hide": "キャラクターを非公開にする",
+            "show": "キャラクターを公開する"
+        },
+        "notifications": {
+            "hideSuccess": "キャラクターを非公開にしました。",
+            "showSuccess": "キャラクターを公開しました。",
+            "changeStatusError": "状態を変更できませんでした。もう一度お試しください。"
+        },
         "searchBox": {
             "keywordPlaceholder": "キャラクター名、プロンプト、IDで検索...",
             "formalityLabel": "丁寧さレベル",
+            "statusLabel": "状態",
             "all": "すべて",
             "resetButton": "リセット"
         },
         "card": {
-            "id": "#{id}",
-            "idWithAvatar": "#{id} · 画像 #{fileId}",
             "noStyle": "会話スタイル未設定",
             "detailButton": "詳細を見る",
             "editButton": "編集"
@@ -36,63 +52,46 @@
             "loadError": "キャラクター一覧を読み込めませんでした。もう一度お試しください。"
         },
         "detail": {
-            "subtitle": "キャラクターID #{id}",
             "personaPrompt": "キャラクタープロンプト",
-            "styleSection": "推奨会話スタイル",
-            "styleId": "スタイルID #{id}",
-            "styleDescription": "説明",
-            "stylePrompt": "スタイルプロンプト",
-            "none": "未設定",
+            "styleSection": "会話スタイル",
             "noStyle": "このキャラクターには会話スタイルが設定されていません。",
             "close": "閉じる",
-            "editButton": "編集"
+            "editButton": "編集",
+            "styleHint": "学習者はセッション開始時にこの2つのレベルを変更できます。"
         },
         "form": {
             "createTitle": "AIキャラクターを追加",
             "editTitle": "キャラクター{name}を編集",
-            "subtitle": "プロンプトは性格と場面を、会話スタイルは話し方の丁寧さを決めます。",
+            "subtitle": "プロンプトは性格と場面を、会話スタイルは話し方を決めます。",
             "sections": {
                 "basic": "キャラクター情報",
                 "style": "会話スタイル"
             },
             "fields": {
                 "name": "キャラクター名",
-                "namePlaceholder": "例：さくら（カフェ店員）",
-                "avatarFileId": "アバター画像ID",
-                "avatarFileIdPlaceholder": "例：120",
-                "avatarFileIdHint": "任意 - 空欄の場合はイニシャルアバターを使用します。",
+                "namePlaceholder": "例：田中先生",
+                "gender": "性別",
+                "voiceName": "音声",
+                "voiceNameHint": "キャラクターの返答を読み上げるAzure音声です。",
+                "status": "状態",
+                "statusHint": "非公開にすると学習者はこのキャラクターを選べません。",
                 "prompt": "キャラクタープロンプト",
                 "promptPlaceholder": "役割、性格、場面、会話の進め方を記述してください...",
                 "promptHint": "キャラクターと場面のみを記述し、システム全体のルールは書かないでください。",
-                "styleModeExisting": "既存スタイルを使う",
-                "styleModeCustom": "新しいスタイルを作る",
-                "styleModeEdit": "スタイル内容を編集",
-                "existingStyle": "会話スタイル",
-                "existingStyleHint": "スタイルはAIの丁寧さレベルとまるごとレベルを決めます。",
-                "existingStyleEmpty": "会話スタイルがまだありません",
                 "formalityLevel": "丁寧さレベル",
+                "formalityLevelHint": "カジュアル・丁寧・敬語のどれで話すかを決めます。",
                 "marugotoLevel": "まるごとレベル",
-                "marugotoLevelNone": "レベル指定なし",
-                "styleDescription": "スタイルの説明",
-                "styleDescriptionPlaceholder": "例：丁寧な日本語（ます形）",
-                "stylePrompt": "スタイルプロンプト",
-                "stylePromptPlaceholder": "例：丁寧な日本語（です・ます形）で答えてください...",
-                "stylePromptHint": "話し方の文体と敬語レベルをAIに指示します。"
+                "marugotoLevelHint": "AIが使える語彙と文法の難易度です。",
+                "avatarPending": "アバター：現在の画像を維持します。バックエンドのアップロードAPIが用意され次第、画像アップロードを有効にします。"
             },
-            "styleUsage": "{count}体が使用中",
-            "sharedStyleWarning": "このスタイルは他の{count}体のキャラクターと共有されています。保存するとすべてのキャラクターのスタイル内容が上書きされます。",
-            "newStyleHint": "新しい会話スタイルを作成し、このキャラクターのみに設定します。",
             "errors": {
                 "nameRequired": "キャラクター名を入力してください。",
                 "nameTooLong": "キャラクター名が長すぎます（最大255文字）。",
                 "nameDuplicated": "このキャラクター名は既に存在します。別の名前を選んでください。",
                 "promptRequired": "キャラクタープロンプトを入力してください。",
                 "promptTooLong": "キャラクタープロンプトが長すぎます（最大5000文字）。",
-                "avatarFileIdInvalid": "アバター画像IDは正の整数で入力してください。",
-                "styleRequired": "会話スタイルを選択してください。",
-                "stylePromptRequired": "スタイルプロンプトを入力してください。",
-                "stylePromptTooLong": "スタイルプロンプトが長すぎます（最大2000文字）。",
-                "styleDescriptionTooLong": "スタイルの説明が長すぎます（最大512文字）。"
+                "avatarFileNotFound": "そのアバター画像はシステムに存在しません。",
+                "saveConflict": "データが不正か、他のキャラクターと重複しています。ご確認ください。"
             },
             "cancel": "キャンセル",
             "submit": "保存する",

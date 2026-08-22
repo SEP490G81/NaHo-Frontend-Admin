@@ -21,13 +21,12 @@ import {
 } from "../hooks/use.persona.mutation";
 import { usePersonaFormContext } from "../providers/persona.form.provider";
 import { usePersonaModal } from "../providers/persona.modal.provider";
-import {
-    buildCreateRequest,
-    buildUpdateRequest,
-} from "../utils/persona.form.util";
+import { buildPersonaRequest } from "../utils/persona.form.util";
+import { matchPersonaApiError } from "../utils/persona.error.util";
 
 export function PersonaFormBody() {
     const t = useTranslations("personaManagement.form");
+    const tError = useTranslations("personaManagement.form.errors");
     const { editingPersona, closeForm } = usePersonaModal();
     const { values, validate, takenNames } = usePersonaFormContext();
     const createMutation = useCreatePersonaMutation();
@@ -42,25 +41,28 @@ export function PersonaFormBody() {
 
         if (!validate(takenNames)) return;
 
+        const body = buildPersonaRequest(values);
+
         try {
             if (editingPersona) {
                 await updateMutation.mutateAsync({
                     personaId: editingPersona.id,
-                    body: buildUpdateRequest(
-                        values,
-                        Number(values.suggestedConversationStyleId) || null,
-                    ),
+                    body,
                 });
                 toast.success(t("updateSuccess"));
             } else {
-                await createMutation.mutateAsync(buildCreateRequest(values));
+                await createMutation.mutateAsync(body);
                 toast.success(t("createSuccess"));
             }
             closeForm();
         } catch (err: unknown) {
             const errorObj = err as { detail?: string; message?: string };
-            const message =
-                errorObj?.detail || errorObj?.message || t("errorFallback");
+            const raw = errorObj?.detail || errorObj?.message || "";
+            // BE có thể trả nguyên văn lỗi SQL -> đổi sang câu tiếng Việt dễ hiểu
+            const knownKey = raw ? matchPersonaApiError(raw) : null;
+            const message = knownKey
+                ? tError(knownKey as Parameters<typeof tError>[0])
+                : raw || t("errorFallback");
             setErrorMessage(message);
             toast.error(message);
         }

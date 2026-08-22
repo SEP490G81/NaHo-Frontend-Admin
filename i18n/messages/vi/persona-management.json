@@ -16,15 +16,31 @@
             "INTERMEDIATE_1_B1": "Trung cấp 1 (B1.1)",
             "INTERMEDIATE_2_B1": "Trung cấp 2 (B1.2)"
         },
+        "status": {
+            "ACTIVE": "Đang dùng",
+            "UNACTIVE": "Tạm ẩn"
+        },
+        "gender": {
+            "MALE": "Nam",
+            "FEMALE": "Nữ"
+        },
+        "actions": {
+            "hide": "Tạm ẩn nhân vật",
+            "show": "Mở lại nhân vật"
+        },
+        "notifications": {
+            "hideSuccess": "Đã tạm ẩn nhân vật khỏi người học.",
+            "showSuccess": "Đã mở lại nhân vật cho người học.",
+            "changeStatusError": "Không đổi được trạng thái nhân vật. Vui lòng thử lại."
+        },
         "searchBox": {
             "keywordPlaceholder": "Tìm theo tên nhân vật, nội dung prompt, mã nhân vật...",
             "formalityLabel": "Mức trang trọng",
+            "statusLabel": "Trạng thái",
             "all": "Tất cả",
             "resetButton": "Đặt lại"
         },
         "card": {
-            "id": "#{id}",
-            "idWithAvatar": "#{id} · Ảnh #{fileId}",
             "noStyle": "Chưa gắn phong cách hội thoại",
             "detailButton": "Xem chi tiết",
             "editButton": "Chỉnh sửa"
@@ -36,63 +52,46 @@
             "loadError": "Không tải được danh sách nhân vật. Vui lòng thử lại."
         },
         "detail": {
-            "subtitle": "Mã nhân vật #{id}",
             "personaPrompt": "Prompt nhân vật",
-            "styleSection": "Phong cách hội thoại gợi ý",
-            "styleId": "Mã phong cách #{id}",
-            "styleDescription": "Mô tả",
-            "stylePrompt": "Prompt phong cách",
-            "none": "Chưa có",
+            "styleSection": "Phong cách hội thoại",
             "noStyle": "Nhân vật chưa được gắn phong cách hội thoại.",
             "close": "Đóng",
-            "editButton": "Chỉnh sửa"
+            "editButton": "Chỉnh sửa",
+            "styleHint": "Người học vẫn có thể đổi lại hai mức này khi bắt đầu phiên trò chuyện."
         },
         "form": {
             "createTitle": "Thêm nhân vật AI mới",
             "editTitle": "Chỉnh sửa nhân vật {name}",
-            "subtitle": "Prompt quyết định tính cách và bối cảnh, phong cách hội thoại quyết định cách xưng hô của nhân vật.",
+            "subtitle": "Prompt quyết định tính cách và bối cảnh, phong cách hội thoại quyết định cách nói của nhân vật.",
             "sections": {
                 "basic": "Thông tin nhân vật",
                 "style": "Phong cách hội thoại"
             },
             "fields": {
                 "name": "Tên nhân vật",
-                "namePlaceholder": "Ví dụ: Sakura (Nhân viên quán cà phê)",
-                "avatarFileId": "Mã tệp ảnh đại diện",
-                "avatarFileIdPlaceholder": "Ví dụ: 120",
-                "avatarFileIdHint": "Tùy chọn - để trống sẽ dùng avatar chữ cái đầu.",
+                "namePlaceholder": "Ví dụ: 田中先生",
+                "gender": "Giới tính",
+                "voiceName": "Giọng đọc",
+                "voiceNameHint": "Giọng Azure đọc câu trả lời của nhân vật.",
+                "status": "Trạng thái",
+                "statusHint": "Tạm ẩn thì người học không chọn được nhân vật này.",
                 "prompt": "Prompt nhân vật",
                 "promptPlaceholder": "Mô tả vai trò, tính cách, bối cảnh và cách nhân vật dẫn dắt hội thoại...",
                 "promptHint": "Chỉ mô tả nhân vật và bối cảnh, không đặt quy tắc chung của hệ thống ở đây.",
-                "styleModeExisting": "Dùng phong cách có sẵn",
-                "styleModeCustom": "Tạo phong cách mới",
-                "styleModeEdit": "Sửa nội dung phong cách",
-                "existingStyle": "Phong cách hội thoại",
-                "existingStyleHint": "Phong cách quy định mức trang trọng và cấp độ Marugoto khi AI trả lời.",
-                "existingStyleEmpty": "Chưa có phong cách nào trong hệ thống",
                 "formalityLevel": "Mức trang trọng",
-                "marugotoLevel": "Cấp độ Marugoto",
-                "marugotoLevelNone": "Không giới hạn cấp độ",
-                "styleDescription": "Mô tả phong cách",
-                "styleDescriptionPlaceholder": "Ví dụ: Tiếng Nhật lịch sự thể ます",
-                "stylePrompt": "Prompt phong cách",
-                "stylePromptPlaceholder": "Ví dụ: Hãy trả lời bằng tiếng Nhật lịch sự (thể desu/masu)...",
-                "stylePromptHint": "Hướng dẫn AI về cách xưng hô, thể văn và mức độ kính ngữ."
+                "formalityLevelHint": "Nhân vật xưng hô thân mật, lịch sự hay dùng kính ngữ.",
+                "marugotoLevel": "Trình độ Marugoto",
+                "marugotoLevelHint": "Độ khó từ vựng và ngữ pháp mà AI được dùng.",
+                "avatarPending": "Ảnh đại diện: giữ nguyên ảnh hiện tại. Chức năng tải ảnh lên sẽ mở khi backend hoàn thiện API upload."
             },
-            "styleUsage": "{count} nhân vật đang dùng",
-            "sharedStyleWarning": "Phong cách này đang được {count} nhân vật khác dùng chung. Lưu thay đổi sẽ ghi đè nội dung phong cách cho tất cả nhân vật đó.",
-            "newStyleHint": "Hệ thống sẽ tạo một phong cách hội thoại mới và gắn riêng cho nhân vật này.",
             "errors": {
                 "nameRequired": "Vui lòng nhập tên nhân vật.",
                 "nameTooLong": "Tên nhân vật quá dài (tối đa 255 ký tự).",
                 "nameDuplicated": "Tên nhân vật đã tồn tại, vui lòng chọn tên khác.",
                 "promptRequired": "Vui lòng nhập prompt cho nhân vật.",
                 "promptTooLong": "Prompt nhân vật quá dài (tối đa 5000 ký tự).",
-                "avatarFileIdInvalid": "Mã tệp ảnh phải là số nguyên dương.",
-                "styleRequired": "Vui lòng chọn phong cách hội thoại.",
-                "stylePromptRequired": "Vui lòng nhập prompt cho phong cách hội thoại.",
-                "stylePromptTooLong": "Prompt phong cách quá dài (tối đa 2000 ký tự).",
-                "styleDescriptionTooLong": "Mô tả phong cách quá dài (tối đa 512 ký tự)."
+                "avatarFileNotFound": "Ảnh đại diện không tồn tại trong hệ thống.",
+                "saveConflict": "Dữ liệu không hợp lệ hoặc trùng với nhân vật khác. Vui lòng kiểm tra lại."
             },
             "cancel": "Hủy",
             "submit": "Lưu nhân vật",

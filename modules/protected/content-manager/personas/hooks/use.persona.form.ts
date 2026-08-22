@@ -7,7 +7,6 @@ import {
     PersonaFormField,
     PersonaFormValues,
 } from "../types/persona.form.type";
-import { PersonaStyleOption } from "../types/persona.grid.type";
 import { buildInitialFormValues } from "../utils/persona.form.util";
 import { validatePersonaForm } from "../utils/persona.validator";
 
@@ -15,12 +14,9 @@ import { validatePersonaForm } from "../utils/persona.validator";
  * State của form thêm/sửa nhân vật. Component cha luôn remount form theo `key`
  * nên state khởi tạo thẳng từ prop, không cần effect đồng bộ.
  */
-export function usePersonaForm(
-    persona: PersonaResponse | null,
-    styleOptions: PersonaStyleOption[],
-) {
+export function usePersonaForm(persona: PersonaResponse | null) {
     const [values, setValues] = useState<PersonaFormValues>(() =>
-        buildInitialFormValues(persona, styleOptions),
+        buildInitialFormValues(persona),
     );
     const [errors, setErrors] = useState<PersonaFormErrors>({});
 
@@ -37,31 +33,6 @@ export function usePersonaForm(
         [],
     );
 
-    /** Chọn phong cách có sẵn: đổ luôn nội dung để xem trước và sửa nếu cần. */
-    const selectExistingStyle = useCallback(
-        (styleId: string) => {
-            const option = styleOptions.find(
-                (item) => String(item.style.id) === styleId,
-            );
-
-            setValues((prev) => ({
-                ...prev,
-                suggestedConversationStyleId: styleId,
-                styleDescription: option?.style.description ?? "",
-                stylePrompt: option?.style.prompt ?? "",
-                styleFormalityLevel:
-                    option?.style.formalityLevel ?? prev.styleFormalityLevel,
-                styleMarugotoLevel: option?.style.marugotoLevel ?? "",
-            }));
-            setErrors((prev) => ({
-                ...prev,
-                suggestedConversationStyleId: undefined,
-            }));
-        },
-        [styleOptions],
-    );
-
-    /** @param takenNames tên các nhân vật khác đã lowercase (BE yêu cầu unique). */
     const validate = useCallback(
         (takenNames: string[]) => {
             const nextErrors = validatePersonaForm(values, takenNames);
@@ -71,7 +42,7 @@ export function usePersonaForm(
         [values],
     );
 
-    return { values, errors, setField, selectExistingStyle, validate };
+    return { values, errors, setField, validate };
 }
 
 export type PersonaFormState = ReturnType<typeof usePersonaForm>;

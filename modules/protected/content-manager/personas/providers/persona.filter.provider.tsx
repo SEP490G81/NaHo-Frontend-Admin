@@ -8,7 +8,6 @@ import React, {
     useMemo,
     useState,
 } from "react";
-import { FormalityLevelFilter } from "@/types/enums/persona.enum";
 import { DEFAULT_PERSONA_FILTER } from "../constants/persona.constants";
 import { PersonaFilterState } from "../types/persona.grid.type";
 
@@ -16,7 +15,8 @@ interface PersonaFilterContextValue {
     filter: PersonaFilterState;
     pendingKeyword: string;
     setPendingKeyword: (keyword: string) => void;
-    setFormalityLevel: (value: FormalityLevelFilter | string) => void;
+    setFormalityLevel: (value: string) => void;
+    setStatus: (value: string) => void;
     applySearch: () => void;
     resetFilter: () => void;
 }
@@ -51,10 +51,21 @@ export function PersonaFilterProvider({ children }: Props) {
 
     /** Đổi bộ lọc thì áp dụng luôn từ khóa đang gõ dở cho khớp kết quả. */
     const setFormalityLevel = useCallback(
-        (formalityLevel: FormalityLevelFilter | string) => {
+        (formalityLevel: string) => {
             setFilter((prev) => ({
                 ...prev,
                 formalityLevel,
+                searchKeyword: pendingKeyword,
+            }));
+        },
+        [pendingKeyword],
+    );
+
+    const setStatus = useCallback(
+        (status: string) => {
+            setFilter((prev) => ({
+                ...prev,
+                status,
                 searchKeyword: pendingKeyword,
             }));
         },
@@ -72,10 +83,18 @@ export function PersonaFilterProvider({ children }: Props) {
             pendingKeyword,
             setPendingKeyword,
             setFormalityLevel,
+            setStatus,
             applySearch,
             resetFilter,
         }),
-        [filter, pendingKeyword, applySearch, setFormalityLevel, resetFilter],
+        [
+            filter,
+            pendingKeyword,
+            applySearch,
+            setFormalityLevel,
+            setStatus,
+            resetFilter,
+        ],
     );
 
     return (

@@ -15,19 +15,27 @@ import {
 import { RotateCcw, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import ContainerBox from "@/components/ui/container.box";
-import { FormalityLevelFilter } from "@/types/enums/persona.enum";
+import {
+    FormalityLevelFilter,
+    PersonaStatusFilter,
+} from "@/types/enums/persona.enum";
 import { personaInputSx } from "../constants/persona.input.sx";
-import { FORMALITY_LEVEL_OPTIONS } from "../constants/persona.constants";
+import {
+    FORMALITY_LEVEL_OPTIONS,
+    PERSONA_STATUS_OPTIONS,
+} from "../constants/persona.constants";
 import { usePersonaFilter } from "../providers/persona.filter.provider";
 
 export function PersonaSearchBox() {
     const t = useTranslations("personaManagement.searchBox");
     const tFormality = useTranslations("personaManagement.formality");
+    const tStatus = useTranslations("personaManagement.status");
     const {
         filter,
         pendingKeyword,
         setPendingKeyword,
         setFormalityLevel,
+        setStatus,
         applySearch,
         resetFilter,
     } = usePersonaFilter();
@@ -38,7 +46,7 @@ export function PersonaSearchBox() {
 
     return (
         <ContainerBox>
-            <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <div className="flex flex-col items-center gap-3 lg:flex-row">
                 {/* Tìm theo tên, prompt hoặc mã nhân vật */}
                 <div className="w-full flex-1">
                     <TextField
@@ -70,7 +78,7 @@ export function PersonaSearchBox() {
                 </div>
 
                 {/* Lọc theo mức trang trọng */}
-                <div className="w-full sm:w-60">
+                <div className="w-full lg:w-52">
                     <FormControl size="small" fullWidth sx={personaInputSx}>
                         <InputLabel>{t("formalityLabel")}</InputLabel>
                         <Select
@@ -84,6 +92,27 @@ export function PersonaSearchBox() {
                             {FORMALITY_LEVEL_OPTIONS.map((level) => (
                                 <MenuItem key={level} value={level}>
                                     {tFormality(level)}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+                </div>
+
+                {/* Lọc theo trạng thái */}
+                <div className="w-full lg:w-44">
+                    <FormControl size="small" fullWidth sx={personaInputSx}>
+                        <InputLabel>{t("statusLabel")}</InputLabel>
+                        <Select
+                            label={t("statusLabel")}
+                            value={filter.status}
+                            onChange={(e) => setStatus(e.target.value)}
+                        >
+                            <MenuItem value={PersonaStatusFilter.ALL}>
+                                {t("all")}
+                            </MenuItem>
+                            {PERSONA_STATUS_OPTIONS.map((status) => (
+                                <MenuItem key={status} value={status}>
+                                    {tStatus(status)}
                                 </MenuItem>
                             ))}
                         </Select>

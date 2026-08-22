@@ -5,7 +5,6 @@ import { Dialog } from "@mui/material";
 import { usePersonaQuery } from "../hooks/use.persona.query";
 import { usePersonaModal } from "../providers/persona.modal.provider";
 import { PersonaFormProvider } from "../providers/persona.form.provider";
-import { collectStyleOptions } from "../utils/persona.format.util";
 import { PersonaFormBody } from "./persona.form.body";
 
 export function PersonaFormModal() {
@@ -13,10 +12,6 @@ export function PersonaFormModal() {
     const { data } = usePersonaQuery();
 
     const personas = useMemo(() => data?.data ?? [], [data]);
-    const styleOptions = useMemo(
-        () => collectStyleOptions(personas),
-        [personas],
-    );
 
     if (!isFormOpen) return null;
 
@@ -38,7 +33,6 @@ export function PersonaFormModal() {
                 key={editingPersona?.id ?? "new"}
                 persona={editingPersona}
                 personas={personas}
-                styleOptions={styleOptions}
             >
                 <PersonaFormBody />
             </PersonaFormProvider>
