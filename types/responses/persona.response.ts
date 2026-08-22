@@ -1,19 +1,21 @@
-import { FormalityLevel, MarugotoLevel } from "../enums/persona.enum";
-
-export interface ConversationStyleResponse {
-    id: number;
-    description?: string | null;
-    prompt: string;
-    formalityLevel: FormalityLevel;
-    marugotoLevel?: MarugotoLevel | null;
-}
+import { Gender } from "../enums/user.enum";
+import {
+    FormalityLevel,
+    MarugotoLevel,
+    PersonaStatus,
+} from "../enums/persona.enum";
+import { FileResponse } from "./file.response";
 
 export interface PersonaResponse {
     id: number;
     name: string;
     prompt: string;
-    avatarFileId?: number | null;
-    suggestedConversationStyleId?: number | null;
-    /** BE trả kèm phong cách hội thoại gợi ý của nhân vật (có thể null nếu chưa gắn). */
-    conversationStyle?: ConversationStyleResponse | null;
+    avatarFile?: FileResponse | null;
+    /** Cấp độ Marugoto mặc định của nhân vật (độ khó từ vựng, ngữ pháp). */
+    defaultMarugotoLevel?: MarugotoLevel | null;
+    /** Mức trang trọng mặc định của nhân vật (thể văn, kính ngữ). */
+    defaultFormalityLevel?: FormalityLevel | null;
+    status: PersonaStatus;
+    voiceName?: string | null;
+    gender: Gender;
 }
