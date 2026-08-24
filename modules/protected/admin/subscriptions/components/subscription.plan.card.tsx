@@ -116,8 +116,8 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                     <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 shrink-0 text-emerald-500" />
                         <span>
-                            {t("maxConcurrentAiSessions", {
-                                count: plan.maxConcurrentAiSessionCount,
+                            {t("maxInProgressSessions", {
+                                count: plan.maxInProgressSessionCount,
                             })}
                         </span>
                     </li>
@@ -132,8 +132,8 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                     <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 shrink-0 text-emerald-500" />
                         <span>
-                            {t("dailyAiSessionLimit", {
-                                limit: plan.dailyAiSessionEvaluationLimit,
+                            {t("dailyAiSessionStartLimit", {
+                                limit: plan.dailyAiSessionStartLimit,
                             })}
                         </span>
                     </li>
