@@ -68,7 +68,6 @@ export default function UserSearchFilterGrid() {
                     <MenuItem value={ALL}>{t("all")}</MenuItem>
                     <MenuItem value="ACTIVE">{t("statusActive")}</MenuItem>
                     <MenuItem value="UNACTIVE">{t("statusUnactive")}</MenuItem>
-                    <MenuItem value="DELETED">{t("statusDeleted")}</MenuItem>
                 </Select>
             </FormControl>
 
@@ -115,9 +114,6 @@ export default function UserSearchFilterGrid() {
                     </MenuItem>
                     <MenuItem value={ROLE_ID_MAP.CONTENT_MANAGER.toString()}>
                         {t("roleContentManager")}
-                    </MenuItem>
-                    <MenuItem value={ROLE_ID_MAP.ADMIN.toString()}>
-                        {t("roleAdmin")}
                     </MenuItem>
                 </Select>
             </FormControl>

@@ -23,18 +23,17 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
         }).format(amount);
     };
 
-    const isFree = plan.code === "FREE";
     const isBasic = plan.code === "BASIC";
     const isPremium = plan.code === "PREMIUM";
 
     const getCardStyle = () => {
         if (isPremium) {
-            return "border-2 border-amber-400 dark:border-amber-600 bg-gradient-to-b from-amber-50/70 via-white to-amber-50/30 dark:from-amber-950/30 dark:via-gray-900 dark:to-gray-900 shadow-xl scale-[1.02]";
+            return "border-2 border-amber-400 dark:border-amber-600 bg-bgc-app shadow-xl scale-[1.02]";
         }
         if (isBasic) {
-            return "border-2 border-pink-400 dark:border-pink-600 bg-gradient-to-b from-pink-50/70 via-white to-pink-50/30 dark:from-pink-950/30 dark:via-gray-900 dark:to-gray-900 shadow-lg";
+            return "border-2 border-bgc-highlight bg-bgc-app shadow-lg";
         }
-        return "border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm";
+        return "border border-bdc-primary bg-bgc-app shadow-sm";
     };
 
     const getHeaderIcon = () => {
@@ -42,8 +41,8 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
             return (
                 <Sparkles className="h-6 w-6 animate-pulse text-amber-500" />
             );
-        if (isBasic) return <Zap className="h-6 w-6 text-pink-500" />;
-        return <ShieldCheck className="h-6 w-6 text-slate-500" />;
+        if (isBasic) return <Zap className="text-bgc-highlight h-6 w-6" />;
+        return <ShieldCheck className="text-text-muted h-6 w-6" />;
     };
 
     return (
@@ -61,7 +60,7 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         {getHeaderIcon()}
-                        <h3 className="text-xl font-black text-gray-900 dark:text-gray-100">
+                        <h3 className="text-text-contrast text-xl font-black">
                             {plan.code}
                         </h3>
                     </div>
@@ -74,21 +73,21 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                 </div>
 
                 {/* Description */}
-                <p className="line-clamp-2 min-h-[36px] text-xs text-gray-600 dark:text-gray-400">
+                <p className="text-text-muted line-clamp-2 min-h-[36px] text-xs">
                     {plan.description}
                 </p>
 
                 {/* Pricing */}
-                <div className="border-y border-gray-100 py-2 dark:border-gray-800">
+                <div className="border-bdc-primary border-y py-2">
                     <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-black text-gray-900 dark:text-gray-100">
+                        <span className="text-text-contrast text-3xl font-black">
                             {formatCurrency(
                                 plan.priceAmount,
                                 plan.priceCurrency,
                             )}
                         </span>
                         {plan.durationDays && (
-                            <span className="text-xs font-semibold text-gray-500">
+                            <span className="text-text-muted text-xs font-semibold">
                                 {t("perDays", { days: plan.durationDays })}
                             </span>
                         )}
@@ -96,7 +95,7 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                 </div>
 
                 {/* Limits Feature List */}
-                <ul className="space-y-2.5 text-xs text-gray-700 dark:text-gray-300">
+                <ul className="text-text-contrast space-y-2.5 text-xs">
                     <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 shrink-0 text-emerald-500" />
                         <span>
@@ -148,13 +147,13 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                     </li>
                     <li className="flex items-center gap-2">
                         <Check
-                            className={`h-4 w-4 ${plan.sampleAnswerEnabled ? "text-emerald-500" : "text-gray-300"} shrink-0`}
+                            className={`h-4 w-4 ${plan.sampleAnswerEnabled ? "text-emerald-500" : "text-text-muted"} shrink-0`}
                         />
                         <span
                             className={
                                 plan.sampleAnswerEnabled
                                     ? "font-semibold"
-                                    : "text-gray-400 line-through"
+                                    : "text-text-muted line-through"
                             }
                         >
                             {plan.sampleAnswerEnabled
@@ -172,7 +171,18 @@ export function SubscriptionPlanCard({ plan }: SubscriptionPlanCardProps) {
                     variant="outlined"
                     startIcon={<Edit3 className="h-4 w-4" />}
                     onClick={() => openEditPlanModal(plan)}
-                    className="rounded-2xl border-gray-300 font-bold text-gray-700 transition-colors hover:bg-pink-50 hover:text-pink-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-pink-950/40 dark:hover:text-pink-300"
+                    sx={{
+                        borderRadius: "16px",
+                        borderColor: "var(--color-bdc-primary)",
+                        color: "var(--color-text-contrast)",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                        "&:hover": {
+                            borderColor: "var(--color-bgc-highlight)",
+                            color: "var(--color-bgc-highlight)",
+                            backgroundColor: "var(--color-hbgc-app)",
+                        },
+                    }}
                 >
                     {t("editButton")}
                 </Button>

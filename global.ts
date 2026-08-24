@@ -22,6 +22,7 @@ import help from "@/i18n/messages/vi/help.json";
 import userManagement from "@/i18n/messages/vi/user-management.json";
 import paymentManagement from "@/i18n/messages/vi/payment-management.json";
 import reportManagement from "@/i18n/messages/vi/report-management.json";
+import contentReportManagement from "@/i18n/messages/vi/content-report-management.json";
 import subscriptionManagement from "@/i18n/messages/vi/subscription-management.json";
 import costServiceManagement from "@/i18n/messages/vi/cost-service-management.json";
 import books from "@/i18n/messages/vi/books.json";
@@ -30,6 +31,7 @@ import lessonManagement from "@/i18n/messages/vi/lesson-management.json";
 import objectiveManagement from "@/i18n/messages/vi/objective-management.json";
 import grammarManagement from "@/i18n/messages/vi/grammar-management.json";
 import vocabularyManagement from "@/i18n/messages/vi/vocabulary-management.json";
+import personaManagement from "@/i18n/messages/vi/persona-management.json";
 
 declare module "next-intl" {
     interface AppConfig {
@@ -57,6 +59,7 @@ declare module "next-intl" {
             typeof userManagement &
             typeof paymentManagement &
             typeof reportManagement &
+            typeof contentReportManagement &
             typeof subscriptionManagement &
             typeof costServiceManagement &
             typeof books &
@@ -64,7 +67,8 @@ declare module "next-intl" {
             typeof lessonManagement &
             typeof objectiveManagement &
             typeof grammarManagement &
-            typeof vocabularyManagement;
+            typeof vocabularyManagement &
+            typeof personaManagement;
     }
 }
 

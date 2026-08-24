@@ -21,6 +21,24 @@ export async function fetchAdminReportsClient(): Promise<
     return result as ApiResponse<ReportResponse[]>;
 }
 
+export async function fetchContentManagerReportsClient(): Promise<
+    ApiResponse<ReportResponse[]>
+> {
+    const response = await fetch("/api/reports/content-manager", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        cache: "no-store",
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new ApiError(result as ProblemDetail);
+    }
+
+    return result as ApiResponse<ReportResponse[]>;
+}
+
 export async function patchReportStatusClient(
     reportId: number,
     body: ReportStatusPatchRequest,

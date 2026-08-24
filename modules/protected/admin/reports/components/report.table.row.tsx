@@ -17,26 +17,26 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
 
     const getRowStyle = () => {
         if (report.isResolved) {
-            return "bg-emerald-50/20 hover:bg-emerald-50/60 dark:bg-emerald-950/10 dark:hover:bg-emerald-950/30 border-l-4 border-l-emerald-500";
+            return "border-l-4 border-l-emerald-500 border-b border-bdc-primary hover:bg-hbgc-app";
         }
-        return "bg-amber-50/30 hover:bg-amber-50/70 dark:bg-amber-950/20 dark:hover:bg-amber-950/40 border-l-4 border-l-amber-500";
+        return "border-l-4 border-l-amber-500 border-b border-bdc-primary hover:bg-hbgc-app";
     };
 
     return (
         <TableRow hover className={`transition-all ${getRowStyle()}`}>
             <TableCell
                 align="center"
-                className="text-center font-bold text-gray-600 dark:text-gray-400"
+                className="text-text-muted text-center text-xs font-semibold"
             >
                 {index + 1}
             </TableCell>
 
             <TableCell align="center" className="text-center">
                 <div className="flex flex-col items-center justify-center">
-                    <span className="text-xs font-bold text-gray-900 dark:text-gray-100">
+                    <span className="text-text-contrast text-xs font-bold">
                         {report.fullName || `User #${report.userId}`}
                     </span>
-                    <span className="font-mono text-[11px] text-gray-500">
+                    <span className="text-text-muted font-mono text-[11px]">
                         #{report.userId}
                     </span>
                 </div>
@@ -44,10 +44,10 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
 
             <TableCell align="center" className="max-w-xs text-center">
                 <div className="flex flex-col items-center">
-                    <span className="line-clamp-1 text-xs font-bold text-gray-900 dark:text-gray-100">
+                    <span className="text-text-contrast line-clamp-1 text-xs font-bold">
                         {report.title}
                     </span>
-                    <span className="line-clamp-1 text-[11px] text-gray-500">
+                    <span className="text-text-muted line-clamp-1 text-[11px]">
                         {report.description}
                     </span>
                 </div>
@@ -55,12 +55,12 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
 
             <TableCell align="center" className="text-center">
                 {report.files && report.files.length > 0 ? (
-                    <span className="inline-flex items-center gap-1 rounded-md border border-blue-200 bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300">
-                        <ImageIcon className="h-3.5 w-3.5 text-blue-600" />
+                    <span className="border-bdc-primary bg-bgc-highlight/10 text-bgc-highlight inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-semibold">
+                        <ImageIcon className="text-bgc-highlight h-3.5 w-3.5" />
                         <span>{report.files.length} tệp</span>
                     </span>
                 ) : (
-                    <span className="text-xs text-gray-400">-</span>
+                    <span className="text-text-muted text-xs">-</span>
                 )}
             </TableCell>
 
@@ -74,7 +74,7 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
                         <IconButton
                             size="small"
                             onClick={() => openDetail(report)}
-                            className="text-gray-600 hover:bg-pink-50 hover:text-pink-600 dark:hover:bg-pink-950/30"
+                            className="text-text-contrast hover:bg-hbgc-app"
                         >
                             <Eye className="h-4 w-4" />
                         </IconButton>
@@ -85,7 +85,7 @@ export function ReportTableRow({ report, index }: ReportTableRowProps) {
                             <IconButton
                                 size="small"
                                 onClick={() => openResolve(report)}
-                                className="text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-950/30"
+                                className="text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
                             >
                                 <CheckSquare className="h-4 w-4" />
                             </IconButton>

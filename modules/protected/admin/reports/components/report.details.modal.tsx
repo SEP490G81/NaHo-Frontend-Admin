@@ -50,37 +50,41 @@ export function ReportDetailsModal() {
                 slotProps={{
                     paper: {
                         className:
-                            "rounded-2xl dark:bg-gray-900 border border-gray-200 dark:border-gray-800",
+                            "rounded-2xl bg-bgc-modal border border-bdc-primary shadow-xl",
                     },
                 }}
             >
-                <DialogTitle className="flex items-center justify-between px-6 py-4 font-bold text-gray-900 dark:text-gray-100">
+                <DialogTitle className="text-text-contrast flex items-center justify-between px-6 py-4 font-bold">
                     <div className="flex items-center gap-2">
-                        <Flag className="h-5 w-5 text-pink-500" />
+                        <Flag className="text-bgc-highlight h-5 w-5" />
                         <span>
                             {t("title")} #{selectedReportDetail.id}
                         </span>
                     </div>
-                    <IconButton onClick={closeDetail} size="small">
+                    <IconButton
+                        onClick={closeDetail}
+                        size="small"
+                        className="text-text-muted"
+                    >
                         <X className="h-4 w-4" />
                     </IconButton>
                 </DialogTitle>
-                <Divider />
+                <Divider className="border-bdc-primary" />
 
                 <DialogContent className="space-y-6 px-6 py-5">
                     {/* Header Info */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-800/50">
+                    <div className="bg-bgc-app border-bdc-primary flex flex-wrap items-center justify-between gap-3 rounded-xl border p-4">
                         <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-100 font-bold text-pink-600 dark:bg-pink-950 dark:text-pink-300">
+                            <div className="bg-bgc-highlight/10 text-bgc-highlight flex h-10 w-10 items-center justify-center rounded-xl font-bold">
                                 #{selectedReportDetail.id}
                             </div>
                             <div>
-                                <h3 className="text-base font-bold text-gray-900 dark:text-gray-100">
+                                <h3 className="text-text-contrast text-base font-bold">
                                     {selectedReportDetail.title}
                                 </h3>
-                                <p className="mt-0.5 text-xs text-gray-500">
+                                <p className="text-text-muted mt-0.5 text-xs">
                                     Người báo cáo:{" "}
-                                    <strong className="text-gray-700 dark:text-gray-300">
+                                    <strong className="text-text-contrast">
                                         {selectedReportDetail.fullName ||
                                             `User #${selectedReportDetail.userId}`}
                                     </strong>
@@ -94,11 +98,11 @@ export function ReportDetailsModal() {
 
                     {/* Report Description */}
                     <div className="space-y-2">
-                        <h4 className="flex items-center gap-2 text-xs font-bold tracking-wider text-gray-500 uppercase">
-                            <FileText className="h-4 w-4 text-pink-500" />
+                        <h4 className="text-text-muted flex items-center gap-2 text-xs font-bold tracking-wider uppercase">
+                            <FileText className="text-bgc-highlight h-4 w-4" />
                             <span>{t("descriptionLabel")}</span>
                         </h4>
-                        <div className="rounded-xl border border-gray-200 bg-white p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-800 dark:border-gray-800 dark:bg-gray-800/40 dark:text-gray-200">
+                        <div className="bg-bgc-app border-bdc-primary text-text-contrast rounded-xl border p-4 text-sm leading-relaxed whitespace-pre-wrap">
                             {selectedReportDetail.description}
                         </div>
                     </div>
@@ -107,7 +111,7 @@ export function ReportDetailsModal() {
                     {selectedReportDetail.files &&
                         selectedReportDetail.files.length > 0 && (
                             <div className="space-y-3">
-                                <h4 className="flex items-center gap-2 text-xs font-bold tracking-wider text-gray-500 uppercase">
+                                <h4 className="text-text-muted flex items-center gap-2 text-xs font-bold tracking-wider uppercase">
                                     <ImageIcon className="h-4 w-4 text-blue-500" />
                                     <span>
                                         {t("attachedFiles")} (
@@ -126,12 +130,12 @@ export function ReportDetailsModal() {
                                             return (
                                                 <div
                                                     key={file.id}
-                                                    className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-gray-50 transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-800/50"
+                                                    className="bg-bgc-app border-bdc-primary group relative flex flex-col overflow-hidden rounded-xl border transition-all hover:shadow-md"
                                                 >
                                                     {/* Direct Image Preview Header */}
                                                     {isImage ? (
                                                         <div
-                                                            className="relative flex h-48 w-full cursor-pointer items-center justify-center overflow-hidden bg-gray-900/5 dark:bg-black/40"
+                                                            className="relative flex h-48 w-full cursor-pointer items-center justify-center overflow-hidden bg-black/10"
                                                             onClick={() =>
                                                                 setPreviewImage(
                                                                     file.accessUrl,
@@ -156,15 +160,15 @@ export function ReportDetailsModal() {
                                                             </div>
                                                         </div>
                                                     ) : (
-                                                        <div className="flex h-24 items-center justify-center bg-gray-100 text-gray-400 dark:bg-gray-800">
+                                                        <div className="bg-bgc-app text-text-muted flex h-24 items-center justify-center">
                                                             <ImageIcon className="h-8 w-8" />
                                                         </div>
                                                     )}
 
                                                     {/* File Info Bar */}
-                                                    <div className="flex items-center justify-between border-t border-gray-100 bg-white p-3 text-xs dark:border-gray-800 dark:bg-gray-900">
+                                                    <div className="border-bdc-primary bg-bgc-app flex items-center justify-between border-t p-3 text-xs">
                                                         <span
-                                                            className="max-w-[200px] truncate font-semibold text-gray-700 dark:text-gray-300"
+                                                            className="text-text-contrast max-w-[200px] truncate font-semibold"
                                                             title={
                                                                 file.originalFileName
                                                             }
@@ -179,7 +183,7 @@ export function ReportDetailsModal() {
                                                             }
                                                             target="_blank"
                                                             rel="noreferrer"
-                                                            className="flex shrink-0 items-center gap-1 font-medium text-pink-600 hover:text-pink-700 hover:underline"
+                                                            className="text-bgc-highlight flex shrink-0 items-center gap-1 font-medium hover:underline"
                                                         >
                                                             <span>Mở link</span>
                                                             <ExternalLink className="h-3 w-3" />
@@ -206,12 +210,17 @@ export function ReportDetailsModal() {
                         </div>
                     )}
                 </DialogContent>
-                <Divider />
+                <Divider className="border-bdc-primary" />
                 <DialogActions className="flex justify-between px-6 py-4">
                     <Button
                         onClick={closeDetail}
                         variant="outlined"
-                        color="inherit"
+                        sx={{
+                            borderRadius: "10px",
+                            borderColor: "var(--color-bdc-primary)",
+                            color: "var(--color-text-contrast)",
+                            textTransform: "none",
+                        }}
                     >
                         {t("close")}
                     </Button>

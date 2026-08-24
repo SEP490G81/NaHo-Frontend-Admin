@@ -37,6 +37,7 @@
                 "userManagement": "User Management",
                 "paymentManagement": "Payment Management",
                 "costServiceManagement": "Service Cost Management",
+                "contentReportManagement": "Content Report Management",
                 "terms": "Terms of Service",
                 "privacy": "Privacy Policy"
             },
@@ -83,6 +84,8 @@
                 "editTopic": "Edit Topics",
                 "editLesson": "Edit Lessons",
                 "editObjective": "Edit Objectives",
+                "contentReportManagement": "Content Report Management",
+                "personaManagement": "AI Persona Management",
                 "kaiwaRoadmap": "Kaiwa Roadmap",
                 "freeAiChat": "Free AI Conversation",
                 "leaderboard": "Leaderboard"

@@ -10,6 +10,14 @@ export const queryKeys = {
     },
     reports: {
         all: ["reports-admin"] as const,
+        contentManager: ["reports-content-manager"] as const,
+    },
+    comments: {
+        byQuestion: (speakingQuestionId: number) =>
+            ["comments-by-question", speakingQuestionId] as const,
+    },
+    personas: {
+        all: ["personas-all"] as const,
     },
     subscriptions: {
         plans: ["subscription-plans"] as const,
@@ -19,5 +27,15 @@ export const queryKeys = {
         summary: ["azure-cost-summary"] as const,
         chart: (params?: Record<string, unknown>) =>
             ["azure-cost-chart", params] as const,
+    },
+    awsCost: {
+        summary: ["aws-cost-summary"] as const,
+        chart: (params?: Record<string, unknown>) =>
+            ["aws-cost-chart", params] as const,
+    },
+    openAiCost: {
+        summary: ["openai-cost-summary"] as const,
+        chart: (params?: Record<string, unknown>) =>
+            ["openai-cost-chart", params] as const,
     },
 };

@@ -1,22 +1,28 @@
 "use client";
+
 import React from "react";
+import { useTranslations } from "next-intl";
+import { Divider } from "@mui/material";
 import { SETTING_MENU_ITEMS } from "@/modules/protected/shared/settings/constants/settings.constant";
 import { Link, usePathname } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
 import SettingsSearchBox from "@/modules/protected/shared/settings/components/settings.search.box";
-import { Divider } from "@mui/material";
 import BackButton from "@/components/ui/back.button";
+import { useSettingsBack } from "@/modules/protected/shared/settings/hooks/use.settings.back";
 import { cn } from "@/libs/utils";
 
-const SettingsSidebar = () => {
+export default function SettingsSidebar() {
     const tRaw = useTranslations();
     const t = tRaw as (key: string) => string;
     const pathname = usePathname();
+    const { handleBack } = useSettingsBack();
 
     return (
         <div className="flex w-full flex-col">
             <div className="mb-3">
-                <BackButton label={t("common.metadata.back") || "Quay lại"} />
+                <BackButton
+                    label={t("common.metadata.back") || "Quay lại"}
+                    onClick={handleBack}
+                />
             </div>
 
             <SettingsSearchBox />
@@ -30,6 +36,7 @@ const SettingsSidebar = () => {
                     return (
                         <Link
                             href={item.redirectLink}
+                            replace
                             key={item.id}
                             className={cn(
                                 "relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-200 ease-in-out",
@@ -67,6 +74,4 @@ const SettingsSidebar = () => {
             </div>
         </div>
     );
-};
-
-export default SettingsSidebar;
+}

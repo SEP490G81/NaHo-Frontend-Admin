@@ -42,6 +42,7 @@
                 "userManagement": "Quản lý người dùng",
                 "paymentManagement": "Quản lý thanh toán",
                 "costServiceManagement": "Quản lý chi phí dịch vụ",
+                "contentReportManagement": "Quản lý báo cáo nội dung",
                 "terms": "Điều khoản sử dụng",
                 "privacy": "Chính sách bảo mật"
             },
@@ -88,6 +89,8 @@
                 "editTopic": "Chỉnh sửa chủ đề",
                 "editLesson": "Chỉnh sửa bài học",
                 "editObjective": "Chỉnh sửa mục tiêu",
+                "contentReportManagement": "Quản lý báo cáo nội dung",
+                "personaManagement": "Quản lý nhân vật AI",
                 "kaiwaRoadmap": "Lộ trình Kaiwa",
                 "freeAiChat": "Trò chuyện tự do AI",
                 "leaderboard": "Bảng xếp hạng thi đua"

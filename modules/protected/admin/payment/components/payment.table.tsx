@@ -2,11 +2,9 @@
 
 import React from "react";
 import {
-    Paper,
     Table,
     TableBody,
     TableCell,
-    TableContainer,
     TableHead,
     TableRow,
 } from "@mui/material";
@@ -29,75 +27,42 @@ export function PaymentTable({
 }: PaymentTableProps) {
     const t = useTranslations("paymentManagement.table");
 
+    const headCellClass =
+        "px-4 py-3 text-center text-xs font-semibold uppercase tracking-wider text-text-muted";
+
     return (
-        <TableContainer
-            component={Paper}
-            elevation={0}
-            className="overflow-hidden rounded-xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] shadow-md"
-        >
+        <div className="w-full overflow-x-auto rounded-lg">
             <Table className="min-w-full">
-                <TableHead className="bg-gradient-to-r from-gray-50 via-pink-50/30 to-gray-50 dark:from-gray-800 dark:via-pink-950/20 dark:to-gray-800">
-                    <TableRow>
-                        <TableCell
-                            align="center"
-                            className="w-12 text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                <TableHead className="bg-bgc-app sticky top-0 z-10">
+                    <TableRow className="border-bdc-primary border-b">
+                        <TableCell align="center" className={headCellClass}>
                             {t("stt")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("orderCode")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("userId")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("planId")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("amount")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("provider")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="bg-pink-50/60 text-center font-extrabold text-pink-600 dark:bg-pink-950/40 dark:text-pink-400"
-                        >
-                            <span className="inline-flex items-center justify-center gap-1 rounded-md border border-pink-200 px-2 py-0.5 dark:border-pink-800">
-                                {t("status")}
-                            </span>
+                        <TableCell align="center" className={headCellClass}>
+                            {t("status")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("createdTime")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("paidTime")}
                         </TableCell>
-                        <TableCell
-                            align="center"
-                            className="w-20 text-center font-bold text-gray-700 dark:text-gray-200"
-                        >
+                        <TableCell align="center" className={headCellClass}>
                             {t("actions")}
                         </TableCell>
                     </TableRow>
@@ -118,6 +83,6 @@ export function PaymentTable({
                     )}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </div>
     );
 }

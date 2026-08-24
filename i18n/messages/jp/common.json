@@ -37,6 +37,7 @@
                 "userManagement": "ユーザー管理",
                 "paymentManagement": "決済管理",
                 "costServiceManagement": "サービス費用管理",
+                "contentReportManagement": "コンテンツ報告管理",
                 "terms": "利用規約",
                 "privacy": "プライバシーポリシー"
             },
@@ -74,7 +75,7 @@
                 "paymentManagement": "決済管理",
                 "subscriptionManagement": "サブスクプラン管理",
                 "costServiceManagement": "サービス費用管理",
-                "reportManagement": "Report Management",
+                "reportManagement": "レポート管理",
                 "contentManagement": "コンテンツ管理",
                 "bookManagement": "本",
                 "editBook": "書籍の編集",
@@ -83,9 +84,11 @@
                 "editTopic": "トピックの編集",
                 "editLesson": "レッスンの編集",
                 "editObjective": "目標の編集",
-                "kaiwaRoadmap": "Kaiwa Roadmap",
-                "freeAiChat": "Free AI Chat",
-                "leaderboard": "Leaderboard"
+                "contentReportManagement": "コンテンツ報告管理",
+                "personaManagement": "AIキャラクター管理",
+                "kaiwaRoadmap": "会話ロードマップ",
+                "freeAiChat": "AIフリートーク",
+                "leaderboard": "ランキング"
             },
             "header": {
                 "collapseSidebar": "サイドバーを折りたたむ",

@@ -1,12 +1,13 @@
 import React from "react";
 import {
     Award,
+    Bot,
     CreditCard,
     Flag,
     LayoutDashboard,
     MessagesSquare,
     Receipt,
-    Trophy,
+    ShieldAlert,
     Users,
     LibraryBig,
     BookType,
@@ -54,15 +55,9 @@ export const NAV_ITEMS: NavItem[] = [
         ]
     },
     {
-        titleKey: "freeAiChat",
-        url: "/dialogue-setup",
-        icon: MessagesSquare,
-        disabled: false,
+        titleKey: "contentReportManagement",
+        url: "/content-reports",
+        icon: ShieldAlert,
     },
-    {
-        titleKey: "leaderboard",
-        url: "/leaderboard",
-        icon: Trophy,
-        disabled: false,
-    },
+    { titleKey: "personaManagement", url: "/personas", icon: Bot },
 ];

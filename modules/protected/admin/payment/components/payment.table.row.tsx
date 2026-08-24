@@ -38,32 +38,32 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
     const getRowStyle = () => {
         switch (payment.status) {
             case PaymentStatus.PAID:
-                return "bg-emerald-50/70 hover:bg-emerald-100/70 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 border-l-4 border-l-emerald-500";
+                return "border-l-4 border-l-emerald-500 border-b border-bdc-primary hover:bg-hbgc-app";
             case PaymentStatus.PENDING:
-                return "bg-amber-50/70 hover:bg-amber-100/70 dark:bg-amber-950/40 dark:hover:bg-amber-900/50 border-l-4 border-l-amber-500";
+                return "border-l-4 border-l-amber-500 border-b border-bdc-primary hover:bg-hbgc-app";
             case PaymentStatus.CANCELLED:
-                return "bg-slate-100/70 hover:bg-slate-200/70 dark:bg-slate-900/50 dark:hover:bg-slate-800/60 border-l-4 border-l-slate-400";
+                return "border-l-4 border-l-slate-400 border-b border-bdc-primary hover:bg-hbgc-app";
             case PaymentStatus.EXPIRED:
-                return "bg-orange-50/70 hover:bg-orange-100/70 dark:bg-orange-950/40 dark:hover:bg-orange-900/50 border-l-4 border-l-orange-500";
+                return "border-l-4 border-l-orange-500 border-b border-bdc-primary hover:bg-hbgc-app";
             case PaymentStatus.FAILED:
             default:
-                return "bg-rose-50/70 hover:bg-rose-100/70 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 border-l-4 border-l-rose-500";
+                return "border-l-4 border-l-rose-500 border-b border-bdc-primary hover:bg-hbgc-app";
         }
     };
 
     const getAmountStyle = () => {
         switch (payment.status) {
             case PaymentStatus.PAID:
-                return "text-emerald-700 dark:text-emerald-300 font-extrabold";
+                return "text-emerald-600 font-bold";
             case PaymentStatus.PENDING:
-                return "text-amber-700 dark:text-amber-300 font-extrabold";
+                return "text-amber-600 font-bold";
             case PaymentStatus.CANCELLED:
-                return "text-slate-600 dark:text-slate-400 line-through font-semibold";
+                return "text-text-muted line-through font-semibold";
             case PaymentStatus.EXPIRED:
-                return "text-orange-700 dark:text-orange-300 font-bold";
+                return "text-orange-600 font-bold";
             case PaymentStatus.FAILED:
             default:
-                return "text-rose-700 dark:text-rose-300 font-bold";
+                return "text-rose-600 font-bold";
         }
     };
 
@@ -71,7 +71,7 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
         <TableRow hover className={`transition-all ${getRowStyle()}`}>
             <TableCell
                 align="center"
-                className="text-center font-bold text-gray-600 dark:text-gray-400"
+                className="text-text-muted text-center text-xs font-semibold"
             >
                 {index + 1}
             </TableCell>
@@ -79,30 +79,30 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
                 align="center"
                 className="text-center font-mono text-xs font-bold"
             >
-                <span className="inline-block rounded-md border border-gray-200 bg-white/90 px-2.5 py-1 text-gray-900 shadow-2xs dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100">
+                <span className="bg-bgc-app border-bdc-primary text-text-contrast inline-block rounded-md border px-2.5 py-1">
                     {payment.orderCode}
                 </span>
             </TableCell>
             <TableCell
                 align="center"
-                className="text-center font-bold text-gray-800 dark:text-gray-200"
+                className="text-text-contrast text-center text-xs font-bold"
             >
                 #{payment.userId}
             </TableCell>
             <TableCell
                 align="center"
-                className="text-center text-xs font-semibold text-gray-700 dark:text-gray-300"
+                className="text-text-muted text-center text-xs font-semibold"
             >
                 Plan #{payment.subscriptionPlanId}
             </TableCell>
             <TableCell
                 align="center"
-                className={`text-center ${getAmountStyle()}`}
+                className={`text-center text-xs ${getAmountStyle()}`}
             >
                 {formatCurrency(payment.amount, payment.currency)}
             </TableCell>
             <TableCell align="center" className="text-center">
-                <span className="inline-block rounded-md bg-slate-200/80 px-2 py-0.5 text-xs font-bold text-slate-800 dark:bg-slate-800 dark:text-slate-200">
+                <span className="bg-bgc-highlight/10 text-bgc-highlight inline-block rounded-md px-2 py-0.5 text-xs font-semibold">
                     {payment.provider}
                 </span>
             </TableCell>
@@ -111,13 +111,13 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
             </TableCell>
             <TableCell
                 align="center"
-                className="text-center text-xs font-medium text-gray-600 dark:text-gray-300"
+                className="text-text-muted text-center text-xs font-medium"
             >
                 {formatDate(payment.createdTime)}
             </TableCell>
             <TableCell
                 align="center"
-                className="text-center text-xs font-medium text-gray-600 dark:text-gray-300"
+                className="text-text-muted text-center text-xs font-medium"
             >
                 {formatDate(payment.paidTime)}
             </TableCell>
@@ -126,7 +126,7 @@ export function PaymentTableRow({ payment, index }: PaymentTableRowProps) {
                     <IconButton
                         size="small"
                         onClick={() => openDetail(payment)}
-                        className="text-gray-600 hover:bg-white/80 hover:text-[var(--color-bgc-highlight)] dark:hover:bg-gray-800"
+                        className="text-text-contrast hover:bg-hbgc-app"
                     >
                         <Eye className="h-4 w-4" />
                     </IconButton>

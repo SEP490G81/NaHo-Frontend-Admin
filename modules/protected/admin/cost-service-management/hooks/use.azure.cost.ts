@@ -18,6 +18,7 @@ import {
 } from "../types/azure.cost.type";
 import { processChartPoints } from "../utils/cost.service.util";
 import { ApiError } from "@/libs/api.error";
+import { toast } from "react-toastify";
 
 function getDefaultDates() {
     const today = new Date();
@@ -158,12 +159,14 @@ export function useAzureCost() {
             setSyncMessage(null);
             await triggerAzureCostSyncClient();
             await refetchAll();
+            toast.success("Đồng bộ dữ liệu Azure thành công!");
         } catch (err) {
-            if (err instanceof ApiError) {
-                setSyncMessage(err.message);
-            } else {
-                setSyncMessage("Đồng bộ thất bại");
-            }
+            const errMsg =
+                err instanceof ApiError
+                    ? err.message
+                    : "Đồng bộ dữ liệu thất bại.";
+            setSyncMessage(errMsg);
+            toast.error(errMsg);
         } finally {
             setIsSyncing(false);
         }

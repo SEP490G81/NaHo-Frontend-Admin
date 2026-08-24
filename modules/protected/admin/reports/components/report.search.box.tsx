@@ -14,6 +14,7 @@ import {
     Tooltip,
 } from "@mui/material";
 import { RotateCcw, Search } from "lucide-react";
+import ContainerBox from "@/components/ui/container.box";
 import { useReportFilter } from "../providers/report.filter.provider";
 import { ReportStatusFilter } from "@/types/enums/report.enum";
 
@@ -53,87 +54,89 @@ export function ReportSearchBox() {
     };
 
     return (
-        <div className="flex flex-col items-center gap-3 sm:flex-row">
-            {/* Keyword Search */}
-            <div className="w-full flex-1">
-                <TextField
-                    size="small"
-                    fullWidth
-                    placeholder={t("keywordPlaceholder")}
-                    value={pendingKeyword}
-                    onChange={(e) => setPendingKeyword(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    sx={inputSx}
-                    slotProps={{
-                        input: {
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        onClick={applySearch}
-                                        size="small"
-                                        sx={{
-                                            color: "var(--color-bgc-highlight)",
-                                        }}
-                                    >
-                                        <Search className="h-4 w-4" />
-                                    </IconButton>
-                                </InputAdornment>
-                            ),
-                        },
-                    }}
-                />
-            </div>
+        <ContainerBox>
+            <div className="flex flex-col items-center gap-3 sm:flex-row">
+                {/* Keyword Search */}
+                <div className="w-full flex-1">
+                    <TextField
+                        size="small"
+                        fullWidth
+                        placeholder={t("keywordPlaceholder")}
+                        value={pendingKeyword}
+                        onChange={(e) => setPendingKeyword(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        sx={inputSx}
+                        slotProps={{
+                            input: {
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={applySearch}
+                                            size="small"
+                                            sx={{
+                                                color: "var(--color-bgc-highlight)",
+                                            }}
+                                        >
+                                            <Search className="h-4 w-4" />
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            },
+                        }}
+                    />
+                </div>
 
-            {/* Status Filter */}
-            <div className="w-full sm:w-60">
-                <FormControl size="small" fullWidth sx={inputSx}>
-                    <InputLabel>{t("statusLabel")}</InputLabel>
-                    <Select
-                        label={t("statusLabel")}
-                        value={filter.isResolved}
-                        onChange={(e) => setIsResolved(e.target.value)}
+                {/* Status Filter */}
+                <div className="w-full sm:w-60">
+                    <FormControl size="small" fullWidth sx={inputSx}>
+                        <InputLabel>{t("statusLabel")}</InputLabel>
+                        <Select
+                            label={t("statusLabel")}
+                            value={filter.isResolved}
+                            onChange={(e) => setIsResolved(e.target.value)}
+                        >
+                            <MenuItem value={ReportStatusFilter.ALL}>
+                                {t("all")}
+                            </MenuItem>
+                            <MenuItem value={ReportStatusFilter.UNRESOLVED}>
+                                {t("statusUnresolved")}
+                            </MenuItem>
+                            <MenuItem value={ReportStatusFilter.RESOLVED}>
+                                {t("statusResolved")}
+                            </MenuItem>
+                        </Select>
+                    </FormControl>
+                </div>
+
+                {/* Reset Button */}
+                <Tooltip title={t("resetButton")}>
+                    <Button
+                        variant="outlined"
+                        size="small"
+                        onClick={resetFilter}
+                        startIcon={<RotateCcw className="h-4 w-4" />}
+                        sx={{
+                            minWidth: "auto",
+                            whiteSpace: "nowrap",
+                            borderRadius: "10px",
+                            borderColor: "var(--color-bdc-primary)",
+                            color: "var(--color-text-muted)",
+                            textTransform: "none",
+                            fontSize: "0.8rem",
+                            px: 2,
+                            py: 0.9,
+                            "&:hover": {
+                                borderColor: "var(--color-text-error)",
+                                color: "var(--color-text-error)",
+                                backgroundColor:
+                                    "color-mix(in srgb, var(--color-text-error) 8%, transparent)",
+                            },
+                        }}
                     >
-                        <MenuItem value={ReportStatusFilter.ALL}>
-                            {t("all")}
-                        </MenuItem>
-                        <MenuItem value={ReportStatusFilter.UNRESOLVED}>
-                            {t("statusUnresolved")}
-                        </MenuItem>
-                        <MenuItem value={ReportStatusFilter.RESOLVED}>
-                            {t("statusResolved")}
-                        </MenuItem>
-                    </Select>
-                </FormControl>
+                        {t("resetButton")}
+                    </Button>
+                </Tooltip>
             </div>
-
-            {/* Reset Button */}
-            <Tooltip title={t("resetButton")}>
-                <Button
-                    variant="outlined"
-                    size="small"
-                    onClick={resetFilter}
-                    startIcon={<RotateCcw className="h-4 w-4" />}
-                    sx={{
-                        minWidth: "auto",
-                        whiteSpace: "nowrap",
-                        borderRadius: "10px",
-                        borderColor: "var(--color-bdc-primary)",
-                        color: "var(--color-text-muted)",
-                        textTransform: "none",
-                        fontSize: "0.8rem",
-                        px: 2,
-                        py: 0.9,
-                        "&:hover": {
-                            borderColor: "var(--color-text-error)",
-                            color: "var(--color-text-error)",
-                            backgroundColor:
-                                "color-mix(in srgb, var(--color-text-error) 8%, transparent)",
-                        },
-                    }}
-                >
-                    {t("resetButton")}
-                </Button>
-            </Tooltip>
-        </div>
+        </ContainerBox>
     );
 }

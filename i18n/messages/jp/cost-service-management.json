@@ -2,11 +2,11 @@
     "costServiceManagement": {
         "pageTitle": "外部サービス費用管理",
         "subtitle": "Azure Speech AI, OpenAI, AWSの外部サービス利用コストを監視・分析",
-        "loadingMessage": "Azure費用データを更新中...",
+        "loadingMessage": "費用データを更新中...",
         "tabs": {
             "azure": "Microsoft Azure Speech AI",
-            "openai": "OpenAI API (準備中)",
-            "aws": "Amazon Web Services (準備中)"
+            "openai": "OpenAI API",
+            "aws": "Amazon Web Services (AWS)"
         },
         "comingSoonTitle": "サービス準備中",
         "comingSoonDesc": "このサービスの費用API連携を準備中です。しばらくお待ちください。",
@@ -33,6 +33,7 @@
             "toDate": "終了日",
             "refresh": "更新",
             "syncData": "Azure API同期",
+            "syncDataOpenAi": "OpenAI API同期",
             "syncing": "同期中...",
             "syncSuccess": "Azure費用データの同期を開始しました！",
             "syncError": "Azure同期の開始に失敗しました。"
@@ -44,9 +45,41 @@
             "tooltipDate": "日付: {label}",
             "noData": "この期間の費用データはありません"
         },
+        "chartAws": {
+            "title": "AWS費用推移グラフ",
+            "subtitle": "時間経過による費用の変動 ({granularity})",
+            "tooltipCost": "費用",
+            "tooltipDate": "日付: {label}",
+            "noData": "この期間の費用データはありません"
+        },
+        "chartOpenAi": {
+            "title": "OpenAI費用推移グラフ",
+            "subtitle": "時間経過による費用の変動 ({granularity})",
+            "tooltipCost": "費用",
+            "tooltipDate": "日付: {label}",
+            "noData": "この期間の費用データはありません"
+        },
         "table": {
-            "title": "費用データポイント詳細",
+            "title": "Azure費用データポイント詳細",
             "subtitle": "Azure Cost Management APIから取得した詳細な費用記録一覧",
+            "colIndex": "#",
+            "colDate": "日付 / 期間",
+            "colCost": "費用",
+            "colShare": "割合 (%)",
+            "empty": "費用記録が見つかりません"
+        },
+        "tableAws": {
+            "title": "AWS費用データポイント詳細",
+            "subtitle": "AWS Cost APIから取得した詳細な費用記録一覧",
+            "colIndex": "#",
+            "colDate": "日付 / 期間",
+            "colCost": "費用",
+            "colShare": "割合 (%)",
+            "empty": "費用記録が見つかりません"
+        },
+        "tableOpenAi": {
+            "title": "OpenAI費用データポイント詳細",
+            "subtitle": "OpenAI Cost APIから取得した詳細な費用記録一覧",
             "colIndex": "#",
             "colDate": "日付 / 期間",
             "colCost": "費用",
@@ -57,6 +90,18 @@
             "title": "Azure費用データの取得に失敗しました",
             "rateLimitTitle": "Azureサービス レート制限 (429 / 502)",
             "rateLimitDesc": "Azure Cost Management APIのリクエスト上限を超えたため取得に失敗しました。下のボタンを押して再試行してください。",
+            "retryBtn": "今すぐ再試行",
+            "retrying": "再試行中..."
+        },
+        "errorAws": {
+            "title": "AWS費用データの取得に失敗しました",
+            "desc": "AWS Cost APIからのデータ取得に失敗しました。システム接続を確認して再試行してください。",
+            "retryBtn": "今すぐ再試行",
+            "retrying": "再試行中..."
+        },
+        "errorOpenAi": {
+            "title": "OpenAI費用データの取得に失敗しました",
+            "desc": "OpenAI Cost APIからのデータ取得に失敗しました。システム接続を確認して再試行してください。",
             "retryBtn": "今すぐ再試行",
             "retrying": "再試行中..."
         }

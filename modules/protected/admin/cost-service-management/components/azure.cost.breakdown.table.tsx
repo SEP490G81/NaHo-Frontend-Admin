@@ -4,6 +4,7 @@ import React from "react";
 import { Skeleton } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { ListFilter, Table } from "lucide-react";
+import ContainerBox from "@/components/ui/container.box";
 import { FormattedChartPoint } from "../types/azure.cost.type";
 import { formatCostCurrency } from "../utils/cost.service.util";
 
@@ -21,17 +22,17 @@ export function AzureCostBreakdownTable({
     const t = useTranslations("costServiceManagement.table");
 
     return (
-        <div className="overflow-hidden rounded-2xl border border-[var(--color-bdc-primary)] bg-[var(--color-bgc-app)] shadow-sm">
-            <div className="flex items-center justify-between border-b border-[var(--color-bdc-primary)] p-4 sm:p-5">
+        <ContainerBox className="overflow-hidden !p-0">
+            <div className="border-bdc-primary flex items-center justify-between border-b p-4 sm:p-5">
                 <div className="flex items-center gap-2">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600">
                         <Table className="h-4 w-4" />
                     </div>
                     <div>
-                        <h3 className="text-base font-bold text-gray-900 dark:text-gray-100">
+                        <h3 className="text-text-contrast text-base font-bold">
                             {t("title")}
                         </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-text-muted text-xs">
                             {t("subtitle")}
                         </p>
                     </div>
@@ -40,7 +41,7 @@ export function AzureCostBreakdownTable({
 
             <div className="w-full overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                    <thead className="bg-gray-50/80 text-xs text-gray-500 uppercase dark:bg-gray-800/40 dark:text-gray-400">
+                    <thead className="bg-bgc-app border-bdc-primary text-text-muted border-b text-xs tracking-wider uppercase">
                         <tr>
                             <th scope="col" className="px-6 py-3 font-semibold">
                                 {t("colIndex")}
@@ -56,7 +57,7 @@ export function AzureCostBreakdownTable({
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-[var(--color-bdc-primary)]">
+                    <tbody className="divide-bdc-primary divide-y">
                         {isLoading ? (
                             Array.from({ length: 4 }).map((_, idx) => (
                                 <tr key={idx}>
@@ -78,10 +79,10 @@ export function AzureCostBreakdownTable({
                             <tr>
                                 <td
                                     colSpan={4}
-                                    className="px-6 py-8 text-center text-xs text-gray-400"
+                                    className="text-text-muted px-6 py-8 text-center text-xs"
                                 >
                                     <div className="flex flex-col items-center gap-1">
-                                        <ListFilter className="h-5 w-5 text-gray-300" />
+                                        <ListFilter className="text-text-muted/60 h-5 w-5" />
                                         <span>{t("empty")}</span>
                                     </div>
                                 </td>
@@ -90,12 +91,12 @@ export function AzureCostBreakdownTable({
                             data.map((row, idx) => (
                                 <tr
                                     key={idx}
-                                    className="transition-colors hover:bg-gray-50/60 dark:hover:bg-gray-800/30"
+                                    className="border-bdc-primary hover:bg-hbgc-app border-b transition-colors"
                                 >
-                                    <td className="px-6 py-4 text-xs font-medium text-gray-400">
+                                    <td className="text-text-muted px-6 py-4 text-xs font-medium">
                                         {idx + 1}
                                     </td>
-                                    <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">
+                                    <td className="text-text-contrast px-6 py-4 font-semibold">
                                         {row.formattedDate}
                                     </td>
                                     <td className="px-6 py-4 font-bold text-blue-600 dark:text-blue-400">
@@ -106,7 +107,7 @@ export function AzureCostBreakdownTable({
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="h-2 w-24 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800">
+                                            <div className="bg-bdc-primary h-2 w-24 overflow-hidden rounded-full">
                                                 <div
                                                     className="h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-500"
                                                     style={{
@@ -114,7 +115,7 @@ export function AzureCostBreakdownTable({
                                                     }}
                                                 />
                                             </div>
-                                            <span className="text-xs font-medium text-gray-600 dark:text-gray-300">
+                                            <span className="text-text-contrast text-xs font-medium">
                                                 {row.sharePercent}%
                                             </span>
                                         </div>
@@ -125,6 +126,6 @@ export function AzureCostBreakdownTable({
                     </tbody>
                 </table>
             </div>
-        </div>
+        </ContainerBox>
     );
 }
