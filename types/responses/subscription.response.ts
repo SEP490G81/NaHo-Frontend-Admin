@@ -13,10 +13,10 @@ export interface SubscriptionPlanResponse {
     durationDays: number | null;
     dailySpeakingQuestionEvaluationLimit: number;
     maxSpeakingQuestionRecordingSeconds: number;
-    maxConcurrentAiSessionCount: number;
     maxTurnsPerAiSession: number;
-    dailyAiSessionEvaluationLimit: number;
+    dailyAiSessionStartLimit: number;
     maxAiTurnSpeakingSeconds: number;
+    maxInProgressSessionCount: number;
     sampleAnswerEnabled: boolean;
     status: SubscriptionStatus | string;
 }

@@ -81,14 +81,14 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
     const [maxRecordingSecs, setMaxRecordingSecs] = useState<number>(
         plan.maxSpeakingQuestionRecordingSeconds ?? 0,
     );
-    const [maxConcurrentAi, setMaxConcurrentAi] = useState<number>(
-        plan.maxConcurrentAiSessionCount ?? 0,
+    const [maxInProgressAi, setMaxInProgressAi] = useState<number>(
+        plan.maxInProgressSessionCount ?? 0,
     );
     const [maxTurnsPerAi, setMaxTurnsPerAi] = useState<number>(
         plan.maxTurnsPerAiSession ?? 0,
     );
-    const [dailyAiLimit, setDailyAiLimit] = useState<number>(
-        plan.dailyAiSessionEvaluationLimit ?? 0,
+    const [dailyAiStartLimit, setDailyAiStartLimit] = useState<number>(
+        plan.dailyAiSessionStartLimit ?? 0,
     );
     const [maxAiSpeakingSecs, setMaxAiSpeakingSecs] = useState<number>(
         plan.maxAiTurnSpeakingSeconds ?? 0,
@@ -112,10 +112,10 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
                 durationDays.trim() === "" ? null : Number(durationDays),
             dailySpeakingQuestionEvaluationLimit: Number(dailySpeakingLimit),
             maxSpeakingQuestionRecordingSeconds: Number(maxRecordingSecs),
-            maxConcurrentAiSessionCount: Number(maxConcurrentAi),
             maxTurnsPerAiSession: Number(maxTurnsPerAi),
-            dailyAiSessionEvaluationLimit: Number(dailyAiLimit),
+            dailyAiSessionStartLimit: Number(dailyAiStartLimit),
             maxAiTurnSpeakingSeconds: Number(maxAiSpeakingSecs),
+            maxInProgressSessionCount: Number(maxInProgressAi),
             sampleAnswerEnabled,
             status,
         };
@@ -331,15 +331,15 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
 
                         <div className="space-y-1">
                             <label className="text-text-contrast text-xs font-bold">
-                                {t("fields.maxConcurrentAiSessionCount")}
+                                {t("fields.maxInProgressSessionCount")}
                             </label>
                             <TextField
                                 type="number"
                                 fullWidth
                                 size="small"
-                                value={maxConcurrentAi}
+                                value={maxInProgressAi}
                                 onChange={(e) =>
-                                    setMaxConcurrentAi(Number(e.target.value))
+                                    setMaxInProgressAi(Number(e.target.value))
                                 }
                                 sx={inputSx}
                             />
@@ -363,15 +363,15 @@ function EditPlanForm({ plan, onClose }: EditPlanFormProps) {
 
                         <div className="space-y-1">
                             <label className="text-text-contrast text-xs font-bold">
-                                {t("fields.dailyAiSessionEvaluationLimit")}
+                                {t("fields.dailyAiSessionStartLimit")}
                             </label>
                             <TextField
                                 type="number"
                                 fullWidth
                                 size="small"
-                                value={dailyAiLimit}
+                                value={dailyAiStartLimit}
                                 onChange={(e) =>
-                                    setDailyAiLimit(Number(e.target.value))
+                                    setDailyAiStartLimit(Number(e.target.value))
                                 }
                                 sx={inputSx}
                             />
