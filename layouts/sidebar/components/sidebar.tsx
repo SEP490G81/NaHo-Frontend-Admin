@@ -10,10 +10,13 @@ import SidebarLogoButton from "./sidebar.logo.button";
 import SidebarItem from "./sidebar.item";
 import UserAvatar from "./user.avatar";
 
+import { useCurrentUser } from "@/hooks/use.current.user";
+
 const DRAWER_WIDTH = 260;
 
 export function Sidebar() {
     const pathname = usePathname();
+    const { data: user } = useCurrentUser();
     const {
         isSidebarOpen,
         isSidebarCollapsed,
@@ -24,10 +27,18 @@ export function Sidebar() {
         Record<string, boolean>
     >({});
 
+    const filteredNavItems = React.useMemo(() => {
+        if (!user?.role?.roleName) return NAV_ITEMS;
+        return NAV_ITEMS.filter(
+            (item) =>
+                !item.roles || item.roles.includes(user.role.roleName),
+        );
+    }, [user?.role?.roleName]);
+
     React.useEffect(() => {
         const initialOpenState: Record<string, boolean> = {};
 
-        NAV_ITEMS.forEach((item) => {
+        filteredNavItems.forEach((item) => {
             if (item.children) {
                 const hasActiveChild = item.children.some(
                     (child) =>
@@ -40,7 +51,7 @@ export function Sidebar() {
                 }
             }
         });
-    }, [pathname]);
+    }, [pathname, filteredNavItems]);
 
     const toggleSubMenu = (titleKey: string) => {
         setOpenSubMenus((prev) => ({
@@ -73,7 +84,7 @@ export function Sidebar() {
                     disablePadding
                     className={cn("space-y-2", isCollapsed ? "px-1.5" : "px-3")}
                 >
-                    {NAV_ITEMS.map((item) => (
+                    {filteredNavItems.map((item) => (
                         <SidebarItem
                             key={item.titleKey}
                             item={item}

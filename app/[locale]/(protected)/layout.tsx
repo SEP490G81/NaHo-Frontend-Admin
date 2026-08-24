@@ -12,12 +12,18 @@ import Sidebar from "@/layouts/sidebar/components/sidebar";
 import SakuraFalling from "@/components/ui/sakura-falling";
 import JapanBackground from "@/components/ui/japan-background";
 
+import { RoleName } from "@/types/enums/user.enum";
+
 const ProtectedLayout = async ({
     children,
 }: Readonly<{ children: ReactNode }>) => {
     const user = await getCurrentUser();
 
-    if (!user) {
+    if (
+        !user ||
+        (user.role?.roleName !== RoleName.ADMIN &&
+            user.role?.roleName !== RoleName.CONTENT_MANAGER)
+    ) {
         redirect("/login");
     }
 

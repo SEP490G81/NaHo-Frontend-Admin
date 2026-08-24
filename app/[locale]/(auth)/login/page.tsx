@@ -21,6 +21,8 @@ export async function generateMetadata({
     };
 }
 
+import { RoleName } from "@/types/enums/user.enum";
+
 const LoginPage = async () => {
     let user = null;
     try {
@@ -30,7 +32,11 @@ const LoginPage = async () => {
     }
 
     if (user) {
-        redirect("/dashboard");
+        if (user.role?.roleName === RoleName.CONTENT_MANAGER) {
+            redirect("/books");
+        } else if (user.role?.roleName === RoleName.ADMIN) {
+            redirect("/dashboard");
+        }
     }
 
     return <Login />;

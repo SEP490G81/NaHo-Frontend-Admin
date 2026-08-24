@@ -17,7 +17,8 @@
             "registerNow": "Đăng ký ngay",
             "pleaseEnterEmailOrUsername": "Vui lòng nhập email/tên tài khoản!",
             "pleaseEnterPassword": "Vui lòng nhập mật khẩu!",
-            "wrongLoginInfo": "Sai thông tin đăng nhập!"
+            "wrongLoginInfo": "Sai thông tin đăng nhập!",
+            "unauthorizedRole": "Tài khoản của bạn không có quyền truy cập vào hệ thống!"
         },
         "lock": {
             "title": "Tài khoản bị khoá tạm thời!",

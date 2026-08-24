@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const userAgent = request.headers.get("user-agent");
     const forwardedFor = request.headers.get("x-forwarded-for");
 
-    const backendResponse = await fetch(`${process.env.API_URL}/auth/login`, {
+    const backendResponse = await fetch(`${process.env.API_URL}/admin/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

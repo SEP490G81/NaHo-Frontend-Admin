@@ -1,17 +1,18 @@
 "use client";
 import { USER_ERROR_CODES } from "@/constants/error.code.constants";
-import { getErrorCode } from "@/libs/api.error";
+import { ApiError, getErrorCode } from "@/libs/api.error";
 import LoginFormButtons from "@/modules/public/login/features/login.form.buttons";
 import LoginFormTextFields from "@/modules/public/login/components/login.form.text.fields";
 import { LoginState } from "@/modules/public/login/types/login.ui.type";
 import React, { useState } from "react";
 import { validateLoginForm } from "@/modules/public/login/actions/login.action";
 import { Link, useRouter } from "@/i18n/navigation";
-import { credentialsLogin } from "@/services/client/user.service";
+import { credentialsLogin, getCurrentUserClient } from "@/services/client/user.service";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "@/libs/query.keys";
 import { useTranslations } from "next-intl";
 import { getDeviceId } from "@/modules/public/login/utils/login.util";
+import { RoleName } from "@/types/enums/user.enum";
 
 const initialState: LoginState = {
     usernameOrEmail: {
@@ -46,11 +47,19 @@ const LoginForm = () => {
                     deviceId: getDeviceId(),
                 });
 
+                const user = await getCurrentUserClient();
+
                 await queryClient.invalidateQueries({
                     queryKey: queryKeys.auth.currentUser,
                 });
 
-                replace("/dashboard");
+                if (user?.role?.roleName === RoleName.ADMIN) {
+                    replace("/dashboard");
+                } else if (user?.role?.roleName === RoleName.CONTENT_MANAGER) {
+                    replace("/books");
+                } else {
+                    replace("/dashboard");
+                }
             } catch (error) {
                 console.log(error);
 
@@ -64,6 +73,11 @@ const LoginForm = () => {
                     replace(
                         `/verify-email?email=${encodeURIComponent(usernameOrEmail)}`,
                     );
+                    return;
+                }
+
+                if (error instanceof ApiError && error.status === 403) {
+                    setErrorMessage(t("login.form.unauthorizedRole"));
                     return;
                 }
 
