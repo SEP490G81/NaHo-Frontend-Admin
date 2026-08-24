@@ -22,6 +22,7 @@
     "cancel": "Cancel",
     "save": "Save Changes",
     "bookManagement": "Edit Books",
+    "bookManagementSubtitle": "書籍の追加、編集、管理",
     "importing": "Importing...",
     "importBooks": "Import Books",
     "sort": "Sort",

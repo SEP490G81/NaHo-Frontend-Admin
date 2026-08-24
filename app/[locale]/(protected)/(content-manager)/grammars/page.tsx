@@ -3,10 +3,11 @@
 import { useGrammarManagement } from "@/modules/protected/content-manager/grammars/hooks/use.grammar.management";
 import GrammarTable from "@/modules/protected/content-manager/grammars/features/grammar.table";
 import GrammarFormModal from "@/modules/protected/content-manager/grammars/features/grammar.form.modal";
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, Typography } from "@mui/material";
-import { Plus, Search } from "lucide-react";
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText } from "@mui/material";
+import { Plus, Search, Target } from "lucide-react";
 import React from "react";
 import { useTranslations } from "next-intl";
+import ContainerBox from "@/components/ui/container.box";
 
 export default function GrammarsPage() {
     const {
@@ -65,27 +66,48 @@ export default function GrammarsPage() {
         : null;
 
     return (
-        <div className="flex flex-col gap-6 p-6">
-            <div className="flex justify-between items-center">
-                <div>
-                    <h1 className="text-2xl font-bold text-text-contrast">{t("title")}</h1>
-                    <p className="text-text-muted mt-1 text-sm">
-                        {t("subtitle")}
-                    </p>
-                </div>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    startIcon={<Plus size={18} />}
-                    onClick={openCreateModal}
-                    className="shadow-sm"
-                >
-                    {t("addGrammar")}
-                </Button>
-            </div>
+        <div className="flex w-full flex-col gap-y-4">
+            <ContainerBox>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2">
+                            <div className="bg-bgc-highlight/10 text-bgc-highlight flex h-8 w-8 items-center justify-center rounded-xl font-bold">
+                                <Target className="h-4 w-4" />
+                            </div>
+                            <h1 className="text-text-contrast text-2xl font-bold">
+                                {t("title")}
+                            </h1>
+                        </div>
+                        <p className="text-text-muted mt-1 text-xs">
+                            {t("subtitle")}
+                        </p>
+                    </div>
 
-            <div className="bg-bgc-panel border border-bdc-primary rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <form onSubmit={onSearchSubmit} className="flex-1 w-full max-w-md flex items-center relative">
+                    <Button
+                        variant="contained"
+                        startIcon={<Plus className="h-4 w-4" />}
+                        onClick={openCreateModal}
+                        sx={{
+                            borderRadius: "12px",
+                            backgroundColor: "var(--color-bgc-highlight)",
+                            color: "#fff",
+                            textTransform: "none",
+                            fontWeight: "bold",
+                            whiteSpace: "nowrap",
+                            px: 2.5,
+                            "&:hover": {
+                                backgroundColor: "var(--color-bgc-highlight)",
+                                opacity: 0.9,
+                            },
+                        }}
+                    >
+                        {t("addGrammar")}
+                    </Button>
+                </div>
+            </ContainerBox>
+
+            <ContainerBox>
+                <form onSubmit={onSearchSubmit} className="w-full max-w-md flex items-center relative">
                     <Search className="absolute left-3 text-text-muted" size={18} />
                     <input
                         type="text"
@@ -96,9 +118,9 @@ export default function GrammarsPage() {
                     />
                     <button type="submit" className="hidden">Search</button>
                 </form>
-            </div>
+            </ContainerBox>
 
-            <div className="bg-bgc-panel border border-bdc-primary rounded-xl p-4 overflow-hidden shadow-sm">
+            <ContainerBox>
                 <GrammarTable
                     grammars={grammars}
                     pageMeta={pageMeta}
@@ -107,7 +129,7 @@ export default function GrammarsPage() {
                     onUpdateClick={openUpdateModal}
                     onDeleteClick={openDeleteModal}
                 />
-            </div>
+            </ContainerBox>
 
             {/* Form Modal */}
             <GrammarFormModal

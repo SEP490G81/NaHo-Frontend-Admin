@@ -22,6 +22,7 @@
     "cancel": "Cancel",
     "save": "Save Changes",
     "bookManagement": "Edit Books",
+    "bookManagementSubtitle": "Add, edit and manage books in the system",
     "importing": "Importing...",
     "importBooks": "Import Books",
     "sort": "Sort",

@@ -41,7 +41,7 @@ export default function BookSearchFilter({ onSearch }: Readonly<BookSearchFilter
     };
 
     return (
-        <div className="bg-bgc-panel border border-bdc-primary rounded-xl p-4 flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full mb-6">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full">
             <div className="flex-1 min-w-[250px] w-full flex items-center relative">
                 <Search className="absolute left-3 text-text-muted" size={18} />
                 <input
