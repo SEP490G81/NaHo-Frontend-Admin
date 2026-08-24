@@ -1,0 +1,36 @@
+{
+  "topicManagement": {
+    "title": "Topic Management",
+    "editTopic": "Edit Topic",
+    "selectBookFirst": "Please select a book to view its topics",
+    "bookLabel": "Book",
+    "allBooks": "All Books",
+    "searchByTitle": "Search by topic name",
+    "allStatus": "All Status",
+    "status": "Status",
+    "topicName": "Topic Name (Japanese)",
+    "description": "Description",
+    "actions": "Actions",
+    "updateSuccess": "Topic updated successfully",
+    "updateFailed": "Failed to update topic",
+    "updateTitle": "Update Topic Information",
+    "japaneseName": "Japanese Name",
+    "japaneseDescription": "Description (Japanese)",
+    "vietnameseDescription": "Description (Vietnamese)",
+    "englishDescription": "Description (English)",
+    "update": "Update",
+    "cancel": "Cancel",
+    "save": "Save Changes",
+    "noData": "No data available.",
+    "loading": "Loading...",
+    "statusDraft": "Draft",
+    "statusPublished": "Published",
+    "statusArchive": "Archived",
+    "clearAll": "Clear Filters",
+    "backToBooks": "Back to Books",
+    "editLessons": "Edit Lessons",
+    "topicLabel": "Topic",
+    "sortDefault": "Default (Sort by Name)"
+  }
+}
+

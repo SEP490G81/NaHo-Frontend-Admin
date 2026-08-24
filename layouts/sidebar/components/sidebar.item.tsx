@@ -165,7 +165,7 @@ export const SidebarItem = ({
                     <List
                         component="div"
                         disablePadding
-                        className="mt-1 space-y-1 pl-6"
+                        className="mt-1 space-y-1 ml-5 pl-3 border-l-2 border-gray-300 dark:border-gray-700 relative"
                     >
                         {item.children!.map((child) => {
                             const childTitle = t(
@@ -187,6 +187,14 @@ export const SidebarItem = ({
                                     >
                                         {childActive && (
                                             <span className="bg-bgc-highlight absolute top-1/4 left-0 h-1/2 w-1 rounded-r-md" />
+                                        )}
+                                        {child.icon && (
+                                            <child.icon
+                                                className={cn(
+                                                    "h-4 w-4 shrink-0 transition-transform duration-200",
+                                                    childActive ? "text-bgc-highlight" : "text-text-muted"
+                                                )}
+                                            />
                                         )}
                                         <span
                                             className={cn(

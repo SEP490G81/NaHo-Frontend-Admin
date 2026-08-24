@@ -36,8 +36,6 @@ export default async function LocaleLayout({
             suppressHydrationWarning
         >
             <body suppressHydrationWarning>
-                <InitColorSchemeScript attribute="class" defaultMode="light" />
-
                 <ThemeInitScript />
                 <NextIntlClientProvider>
                     <AppRouterCacheProvider options={{ enableCssLayer: true }}>

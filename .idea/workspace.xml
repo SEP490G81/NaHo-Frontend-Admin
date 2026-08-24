@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/naho-fe-admin.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/public/login/components/right.content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/modules/public/login/components/right.content.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="189fef34-5fca-4198-88f2-f31814bd6932" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="407" />
+    <option name="cachedIndexableFilesCount" value="355" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FormatOnSaveOptions">
@@ -32,61 +26,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.3806728091571994" />
-      <entry key="MS500" value="2.8111110369835153" />
-      <entry key="S2" value="5.263904209913352" />
-      <entry key="S5" value="8.08328712567316" />
-      <entry key="S10" value="10.73406470558972" />
-      <entry key="S30" value="14.506188065615428" />
-      <entry key="S60" value="16.06789789697325" />
-      <entry key="M2" value="17.321934600174338" />
-      <entry key="M5" value="20.97336797877786" />
-      <entry key="M10" value="27.538374809748483" />
-      <entry key="M15" value="34.21774432084505" />
-      <entry key="M30" value="58.3989710131644" />
-      <entry key="H1" value="102.25957168124272" />
-      <entry key="H2" value="149.72871186108017" />
-      <entry key="H4" value="185.73959380371426" />
-      <entry key="D1" value="224.93183066140736" />
-      <entry key="W1" value="232.67679185869062" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000000002" />
+      <entry key="S2" value="1.0001918927241986" />
+      <entry key="S5" value="1.0494568139717508" />
+      <entry key="S10" value="1.3277485623049354" />
+      <entry key="S30" value="2.564147955055229" />
+      <entry key="S60" value="4.069417822914526" />
+      <entry key="M2" value="6.284397709048528" />
+      <entry key="M5" value="9.34445842188974" />
+      <entry key="M10" value="12.908811139087465" />
+      <entry key="M15" value="19.864986530718927" />
+      <entry key="M30" value="48.74446625752969" />
+      <entry key="H1" value="91.6273601255421" />
+      <entry key="H2" value="130.47262759418132" />
+      <entry key="H4" value="157.02280041434358" />
+      <entry key="D1" value="183.99036656991925" />
+      <entry key="W1" value="189.1279182087965" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="3.1752155344610947E-105" />
-      <entry key="S5" value="2.4208143667576896E-42" />
-      <entry key="S10" value="2.3865520445211966E-21" />
-      <entry key="S30" value="2.6934112149077835E-7" />
-      <entry key="S60" value="9.955620927066078E-4" />
-      <entry key="M2" value="0.06954845551174635" />
-      <entry key="M5" value="0.9930665435119205" />
-      <entry key="M10" value="2.5889116621457586" />
-      <entry key="M15" value="3.688364181166756" />
-      <entry key="M30" value="5.573270393678273" />
-      <entry key="H1" value="7.332040979404508" />
-      <entry key="H2" value="8.769504434287366" />
-      <entry key="H4" value="9.752043945191875" />
-      <entry key="D1" value="10.76965335902811" />
-      <entry key="W1" value="10.966485263326748" />
+      <entry key="MS500" value="1.6874087512676075E-100" />
+      <entry key="S2" value="1.1411299541181994E-25" />
+      <entry key="S5" value="1.1257292335585742E-10" />
+      <entry key="S10" value="1.2948646709549116E-5" />
+      <entry key="S30" value="0.03562954534607903" />
+      <entry key="S60" value="0.26530474669721527" />
+      <entry key="M2" value="0.7272965502756885" />
+      <entry key="M5" value="1.3357808851317527" />
+      <entry key="M10" value="1.6782183705710416" />
+      <entry key="M15" value="1.890812039208285" />
+      <entry key="M30" value="2.424579169280836" />
+      <entry key="H1" value="3.165680561138757" />
+      <entry key="H2" value="3.867376065693488" />
+      <entry key="H4" value="4.3646286416994124" />
+      <entry key="D1" value="4.882851727031322" />
+      <entry key="W1" value="4.982964185277241" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3429750495069632" />
-      <entry key="MS500" value="2.796595577298118" />
-      <entry key="S2" value="5.255172211005815" />
-      <entry key="S5" value="8.074679701743682" />
-      <entry key="S10" value="10.727288248540647" />
-      <entry key="S30" value="14.502880549013105" />
-      <entry key="S60" value="16.067029523325484" />
-      <entry key="M2" value="17.389910137678253" />
-      <entry key="M5" value="21.96141665366644" />
-      <entry key="M10" value="30.12054977319896" />
-      <entry key="M15" value="37.89969806202806" />
-      <entry key="M30" value="63.96751003922325" />
-      <entry key="H1" value="109.588632908705" />
-      <entry key="H2" value="158.4965073069921" />
-      <entry key="H4" value="195.4907143769116" />
-      <entry key="D1" value="235.70131887095624" />
-      <entry key="W1" value="243.64325322708223" />
+      <entry key="MS100" value="0.010525262319263207" />
+      <entry key="MS500" value="0.402204185470958" />
+      <entry key="S2" value="0.7965337176923286" />
+      <entry key="S5" value="0.9601063905703349" />
+      <entry key="S10" value="1.2759253524833665" />
+      <entry key="S30" value="2.575909653738256" />
+      <entry key="S60" value="4.320018913578837" />
+      <entry key="M2" value="7.002634447706979" />
+      <entry key="M5" value="10.675831969938079" />
+      <entry key="M10" value="14.584576549924517" />
+      <entry key="M15" value="21.75401165732092" />
+      <entry key="M30" value="51.167922674325354" />
+      <entry key="H1" value="94.79232285406376" />
+      <entry key="H2" value="134.33957410518093" />
+      <entry key="H4" value="161.3871899450454" />
+      <entry key="D1" value="188.87317429272647" />
+      <entry key="W1" value="194.1108759941929" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -111,13 +105,11 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/25-crud-and-ru&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
@@ -129,14 +121,12 @@
     &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/truc/Documents/SEP490/Code/NaHo-Frontend-Admin/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Ki_9\\SEP490\\Graduation_Project\\code\\naho-fe-admin\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\modules\protected\shared" />
       <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\modules\protected\admin" />
       <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\app\[locale]\(protected)\(admin)" />
       <recent name="D:\Ki_9\SEP490\Graduation_Project\code\naho-fe-admin\docs\users_management" />
@@ -186,7 +176,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.9437.145" />
       </set>
     </attachedChunks>
   </component>
@@ -208,11 +198,6 @@
       <workItem from="1786381408889" duration="3815000" />
       <workItem from="1786559395162" duration="159000" />
       <workItem from="1786559646739" duration="657000" />
-      <workItem from="1786643412951" duration="237000" />
-      <workItem from="1786711597119" duration="2429000" />
-      <workItem from="1786758698550" duration="6000" />
-      <workItem from="1786788389805" duration="686000" />
-      <workItem from="1786831517861" duration="1369000" />
     </task>
     <servers />
   </component>

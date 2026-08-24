@@ -30,6 +30,12 @@ const MESSAGE_FILES = [
     "content-report-management",
     "subscription-management",
     "cost-service-management",
+    "books",
+    "topic-management",
+    "lesson-management",
+    "objective-management",
+    "grammar-management",
+    "vocabulary-management",
     "persona-management",
 ];
 

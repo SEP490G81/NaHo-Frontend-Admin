@@ -59,6 +59,21 @@
             "back": "Quay lại"
         },
         "layout": {
+            "nav": {
+                "dashboard": "Bảng điều khiển",
+                "userManagement": "Quản lý người dùng",
+                "paymentManagement": "Quản lý thanh toán",
+                "subscriptionManagement": "Gói học & Nâng cấp",
+                "costServiceManagement": "Quản lý chi phí dịch vụ",
+                "reportManagement": "Quản lý báo cáo",
+                "contentManagement": "Chỉnh sửa nội dung",
+                "bookManagement": "Chỉnh sửa sách",
+                "vocabularyManagement": "Kho từ vựng",
+                "grammarManagement": "Kho ngữ pháp",
+                "freeAiChat": "Trò chuyện tự do AI",
+                "leaderboard": "Bảng xếp hạng thi đua",
+                "logout": "Đăng xuất"
+            },
             "sidebar": {
                 "dashboard": "Dashboard",
                 "userManagement": "Quản lý người dùng",
@@ -66,6 +81,14 @@
                 "subscriptionManagement": "Gói học & Nâng cấp",
                 "costServiceManagement": "Quản lý chi phí dịch vụ",
                 "reportManagement": "Quản lý báo cáo",
+                "contentManagement": "Chỉnh sửa nội dung",
+                "bookManagement": "Chỉnh sửa sách",
+                "editBook": "Chỉnh sửa sách",
+                "vocabularyManagement": "Kho từ vựng",
+                "grammarManagement": "Kho ngữ pháp",
+                "editTopic": "Chỉnh sửa chủ đề",
+                "editLesson": "Chỉnh sửa bài học",
+                "editObjective": "Chỉnh sửa mục tiêu",
                 "contentReportManagement": "Quản lý báo cáo nội dung",
                 "personaManagement": "Quản lý nhân vật AI",
                 "kaiwaRoadmap": "Lộ trình Kaiwa",
@@ -153,6 +176,10 @@
             "tableHeaderDate": "Thời gian",
             "viewImages": "Xem ảnh ({count})",
             "noImages": "Không có ảnh"
+        },
+        "errors": {
+            "VOCABULARY_E005": "Từ vựng đang được sử dụng trong một hoặc nhiều câu hỏi. Vui lòng gỡ hoặc xóa câu hỏi liên quan trước khi xóa từ vựng này.",
+            "GRAMMAR_E004": "Ngữ pháp đang được sử dụng trong một hoặc nhiều câu hỏi. Vui lòng gỡ hoặc xóa câu hỏi liên quan trước khi xóa ngữ pháp này."
         }
     }
 }

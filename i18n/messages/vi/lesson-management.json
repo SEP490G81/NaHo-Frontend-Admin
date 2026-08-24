@@ -1,0 +1,44 @@
+{
+  "lessonManagement": {
+    "title": "Chỉnh sửa bài học",
+    "editLesson": "Chỉnh sửa bài học",
+    "selectBookFirst": "Vui lòng chọn một cuốn sách",
+    "selectTopicFirst": "Vui lòng chọn một chủ đề",
+    "bookLabel": "Sách",
+    "topicLabel": "Chủ đề",
+    "noBooks": "Chưa có sách nào.",
+    "noTopics": "Chưa có chủ đề nào trong sách này.",
+    "selectBookPlaceholder": "Chọn sách...",
+    "selectTopicPlaceholder": "Chọn chủ đề...",
+    
+    "table": {
+      "id": "ID",
+      "name": "TÊN BÀI HỌC",
+      "description": "MÔ TẢ",
+      "status": "TRẠNG THÁI",
+      "actions": "HÀNH ĐỘNG",
+      "empty": "Không có bài học nào"
+    },
+    
+    "status": {
+      "DRAFT": "Bản nháp",
+      "PUBLISHED": "Đã xuất bản",
+      "ARCHIVE": "Lưu trữ",
+      "unknown": "Không xác định"
+    },
+    
+    "updateTitle": "Cập nhật thông tin bài học",
+    "japaneseName": "Tên tiếng Nhật",
+    "statusLabel": "Trạng thái",
+    "statusDraft": "Bản nháp",
+    "statusPublished": "Đã xuất bản",
+    "statusArchive": "Lưu trữ",
+    "descriptionLabel": "Mô tả",
+    "japaneseDescription": "Mô tả (Tiếng Nhật)",
+    "cancel": "Hủy",
+    "save": "Lưu thay đổi",
+    "loading": "Đang lưu...",
+    "lessonLabel": "Bài học",
+    "editObjectives": "Chỉnh sửa Mục tiêu"
+  }
+}

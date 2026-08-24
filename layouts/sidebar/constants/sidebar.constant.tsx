@@ -5,14 +5,21 @@ import {
     CreditCard,
     Flag,
     LayoutDashboard,
+    MessagesSquare,
     Receipt,
     ShieldAlert,
     Users,
+    LibraryBig,
+    BookType,
+    FolderKanban,
+    NotebookPen,
+    Target
 } from "lucide-react";
 
 export interface SubNavItem {
     titleKey: string;
     url: string;
+    icon?: React.ComponentType<{ className?: string }>;
 }
 
 export interface NavItem {
@@ -38,6 +45,15 @@ export const NAV_ITEMS: NavItem[] = [
         icon: Receipt,
     },
     { titleKey: "reportManagement", url: "/reports", icon: Flag },
+    {
+        titleKey: "contentManagement",
+        icon: LibraryBig,
+        children: [
+            { titleKey: "bookManagement", url: "/books" },
+            { titleKey: "vocabularyManagement", url: "/vocabularies" },
+            { titleKey: "grammarManagement", url: "/grammars" },
+        ]
+    },
     {
         titleKey: "contentReportManagement",
         url: "/content-reports",

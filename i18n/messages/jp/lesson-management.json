@@ -1,0 +1,44 @@
+{
+  "lessonManagement": {
+    "title": "レッスンの編集",
+    "editLesson": "レッスンの編集",
+    "selectBookFirst": "本を選択してください",
+    "selectTopicFirst": "トピックを選択してください",
+    "bookLabel": "本",
+    "topicLabel": "トピック",
+    "noBooks": "本がありません。",
+    "noTopics": "この本にはトピックがありません。",
+    "selectBookPlaceholder": "本を選択...",
+    "selectTopicPlaceholder": "トピックを選択...",
+    
+    "table": {
+      "id": "ID",
+      "name": "レッスン名",
+      "description": "説明",
+      "status": "ステータス",
+      "actions": "アクション",
+      "empty": "レッスンがありません"
+    },
+    
+    "status": {
+      "DRAFT": "下書き",
+      "PUBLISHED": "公開済み",
+      "ARCHIVE": "アーカイブ",
+      "unknown": "不明"
+    },
+    
+    "updateTitle": "レッスン情報を更新",
+    "japaneseName": "日本語名",
+    "statusLabel": "ステータス",
+    "statusDraft": "下書き",
+    "statusPublished": "公開済み",
+    "statusArchive": "アーカイブ",
+    "descriptionLabel": "説明",
+    "japaneseDescription": "説明（日本語）",
+    "cancel": "キャンセル",
+    "save": "変更を保存",
+    "loading": "保存中...",
+    "lessonLabel": "レッスン",
+    "editObjectives": "目標の編集"
+  }
+}

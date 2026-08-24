@@ -1,0 +1,44 @@
+{
+  "lessonManagement": {
+    "title": "Edit Lesson",
+    "editLesson": "Edit Lesson",
+    "selectBookFirst": "Please select a book",
+    "selectTopicFirst": "Please select a topic",
+    "bookLabel": "Book",
+    "topicLabel": "Topic",
+    "noBooks": "No books available.",
+    "noTopics": "No topics available in this book.",
+    "selectBookPlaceholder": "Select a book...",
+    "selectTopicPlaceholder": "Select a topic...",
+    
+    "table": {
+      "id": "ID",
+      "name": "LESSON NAME",
+      "description": "DESCRIPTION",
+      "status": "STATUS",
+      "actions": "ACTIONS",
+      "empty": "No lessons available"
+    },
+    
+    "status": {
+      "DRAFT": "Draft",
+      "PUBLISHED": "Published",
+      "ARCHIVE": "Archive",
+      "unknown": "Unknown"
+    },
+    
+    "updateTitle": "Update Lesson Information",
+    "japaneseName": "Japanese Name",
+    "statusLabel": "Status",
+    "statusDraft": "Draft",
+    "statusPublished": "Published",
+    "statusArchive": "Archive",
+    "descriptionLabel": "Description",
+    "japaneseDescription": "Description (Japanese)",
+    "cancel": "Cancel",
+    "save": "Save Changes",
+    "loading": "Saving...",
+    "lessonLabel": "Lesson",
+    "editObjectives": "Edit Objectives"
+  }
+}

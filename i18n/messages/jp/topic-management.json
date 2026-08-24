@@ -1,0 +1,36 @@
+{
+  "topicManagement": {
+    "title": "トピック管理",
+    "editTopic": "トピックを編集",
+    "selectBookFirst": "トピックを表示するには本を選択してください",
+    "bookLabel": "本",
+    "allBooks": "すべての本",
+    "searchByTitle": "トピック名で検索",
+    "allStatus": "すべてのステータス",
+    "status": "ステータス",
+    "topicName": "トピック名（日本語）",
+    "description": "説明",
+    "actions": "アクション",
+    "updateSuccess": "トピックの更新に成功しました",
+    "updateFailed": "トピックの更新に失敗しました",
+    "updateTitle": "トピック情報を更新",
+    "japaneseName": "日本語名",
+    "japaneseDescription": "説明（日本語）",
+    "vietnameseDescription": "説明（ベトナム語）",
+    "englishDescription": "説明（英語）",
+    "update": "更新",
+    "cancel": "キャンセル",
+    "save": "変更を保存",
+    "noData": "データがありません。",
+    "loading": "読み込み中...",
+    "statusDraft": "下書き",
+    "statusPublished": "公開済み",
+    "statusArchive": "アーカイブ",
+    "clearAll": "フィルターをクリア",
+    "backToBooks": "本に戻る",
+    "editLessons": "レッスンの編集",
+    "topicLabel": "トピック",
+    "sortDefault": "デフォルト（名前で並べ替え）"
+  }
+}
+
