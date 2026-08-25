@@ -62,11 +62,12 @@ export async function triggerAzureCostSyncClient(): Promise<void> {
         let errBody: ProblemDetail;
         try {
             errBody = await response.json();
+            errBody.detail = "Xin hãy thử lại trong 5 phút tiếp theo là được";
         } catch {
             errBody = {
                 title: "Sync Error",
                 status: response.status || 500,
-                detail: "Failed to trigger Azure cost sync",
+                detail: "Xin hãy thử lại trong 5 phút tiếp theo là được",
                 errorCode: "AZURE_COST_SYNC_ERROR",
             };
         }

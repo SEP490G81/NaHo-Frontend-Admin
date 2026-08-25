@@ -160,11 +160,8 @@ export function useAzureCost() {
             await triggerAzureCostSyncClient();
             await refetchAll();
             toast.success("Đồng bộ dữ liệu Azure thành công!");
-        } catch (err) {
-            const errMsg =
-                err instanceof ApiError
-                    ? err.message
-                    : "Đồng bộ dữ liệu thất bại.";
+        } catch {
+            const errMsg = "Xin hãy thử lại trong 5 phút tiếp theo là được";
             setSyncMessage(errMsg);
             toast.error(errMsg);
         } finally {

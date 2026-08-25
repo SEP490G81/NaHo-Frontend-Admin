@@ -8,7 +8,6 @@ import { TooltipCustom } from "@/components/ui/mui-custom/tooltip.custom";
 import { logout } from "@/services/client/user.service";
 import { useRouter } from "@/i18n/navigation";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "@/libs/query.keys";
 
 export default function LogoutButton() {
     const t = useTranslations();
@@ -18,10 +17,14 @@ export default function LogoutButton() {
     const handleLogout = async () => {
         try {
             await logout();
-            queryClient.setQueryData(queryKeys.auth.currentUser, null);
-            replace("/login");
         } catch (error) {
-            console.error(error);
+            console.error("Admin logout error:", error);
+        } finally {
+            if (typeof window !== "undefined") {
+                localStorage.removeItem("naho-auth");
+            }
+            queryClient.clear();
+            replace("/login");
         }
     };
 
