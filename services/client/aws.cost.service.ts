@@ -1,27 +1,17 @@
-import { ApiResponse, ProblemDetail } from "@/types/responses/base.response";
+import { apiClient } from "@/libs/apiClient";
+import { ApiResponse } from "@/types/responses/base.response";
 import {
     AwsCostChartData,
     AwsCostChartParams,
     AwsCostSummaryData,
 } from "@/modules/protected/admin/cost-service-management/types/aws.cost.type";
-import { ApiError } from "@/libs/api.error";
 
 export async function fetchAwsCostSummaryClient(): Promise<
     ApiResponse<AwsCostSummaryData>
 > {
-    const response = await fetch("/api/aws-cost/summary", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<AwsCostSummaryData>;
+    return apiClient.get<ApiResponse<AwsCostSummaryData>>(
+        "/api/aws-cost/summary",
+    );
 }
 
 export async function fetchAwsCostChartClient(
@@ -37,17 +27,5 @@ export async function fetchAwsCostChartClient(
     const queryString = searchParams.toString();
     const url = `/api/aws-cost/chart${queryString ? `?${queryString}` : ""}`;
 
-    const response = await fetch(url, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<AwsCostChartData>;
+    return apiClient.get<ApiResponse<AwsCostChartData>>(url);
 }

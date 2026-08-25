@@ -1,27 +1,17 @@
-import { ApiResponse, ProblemDetail } from "@/types/responses/base.response";
+import { apiClient } from "@/libs/apiClient";
+import { ApiResponse } from "@/types/responses/base.response";
 import {
     AzureCostChartData,
     AzureCostChartParams,
     AzureCostSummaryData,
 } from "@/modules/protected/admin/cost-service-management/types/azure.cost.type";
-import { ApiError } from "@/libs/api.error";
 
 export async function fetchAzureCostSummaryClient(): Promise<
     ApiResponse<AzureCostSummaryData>
 > {
-    const response = await fetch("/api/azure-cost/summary", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<AzureCostSummaryData>;
+    return apiClient.get<ApiResponse<AzureCostSummaryData>>(
+        "/api/azure-cost/summary",
+    );
 }
 
 export async function fetchAzureCostChartClient(
@@ -37,40 +27,9 @@ export async function fetchAzureCostChartClient(
     const queryString = searchParams.toString();
     const url = `/api/azure-cost/chart${queryString ? `?${queryString}` : ""}`;
 
-    const response = await fetch(url, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<AzureCostChartData>;
+    return apiClient.get<ApiResponse<AzureCostChartData>>(url);
 }
 
 export async function triggerAzureCostSyncClient(): Promise<void> {
-    const response = await fetch("/api/azure-cost/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-    });
-
-    if (!response.ok) {
-        let errBody: ProblemDetail;
-        try {
-            errBody = await response.json();
-            errBody.detail = "Xin hãy thử lại trong 5 phút tiếp theo là được";
-        } catch {
-            errBody = {
-                title: "Sync Error",
-                status: response.status || 500,
-                detail: "Xin hãy thử lại trong 5 phút tiếp theo là được",
-                errorCode: "AZURE_COST_SYNC_ERROR",
-            };
-        }
-        throw new ApiError(errBody);
-    }
+    await apiClient.post<void>("/api/azure-cost/sync");
 }

@@ -1,27 +1,17 @@
-import { ApiResponse, ProblemDetail } from "@/types/responses/base.response";
+import { apiClient } from "@/libs/apiClient";
+import { ApiResponse } from "@/types/responses/base.response";
 import {
     OpenAiCostChartData,
     OpenAiCostChartParams,
     OpenAiCostSummaryData,
 } from "@/modules/protected/admin/cost-service-management/types/openai.cost.type";
-import { ApiError } from "@/libs/api.error";
 
 export async function fetchOpenAiCostSummaryClient(): Promise<
     ApiResponse<OpenAiCostSummaryData>
 > {
-    const response = await fetch("/api/openai-cost/summary", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<OpenAiCostSummaryData>;
+    return apiClient.get<ApiResponse<OpenAiCostSummaryData>>(
+        "/api/openai-cost/summary",
+    );
 }
 
 export async function fetchOpenAiCostChartClient(
@@ -37,39 +27,9 @@ export async function fetchOpenAiCostChartClient(
     const queryString = searchParams.toString();
     const url = `/api/openai-cost/chart${queryString ? `?${queryString}` : ""}`;
 
-    const response = await fetch(url, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<OpenAiCostChartData>;
+    return apiClient.get<ApiResponse<OpenAiCostChartData>>(url);
 }
 
 export async function triggerOpenAiCostSyncClient(): Promise<void> {
-    const response = await fetch("/api/openai-cost/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-    });
-
-    if (!response.ok) {
-        let errBody: ProblemDetail;
-        try {
-            errBody = await response.json();
-        } catch {
-            errBody = {
-                title: "Sync Error",
-                status: response.status || 500,
-                detail: "Failed to trigger OpenAI cost sync",
-                errorCode: "OPENAI_COST_SYNC_ERROR",
-            };
-        }
-        throw new ApiError(errBody);
-    }
+    await apiClient.post<void>("/api/openai-cost/sync");
 }

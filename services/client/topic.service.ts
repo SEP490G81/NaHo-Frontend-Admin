@@ -1,36 +1,31 @@
+import { apiClient } from "@/libs/apiClient";
 import { BaseResponse } from "@/types/responses/base.response";
-import { TopicResponse } from "@/types/responses/topic.response";
+import {
+    TopicResponse,
+    TopicDetailResponse,
+} from "@/types/responses/topic.response";
 import { UpdateTopicRequest } from "@/types/requests/topic.request";
 
-export const findTopicsByBookId = async (bookId: number): Promise<BaseResponse<TopicResponse[]>> => {
-    const res = await fetch(`/api/topics/books/${bookId}`);
-    if (!res.ok) {
-        throw await res.json();
-    }
-    return res.json();
+export const findTopicsByBookId = async (
+    bookId: number,
+): Promise<BaseResponse<TopicResponse[]>> => {
+    return apiClient.get<BaseResponse<TopicResponse[]>>(
+        `/api/topics/books/${bookId}`,
+    );
 };
 
-export const findTopicDetail = async (id: number): Promise<BaseResponse<import("@/types/responses/topic.response").TopicDetailResponse>> => {
-    const res = await fetch(`/api/topics/${id}`);
-    if (!res.ok) {
-        throw await res.json();
-    }
-    return res.json();
+export const findTopicDetail = async (
+    id: number,
+): Promise<BaseResponse<TopicDetailResponse>> => {
+    return apiClient.get<BaseResponse<TopicDetailResponse>>(`/api/topics/${id}`);
 };
 
 export const updateTopic = async (
     id: number,
-    request: UpdateTopicRequest
+    request: UpdateTopicRequest,
 ): Promise<BaseResponse<TopicResponse>> => {
-    const res = await fetch(`/api/topics/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-    if (!res.ok) {
-        throw await res.json();
-    }
-    return res.json();
+    return apiClient.put<BaseResponse<TopicResponse>>(
+        `/api/topics/${id}`,
+        request,
+    );
 };

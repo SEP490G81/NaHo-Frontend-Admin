@@ -1,11 +1,10 @@
-import { cookies } from "next/headers";
-import { ACCESS_TOKEN_NAME } from "@/constants/app.constants";
 import { ApiResponse } from "@/types/responses/base.response";
 import {
     AwsCostChartData,
     AwsCostChartParams,
     AwsCostSummaryData,
 } from "@/modules/protected/admin/cost-service-management/types/aws.cost.type";
+import { serverFetch } from "@/services/server/server.fetch";
 
 const DEFAULT_PAGE_META = {
     currentPage: 0,
@@ -18,22 +17,9 @@ export async function fetchAwsCostSummaryServer(): Promise<
     ApiResponse<AwsCostSummaryData>
 > {
     try {
-        const cookieStore = await cookies();
-        const accessToken = cookieStore.get(ACCESS_TOKEN_NAME)?.value;
-
-        const response = await fetch(
-            `${process.env.API_URL}/admin/aws-cost/summary`,
-            {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    ...(accessToken
-                        ? { Authorization: `Bearer ${accessToken}` }
-                        : {}),
-                },
-                cache: "no-store",
-            },
-        );
+        const response = await serverFetch("/admin/aws-cost/summary", {
+            method: "GET",
+        });
 
         if (!response.ok) {
             return {
@@ -65,9 +51,6 @@ export async function fetchAwsCostChartServer(
     params?: AwsCostChartParams,
 ): Promise<ApiResponse<AwsCostChartData>> {
     try {
-        const cookieStore = await cookies();
-        const accessToken = cookieStore.get(ACCESS_TOKEN_NAME)?.value;
-
         const searchParams = new URLSearchParams();
         if (params?.timeframe) searchParams.set("timeframe", params.timeframe);
         if (params?.granularity)
@@ -75,18 +58,9 @@ export async function fetchAwsCostChartServer(
         if (params?.fromDate) searchParams.set("fromDate", params.fromDate);
         if (params?.toDate) searchParams.set("toDate", params.toDate);
 
-        const queryString = searchParams.toString();
-        const url = `${process.env.API_URL}/admin/aws-cost/chart${queryString ? `?${queryString}` : ""}`;
-
-        const response = await fetch(url, {
+        const response = await serverFetch("/admin/aws-cost/chart", {
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                ...(accessToken
-                    ? { Authorization: `Bearer ${accessToken}` }
-                    : {}),
-            },
-            cache: "no-store",
+            searchParams,
         });
 
         if (!response.ok) {

@@ -1,4 +1,4 @@
-import { ApiError } from "@/libs/api.error";
+import { apiClient } from "@/libs/apiClient";
 import {
     ChangePasswordRequest,
     CredentialsLoginRequest,
@@ -10,7 +10,8 @@ import {
     VerifyEmailRequest,
     VerifyForgotPasswordOtpRequest,
 } from "@/types/requests/user.request";
-import { ApiResponse, ProblemDetail } from "@/types/responses/base.response";
+import { UserQueryRequest } from "@/types/requests/user.query.request";
+import { ApiResponse } from "@/types/responses/base.response";
 import {
     ResetPasswordTokenResponse,
     UserResponse,
@@ -19,201 +20,83 @@ import {
 export async function credentialsLogin(
     request: CredentialsLoginRequest,
 ): Promise<void> {
-    const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
+    await apiClient.post<void>("/api/auth/login", request);
 }
 
 export async function register(request: RegisterRequest): Promise<void> {
-    const response = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
+    await apiClient.post<void>("/api/auth/register", request);
 }
 
 export async function verifyEmail(request: VerifyEmailRequest): Promise<void> {
-    const response = await fetch("/api/auth/verify-email", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
+    await apiClient.post<void>("/api/auth/verify-email", request);
 }
 
 export async function resendOtp(request: ResendOtpRequest): Promise<void> {
-    const response = await fetch("/api/auth/resend-otp", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
+    await apiClient.post<void>("/api/auth/resend-otp", request);
 }
 
 export async function forgotPassword(
     request: ForgotPasswordRequest,
 ): Promise<void> {
-    const response = await fetch("/api/auth/forgot-password", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
+    await apiClient.post<void>("/api/auth/forgot-password", request);
 }
 
 export async function verifyForgotPasswordOtp(
     request: VerifyForgotPasswordOtpRequest,
 ): Promise<ResetPasswordTokenResponse> {
-    const response = await fetch("/api/auth/forgot-password-otp", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
-
-    return result as ResetPasswordTokenResponse;
+    return apiClient.post<ResetPasswordTokenResponse>(
+        "/api/auth/forgot-password-otp",
+        request,
+    );
 }
 
 export async function resetPassword(
     request: ResetPasswordRequest,
 ): Promise<void> {
-    const response = await fetch("/api/auth/reset-password", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
-    }
+    await apiClient.post<void>("/api/auth/reset-password", request);
 }
 
 export async function logout(): Promise<void> {
-    const response = await fetch("/api/auth/logout", {
-        method: "POST",
-    });
-
-    if (response.status === 401) {
-        return;
-    }
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new Error(problemDetail.detail);
+    try {
+        await apiClient.post<void>("/api/auth/logout");
+    } catch (error) {
+        console.error("Logout error:", error);
     }
 }
 
 export async function logoutAll(): Promise<void> {
-    const response = await fetch("/api/auth/logout-all", {
-        method: "POST",
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new Error(problemDetail.detail);
-    }
+    await apiClient.post<void>("/api/auth/logout-all");
 }
 
-export async function getCurrentUserClient() {
-    const response = await fetch("/api/auth/me", {
-        credentials: "include",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
+export async function getCurrentUserClient(): Promise<UserResponse | null> {
+    try {
+        const result = await apiClient.get<
+            ApiResponse<UserResponse> | UserResponse
+        >("/api/auth/me");
+        if (!result) return null;
+        if ("data" in result && result.data) {
+            return result.data;
+        }
+        return result as UserResponse;
+    } catch {
         return null;
     }
-
-    return result as UserResponse;
 }
 
-export async function rotateToken() {
-    const response = await fetch("/api/auth/rotation", {
-        method: "POST",
-        credentials: "include",
-    });
-
-    if (!response.ok) {
-        const result = await response.json();
-        const problemDetail = result as ProblemDetail;
-        throw new Error(problemDetail.detail);
-    }
+export async function rotateToken(): Promise<void> {
+    await apiClient.post<void>("/api/auth/rotation");
 }
 
 export async function updateUserInfoClient(
     request: UpdateUserInfoRequest,
 ): Promise<UserResponse> {
-    const response = await fetch("/api/users/info", {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
+    const result = await apiClient.patch<
+        ApiResponse<UserResponse> | UserResponse
+    >("/api/users/info", request);
+    if (result && "data" in result && result.data) {
+        return result.data;
     }
-
-    const apiResponse = result as ApiResponse<UserResponse>;
-    return apiResponse.data || (result as UserResponse);
+    return result as UserResponse;
 }
 
 export async function uploadUserAvatarClient(
@@ -222,37 +105,45 @@ export async function uploadUserAvatarClient(
     const formData = new FormData();
     formData.append("avatar", file);
 
-    const response = await fetch("/api/users/avatar", {
+    const result = await apiClient.upload<
+        ApiResponse<UserResponse> | UserResponse
+    >("/api/users/avatar", formData, {
         method: "PATCH",
-        body: formData,
     });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
+    if (result && "data" in result && result.data) {
+        return result.data;
     }
-
-    const apiResponse = result as ApiResponse<UserResponse>;
-    return apiResponse.data || (result as UserResponse);
+    return result as UserResponse;
 }
 
 export async function changePassword(
     request: ChangePasswordRequest,
 ): Promise<void> {
-    const response = await fetch("/api/auth/change-password", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-    });
+    await apiClient.post<void>("/api/auth/change-password", request);
+}
 
-    const result = await response.json();
-
-    if (!response.ok) {
-        const problemDetail = result as ProblemDetail;
-        throw new ApiError(problemDetail);
+export async function fetchUserByIdClient(
+    userId: number | string,
+): Promise<UserResponse | null> {
+    try {
+        const result = await apiClient.get<
+            ApiResponse<UserResponse> | UserResponse
+        >(`/api/users/${userId}`);
+        if (!result) return null;
+        if ("data" in result && result.data) {
+            return result.data;
+        }
+        return result as UserResponse;
+    } catch {
+        return null;
     }
+}
+
+export async function fetchAllUsersClient(
+    request: UserQueryRequest,
+): Promise<ApiResponse<UserResponse[]>> {
+    return apiClient.post<ApiResponse<UserResponse[]>>(
+        "/api/users/all",
+        request,
+    );
 }

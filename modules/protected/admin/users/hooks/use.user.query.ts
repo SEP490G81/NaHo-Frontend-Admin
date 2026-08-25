@@ -6,8 +6,8 @@ import { useUserFilter } from "@/modules/protected/admin/users/providers/user.fi
 import { ApiResponse } from "@/types/responses/base.response";
 import { UserResponse } from "@/types/responses/user.response";
 import { UserQueryRequest } from "@/types/requests/user.query.request";
-
 import { Gender, UserStatus } from "@/types/enums/user.enum";
+import { fetchAllUsersClient } from "@/services/client/user.service";
 
 /**
  * Client-side hook: gọi Next.js proxy `/api/users/all` (POST)
@@ -33,17 +33,7 @@ export function useUserQuery() {
                 dobTo: filter.dobTo || undefined,
             };
 
-            const response = await fetch("/api/users/all", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body),
-            });
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch users");
-            }
-
-            return response.json();
+            return fetchAllUsersClient(body);
         },
     });
 }

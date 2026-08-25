@@ -1,59 +1,28 @@
-import { ApiResponse, ProblemDetail } from "@/types/responses/base.response";
+import { apiClient } from "@/libs/apiClient";
+import { ApiResponse } from "@/types/responses/base.response";
 import { ReportResponse } from "@/types/responses/report.response";
 import { ReportStatusPatchRequest } from "@/types/requests/report.request";
-import { ApiError } from "@/libs/api.error";
 
 export async function fetchAdminReportsClient(): Promise<
     ApiResponse<ReportResponse[]>
 > {
-    const response = await fetch("/api/reports/admin", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<ReportResponse[]>;
+    return apiClient.get<ApiResponse<ReportResponse[]>>("/api/reports/admin");
 }
 
 export async function fetchContentManagerReportsClient(): Promise<
     ApiResponse<ReportResponse[]>
 > {
-    const response = await fetch("/api/reports/content-manager", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: "no-store",
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<ReportResponse[]>;
+    return apiClient.get<ApiResponse<ReportResponse[]>>(
+        "/api/reports/content-manager",
+    );
 }
 
 export async function patchReportStatusClient(
     reportId: number,
     body: ReportStatusPatchRequest,
 ): Promise<ApiResponse<ReportResponse>> {
-    const response = await fetch(`/api/reports/${reportId}/status`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw new ApiError(result as ProblemDetail);
-    }
-
-    return result as ApiResponse<ReportResponse>;
+    return apiClient.patch<ApiResponse<ReportResponse>>(
+        `/api/reports/${reportId}/status`,
+        body,
+    );
 }
