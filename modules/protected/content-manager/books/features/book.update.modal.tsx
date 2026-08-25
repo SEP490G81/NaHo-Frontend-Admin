@@ -288,12 +288,14 @@ export default function UpdateBookModal({
                             label={t("cefrLevel")}
                             onChange={(e) => setCefrLevel(e.target.value as CefrLevel)}
                             MenuProps={{
-                                PaperProps: {
-                                    sx: {
-                                        backgroundColor: "var(--color-bgc-panel)",
-                                        color: "var(--color-text-contrast)",
-                                    }
-                                }
+                                slotProps: {
+                                    paper: {
+                                        sx: {
+                                            backgroundColor: "var(--color-bgc-panel)",
+                                            color: "var(--color-text-contrast)",
+                                        },
+                                    },
+                                },
                             }}
                         >
                             {Object.values(CefrLevel).map((level) => (

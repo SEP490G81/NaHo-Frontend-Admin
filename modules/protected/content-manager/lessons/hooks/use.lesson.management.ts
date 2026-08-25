@@ -25,14 +25,14 @@ export function useLessonManagement(topicId: number) {
         mutationFn: (data: { id: number; request: UpdateLessonRequest }) =>
             updateLesson(data.id, data.request),
         onSuccess: (res: any) => {
-            toast.success(res?.message || t("updateSuccess") || "Cập nhật bài học thành công");
+            toast.success(res?.message || "Cập nhật bài học thành công");
             queryClient.invalidateQueries({ queryKey: ["topicDetail", topicId] });
             setIsUpdateModalOpen(false);
             setSelectedLessonId(null);
         },
         onError: (error: unknown) => {
             const err = error as { detail?: string };
-            toast.error(err?.detail || t("updateFailed") || "Cập nhật bài học thất bại");
+            toast.error(err?.detail || "Cập nhật bài học thất bại");
         },
     });
 

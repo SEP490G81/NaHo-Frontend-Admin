@@ -48,7 +48,7 @@ export default function ImageCropperDialog({
     };
 
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth disableEscapeKeyDown>
+        <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
             <DialogTitle className="font-bold border-b border-gray-100">
                 {t("cropImage") || "Crop Image"}
             </DialogTitle>
